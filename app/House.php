@@ -10,5 +10,10 @@ class House extends Model
     public function user() {
         // belongTo -> APPARTIENE A
         return $this->belongsTo('App\User');
-      }
+    }
+
+    // relazione molti a molti houses/features
+    public function features() {
+      return $this->belongsToMany('App\Feature');
+    }
 }
