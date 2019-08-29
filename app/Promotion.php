@@ -10,4 +10,12 @@ class Promotion extends Model
     public function houses() {
         return $this->belongsToMany('App\House');
     }
+
+    // relazione uno a molti payments/promotions
+    public function payments() {
+        // hasMany -> HA MOLTI
+        return $this->hasMany('App\Payment');
+    }
+
+    protected $fillable = ['name', 'price', 'duration'];
 }

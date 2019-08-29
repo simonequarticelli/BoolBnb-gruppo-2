@@ -29,9 +29,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // relazione uno a molto houses/users
+    // relazione uno a molti houses/users
     public function houses() {
         // hasMany -> HA MOLTI
-        return $this->hasMany('App\House');  // <-- RELAZIONE UNO A MOLTI
+        return $this->hasMany('App\House');  
     }
+
+    
 }

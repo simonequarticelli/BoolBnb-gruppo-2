@@ -10,4 +10,6 @@ class Feature extends Model
     public function houses() {
         return $this->belongsToMany('App\House');
     }
+
+    protected $fillable = ['name'];
 }

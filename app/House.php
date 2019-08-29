@@ -21,4 +21,11 @@ class House extends Model
     public function promotions() {
       return $this->belongsToMany('App\Promotion');
     }
+
+    // relazione molti a molti houses/payments
+    public function payments() {
+      return $this->belongsToMany('App\Payment');
+    }
+
+    protected $fillable = ['title', 'n_beds', 'n_wc', 'mq', 'address', 'longitude', 'latitude', 'img', 'slug'];
 }
