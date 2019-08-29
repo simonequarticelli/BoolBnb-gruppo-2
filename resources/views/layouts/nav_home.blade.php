@@ -50,7 +50,7 @@
                 </ul>
 
                 <!-- link trigger modal -->
-                <a href="" data-target="#exampleModalCenter" data-toggle="modal">BnB</a>
+                <a href="#" class="nav-link" data-target="#exampleModalCenter" data-toggle="modal">BnB</a>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
