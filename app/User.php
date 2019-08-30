@@ -31,7 +31,6 @@ class User extends Authenticatable
 
     // relazione uno a molti houses/users
     public function houses() {
-        // hasMany -> HA MOLTI
         return $this->hasMany('App\House');  
     }
 

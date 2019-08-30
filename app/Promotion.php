@@ -13,7 +13,6 @@ class Promotion extends Model
 
     // relazione uno a molti payments/promotions
     public function payments() {
-        // hasMany -> HA MOLTI
         return $this->hasMany('App\Payment');
     }
 

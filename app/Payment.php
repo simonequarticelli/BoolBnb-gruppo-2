@@ -8,7 +8,6 @@ class Payment extends Model
 {
     // relazione uno a molti payments/promotions
     public function promotion() {
-        // belongTo -> APPARTIENE A
         return $this->belongsTo('App\Promotion');
     }
 
