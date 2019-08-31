@@ -10714,10 +10714,14 @@ nav .fa-bars {
 }
 
 .content_home {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-image: url(/images/wallpaper_home.jpg?aee9f5072f7c7c3d25323c71a213a9e9);
   background-size: cover;
+}
+
+.content_home .navbar {
+  z-index: 100;
 }
 
 .first_section {
