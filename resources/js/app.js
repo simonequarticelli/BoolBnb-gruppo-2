@@ -41,9 +41,17 @@ var $ = require('jquery');
 $(document).ready(function(){
 
     
-    $('#badge-new').click(function(){
+    // $('#badge-new').click(function(){
         
-        $('.badge').hide();
-    });
+    //     $('.badge').hide();
+    // });
 
+});
+
+
+var places = require('places.js');
+    var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector('#address-input')
 });

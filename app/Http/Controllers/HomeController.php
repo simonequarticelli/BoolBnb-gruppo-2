@@ -18,8 +18,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    public function AddHouse() {
-        return view('auth.add_house');
-    }
 }

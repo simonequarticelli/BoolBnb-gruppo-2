@@ -28,7 +28,7 @@
                     </li>
                 @else
                     <li class="nav-item">
-                        <a class="nav-link ml-3" id="badge-new" href="{{ route('add_house') }}"><span class="badge badge-danger mb-5">New</span>Offri una casa</a>
+                        <a class="nav-link ml-3" id="badge-new" href="{{ route('house.create') }}"><span class="badge badge-danger mb-5">New</span>Offri una casa</a>
                     </li>
                     <li class="nav-item ml-3">
                         <a class="nav-link" href="">Aiuto</a>

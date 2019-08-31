@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+  {{-- @php
+      dd(Auth::user()->hasRole('upra'));
+  @endphp --}}
   <div class="content_home">
-
     @include('layouts.nav_home')
     <section class="first_section">
       <div class="container">

@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Auth::resurce();
+Route::middleware('auth')->group(function(){
+    Route::resource('/house', 'HouseController');
+});
 
-Route::get('/home', 'HomeController@index')->name('home'); 
-Route::get('/add-house', 'HomeController@AddHouse')->name('add_house');
+
+Route::get('/home', 'HomeController@index')->name('home');

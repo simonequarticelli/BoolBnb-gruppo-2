@@ -1,5 +1,4 @@
-*{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+/* elimino l'icona azzurra di chiusura  */
+[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }
