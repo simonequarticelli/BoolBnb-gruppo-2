@@ -1,0 +1,65 @@
+.first_section{
+ height: calc(100vh - 80px);
+ color: $body-font-color;
+ z-index: 1;
+ .container{
+   height: calc(100vh - 150px);
+   display: flex;
+   align-items: center;
+ }
+ // per il container contenente 'Prenota..', 'DOVE', 'Cerca'
+ .booking{
+   background-color: white;
+   border-radius: 4px;
+   padding: 32px;
+   padding-bottom: 24px;
+   border-radius: 4px;
+ }
+ // per l'h3, 'Prenota alloggi e attività unici'
+ h3{
+ font-weight: 600;
+ }
+ // per 'DOVE'
+ strong{
+   opacity: 0.8;
+ }
+ // per il div contenente il bottone 'Cerca'
+ div.button_search{
+   display: flex;
+   justify-content: flex-end;
+   // per il bottone 'Cerca'
+   a{
+     background-color: #ff5a5f;
+     color: white;
+     border-color: #ff5a5f;
+     border-radius: 4px;
+     &:hover{
+       border-color: #ff5a5f;
+     }
+   }
+ }
+}
+// seconda sezione appartamenti in evidenza
+.card-container-flex{
+  display:flex;
+  justify-content: space-between;
+  margin-top: $mag-top;
+  flex-wrap: wrap;
+  .card{
+    margin-bottom: 10px;
+  }
+}
+
+h3{
+  margin-top: $mag-top;
+  padding: 0 15px 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .card-container-flex{
+    margin-top: 0;
+  }
+  .first-card-container{
+    margin-top: $mag-top;
+  }
+}

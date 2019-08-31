@@ -7,15 +7,16 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// IMPORTO PARTIALS 
+// IMPORTO PARTIALS
 @import 'partials/_nav_home';
 @import 'partials/_content_home';
 // @import 'partials/_reset';
 // @import 'partials/_mixins';
-// @import 'partials/_common';
+@import 'partials/_section';
+@import 'partials/_common';
 // @import 'partials/_header';
 // @import 'partials/_dropdown';
 // @import 'partials/_section_home';
 // @import 'partials/_section_main';
 // @import 'partials/_section_feedback';
-// @import 'partials/_footer';
+@import 'partials/_footer';

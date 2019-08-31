@@ -1,19 +1,105 @@
 @extends('layouts.app')
-
 @section('content')
-
 <div class="content_home">
-    @include('layouts.nav_home')
-</div>
+   @include('layouts.nav_home')
+   <section class="first_section">
+     <div class="container">
+         <div class="col-lg-4">
+           <div class="booking">
+             <h3>Prenota alloggi e attività unici.</h3>
+             <div class="where">
+               <strong>DOVE</strong>
+             </div>
+             <div class="input-group mt-2 mb-2">
+               <input type="text" class="form-control" placeholder="Ovunque" aria-label="Username" aria-describedby="basic-addon1">
+             </div>
+             <div class="button_search">
+               <a href="#" class="btn btn-info mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</a>
+             </div>
+           </div>
+         </div>
+       </div>
+   </section>
+   </div>
+   <section class="featured_apartments">
+     <div class="container">
+       <h3>Appartamenti in evidenza</h3>
+       <div class="col-lg-12 first-card-container card-container-flex">
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
 
-<h1>ciao</h1>
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
 
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Quo cupiditate, voluptatibus exercitationem sit, 
-    voluptate odio suscipit possimus quos iusto, earum dolores! 
-    Nisi mollitia repudiandae, enim nulla dolores velit nostrum 
-    doloremque.</p>
-    <em>ciao</em>
-    <strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero accusantium sed maiores. Ducimus, animi. Inventore exercitationem repellendus, dolores tempora rerum fuga sed optio quibusdam possimus, sit in perspiciatis adipisci praesentium.</strong>
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
+       </div>
+
+       <div class="col-lg-12 card-container-flex">
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
+
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
+
+         <div class="card col-lg-3 col-sm-12">
+           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
+           <div class="card-body">
+             <h5 class="card-title">Card title</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+             <a href="#" class="btn btn-primary">Go somewhere</a>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+
+{{-- <div class="container">
+   <div class="row justify-content-center">
+       <div class="col-md-8">
+           <div class="card">
+               <div class="card-header">Dashboard</div>
+               <div class="card-body">
+                   @if (session('status'))
+                       <div class="alert alert-success" role="alert">
+                           {{ session('status') }}
+                       </div>
+                   @endif
+                   You are logged in!
+               </div>
+           </div>
+       </div>
+   </div>
+</div> --}}
 
 @endsection

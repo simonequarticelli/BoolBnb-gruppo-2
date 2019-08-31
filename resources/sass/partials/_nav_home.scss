@@ -1,5 +1,58 @@
-.navbar{
-    a{
-        color: $body-bg;
-    }
+nav{
+ height: 80px;
+ line-height: 80px;
+ .container-fluid, .navbar-brand, .navbar-collapse, .navbar-nav{
+   height: 80px;
+   padding: 0;
+ }
+ .container-fluid{
+   line-height: 80px;
+   .airbnb-logo{
+     width: 34px;
+     height: 34px;
+     fill: white;
+   }
+ }
+ .navbar-brand:hover{
+   border-bottom: none;
+ }
+ .nav-link{
+   padding: 0;
+ }
+ // per tutti i link della navbar
+ a{
+   color: white;
+   &:hover{
+     color: white;
+     border-bottom: 1px solid white;
+   }
+ }
+ // per lo span che racchiude l'hamburger menu
+ .navbar-toggler-icon{
+   width: 34px;
+   height: 34px;
+ }
+ // per l'icona dell'hamburger menu, di bianco
+ .fa-bars{
+   color: white;
+   font-size: 34px;
+ }
+}
+@media (max-width: 767px){
+ // per l'icona di airbnb
+ .navbar-brand{
+   z-index: 1;
+ }
+ // per l'icona di hamburger menu
+ .navbar-toggler{
+   z-index: 1;
+ }
+ #navbarSupportedContent{
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   top: 0;
+   left: 0;
+   background-color: #2B3F58;
+ }
 }

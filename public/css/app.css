@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: #ffff;
 }
 
 [tabindex="-1"]:focus {
@@ -517,7 +517,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8fafc;
+  background-color: #ffff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4097,15 +4097,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #ffff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #ffff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #f8fafc, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
+  box-shadow: 0 0 0 1px #ffff, 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4305,8 +4305,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #f8fafc;
-  border-color: #dee2e6 #dee2e6 #f8fafc;
+  background-color: #ffff;
+  border-color: #dee2e6 #dee2e6 #ffff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -10644,8 +10644,73 @@ a.text-dark:focus {
   }
 }
 
-.navbar a {
-  color: #f8fafc;
+nav {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav .container-fluid,
+nav .navbar-brand,
+nav .navbar-collapse,
+nav .navbar-nav {
+  height: 80px;
+  padding: 0;
+}
+
+nav .container-fluid {
+  line-height: 80px;
+}
+
+nav .container-fluid .airbnb-logo {
+  width: 34px;
+  height: 34px;
+  fill: white;
+}
+
+nav .navbar-brand:hover {
+  border-bottom: none;
+}
+
+nav .nav-link {
+  padding: 0;
+}
+
+nav a {
+  color: white;
+}
+
+nav a:hover {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+nav .navbar-toggler-icon {
+  width: 34px;
+  height: 34px;
+}
+
+nav .fa-bars {
+  color: white;
+  font-size: 34px;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand {
+    z-index: 1;
+  }
+
+  .navbar-toggler {
+    z-index: 1;
+  }
+
+  #navbarSupportedContent {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #2B3F58;
+  }
 }
 
 .content_home {
@@ -10653,5 +10718,132 @@ a.text-dark:focus {
   height: 100vh;
   background-image: url(/images/wallpaper_home.jpg?aee9f5072f7c7c3d25323c71a213a9e9);
   background-size: cover;
+}
+
+.first_section {
+  height: calc(100vh - 80px);
+  color: #484848;
+  z-index: 1;
+}
+
+.first_section .container {
+  height: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+}
+
+.first_section .booking {
+  background-color: white;
+  border-radius: 4px;
+  padding: 32px;
+  padding-bottom: 24px;
+  border-radius: 4px;
+}
+
+.first_section h3 {
+  font-weight: 600;
+}
+
+.first_section strong {
+  opacity: 0.8;
+}
+
+.first_section div.button_search {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.first_section div.button_search a {
+  background-color: #ff5a5f;
+  color: white;
+  border-color: #ff5a5f;
+  border-radius: 4px;
+}
+
+.first_section div.button_search a:hover {
+  border-color: #ff5a5f;
+}
+
+.card-container-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.card-container-flex .card {
+  margin-bottom: 10px;
+}
+
+h3 {
+  margin-top: 25px;
+  padding: 0 15px 0 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .card-container-flex {
+    margin-top: 0;
+  }
+
+  .first-card-container {
+    margin-top: 25px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+footer {
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+footer h6 {
+  font-weight: bold;
+}
+
+footer .sub-footer,
+footer ul li a {
+  color: #767676;
+}
+
+footer .sub-footer:hover,
+footer ul li a:hover {
+  color: #767676;
+}
+
+footer .footer-section ul {
+  list-style-type: none;
+}
+
+.footer-section,
+.sub-footer {
+  display: flex;
+}
+
+.footer-section {
+  padding: 40px 20px 0px 20px;
+}
+
+.sub-footer {
+  padding: 1rem 20px 20px 20px;
+  border-top: 1px solid #ebebeb;
+}
+
+.sub-footer-left,
+.sub-footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.sub-footer-left {
+  justify-content: flex-start;
+}
+
+.sub-footer-right {
+  justify-content: flex-end;
 }
 
