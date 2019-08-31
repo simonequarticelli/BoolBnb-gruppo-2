@@ -17,6 +17,7 @@ footer{
 
 .footer-section, .sub-footer{
   display: flex;
+
 }
 
 .footer-section{
@@ -41,3 +42,26 @@ footer{
 .sub-footer-right{
   justify-content: flex-end;
 }
+
+// inizio media queries
+@media (max-width: 767.98px) and (max-width: 991.98px){
+  .footer-section, .sub-footer {
+    flex-wrap: wrap;
+  }
+  .sub-footer-left, .sub-footer-right{
+    justify-content: center;
+  }
+ }
+
+ // Medium devices (tablets, less than 992px)
+// @media (max-width: 991.98px) {
+//   .footer-section, .sub-footer {
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     padding:10 10 5 5;
+//   }
+//   .sub-footer-left, .sub-footer-right{
+//     justify-content: center;
+//     padding:0;
+//   }
+// }
