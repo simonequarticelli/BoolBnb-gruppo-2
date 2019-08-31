@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app-form')
 @include('layouts.nav')
 @section('content')
 <div class="container">
@@ -30,7 +30,7 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">Cognome</label>
 
                             <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" 
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
                                 name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
 
                                 @error('surname')
@@ -46,7 +46,7 @@
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">Data di nascita</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="date" min="1920-01-01" max="2001-01-01" class="form-control @error('date_of_birth') is-invalid @enderror" 
+                                <input id="name" type="date" min="1920-01-01" max="2001-01-01" class="form-control @error('date_of_birth') is-invalid @enderror"
                                 name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
 
                                 @error('date_of_birth')
