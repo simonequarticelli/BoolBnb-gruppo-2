@@ -10672,6 +10672,17 @@ nav .navbar-brand:hover {
   border-bottom: none;
 }
 
+nav .dropdown-menu {
+  height: 40px;
+  position: absolute;
+  top: 60px;
+}
+
+nav .dropdown-menu a.dropdown-item {
+  line-height: normal;
+  padding: 0 10px;
+}
+
 nav .nav-link {
   padding: 0;
   position: relative;
@@ -10718,6 +10729,29 @@ nav .fa-bars {
     top: 0;
     left: 0;
     background-color: #2B3F58;
+  }
+
+  .dropdown-menu {
+    height: 50px;
+    width: 100px;
+  }
+
+  li.nav-item {
+    width: 340px;
+    margin-top: 30px;
+  }
+
+  li.nav-item a {
+    font-size: 24px;
+    border-bottom: none;
+  }
+
+  li.nav-item a a:hover {
+    border-bottom: none;
+  }
+
+  li.nav-item a a:active {
+    border-bottom: none;
   }
 }
 

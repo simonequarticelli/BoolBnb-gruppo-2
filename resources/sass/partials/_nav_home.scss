@@ -16,6 +16,17 @@ nav{
  .navbar-brand:hover{
    border-bottom: none;
  }
+
+ // per il dropdown-menu
+ .dropdown-menu{
+   height: 40px;
+   position: absolute;
+   top: 60px;
+   a.dropdown-item{
+     line-height: normal;
+     padding: 0 10px;
+   }
+ }
   /*ICON NEW -> OFFRI UNA CASA*/
  .nav-link{
    padding: 0;
@@ -44,15 +55,8 @@ nav{
    color: white;
    font-size: 34px;
  }
- 
+
 }
-
-
-
-
-
-
-
 
 
 @media (max-width: 767px){
@@ -72,4 +76,23 @@ nav{
    left: 0;
    background-color: #2B3F58;
  }
+ .dropdown-menu{
+   height: 50px;
+   width: 100px;
+ }
+ li.nav-item{
+   width: 340px;
+   margin-top: 30px;
+   a{
+     font-size: 24px;
+     border-bottom: none;
+     a:hover{
+       border-bottom: none;
+     }
+     a:active{
+       border-bottom: none;
+     }
+   }
+ }
+
 }

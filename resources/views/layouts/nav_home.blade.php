@@ -33,7 +33,7 @@
                     <li class="nav-item ml-3">
                         <a class="nav-link" href="">Aiuto</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item ml-3 dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>

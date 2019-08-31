@@ -10,7 +10,7 @@
       <div class="container">
           <div class="col-lg-4">
             <div class="booking">
-              <h3>Prenota alloggi e attività unici.</h3>
+              <h2>Prenota alloggi e attività unici.</h2>
               <div class="where">
                 <strong>DOVE</strong>
               </div>

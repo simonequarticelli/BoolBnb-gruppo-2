@@ -40,12 +40,17 @@ var $ = require('jquery');
 
 $(document).ready(function(){
 
-    
+
     // $('#badge-new').click(function(){
-        
+
     //     $('.badge').hide();
     // });
 
+    // quando clicco l'hamburger menu
+    $('.navbar-toggler').click(function(){
+      // nascondo il resto della pagina
+      $('.featured_apartments, footer').toggle();
+  });
 });
 
 
