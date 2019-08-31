@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\House;
+use App\Feature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,7 +26,9 @@ class HouseController extends Controller
         /*controllo se l'utente ha gia il ruolo "upra"*/
         if (Auth::user()->HasRole('upra')) {
 
-            return view('auth.add_house');
+            $features = Feature::all();
+
+            return view('auth.add_house', compact('features'));
         }
 
         $user = Auth::user();
@@ -39,13 +42,15 @@ class HouseController extends Controller
 
         return $user;
 
+        
+
     }
 
 
     public function store(Request $request)
     {
         $data = $request->all();
-        //dd($data);
+        dd($data);
     }
 
 

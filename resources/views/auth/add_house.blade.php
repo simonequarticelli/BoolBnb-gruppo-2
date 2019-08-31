@@ -25,6 +25,18 @@
             <input type="number" class="form-control" placeholder="Metri quadrati" name="mq">
         </div>
 
+        @foreach ( $features as $feature )
+           {{-- checkbox per servizi aggiuntivi --}}
+                <div class="input-group-prepend mb-3 d-inline-block">
+                    <div class="input-group-text">
+                        <label class="m-0">
+                            <input type="checkbox" name="feature[]" value="{{ $feature->name }}">
+                            {{ $feature->name }}
+                        </label>
+                    </div>
+                </div> 
+        @endforeach
+        
         <div class="form-group">
             <label>Indirizzo</label>
             <input name="address" type="search" id="address-input" placeholder="Città e indirizzo">
