@@ -10812,6 +10812,10 @@ h3 {
   display: none;
 }
 
+ul {
+  padding: 0;
+}
+
 footer {
   margin-top: 25px;
   font-weight: bold;
