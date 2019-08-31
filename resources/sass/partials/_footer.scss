@@ -1,7 +1,7 @@
 footer{
   margin-top:$mag-top;
   h6{
-    font-weight: bold;
+    font-weight: 900;
   }
   font-weight: bold;
   .sub-footer, ul li a{
@@ -44,7 +44,7 @@ footer{
 }
 
 // inizio media queries
-@media (max-width: 767.98px) and (max-width: 991.98px){
+@media (max-width: 767.98px){
   .footer-section, .sub-footer {
     flex-wrap: wrap;
   }
@@ -54,14 +54,15 @@ footer{
  }
 
  // Medium devices (tablets, less than 992px)
-// @media (max-width: 991.98px) {
-//   .footer-section, .sub-footer {
-//     flex-wrap: wrap;
-//     justify-content: center;
-//     padding:10 10 5 5;
-//   }
-//   .sub-footer-left, .sub-footer-right{
-//     justify-content: center;
-//     padding:0;
-//   }
-// }
+@media (max-width: 991.98px) {
+  .footer-section, .sub-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .sub-footer-left, .sub-footer-right{
+    justify-content: center;
+  }
+  .sub-footer-right{
+    margin-top: 10px;
+  }
+}

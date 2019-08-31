@@ -52,7 +52,11 @@
 
 h3{
   margin-top: $mag-top;
-  padding: 0 15px 0 15px;
+}
+
+// tolgo il paddind
+.col-lg-12, .col-lg-3{
+  padding: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -62,4 +66,6 @@ h3{
   .first-card-container{
     margin-top: $mag-top;
   }
+
+
 }

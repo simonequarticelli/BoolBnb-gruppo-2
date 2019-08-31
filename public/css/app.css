@@ -10789,7 +10789,11 @@ nav .fa-bars {
 
 h3 {
   margin-top: 25px;
-  padding: 0 15px 0 15px;
+}
+
+.col-lg-12,
+.col-lg-3 {
+  padding: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -10814,7 +10818,7 @@ footer {
 }
 
 footer h6 {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 footer .sub-footer,
@@ -10859,7 +10863,7 @@ footer .footer-section ul {
   justify-content: flex-end;
 }
 
-@media (max-width: 767.98px) and (max-width: 991.98px) {
+@media (max-width: 767.98px) {
   .footer-section,
   .sub-footer {
     flex-wrap: wrap;
@@ -10868,6 +10872,23 @@ footer .footer-section ul {
   .sub-footer-left,
   .sub-footer-right {
     justify-content: center;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .footer-section,
+  .sub-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .sub-footer-left,
+  .sub-footer-right {
+    justify-content: center;
+  }
+
+  .sub-footer-right {
+    margin-top: 10px;
   }
 }
 
