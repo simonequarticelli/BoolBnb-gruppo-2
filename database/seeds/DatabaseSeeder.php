@@ -10,6 +10,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HousesTableSeeder::class);
         $this->call(FeaturesTableSeeder::class);
         $this->call(PromotionsTableSeeder::class);
-        $this->call(PaymentsTableSeeder::class);
+        $this->call(RolesTableSeeder::class);
     }
 }

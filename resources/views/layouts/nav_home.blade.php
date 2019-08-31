@@ -47,9 +47,7 @@
                             </div>
                         </li>
                     @endguest
-                </ul>
-
-                <!-- link trigger modal -->
+                    <!-- link trigger modal -->
                 <a href="#" class="nav-link" data-target="#exampleModalCenter" data-toggle="modal">BnB</a>
 
                 <!-- Modal -->
@@ -72,6 +70,7 @@
                         </div>
                     </div>
                 </div>
+                </ul>
             </div>
         </div>
     </nav>

@@ -23,48 +23,35 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
+    
     protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
+    
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:100'],
+            'surname' => ['required', 'string', 'max:100'],
+            'date_of_birth' => ['required', 'date', 'min:2001-01-01', 'max:1920-01-01'], 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\User
-     */
+    
     protected function create(array $data)
-    {
+    {   
+        //dd($data);
         return User::create([
             'name' => $data['name'],
+            'surname' => $data['surname'],
+            'date_of_birth' => $data['date_of_birth'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

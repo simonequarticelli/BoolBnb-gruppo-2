@@ -18,6 +18,8 @@ class CreateFeatureHouseTable extends Migration
             $table->foreign('house_id')->references('id')->on('houses');
             // creo chiave primaria UNIVOCA
             $table->primary(['feature_id', 'house_id']);
+
+            $table->timestamps();
         });
     }
 

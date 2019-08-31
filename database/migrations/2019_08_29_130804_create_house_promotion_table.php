@@ -18,6 +18,8 @@ class CreateHousePromotionTable extends Migration
             $table->foreign('promotion_id')->references('id')->on('promotions');
             // creo chiave primaria UNIVOCA
             $table->primary(['house_id', 'promotion_id']);
+
+            $table->timestamps();
         });
     }
 
