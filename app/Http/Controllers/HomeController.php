@@ -6,23 +6,20 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
+    /*per utilizzare questo controller devi essere autenticato tranne che per vedere la home*/
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('index');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
     public function index()
     {
         return view('home');
+    }
+
+    public function AddHouse() {
+        return view('auth.add_house');
     }
 }

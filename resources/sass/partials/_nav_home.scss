@@ -16,8 +16,15 @@ nav{
  .navbar-brand:hover{
    border-bottom: none;
  }
+  /*ICON NEW -> OFFRI UNA CASA*/
  .nav-link{
    padding: 0;
+   position: relative;
+   .badge{
+    position: absolute;
+    right: 100px;
+    top: 20px;
+   }
  }
  // per tutti i link della navbar
  a{
@@ -37,6 +44,7 @@ nav{
    color: white;
    font-size: 34px;
  }
+ 
 }
 
 

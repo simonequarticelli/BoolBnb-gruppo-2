@@ -38,7 +38,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:100'],
             'surname' => ['required', 'string', 'max:100'],
-            'date_of_birth' => ['required', 'date', 'min:2001-01-01', 'max:1920-01-01'], 
+            'date_of_birth' => ['required', 'date', 'before_or_equal:2002-01-01', 'after_or_equal:1920-01-01'], 
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);

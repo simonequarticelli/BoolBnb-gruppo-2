@@ -19,15 +19,6 @@
                 <!-- Authentication Links -->
                 @guest
                     @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link ml-3" href="">Offri una casa</a>
-                        </li>
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="">Offri un'esperienza</a>
-                        </li>
-                        <li class="nav-item ml-3">
-                            <a class="nav-link" href="">Aiuto</a>
-                        </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link" href="{{ route('register') }}">Registrati</a>
                         </li>
@@ -36,6 +27,12 @@
                         <a class="nav-link" href="{{ route('login') }}">Accedi</a>
                     </li>
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link ml-3" id="badge-new" href="{{ route('add_house') }}"><span class="badge badge-danger mb-5">New</span>Offri una casa</a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="">Aiuto</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>

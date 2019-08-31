@@ -10647,6 +10647,7 @@ a.text-dark:focus {
 nav {
   height: 80px;
   line-height: 80px;
+  /*ICON NEW -> OFFRI UNA CASA*/
 }
 
 nav .container-fluid,
@@ -10673,6 +10674,13 @@ nav .navbar-brand:hover {
 
 nav .nav-link {
   padding: 0;
+  position: relative;
+}
+
+nav .nav-link .badge {
+  position: absolute;
+  right: 100px;
+  top: 20px;
 }
 
 nav a {
