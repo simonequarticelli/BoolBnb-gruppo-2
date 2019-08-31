@@ -45,7 +45,8 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            /*agguingo public come da guida laravel*/
+            'root' => storage_path('app/public'),
         ],
 
         'public' => [

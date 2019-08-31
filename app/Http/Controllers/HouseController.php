@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\House;
 use App\Feature;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
@@ -49,8 +51,33 @@ class HouseController extends Controller
 
     public function store(Request $request)
     {
+        /*validazione dei dati*/
+        $validateData = $request->validate([
+            'title' => 'required|max:100',
+            'n_beds' => 'required|integer|between:1, 50',
+            'n_wc' => 'required|integer|between:1, 50',
+            'mq' => 'required|integer|between:1, 1000',
+            'address' => 'required|max:100',
+            'img' => 'required|image' 
+
+            /*espressione regolare => 'not_regex:/^.+$/i'*/
+
+        ]);
+
         $data = $request->all();
-        dd($data);
+        //dd($data);
+
+        $data['slug'] = Str::slug($data['title']);
+        $new_house = new House();
+        $new_house->user_id = Auth::user()->id;
+        $img = Storage::put('upload_file', $data['img']);
+        $new_house->img = $img; 
+        $new_house->fill($data);
+        $new_house->save();
+
+        // passare a sync l'arrey delle checkbox (dopo aver fatto il save)
+        $new_house->features()->sync($data['feature']);
+        
     }
 
 

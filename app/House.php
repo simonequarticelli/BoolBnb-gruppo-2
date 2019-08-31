@@ -21,5 +21,5 @@ class House extends Model
       return $this->belongsToMany('App\Promotion');
     }
 
-    protected $fillable = ['title', 'n_beds', 'n_wc', 'mq', 'address', 'longitude', 'latitude', 'img', 'slug'];
+    protected $fillable = ['title', 'n_beds', 'n_wc', 'mq', 'address', 'longitude', 'latitude', 'slug'];
 }

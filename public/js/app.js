@@ -47322,13 +47322,55 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
-$(document).ready(function () {// $('#badge-new').click(function(){
+$(document).ready(function () {
+  // $('#badge-new').click(function(){
   //     $('.badge').hide();
   // });
   // quando clicco l'hamburger menu
   $('.navbar-toggler').click(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer').toggle();
+  });
+  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
+
+  $(document).on('click', '.ap-suggestions', function () {
+    var city = $(this).text(); //console.log(city);
+
+    $.ajax({
+      'url': 'https://places-dsn.algolia.net/1/places/query',
+      'method': 'GET',
+      'data': {
+        'X-Algolia-Application-Id': 'plHY9UTOIKXX',
+        'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
+        'hitsPerPage': '1',
+        'language': 'it',
+        'query': city
+      },
+      'success': function success(data) {
+        //console.log(data.hits);
+        //console.log(data);
+        var info = data.hits; //console.log(info);
+
+        for (var i = 0; i < info.length; i++) {
+          var data = info[i]; //console.log(data._geoloc);
+
+          var geo = data._geoloc;
+          console.log(geo);
+
+          for (var field in geo) {
+            //console.log([field]);
+            if ([field] == 'lat') {
+              $('#lat').val(geo[field]);
+            } else if ([field] == 'lng') {
+              $('#lng').val(geo[field]);
+            }
+          }
+        }
+      },
+      'error': function error(_error) {
+        alert(_error);
+      }
+    });
   });
 });
 
@@ -47405,8 +47447,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

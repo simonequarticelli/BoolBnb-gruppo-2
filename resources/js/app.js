@@ -51,6 +51,61 @@ $(document).ready(function(){
       // nascondo il resto della pagina
       $('.featured_apartments, footer').toggle();
   });
+
+    /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
+    $(document).on('click', '.ap-suggestions', function(){
+
+        var city = $(this).text();
+            //console.log(city);
+
+        $.ajax({
+            'url':'https://places-dsn.algolia.net/1/places/query',
+
+            'method': 'GET',
+
+            'data':{
+                'X-Algolia-Application-Id': 'plHY9UTOIKXX',
+                'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
+                'hitsPerPage': '1',
+                'language': 'it',
+                'query': city,
+            },
+            'success': function(data){
+                //console.log(data.hits);
+                //console.log(data);
+                var info = data.hits;
+                //console.log(info);
+
+
+                for (var i = 0; i < info.length; i++) {
+                    var data = info[i];
+                    //console.log(data._geoloc);
+                    var geo = data._geoloc;
+                    console.log(geo);
+
+                    for (var field in geo) {
+                        //console.log([field]);
+
+                        if ([field] == 'lat') {
+
+                            $('#lat').val(geo[field]);
+
+                        }else if ([field] == 'lng'){
+
+                            $('#lng').val(geo[field]);
+                        }
+
+                    }
+                }
+
+            },
+            'error': function(error){
+                alert(error);
+            }
+        });
+
+    });
+
 });
 
 
