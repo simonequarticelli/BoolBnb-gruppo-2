@@ -23,6 +23,7 @@ footer{
 
 .footer-section{
   padding: 40px 20px 0px 20px;
+  border-top: 1px solid #ebebeb;
 }
 
 .sub-footer{
@@ -35,13 +36,16 @@ footer{
   display: flex;
   align-items: center;
 }
-
+// per il logo e '2019 Boolbnb..'
 .sub-footer-left{
   justify-content: flex-start;
 }
-
+// per 'Italiano' e 'EUR'
 .sub-footer-right{
   justify-content: flex-end;
+  a{
+    color: #767676;
+  }
 }
 
 // inizio media queries

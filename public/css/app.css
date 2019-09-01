@@ -10962,6 +10962,7 @@ footer .footer-section ul {
 
 .footer-section {
   padding: 40px 20px 0px 20px;
+  border-top: 1px solid #ebebeb;
 }
 
 .sub-footer {
@@ -10981,6 +10982,10 @@ footer .footer-section ul {
 
 .sub-footer-right {
   justify-content: flex-end;
+}
+
+.sub-footer-right a {
+  color: #767676;
 }
 
 @media (max-width: 767.98px) {
