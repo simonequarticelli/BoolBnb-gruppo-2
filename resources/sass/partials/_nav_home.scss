@@ -32,11 +32,21 @@ nav{
    padding: 0;
    position: relative;
    height: 80px;
-   .badge{
+ }
+ .nav-link.house{
+  .badge.house{
     position: absolute;
     height: 15px;
-    right: 95px;
-    top: 20px;
+    right: 80px;
+    top: 15px;
+   }
+ }
+ .nav-link.upra{
+  .badge.upra{
+    position: absolute;
+    height: 15px;
+    right: 130px;
+    top: 15px;
    }
  }
  // per tutti i link della navbar

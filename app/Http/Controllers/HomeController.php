@@ -20,8 +20,9 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function DetailsHouseHome()
+    public function DetailsHouseHome($id)
     {
         return view('single_house');
     }
+
 }

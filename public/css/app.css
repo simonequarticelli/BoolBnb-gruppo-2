@@ -10684,11 +10684,18 @@ nav .nav-link {
   height: 80px;
 }
 
-nav .nav-link .badge {
+nav .nav-link.house .badge.house {
   position: absolute;
   height: 15px;
-  right: 95px;
-  top: 20px;
+  right: 80px;
+  top: 15px;
+}
+
+nav .nav-link.upra .badge.upra {
+  position: absolute;
+  height: 15px;
+  right: 130px;
+  top: 15px;
 }
 
 nav a {

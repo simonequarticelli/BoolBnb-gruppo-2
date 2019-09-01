@@ -7,6 +7,7 @@ use App\House;
 use App\Feature;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -21,6 +22,24 @@ class HouseController extends Controller
     public function index()
     {
         // fare query alloggi legati all'utente
+        /*uniamo la tabella users con la tabella houses 
+        eguagliando user_id della tabella houses all'id della tabella users*/
+        $house_user = DB::table('houses')
+            ->join('users', 'houses.user_id', '=', 'users.id')
+            /*controllo che l'id sia uguale all'utente corrente*/
+            ->where('users.id', Auth::user()->id)
+            ->get();
+
+        if (empty($house_user->all())) {
+            echo 'non hai case presenti';
+        }
+
+        //dd($house_user);
+
+
+
+        return view('auth.personal_page_upra', compact('house_user'));
+
     }
 
 
@@ -76,6 +95,8 @@ class HouseController extends Controller
 
         // passare a sync l'arrey delle checkbox (dopo aver fatto il save)
         $new_house->features()->sync($data['feature']);
+
+        return redirect()->route('home');
         
     }
 

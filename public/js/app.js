@@ -47317,8 +47317,15 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 //     el: '#app',
 // });
 
-/*INIZIALIZZO JQUERY*/
 
+var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+var placesAutocomplete = places({
+  appId: 'plHY9UTOIKXX',
+  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+  container: document.querySelector('#address-input')
+});
+/*INIZIALIZZO JQUERY*/
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -47372,14 +47379,6 @@ $(document).ready(function () {
       }
     });
   });
-});
-
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
-var placesAutocomplete = places({
-  appId: 'plHY9UTOIKXX',
-  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-  container: document.querySelector('#address-input')
 });
 
 /***/ }),
