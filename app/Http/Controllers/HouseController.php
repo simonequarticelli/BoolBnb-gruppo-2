@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Storage;
 class HouseController extends Controller
 {
     public function __construct() {
-        /*per usare questo controller l'utente deve essere autenticato con assegnato il ruolo di "upra"*/
-        $this->middleware('role:upra')->except('create');
+        /*per usare questo controller l'utente deve essere autenticato con assegnato il ruolo di "upra"
+        tranne che per accedere alle funzioni create e store*/
+        $this->middleware('role:upra')->except(['create', 'store']);
     }
 
     public function index()
@@ -24,33 +25,18 @@ class HouseController extends Controller
 
 
     public function create()
-    {
-        /*controllo se l'utente ha gia il ruolo "upra"*/
-        if (Auth::user()->HasRole('upra')) {
-
-            $features = Feature::all();
-
-            return view('auth.add_house', compact('features'));
-        }
-
-        $user = Auth::user();
-        //dd($user);
-
-        // Initiate the 'member' Role
-        $member = Role::where( 'name', '=', 'upra' )->first();
-
-        // Give each new user the role of 'member'
-        $user->attachRole($member);
-
-        return $user;
-
+    {   
         
+        $features = Feature::all();
+        return view('auth.add_house', compact('features'));
 
     }
 
 
     public function store(Request $request)
-    {
+    {   
+        // dd(Auth::user()->id);
+        
         /*validazione dei dati*/
         $validateData = $request->validate([
             'title' => 'required|max:100',
@@ -63,6 +49,19 @@ class HouseController extends Controller
             /*espressione regolare => 'not_regex:/^.+$/i'*/
 
         ]);
+
+        /*assegno upra all'utente*/
+        $user = Auth::user();
+        //dd($user);
+
+        // Initiate the 'member' Role
+        $member = Role::where( 'name', '=', 'upra' )->first();
+
+        // Give each new user the role of 'member'
+        $user->attachRole($member);
+
+        return $user;
+
 
         $data = $request->all();
         //dd($data);

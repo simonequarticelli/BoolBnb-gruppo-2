@@ -23,5 +23,4 @@ Route::middleware('auth')->group(function(){
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/details', 'HomeController@DetailsHouseHome')->name('details');
