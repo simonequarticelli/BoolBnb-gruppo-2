@@ -44,8 +44,8 @@ class HouseController extends Controller
 
 
     public function create()
-    {   
-        
+    {
+
         $features = Feature::all();
         return view('auth.add_house', compact('features'));
 
@@ -53,9 +53,9 @@ class HouseController extends Controller
 
 
     public function store(Request $request)
-    {   
+    {
         // dd(Auth::user()->id);
-        
+
         /*validazione dei dati*/
         $validateData = $request->validate([
             'title' => 'required|max:100',
@@ -63,24 +63,25 @@ class HouseController extends Controller
             'n_wc' => 'required|integer|between:1, 50',
             'mq' => 'required|integer|between:1, 1000',
             'address' => 'required|max:100',
-            'img' => 'required|image' 
+            'img' => 'required|image'
 
             /*espressione regolare => 'not_regex:/^.+$/i'*/
 
         ]);
 
-        /*assegno upra all'utente*/
-        $user = Auth::user();
-        //dd($user);
+        if(!Auth::user()->hasRole('upra')){
+          /*assegno upra all'utente*/
+          $user = Auth::user();
+          //dd($user);
 
-        // Initiate the 'member' Role
-        $member = Role::where( 'name', '=', 'upra' )->first();
+          // Initiate the 'member' Role
+          $member = Role::where( 'name', '=', 'upra' )->first();
 
-        // Give each new user the role of 'member'
-        $user->attachRole($member);
+          // Give each new user the role of 'member'
+          $user->attachRole($member);
 
-        return $user;
-
+          return $user;
+        }
 
         $data = $request->all();
         //dd($data);
@@ -89,15 +90,15 @@ class HouseController extends Controller
         $new_house = new House();
         $new_house->user_id = Auth::user()->id;
         $img = Storage::put('upload_file', $data['img']);
-        $new_house->img = $img; 
+        $new_house->img = $img;
         $new_house->fill($data);
         $new_house->save();
 
         // passare a sync l'arrey delle checkbox (dopo aver fatto il save)
         $new_house->features()->sync($data['feature']);
 
-        return view('home');
-        
+        return redirect()->route('home');
+
     }
 
 
