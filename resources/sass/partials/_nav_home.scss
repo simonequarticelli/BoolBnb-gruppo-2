@@ -19,6 +19,9 @@ nav{
  .dropdown-menu{
    position: absolute;
    top: 60px;
+   &:hover{
+     height: 35px;
+   }
    a.dropdown-item{
      line-height: normal;
      padding: 0 10px;
@@ -28,9 +31,11 @@ nav{
  .nav-link{
    padding: 0;
    position: relative;
+   height: 80px;
    .badge{
     position: absolute;
-    right: 100px;
+    height: 15px;
+    right: 95px;
     top: 20px;
    }
  }
@@ -59,46 +64,56 @@ nav{
   .navbar{
     z-index: 1;
   }
- // per l'icona di airbnb
- .navbar-brand{
-   z-index: 1;
- }
- .navbar-nav{
+   // per l'icona di airbnb
+   .navbar-brand{
+     z-index: 1;
+   }
+  .navbar-nav{
    margin-top: 60px;
- }
- // per l'icona di hamburger menu
- .navbar-toggler{
+  }
+  // per l'icona di hamburger menu
+  .navbar-toggler{
    z-index: 1;
- }
- #navbarSupportedContent{
+  }
+  #navbarSupportedContent{
    width: 100vw;
    height: 100vh;
    position: absolute;
    top: 0;
    left: 0;
- }
-
- .nav-bar-black{
+  }
+  .nav-bar-black{
    background-color: #2B3F58;
- }
+  }
 
- .dropdown-menu{
+  .dropdown-menu{
    height: 50px;
    width: 100px;
- }
- li.nav-item{
+   background-color: #2B3F58;
+   border: 1px solid white;
+  }
+  a.dropdown-item{
+   color: white;
+  }
+  li.nav-item{
    width: 340px;
    margin-top: 30px;
-   a{
-     font-size: 24px;
+  a{
+    font-size: 24px;
+    border-bottom: none;
+    a:hover{
      border-bottom: none;
-     a:hover{
-       border-bottom: none;
-     }
-     a:active{
-       border-bottom: none;
-     }
+    }
+    a:active{
+     border-bottom: none;
+    }
    }
- }
+  }
+  // per il badge
+  nav .nav-link .badge{
+   position: absolute;
+   right: 120px;
+   height: 30px;
+  }
 
 }

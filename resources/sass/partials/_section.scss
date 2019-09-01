@@ -50,8 +50,14 @@
 .card{
   margin-bottom: 20px;
   border: 0;
+  transition: transform .2s;
+  &:hover{
+    box-shadow: 5px 10px 8px #2c3e50;
+    transform: scale(1.02);
+  }
   .card-body{
     padding: 0;
+    padding: 5px;
     margin-top: 10px;
   }
 }

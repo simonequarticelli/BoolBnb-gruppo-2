@@ -10669,6 +10669,10 @@ nav .dropdown-menu {
   top: 60px;
 }
 
+nav .dropdown-menu:hover {
+  height: 35px;
+}
+
 nav .dropdown-menu a.dropdown-item {
   line-height: normal;
   padding: 0 10px;
@@ -10677,11 +10681,13 @@ nav .dropdown-menu a.dropdown-item {
 nav .nav-link {
   padding: 0;
   position: relative;
+  height: 80px;
 }
 
 nav .nav-link .badge {
   position: absolute;
-  right: 100px;
+  height: 15px;
+  right: 95px;
   top: 20px;
 }
 
@@ -10736,6 +10742,12 @@ nav .fa-bars {
   .dropdown-menu {
     height: 50px;
     width: 100px;
+    background-color: #2B3F58;
+    border: 1px solid white;
+  }
+
+  a.dropdown-item {
+    color: white;
   }
 
   li.nav-item {
@@ -10754,6 +10766,12 @@ nav .fa-bars {
 
   li.nav-item a a:active {
     border-bottom: none;
+  }
+
+  nav .nav-link .badge {
+    position: absolute;
+    right: 120px;
+    height: 30px;
   }
 }
 
@@ -10873,10 +10891,17 @@ nav .fa-bars {
 .card {
   margin-bottom: 20px;
   border: 0;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 5px 10px 8px #2c3e50;
+  transform: scale(1.02);
 }
 
 .card .card-body {
   padding: 0;
+  padding: 5px;
   margin-top: 10px;
 }
 

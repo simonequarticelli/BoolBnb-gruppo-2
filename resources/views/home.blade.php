@@ -8,7 +8,7 @@
     @include('layouts.nav_home')
     <section class="first_section">
       <div class="container">
-          <div class="col-lg-4">
+          <div class="col-xl-4 col-lg-12">
             <div class="booking">
               <h2>Prenota alloggi e attività unici.</h2>
               <div class="where">
