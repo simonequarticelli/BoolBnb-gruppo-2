@@ -30,10 +30,6 @@ class HouseController extends Controller
             ->where('users.id', Auth::user()->id)
             ->get();
 
-        if (empty($house_user->all())) {
-            echo 'non hai case presenti';
-        }
-
         //dd($house_user);
 
 
@@ -80,7 +76,7 @@ class HouseController extends Controller
           // Give each new user the role of 'member'
           $user->attachRole($member);
 
-          return $user;
+        //   return $user; 
         }
 
         $data = $request->all();

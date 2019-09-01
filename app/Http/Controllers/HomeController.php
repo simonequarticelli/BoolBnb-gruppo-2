@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\House;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,13 +17,16 @@ class HomeController extends Controller
 
 
     public function index()
-    {
-        return view('home');
+    {   
+        $new_house = House::all();
+        return view('home', compact('new_house'));
     }
 
-    public function DetailsHouseHome()
-    {
-        return view('single_house');
+    public function DetailsHouseHome(id $id)
+    {   
+        $house = House::find($id);
+        dd($house);
+        return view('single_house', compact('house'));
     }
 
 }

@@ -29,61 +29,21 @@
     <div class="container">
       <h3 class="mt-3">Appartamenti in evidenza</h3>
       <div class="col-lg-12 first-card-container card-container-flex">
-        <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{ route('details') }}" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
 
+        {{-- @php
+            dd($new_house->all());
+        @endphp --}}
+        @foreach ($new_house as $house )
         <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
+            <img src="{{ 'storage/' . $house->img }}" class="card-img-top" alt="immagine {{ $house->title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ $house->title }}</h5>
 
-        <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-12 card-container-flex">
-        <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
-
-        <div class="card col-lg-3 col-sm-12">
-          <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-danger">Go somewhere</a>
-          </div>
-        </div>
+              <a href="{{ route('details', $house->id) }}" class="btn btn-danger">Go somewhere</a>
+            </div>
+          </div> 
+        @endforeach
+        
       </div>
     </div>
   </section>
