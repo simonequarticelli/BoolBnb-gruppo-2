@@ -10905,10 +10905,6 @@ nav .fa-bars {
   margin-top: 10px;
 }
 
-h3 {
-  margin-top: 25px;
-}
-
 .col-lg-12,
 .col-lg-3 {
   padding: 0;
@@ -10922,6 +10918,26 @@ h3 {
   .first-card-container {
     margin-top: 25px;
   }
+}
+
+.house-info {
+  display: flex;
+}
+
+.img-house {
+  width: 100%;
+  height: 80vh;
+  background-image: url(/images/app-test.jpg?a71c69a905c7253d42d023b286cfcd08);
+  background-size: cover;
+  background-position: center;
+}
+
+.search-map {
+  width: 100%;
+  height: 80vh;
+  background-image: url(/images/map.jpg?04abf63fae7e8e4601fbc58229bd370d);
+  background-size: cover;
+  background-position: center;
 }
 
 /* elimino l'icona azzurra di chiusura  */
