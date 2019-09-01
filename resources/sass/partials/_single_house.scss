@@ -1,0 +1,19 @@
+.house-info{
+  display: flex;
+}
+
+.img-house{
+  width: 100%;
+  height: 80vh;
+  background-image: url("sass/immagini_sito/app-test.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.search-map{
+  width: 100%;
+  height: 80vh;
+  background-image: url("sass/immagini_sito/map.jpg");
+  background-size: cover;
+  background-position: center;
+}
