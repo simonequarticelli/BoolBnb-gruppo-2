@@ -6,3 +6,30 @@
 ul{
   padding: 0;
 }
+
+
+//---------------------- stile bottoni-----------------------------
+
+.btn-danger{
+  background-color: #ff5a5f;
+  border-color: #ff5a5f;
+  &:hover{
+    background-color: #e3342f;
+  }
+}
+
+
+.btn-primary{
+  background-color: #008489;
+  border-color: #008489;
+  &:hover{
+    background-color: #007a87;
+  }
+}
+
+
+// ----------------------------stile badge--------------------------
+.badge-info{
+  background-color: #008489;
+  color:white;
+}

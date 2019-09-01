@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 // Variables
 @import 'variables';
@@ -9,6 +9,7 @@
 
 // IMPORTO PARTIALS
 @import 'partials/_nav_home';
+@import 'partials/_nav';
 @import 'partials/_content_home';
 // @import 'partials/_reset';
 // @import 'partials/_mixins';

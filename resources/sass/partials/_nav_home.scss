@@ -1,17 +1,15 @@
 nav{
  height: 80px;
  line-height: 80px;
- .container-fluid, .navbar-brand, .navbar-collapse, .navbar-nav{
-   height: 80px;
-   padding: 0;
- }
+
  .container-fluid{
    line-height: 80px;
-   .airbnb-logo{
+   .airbnb-logo-light{
      width: 34px;
      height: 34px;
      fill: white;
    }
+
  }
  .navbar-brand:hover{
    border-bottom: none;
@@ -19,7 +17,6 @@ nav{
 
  // per il dropdown-menu
  .dropdown-menu{
-   height: 40px;
    position: absolute;
    top: 60px;
    a.dropdown-item{
@@ -58,11 +55,16 @@ nav{
 
 }
 
-
 @media (max-width: 767px){
+  .navbar{
+    z-index: 1;
+  }
  // per l'icona di airbnb
  .navbar-brand{
    z-index: 1;
+ }
+ .navbar-nav{
+   margin-top: 60px;
  }
  // per l'icona di hamburger menu
  .navbar-toggler{
@@ -74,8 +76,12 @@ nav{
    position: absolute;
    top: 0;
    left: 0;
+ }
+
+ .nav-bar-black{
    background-color: #2B3F58;
  }
+
  .dropdown-menu{
    height: 50px;
    width: 100px;
