@@ -1,5 +1,10 @@
-.house-info{
+.house-first-section, .house-second-section{
   display: flex;
+  flex-wrap: wrap;
+}
+
+.first-section-house{
+  margin-bottom: 30px;
 }
 
 .img-house{
@@ -12,8 +17,14 @@
 
 .search-map{
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   background-image: url("sass/immagini_sito/map.jpg");
   background-size: cover;
   background-position: center;
+}
+
+.form-house{
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 2px;
+  box-shadow: 1px 0px 1px #ced4da;
 }
