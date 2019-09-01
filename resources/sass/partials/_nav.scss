@@ -1,0 +1,47 @@
+.airbnb-logo-black{
+  width: 34px;
+  height: 34px;
+  fill:#ced4da;
+}
+
+
+@media (max-width: 767px){
+ // per l'icona di airbnb
+ .navbar-brand{
+   z-index: 1;
+ }
+ // per l'icona di hamburger menu
+ .navbar-toggler{
+   z-index: 1;
+ }
+ #navbarSupportedContent{
+   width: 100vw;
+   height: 100vh;
+   position: absolute;
+   top: 0;
+   left: 0;
+ }
+
+ .nav-bar-ligth{
+   background-color: $nav-bar-ligth;
+ }
+
+ .dropdown-menu{
+   height: 50px;
+   width: 100px;
+ }
+ li.nav-item{
+   width: 340px;
+   margin-top: 30px;
+   a{
+     font-size: 24px;
+     border-bottom: none;
+     a:hover{
+       border-bottom: none;
+     }
+     a:active{
+       border-bottom: none;
+     }
+   }
+ }
+}

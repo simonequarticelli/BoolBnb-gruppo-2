@@ -10650,19 +10650,11 @@ nav {
   /*ICON NEW -> OFFRI UNA CASA*/
 }
 
-nav .container-fluid,
-nav .navbar-brand,
-nav .navbar-collapse,
-nav .navbar-nav {
-  height: 80px;
-  padding: 0;
-}
-
 nav .container-fluid {
   line-height: 80px;
 }
 
-nav .container-fluid .airbnb-logo {
+nav .container-fluid .airbnb-logo-light {
   width: 34px;
   height: 34px;
   fill: white;
@@ -10673,7 +10665,6 @@ nav .navbar-brand:hover {
 }
 
 nav .dropdown-menu {
-  height: 40px;
   position: absolute;
   top: 60px;
 }
@@ -10714,6 +10705,65 @@ nav .fa-bars {
 }
 
 @media (max-width: 767px) {
+  .navbar {
+    z-index: 1;
+  }
+
+  .navbar-brand {
+    z-index: 1;
+  }
+
+  .navbar-nav {
+    margin-top: 60px;
+  }
+
+  .navbar-toggler {
+    z-index: 1;
+  }
+
+  #navbarSupportedContent {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .nav-bar-black {
+    background-color: #2B3F58;
+  }
+
+  .dropdown-menu {
+    height: 50px;
+    width: 100px;
+  }
+
+  li.nav-item {
+    width: 340px;
+    margin-top: 30px;
+  }
+
+  li.nav-item a {
+    font-size: 24px;
+    border-bottom: none;
+  }
+
+  li.nav-item a a:hover {
+    border-bottom: none;
+  }
+
+  li.nav-item a a:active {
+    border-bottom: none;
+  }
+}
+
+.airbnb-logo-black {
+  width: 34px;
+  height: 34px;
+  fill: #ced4da;
+}
+
+@media (max-width: 767px) {
   .navbar-brand {
     z-index: 1;
   }
@@ -10728,7 +10778,10 @@ nav .fa-bars {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #2B3F58;
+  }
+
+  .nav-bar-ligth {
+    background-color: #f8f9fa;
   }
 
   .dropdown-menu {
@@ -10848,6 +10901,29 @@ h3 {
 
 ul {
   padding: 0;
+}
+
+.btn-danger {
+  background-color: #ff5a5f;
+  border-color: #ff5a5f;
+}
+
+.btn-danger:hover {
+  background-color: #e3342f;
+}
+
+.btn-primary {
+  background-color: #008489;
+  border-color: #008489;
+}
+
+.btn-primary:hover {
+  background-color: #007a87;
+}
+
+.badge-info {
+  background-color: #008489;
+  color: white;
 }
 
 footer {
