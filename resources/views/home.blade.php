@@ -27,7 +27,7 @@
   </div>
   <section class="featured_apartments">
     <div class="container">
-      <h3>Appartamenti in evidenza</h3>
+      <h3 class="mt-3">Appartamenti in evidenza</h3>
       <div class="col-lg-12 first-card-container card-container-flex">
         <div class="card col-lg-3 col-sm-12">
           <img src="{{asset('images/app-test.jpg')}}" class="card-img-top" alt="...">
