@@ -96,7 +96,7 @@ class HouseController extends Controller
         // passare a sync l'arrey delle checkbox (dopo aver fatto il save)
         $new_house->features()->sync($data['feature']);
 
-        return redirect()->route('home');
+        return view('home');
         
     }
 
