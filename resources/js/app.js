@@ -31,13 +31,6 @@ require('./bootstrap');
 //     el: '#app',
 // });
 
-var places = require('places.js');
-    var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
-});
-
 
 /*INIZIALIZZO JQUERY*/
 var $ = require('jquery');
@@ -55,6 +48,8 @@ $(document).ready(function(){
     $('.navbar-toggler').click(function(){
       // nascondo il resto della pagina
       $('.featured_apartments, footer').toggle();
+
+      
   });
 
     /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
@@ -97,9 +92,23 @@ $(document).ready(function(){
             'error': function(error){
                 alert(error);
             }
+            
         });
 
+        
+
     });
+
+
+
+    var places = require('places.js');
+        var placesAutocomplete = places({
+        appId: 'plHY9UTOIKXX',
+        apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+        container: document.querySelector('#address-input')
+    });
+
+
 
 });
 

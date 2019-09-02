@@ -47317,15 +47317,8 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window
 //     el: '#app',
 // });
 
-
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
-var placesAutocomplete = places({
-  appId: 'plHY9UTOIKXX',
-  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-  container: document.querySelector('#address-input')
-});
 /*INIZIALIZZO JQUERY*/
+
 
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
@@ -47373,6 +47366,14 @@ $(document).ready(function () {
         alert(_error);
       }
     });
+  });
+
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+  var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector('#address-input')
   });
 });
 
@@ -47441,8 +47442,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
