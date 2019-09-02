@@ -21,20 +21,10 @@ class HouseController extends Controller
 
     public function index()
     {
-        // fare query alloggi legati all'utente
-        /*uniamo la tabella users con la tabella houses 
-        eguagliando user_id della tabella houses all'id della tabella users*/
-        $house_user = DB::table('houses')
-            ->join('users', 'houses.user_id', '=', 'users.id')
-            /*controllo che l'id sia uguale all'utente corrente*/
-            ->where('users.id', Auth::user()->id)
-            ->get();
+        
+        $houses_user = Auth::user()->houses; 
 
-        //dd($house_user);
-
-
-
-        return view('auth.personal_page_upra', compact('house_user'));
+        return view('auth.personal_page_upra', compact('houses_user'));
 
     }
 
@@ -43,6 +33,7 @@ class HouseController extends Controller
     {
 
         $features = Feature::all();
+        
         return view('auth.add_house', compact('features'));
 
     }
@@ -74,9 +65,7 @@ class HouseController extends Controller
           $member = Role::where( 'name', '=', 'upra' )->first();
 
           // Give each new user the role of 'member'
-          $user->attachRole($member);
-
-        //   return $user; 
+          $user->attachRole($member); 
         }
 
         $data = $request->all();

@@ -19,14 +19,17 @@ class HomeController extends Controller
     public function index()
     {   
         $new_house = House::all();
+        
         return view('home', compact('new_house'));
     }
 
-    public function DetailsHouseHome(id $id)
+    public function DetailsHouseHome($id, $slug)
     {   
+        
         $house = House::find($id);
-        dd($house);
+
         return view('single_house', compact('house'));
+         
     }
 
 }

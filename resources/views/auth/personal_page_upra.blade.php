@@ -1,4 +1,4 @@
-@foreach ( $house_user as $house )
+@foreach ( $houses_user as $house )
     <ul>
         <li>
             {{ $house->title }}

@@ -38,8 +38,10 @@
             <img src="{{ 'storage/' . $house->img }}" class="card-img-top" alt="immagine {{ $house->title }}">
             <div class="card-body">
               <h5 class="card-title">{{ $house->title }}</h5>
-
-              <a href="{{ route('details', $house->id) }}" class="btn btn-danger">Go somewhere</a>
+              {{-- @php
+                  dd([$id = $house->id, $slug = $house->slug]);
+              @endphp --}}
+              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger">Go somewhere</a>
             </div>
           </div> 
         @endforeach

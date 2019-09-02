@@ -17,11 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->prefix('admin')->group(function(){
     Route::resource('/house', 'HouseController');
 });
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/details/{id}', 'HomeController@DetailsHouseHome')->name('details');
+/*nella rotta passiamo due parametri slug/id*/
+Route::get('/house-details/{slug}/{id}', 'HomeController@DetailsHouseHome')->name('house_details');
 

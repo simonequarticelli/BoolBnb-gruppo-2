@@ -47361,17 +47361,12 @@ $(document).ready(function () {
         for (var i = 0; i < info.length; i++) {
           var data = info[i]; //console.log(data._geoloc);
 
-          var geo = data._geoloc;
-          console.log(geo);
+          var geo = data._geoloc; //console.log(geo);
 
-          for (var field in geo) {
-            //console.log([field]);
-            if ([field] == 'lat') {
-              $('#lat').val(geo[field]);
-            } else if ([field] == 'lng') {
-              $('#lng').val(geo[field]);
-            }
-          }
+          /*assegno lat e lng a input hidden*/
+
+          $('#lat').val(geo.lat);
+          $('#lng').val(geo.lng);
         }
       },
       'error': function error(_error) {
