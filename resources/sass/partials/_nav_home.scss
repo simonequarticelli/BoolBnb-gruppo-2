@@ -1,73 +1,73 @@
+.navbar{
+  padding: 0 1rem;
+}
 nav{
  height: 80px;
  line-height: 80px;
+  .container-fluid{
+    line-height: 80px;
+    .airbnb-logo-light{
+      width: 34px;
+      height: 34px;
+      fill: white;
+    }
+  }
+  .navbar-brand:hover{
+    border-bottom: none;
+  }
 
- .container-fluid{
-   line-height: 80px;
-   .airbnb-logo-light{
-     width: 34px;
-     height: 34px;
-     fill: white;
-   }
-
- }
- .navbar-brand:hover{
-   border-bottom: none;
- }
-
- // per il dropdown-menu
- .dropdown-menu{
-   position: absolute;
-   top: 60px;
-   &:hover{
-     height: 35px;
-   }
-   a.dropdown-item{
-     line-height: normal;
-     padding: 0 10px;
-   }
- }
+  // per il dropdown-menu
+  .dropdown-menu{
+    position: absolute;
+    top: 60px;
+    &:hover{
+      height: 35px;
+    }
+    a.dropdown-item{
+      line-height: normal;
+      padding: 0 10px;
+    }
+  }
   /*ICON NEW -> OFFRI UNA CASA*/
- .nav-link{
-   padding: 0;
-   position: relative;
-   height: 80px;
- }
- .nav-link.house{
-  .badge.house{
-    position: absolute;
-    height: 15px;
-    right: 80px;
-    top: 15px;
-   }
- }
- .nav-link.upra{
-  .badge.upra{
-    position: absolute;
-    height: 15px;
-    right: 130px;
-    top: 15px;
-   }
- }
- // per tutti i link della navbar
- a{
-   color: white;
-   &:hover{
-     color: white;
-     border-bottom: 1px solid white;
-   }
- }
- // per lo span che racchiude l'hamburger menu
- .navbar-toggler-icon{
-   width: 34px;
-   height: 34px;
- }
- // per l'icona dell'hamburger menu, di bianco
- .fa-bars{
-   color: white;
-   font-size: 34px;
- }
-
+  .nav-link{
+    padding: 0;
+    position: relative;
+    height: 80px;
+  }
+  .nav-link.house{
+    .badge.house{
+      position: absolute;
+      height: 15px;
+      right: 80px;
+      top: 15px;
+      }
+    }
+   .nav-link.upra{
+    .badge.upra{
+      position: absolute;
+      height: 15px;
+      right: 130px;
+      top: 15px;
+    }
+  }
+  // per tutti i link della navbar
+  a{
+    color: white;
+    &:hover{
+      color: white;
+      border-bottom: 1px solid white;
+    }
+  }
+  // per lo span che racchiude l'hamburger menu
+  .navbar-toggler-icon{
+    width: 34px;
+    height: 34px;
+  }
+  // per l'icona dell'hamburger menu, di bianco
+  .fa-bars{
+    color: white;
+    font-size: 34px;
+  }
 }
 
 @media (max-width: 767px){

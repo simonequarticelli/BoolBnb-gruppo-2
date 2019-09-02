@@ -1,3 +1,7 @@
+.house-map-container{
+  display: flex;
+  justify-content: space-between;
+}
 .house-first-section, .house-second-section{
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +13,7 @@
 
 .img-house{
   width: 100%;
-  height: 80vh;
+  height: 50vh;
   background-image: url("sass/immagini_sito/app-test.jpg");
   background-size: cover;
   background-position: center;
@@ -17,7 +21,7 @@
 
 .search-map{
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   background-image: url("sass/immagini_sito/map.jpg");
   background-size: cover;
   background-position: center;
@@ -25,6 +29,30 @@
 
 .form-house{
   border: 1px solid rgb(228, 228, 228);
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 1px 0px 1px #ced4da;
+
+  // per dare spazio agli elementi del form per l'invio del messaggio
+  h3{
+    margin-top: 15px;
+  }
+  h3, .message-form, button{
+    margin-bottom: 15px;
+  }
+}
+
+@media (max-width: 767px){
+  .house-map-container{
+    display: block;
+    // per l'immagine dell'appartamento e della mappa
+    .img-house, .search-map{
+      height: 30vh;
+    }
+    .search-map{
+      margin-top: 30px;
+    }
+  }
+  .form-house{
+    margin-top: 30px;
+  }
 }

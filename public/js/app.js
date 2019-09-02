@@ -47329,7 +47329,7 @@ $(document).ready(function () {
   // quando clicco l'hamburger menu
   $('.navbar-toggler').click(function () {
     // nascondo il resto della pagina
-    $('.featured_apartments, footer').toggle();
+    $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
   });
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 

@@ -10644,6 +10644,10 @@ a.text-dark:focus {
   }
 }
 
+.navbar {
+  padding: 0 1rem;
+}
+
 nav {
   height: 80px;
   line-height: 80px;
@@ -10790,7 +10794,26 @@ nav .fa-bars {
   }
 }
 
-.airbnb-logo-black {
+.navbar {
+  padding: 0 1rem;
+}
+
+nav {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav .container-fluid {
+  height: 80px;
+  line-height: 80px;
+}
+
+nav .navbar-brand {
+  height: 80px;
+  padding: 0;
+}
+
+nav .airbnb-logo-black {
   width: 34px;
   height: 34px;
   fill: #008489;
@@ -10940,6 +10963,11 @@ nav .fa-bars {
   }
 }
 
+.house-map-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .house-first-section,
 .house-second-section {
   display: flex;
@@ -10952,7 +10980,7 @@ nav .fa-bars {
 
 .img-house {
   width: 100%;
-  height: 80vh;
+  height: 50vh;
   background-image: url(/images/app-test.jpg?a71c69a905c7253d42d023b286cfcd08);
   background-size: cover;
   background-position: center;
@@ -10960,7 +10988,7 @@ nav .fa-bars {
 
 .search-map {
   width: 100%;
-  height: 60vh;
+  height: 50vh;
   background-image: url(/images/map.jpg?04abf63fae7e8e4601fbc58229bd370d);
   background-size: cover;
   background-position: center;
@@ -10968,8 +10996,37 @@ nav .fa-bars {
 
 .form-house {
   border: 1px solid #e4e4e4;
-  border-radius: 2px;
+  border-radius: 5px;
   box-shadow: 1px 0px 1px #ced4da;
+}
+
+.form-house h3 {
+  margin-top: 15px;
+}
+
+.form-house h3,
+.form-house .message-form,
+.form-house button {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 767px) {
+  .house-map-container {
+    display: block;
+  }
+
+  .house-map-container .img-house,
+  .house-map-container .search-map {
+    height: 30vh;
+  }
+
+  .house-map-container .search-map {
+    margin-top: 30px;
+  }
+
+  .form-house {
+    margin-top: 30px;
+  }
 }
 
 /* elimino l'icona azzurra di chiusura  */
