@@ -23,7 +23,7 @@ class HomeController extends Controller
         return view('home', compact('new_house'));
     }
 
-    public function DetailsHouseHome($id, $slug)
+    public function DetailsHouseHome($id, $slug) //mettere prima lettera minuscola => D
     {   
         
         $house = House::find($id);

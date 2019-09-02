@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+  @php
+      // dd(Session());
+  @endphp
   {{-- @php
       dd(Auth::user()->hasRole('upra'));
   @endphp --}}

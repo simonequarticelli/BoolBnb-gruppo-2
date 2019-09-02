@@ -20,8 +20,11 @@ class HouseController extends Controller
     }
 
     public function index()
-    {
+    {   
+        // Session()->put('badge_index', 'true');
         
+        //dd(Session());
+
         $houses_user = Auth::user()->houses; 
 
         return view('auth.personal_page_upra', compact('houses_user'));
@@ -30,17 +33,24 @@ class HouseController extends Controller
 
 
     public function create()
-    {
+    {   
+        // Session()->put('badge_create', 'true');
 
+        //dd(Session());
+        
         $features = Feature::all();
         
         return view('auth.add_house', compact('features'));
+
+        
 
     }
 
 
     public function store(Request $request)
     {
+        
+        
         // dd(Auth::user()->id);
 
         /*validazione dei dati*/
