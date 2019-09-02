@@ -10727,7 +10727,7 @@ nav .fa-bars {
   }
 
   .navbar-nav {
-    margin-top: 60px;
+    margin-top: 50px;
   }
 
   .navbar-toggler {
@@ -10775,10 +10775,18 @@ nav .fa-bars {
     border-bottom: none;
   }
 
-  nav .nav-link .badge {
+  nav .nav-link.house .badge.house,
+  nav .nav-link.upra .badge.upra {
     position: absolute;
-    right: 120px;
     height: 30px;
+  }
+
+  nav .nav-link.house .badge.house {
+    right: 120px;
+  }
+
+  nav .nav-link.upra .badge.upra {
+    right: 38px;
   }
 }
 
@@ -10888,14 +10896,18 @@ nav .fa-bars {
   border-color: #ff5a5f;
 }
 
-.card-container-flex {
+.featured_apartments h3 {
+  margin-top: 50px;
+}
+
+.featured_apartments .card-container-flex {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   margin-top: 25px;
   flex-wrap: wrap;
 }
 
-.card {
+.featured_apartments .card {
   margin-bottom: 20px;
   border: 1px solid #ebebeb;
   border-radius: 5px;
@@ -10903,18 +10915,18 @@ nav .fa-bars {
   margin: 10px;
 }
 
-.card:hover {
+.featured_apartments .card:hover {
   box-shadow: 5px 10px 8px #b0b3b6;
   transform: scale(1.01);
 }
 
-.card .card-body {
+.featured_apartments .card .card-body {
   padding: 20px;
   margin-top: 10px;
 }
 
-.col-lg-12,
-.col-lg-3 {
+.featured_apartments .col-lg-12,
+.featured_apartments .col-lg-3 {
   padding: 0;
 }
 
@@ -10994,7 +11006,7 @@ ul {
 }
 
 footer {
-  margin-top: 25px;
+  margin-top: 50px;
   font-weight: bold;
 }
 

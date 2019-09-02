@@ -31,7 +31,7 @@
   </div>
   <section class="featured_apartments">
     <div class="container">
-      <h3 class="mt-3">Appartamenti in evidenza</h3>
+      <h3>Appartamenti in evidenza</h3>
       <div class="col-lg-12 first-card-container card-container-flex">
 
         {{-- @php
@@ -47,9 +47,9 @@
               @endphp --}}
               <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger">Go somewhere</a>
             </div>
-          </div> 
+          </div>
         @endforeach
-        
+
       </div>
     </div>
   </section>

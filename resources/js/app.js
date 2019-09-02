@@ -37,80 +37,63 @@ var $ = require('jquery');
 
 
 $(document).ready(function(){
+  // $('#badge-new').click(function(){
+  //     $('.badge').hide();
+  // });
 
-
-    // $('#badge-new').click(function(){
-
-    //     $('.badge').hide();
-    // });
-
-    // quando clicco l'hamburger menu
-    $('.navbar-toggler').click(function(){
-      // nascondo il resto della pagina
-      $('.featured_apartments, footer').toggle();
-
-      
+  // quando clicco l'hamburger menu
+  $('.navbar-toggler').click(function(){
+    // nascondo il resto della pagina
+    $('.featured_apartments, footer').toggle();
   });
 
-    /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
-    $(document).on('click', '.ap-suggestions', function(){
+  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
+  $(document).on('click', '.ap-suggestions', function(){
 
-        var city = $(this).text();
-            //console.log(city);
+      var city = $(this).text();
+          //console.log(city);
 
-        $.ajax({
-            'url':'https://places-dsn.algolia.net/1/places/query',
+      $.ajax({
+          'url':'https://places-dsn.algolia.net/1/places/query',
 
-            'method': 'GET',
+          'method': 'GET',
 
-            'data':{
-                'X-Algolia-Application-Id': 'plHY9UTOIKXX',
-                'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
-                'hitsPerPage': '1',
-                'language': 'it',
-                'query': city,
-            },
-            'success': function(data){
-                //console.log(data.hits);
-                //console.log(data);
-                var info = data.hits;
-                //console.log(info);
+          'data':{
+              'X-Algolia-Application-Id': 'plHY9UTOIKXX',
+              'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
+              'hitsPerPage': '1',
+              'language': 'it',
+              'query': city,
+          },
+          'success': function(data){
+              //console.log(data.hits);
+              //console.log(data);
+              var info = data.hits;
+              //console.log(info);
 
 
-                for (var i = 0; i < info.length; i++) {
-                    var data = info[i];
-                    //console.log(data._geoloc);
-                    var geo = data._geoloc;
-                    //console.log(geo);
-                    
-                    /*assegno lat e lng a input hidden*/
-                    $('#lat').val(geo.lat);
-                    $('#lng').val(geo.lng);
-                }
+              for (var i = 0; i < info.length; i++) {
+                  var data = info[i];
+                  //console.log(data._geoloc);
+                  var geo = data._geoloc;
+                  //console.log(geo);
 
-            },
-            'error': function(error){
-                alert(error);
-            }
-            
+                  /*assegno lat e lng a input hidden*/
+                  $('#lat').val(geo.lat);
+                  $('#lng').val(geo.lng);
+              }
+
+          },
+          'error': function(error){
+              alert(error);
+          }
+      });
+        var places = require('places.js');
+            var placesAutocomplete = places({
+            appId: 'plHY9UTOIKXX',
+            apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+            container: document.querySelector('#address-input')
         });
 
-        
-
-    });
-
-
-
-    var places = require('places.js');
-        var placesAutocomplete = places({
-        appId: 'plHY9UTOIKXX',
-        apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-        container: document.querySelector('#address-input')
-    });
-
-
-
+  });
 });
-
-
-

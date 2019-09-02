@@ -79,7 +79,7 @@ nav{
      z-index: 1;
    }
   .navbar-nav{
-   margin-top: 60px;
+   margin-top: 50px;
   }
   // per l'icona di hamburger menu
   .navbar-toggler{
@@ -119,11 +119,18 @@ nav{
     }
    }
   }
-  // per il badge
-  nav .nav-link .badge{
+  // per il badge 'New'
+  nav .nav-link.house .badge.house, nav .nav-link.upra .badge.upra{
    position: absolute;
-   right: 120px;
    height: 30px;
+  }
+  // per la scritta 'New' di 'Offri una casa'
+  nav .nav-link.house .badge.house{
+    right: 120px;
+  }
+  // per la scritta 'New' di 'Area Personale UPRA'
+  nav .nav-link.upra .badge.upra{
+    right: 38px;
   }
 
 }

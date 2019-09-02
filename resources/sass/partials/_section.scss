@@ -1,76 +1,77 @@
 .first_section{
- height: calc(100vh - 80px);
- color: $body-font-color;
- z-index: 1;
- .container{
-   height: calc(100vh - 150px);
-   display: flex;
-   align-items: center;
- }
+  height: calc(100vh - 80px);
+  color: $body-font-color;
+  z-index: 1;
+  .container{
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+  }
  // per il container contenente 'Prenota..', 'DOVE', 'Cerca'
- .booking{
-   background-color: white;
-   border-radius: 4px;
-   padding: 32px;
-   padding-bottom: 24px;
-   border-radius: 4px;
- }
- // per l'h3, 'Prenota alloggi e attività unici'
- h3{
- font-weight: 600;
- }
- // per 'DOVE'
- strong{
-   opacity: 0.8;
- }
- // per il div contenente il bottone 'Cerca'
- div.button_search{
-   display: flex;
-   justify-content: flex-end;
-   // per il bottone 'Cerca'
-   a{
-     background-color: #ff5a5f;
-     color: white;
-     border-color: #ff5a5f;
-     border-radius: 4px;
-     &:hover{
-       border-color: #ff5a5f;
-     }
-   }
- }
+  .booking{
+    background-color: white;
+    border-radius: 4px;
+    padding: 32px;
+    padding-bottom: 24px;
+    border-radius: 4px;
+  }
+  // per l'h3, 'Prenota alloggi e attività unici'
+  h3{
+   font-weight: 600;
+  }
+  // per 'DOVE'
+  strong{
+    opacity: 0.8;
+  }
+  // per il div contenente il bottone 'Cerca'
+  div.button_search{
+    display: flex;
+    justify-content: flex-end;
+    // per il bottone 'Cerca'
+    a{
+      background-color: #ff5a5f;
+      color: white;
+      border-color: #ff5a5f;
+      border-radius: 4px;
+      &:hover{
+        border-color: #ff5a5f;
+      }
+    }
+  }
 }
+
 // seconda sezione appartamenti in evidenza
-.card-container-flex{
-  display:flex;
-  justify-content: flex-start;
-  margin-top: $mag-top;
-  flex-wrap: wrap;
-
-}
-
-.card{
-  margin-bottom: 20px;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
-  transition: 0.5s;
-  margin: 10px;
-  &:hover{
-    box-shadow: 5px 10px 8px #b0b3b6;
-    transform: scale(1.01);
+.featured_apartments{
+  h3{
+    margin-top: 50px;
   }
-  .card-body{
-    padding: 20px;
-    margin-top: 10px;
+  .card-container-flex{
+    display:flex;
+    justify-content: space-between;
+    margin-top: $mag-top;
+    flex-wrap: wrap;
   }
-  
 
+  .card{
+    margin-bottom: 20px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin: 10px;
+    &:hover{
+      box-shadow: 5px 10px 8px #b0b3b6;
+      transform: scale(1.01);
+    }
+    .card-body{
+      padding: 20px;
+      margin-top: 10px;
+    }
+  }
+  // tolgo il paddind
+  .col-lg-12, .col-lg-3{
+    padding: 0;
+  }
 }
-
-// tolgo il paddind
-.col-lg-12, .col-lg-3{
-  padding: 0;
-}
-
 
 @media screen and (max-width: 768px) {
   .card-container-flex{
