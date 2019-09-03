@@ -1,7 +1,7 @@
 {{-- inizio footer --}}
 <footer>
   <div class="container footer-section">
-      <div class="col-lg-3 col-sm-12">
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <h6>Airbnb</h6>
         <ul>
           <li><a href="#">Opportunità di lavoro</a></li>
@@ -15,7 +15,7 @@
       </div>
 
 
-      <div class="col-lg-3 col-sm-12">
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <h6>Scopri</h6>
         <ul>
           <li><a href="#">Affidabilità e sicurezza</a></li>
@@ -27,7 +27,7 @@
         </ul>
       </div>
 
-      <div class="col-lg-3 col-sm-12">
+      <div class="col-lg-3 col-md-4 col-sm-6">
         <h6>Ospita</h6>
         <ul>
           <li><a href="#">Perché affittare</a></li>
@@ -39,7 +39,7 @@
         </ul>
       </div>
 
-      <div class="col-lg-3 col-sm-12">
+      <div class="col-lg-3 col-md-12 col-sm-6 privacy-and-terms">
         <ul>
           <li>
             <a href="#"><i class="mr-3 fab fa-facebook-f fa-1.5x"></i></a>

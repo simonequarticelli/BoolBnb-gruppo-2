@@ -73,7 +73,13 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 991.98px){
+  .featured_apartments .card{
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
   .card-container-flex{
     margin-top: 0;
   }
@@ -82,5 +88,7 @@
     margin-top: $mag-top;
   }
 
-
+  .card{
+    text-align: center;
+  }
 }

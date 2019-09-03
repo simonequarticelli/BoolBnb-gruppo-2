@@ -48,16 +48,6 @@ footer{
   }
 }
 
-// inizio media queries
-@media (max-width: 767.98px){
-  .footer-section, .sub-footer {
-    flex-wrap: wrap;
-  }
-  .sub-footer-left, .sub-footer-right{
-    justify-content: center;
-  }
- }
-
  // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) {
   .footer-section, .sub-footer {
@@ -69,5 +59,22 @@ footer{
   }
   .sub-footer-right{
     margin-top: 10px;
+  }
+  // per i termini e la privacy
+  .privacy-and-terms{
+    text-align: center;
+  }
+}
+
+// inizio media queries
+@media (max-width: 767.98px){
+  .footer-section, .sub-footer {
+    flex-wrap: wrap;
+  }
+  .sub-footer-left, .sub-footer-right{
+    justify-content: center;
+  }
+  .privacy-and-terms{
+    text-align: left;
   }
 }

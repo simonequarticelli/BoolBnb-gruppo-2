@@ -6,10 +6,11 @@
 
   {{-- header singolo appartamento include inizialmente una immagine è una mappa --}}
   <div class="container house-map-container">
-    <div class="col-lg-7 img-house col-sm-12">
+    <div class="img-house col-xl-7 col-lg-12 col-md-12 col-sm-12">
       {{-- code --}}
     </div>
-    <div class="search-map col-lg-4 col-sm-12">
+
+    <div class="search-map col-xl-4 col-lg-12 col-md-12 col-sm-12">
       {{-- code --}}
     </div>
   </div>

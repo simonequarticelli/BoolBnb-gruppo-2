@@ -10948,7 +10948,13 @@ nav .container-fluid .airbnb-logo-black {
   padding: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 991.98px) {
+  .featured_apartments .card {
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
   .card-container-flex {
     margin-top: 0;
   }
@@ -10956,11 +10962,16 @@ nav .container-fluid .airbnb-logo-black {
   .first-card-container {
     margin-top: 25px;
   }
+
+  .card {
+    text-align: center;
+  }
 }
 
 .house-map-container {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .house-first-section,
@@ -11005,7 +11016,7 @@ nav .container-fluid .airbnb-logo-black {
   margin-bottom: 15px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .house-map-container {
     display: block;
   }
@@ -11020,6 +11031,18 @@ nav .container-fluid .airbnb-logo-black {
   }
 
   .form-house {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .search-map {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .search-map {
     margin-top: 30px;
   }
 }
@@ -11113,18 +11136,6 @@ footer .footer-section ul {
   color: #767676;
 }
 
-@media (max-width: 767.98px) {
-  .footer-section,
-  .sub-footer {
-    flex-wrap: wrap;
-  }
-
-  .sub-footer-left,
-  .sub-footer-right {
-    justify-content: center;
-  }
-}
-
 @media (max-width: 991.98px) {
   .footer-section,
   .sub-footer {
@@ -11139,6 +11150,26 @@ footer .footer-section ul {
 
   .sub-footer-right {
     margin-top: 10px;
+  }
+
+  .privacy-and-terms {
+    text-align: center;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .footer-section,
+  .sub-footer {
+    flex-wrap: wrap;
+  }
+
+  .sub-footer-left,
+  .sub-footer-right {
+    justify-content: center;
+  }
+
+  .privacy-and-terms {
+    text-align: left;
   }
 }
 
