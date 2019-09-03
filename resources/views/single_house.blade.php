@@ -6,12 +6,12 @@
 
   {{-- header singolo appartamento include inizialmente una immagine è una mappa --}}
   <div class="container house-map-container">
-    <div class="col-xl-7 col-lg-12 col-md-12 col-sm-12">
+    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
       {{-- code --}}
       <img class="img-house" src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
     </div>
 
-    <div id="map" class="search-map col-xl-4 col-lg-12 col-md-12 col-sm-12">
+    <div id="map" class="search-map col-xl-4 col-lg-8 col-md-10 col-sm-12">
       {{-- code --}}
     </div>
   </div>
