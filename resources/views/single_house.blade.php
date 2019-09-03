@@ -94,13 +94,6 @@
   val="{{ $house->address }}" 
   placeholder="{{ $house->address }}" />
 
-  <style>
-    #map {
-      height: 300px;
-      width: 300px;
-    }
-  </style>
-
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
   <script>
 
@@ -121,7 +114,7 @@
       container: document.querySelector('#input-map')
     });
 
-    var map = L.map('#map', {
+    var map = L.map('map', {
       scrollWheelZoom: true,
       zoomControl: true
     });
