@@ -47290,29 +47290,10 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // window.Vue = require('vue');
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 // const app = new Vue({
 //     el: '#app',
 // });
@@ -47332,25 +47313,27 @@ $(document).ready(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
   });
+  var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector('#address-input')
+  });
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 
-  $('.ap-suggestions').on('click', function () {
-    var placesAutocomplete = places({
-      appId: 'plHY9UTOIKXX',
-      apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-      container: document.querySelector('#address-input')
-    });
-    var address = $(this).text(); //console.log(city);
-
+  $(document).on('click', '.ap-suggestion', function () {
+    $('#lat').val('');
+    $('#lng').val('');
+    var address = $(this).text();
+    console.log(address);
     $.ajax({
       'url': 'https://places-dsn.algolia.net/1/places/query',
       'method': 'GET',
       'data': {
         'X-Algolia-Application-Id': 'plHY9UTOIKXX',
         'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
-        'hitsPerPage': '1',
         'language': 'it',
-        'countries': 'it',
+        'hitsPerPage': '1',
+        'type': 'city',
         'query': address
       },
       'success': function success(data) {
@@ -47441,8 +47424,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

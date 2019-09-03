@@ -84,10 +84,4 @@
       </div>
     </div>
   </section>
-
-  {{-- <section class="second-section-house">
-    <div class="container house-second-section">
-
-    </div>
-  </section> --}}
 @endsection
