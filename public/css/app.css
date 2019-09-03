@@ -10995,7 +10995,6 @@ nav .container-fluid .airbnb-logo-black {
 .search-map {
   width: 100%;
   height: 50vh;
-  background-image: url(/images/map.jpg?04abf63fae7e8e4601fbc58229bd370d);
   background-size: cover;
   background-position: center;
 }

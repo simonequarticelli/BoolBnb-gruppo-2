@@ -20,17 +20,14 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
-  // quando clicco l'hamburger menu
-  $('.navbar-toggler').click(function(){
-    // nascondo il resto della pagina
-    $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
-  });
 
-    var placesAutocomplete = places({
-        appId: 'plHY9UTOIKXX',
-        apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-        container: document.querySelector('#address-input')
+    // quando clicco l'hamburger menu
+    $('.navbar-toggler').click(function(){
+        // nascondo il resto della pagina
+        $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
     });
+
+    
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
   $(document).on('click', '.ap-suggestion',  function(){
@@ -51,7 +48,6 @@ $(document).ready(function(){
             'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
             'language': 'it',
             'hitsPerPage': '1',
-            'type': 'city',
             'query': address
         },
         'success': function(data){
@@ -81,4 +77,10 @@ $(document).ready(function(){
 
   });
 
+});
+
+var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector('#address-input')
 });

@@ -38,14 +38,14 @@
             dd($new_house->all());
         @endphp --}}
         @foreach ($new_house as $house )
-        <div class="card col-lg-3 col-md-6 col-sm-12 mb-2">
+        <div class="card col-lg-3 col-md-6 col-sm-12">
             <img src="{{ 'storage/' . $house->img }}" class="card-img-top" alt="immagine {{ $house->title }}">
             <div class="card-body">
               <h5 class="card-title">{{ $house->title }}</h5>
               {{-- @php
                   dd([$id = $house->id, $slug = $house->slug]);
               @endphp --}}
-              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger">Scopri</a>
+              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
             </div>
           </div>
         @endforeach

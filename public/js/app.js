@@ -47313,11 +47313,6 @@ $(document).ready(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
   });
-  var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
-  });
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 
   $(document).on('click', '.ap-suggestion', function () {
@@ -47333,7 +47328,6 @@ $(document).ready(function () {
         'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
         'language': 'it',
         'hitsPerPage': '1',
-        'type': 'city',
         'query': address
       },
       'success': function success(data) {
@@ -47357,6 +47351,11 @@ $(document).ready(function () {
       }
     });
   });
+});
+var placesAutocomplete = places({
+  appId: 'plHY9UTOIKXX',
+  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+  container: document.querySelector('#address-input')
 });
 
 /***/ }),
@@ -47424,8 +47423,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
