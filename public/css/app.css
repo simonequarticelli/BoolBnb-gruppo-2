@@ -10958,6 +10958,11 @@ nav .container-fluid .airbnb-logo-black {
   }
 }
 
+.house-map-container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .house-first-section,
 .house-second-section {
   display: flex;
@@ -10994,9 +10999,9 @@ nav .container-fluid .airbnb-logo-black {
   margin-top: 15px;
 }
 
-.form-house h3 h3,
-.form-house h3 .message-form,
-.form-house h3 button {
+.form-house h3,
+.form-house .message-form,
+.form-house button {
   margin-bottom: 15px;
 }
 
