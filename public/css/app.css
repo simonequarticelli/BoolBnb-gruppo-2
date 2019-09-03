@@ -11016,10 +11016,6 @@ nav .container-fluid .airbnb-logo-black {
   margin-bottom: 0;
 }
 
-span.algolia-places {
-  display: none !important;
-}
-
 @media (max-width: 1199.98px) {
   .search-map {
     margin-top: 30px;
