@@ -10808,12 +10808,7 @@ nav .container-fluid {
   line-height: 80px;
 }
 
-nav .navbar-brand {
-  height: 80px;
-  padding: 0;
-}
-
-nav .airbnb-logo-black {
+nav .container-fluid .airbnb-logo-black {
   width: 34px;
   height: 34px;
   fill: #008489;
