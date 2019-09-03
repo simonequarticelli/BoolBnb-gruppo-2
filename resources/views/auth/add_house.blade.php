@@ -65,7 +65,7 @@
 
         <div class="form-group">
             <label>Indirizzo</label>
-            <input name="address" type="search" id="address-input" placeholder="Indirizzo"
+            <input name="address" type="search" id="address-input" style="display: block;" placeholder="Indirizzo"
             required max="100" value="{{ old('address') }}"> {{-- test autocompletamento --}}
             <input id="lat" name="latitude" type="text">
             <input id="lng" name="longitude" type="text">
@@ -86,7 +86,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Crea</button>
+        <button type="submit" class="btn btn-primary">Crea</button>
 
     </form>
 

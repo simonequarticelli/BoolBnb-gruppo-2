@@ -51,13 +51,17 @@
     margin-top: $mag-top;
     flex-wrap: wrap;
   }
-
+  // .card:nth-child(3n+3){
+  //   margin-right: 0;
+  // }
   .card{
     margin-bottom: 20px;
     border: 1px solid #ebebeb;
     border-radius: 5px;
     transition: 0.5s;
     margin: 10px;
+    // 1110px - (277.5x3) / 2
+    // margin-right: 138.75px;
     &:hover{
       box-shadow: 5px 10px 8px #b0b3b6;
       transform: scale(1.01);

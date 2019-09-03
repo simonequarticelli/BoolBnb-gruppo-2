@@ -91,9 +91,9 @@
 
   <input type="search"
   id="input-map"
-  class="form-control"
+  class="form-control no-vision"
   val="{{ $house->address }}"
-  placeholder="{{ $house->address }}" />
+  placeholder="{{ $house->address }}"/>
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
   <script>
