@@ -15,7 +15,7 @@
     </div>
   </div>
   <section class="first-section-house">
-    <div class="container house-first-section mt-5">
+    <div class="container house-first-section mt-5 pl-0">
       <div class="col-lg-8 house-desc">
         <h1>{{ $house->title }}</h1>
 
@@ -80,7 +80,7 @@
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
-          <button type="submit" class="btn btn-primary">Invia</button>
+          <button type="submit" class="btn btn-primary w-100">Invia</button>
           </form>
       </div>
     </div>
