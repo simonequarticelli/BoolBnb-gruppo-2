@@ -27,11 +27,10 @@ $(document).ready(function(){
         $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
     });
 
-    
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
   $(document).on('click', '.ap-suggestion',  function(){
-    
+
     $('#lat').val('');
     $('#lng').val('');
 
@@ -51,7 +50,7 @@ $(document).ready(function(){
             'query': address
         },
         'success': function(data){
-            
+
             //console.log(data.hits);
             //console.log(data);
             var info = data.hits;

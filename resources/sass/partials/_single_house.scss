@@ -7,18 +7,15 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.first-section-house{
+  margin-bottom: 30px;
+}
 // per l'immagine dell'appartamento
 .img-house{
   width: 100%;
-  height: 50vh;
 }
-.search-map{
-  width: 100%;
-  height: 50vh;
-  // background-image: url("sass/immagini_sito/map.jpg");
-  background-size: cover;
-  background-position: center;
-}
+
 
 .form-house{
   border: 1px solid rgb(228, 228, 228);
@@ -35,12 +32,8 @@
     margin-bottom: 0;
   }
 }
-#input-map{
-  display: none !important;
-}
-.ap-icon-pin{
-  display: none !important;
-}
+
+
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px){
@@ -60,9 +53,10 @@
   .house-map-container{
     display: block;
     // per l'immagine dell'appartamento e della mappa
-    .img-house, .search-map{
+    .search-map{
       height: 30vh;
     }
+
     .search-map{
       margin-top: 30px;
     }
