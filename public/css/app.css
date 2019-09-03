@@ -11004,9 +11004,9 @@ nav .airbnb-logo-black {
   margin-top: 15px;
 }
 
-.form-house h3,
-.form-house .message-form,
-.form-house button {
+.form-house h3 h3,
+.form-house h3 .message-form,
+.form-house h3 button {
   margin-bottom: 15px;
 }
 

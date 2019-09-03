@@ -32,16 +32,17 @@
   border-radius: 5px;
   box-shadow: 1px 0px 1px #ced4da;
 
-  // per dare spazio agli elementi del form per l'invio del messaggio
-  h3{
-    margin-top: 15px;
-  }
-  h3, .message-form, button{
-    margin-bottom: 15px;
+    // per dare spazio agli elementi del form per l'invio del messaggio
+    h3{
+      margin-top: 15px;
+    h3, .message-form, button{
+      margin-bottom: 15px;
+    }
   }
 }
 
 @media (max-width: 767px){
+  // per il container della mappa e dell'appartamento
   .house-map-container{
     display: block;
     // per l'immagine dell'appartamento e della mappa
