@@ -10980,12 +10980,10 @@ nav .container-fluid .airbnb-logo-black {
   flex-wrap: wrap;
 }
 
-.first-section-house {
-  margin-bottom: 30px;
-}
-
-.img-house {
+.img-house,
+.search-map {
   width: 100%;
+  height: 50vh;
 }
 
 .form-house {
@@ -11006,6 +11004,14 @@ nav .container-fluid .airbnb-logo-black {
 
 .form-house .button-container {
   margin-bottom: 0;
+}
+
+#input-map {
+  display: none !important;
+}
+
+.ap-icon-pin {
+  display: none !important;
 }
 
 @media (max-width: 1199.98px) {
