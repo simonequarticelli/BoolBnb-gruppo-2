@@ -35,11 +35,11 @@ require('./bootstrap');
 /*INIZIALIZZO JQUERY*/
 var $ = require('jquery');
 
+/*INIZIALIZZO ALGOLIA*/
+var places = require('places.js');
+
 
 $(document).ready(function(){
-  // $('#badge-new').click(function(){
-  //     $('.badge').hide();
-  // });
 
   // quando clicco l'hamburger menu
   $('.navbar-toggler').click(function(){
@@ -48,52 +48,55 @@ $(document).ready(function(){
   });
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
-  $(document).on('click', '.ap-suggestions', function(){
+  $('.ap-suggestions').on('click', function(){
 
-      var city = $(this).text();
-          //console.log(city);
+    var placesAutocomplete = places({
+        appId: 'plHY9UTOIKXX',
+        apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+        container: document.querySelector('#address-input')
+    });
 
-      $.ajax({
-          'url':'https://places-dsn.algolia.net/1/places/query',
+    var address = $(this).text();
+        //console.log(city);
 
-          'method': 'GET',
+    $.ajax({
+        'url':'https://places-dsn.algolia.net/1/places/query',
 
-          'data':{
-              'X-Algolia-Application-Id': 'plHY9UTOIKXX',
-              'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
-              'hitsPerPage': '1',
-              'language': 'it',
-              'query': city,
-          },
-          'success': function(data){
-              //console.log(data.hits);
-              //console.log(data);
-              var info = data.hits;
-              //console.log(info);
+        'method': 'GET',
+
+        'data':{
+            'X-Algolia-Application-Id': 'plHY9UTOIKXX',
+            'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
+            'hitsPerPage': '1',
+            'language': 'it',
+            'countries': 'it',
+            'query': address,
+        },
+        'success': function(data){
+            
+            //console.log(data.hits);
+            //console.log(data);
+            var info = data.hits;
+            //console.log(info);
 
 
-              for (var i = 0; i < info.length; i++) {
-                  var data = info[i];
-                  //console.log(data._geoloc);
-                  var geo = data._geoloc;
-                  //console.log(geo);
+            for (var i = 0; i < info.length; i++) {
+                var data = info[i];
+                //console.log(data._geoloc);
+                var geo = data._geoloc;
+                console.log(geo);
 
-                  /*assegno lat e lng a input hidden*/
-                  $('#lat').val(geo.lat);
-                  $('#lng').val(geo.lng);
-              }
+                /*assegno lat e lng a input hidden*/
+                $('#lat').val(geo.lat);
+                $('#lng').val(geo.lng);
+            }
 
-          },
-          'error': function(error){
-              alert(error);
-          }
-      });
-        var places = require('places.js');
-            var placesAutocomplete = places({
-            appId: 'plHY9UTOIKXX',
-            apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-            container: document.querySelector('#address-input')
-        });
+        },
+        'error': function(error){
+            alert(error);
+        }
+    });
 
   });
+
 });

@@ -24,5 +24,5 @@ Route::middleware('auth')->prefix('admin')->group(function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 /*nella rotta passiamo due parametri slug/id*/
-Route::get('/house-details/{slug}/{id}', 'HomeController@DetailsHouseHome')->name('house_details');
+Route::get('/house-details/{slug}/{id}', 'HomeController@detailsHouseHome')->name('house_details');
 

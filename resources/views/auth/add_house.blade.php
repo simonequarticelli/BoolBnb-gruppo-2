@@ -65,10 +65,10 @@
 
         <div class="form-group">
             <label>Indirizzo</label>
-            <input name="address" type="search" id="address-input" placeholder="Città e indirizzo"
+            <input name="address" type="search" id="address-input" placeholder="Indirizzo"
             required max="100" value="{{ old('address') }}"> {{-- test autocompletamento --}}
-            <input id="lat" name="longitude" type="text" hidden>
-            <input id="lng" name="latitude" type="text" hidden>
+            <input id="lat" name="latitude" type="text">
+            <input id="lng" name="longitude" type="text">
             @error('address')
                 <span class="invalid-tooltip" role="alert">
                     <strong>{{ $message }}</strong>

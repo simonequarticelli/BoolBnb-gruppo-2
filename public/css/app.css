@@ -10958,11 +10958,6 @@ nav .container-fluid .airbnb-logo-black {
   }
 }
 
-.house-map-container {
-  display: flex;
-  justify-content: space-between;
-}
-
 .house-first-section,
 .house-second-section {
   display: flex;

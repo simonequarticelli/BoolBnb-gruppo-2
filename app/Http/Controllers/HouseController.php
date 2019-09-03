@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Session;
 
 class HouseController extends Controller
 {
@@ -21,35 +22,20 @@ class HouseController extends Controller
 
     public function index()
     {   
-        // Session()->put('badge_index', 'true');
-        
-        //dd(Session());
-
         $houses_user = Auth::user()->houses; 
-
         return view('auth.personal_page_upra', compact('houses_user'));
-
     }
 
 
     public function create()
     {   
-        // Session()->put('badge_create', 'true');
-
-        //dd(Session());
-        
         $features = Feature::all();
-        
         return view('auth.add_house', compact('features'));
-
-        
-
     }
 
 
     public function store(Request $request)
     {
-        
         
         // dd(Auth::user()->id);
 
