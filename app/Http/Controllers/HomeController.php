@@ -12,24 +12,24 @@ class HomeController extends Controller
     tranne che per vedere la homepage e i dettagli delle case*/
     public function __construct()
     {
-        $this->middleware('auth')->except(['index', 'DetailsHouseHome']);
+        $this->middleware('auth')->except(['index', 'detailsHouseHome']);
     }
 
 
     public function index()
-    {   
+    {
         $new_house = House::all();
-        
+
         return view('home', compact('new_house'));
     }
 
-    public function detailsHouseHome($id, $slug) 
-    {   
-        
+    public function detailsHouseHome($id, $slug) //mettere prima lettera minuscola => D
+    {
+
         $house = House::find($id);
 
         return view('single_house', compact('house'));
-         
+
     }
 
 }
