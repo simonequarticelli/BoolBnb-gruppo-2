@@ -73,12 +73,13 @@
   }
 }
 
+// Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px){
   .featured_apartments .card{
     margin: 0;
   }
 }
-
+// Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
   .card-container-flex{
     margin-top: 0;

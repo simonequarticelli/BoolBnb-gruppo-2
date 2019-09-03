@@ -39,9 +39,29 @@
   h3, .message-form, button{
     margin-bottom: 15px;
   }
+  .button-container{
+    margin-bottom: 0;
+  }
+}
+
+span.algolia-places{
+  display: none !important;
 }
 
 
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px){
+  .search-map{
+    margin-top: 30px;
+  }
+}
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px){
+  .search-map{
+    margin-top: 30px;
+  }
+}
+// Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px){
   // per il container della mappa e dell'appartamento
   .house-map-container{
@@ -55,18 +75,6 @@
     }
   }
   .form-house{
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 991.98px){
-  .search-map{
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 1199.98px){
-  .search-map{
     margin-top: 30px;
   }
 }

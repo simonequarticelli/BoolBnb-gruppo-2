@@ -11015,6 +11015,26 @@ nav .container-fluid .airbnb-logo-black {
   margin-bottom: 15px;
 }
 
+.form-house .button-container {
+  margin-bottom: 0;
+}
+
+span.algolia-places {
+  display: none !important;
+}
+
+@media (max-width: 1199.98px) {
+  .search-map {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .search-map {
+    margin-top: 30px;
+  }
+}
+
 @media (max-width: 767.98px) {
   .house-map-container {
     display: block;
@@ -11030,18 +11050,6 @@ nav .container-fluid .airbnb-logo-black {
   }
 
   .form-house {
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .search-map {
-    margin-top: 30px;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .search-map {
     margin-top: 30px;
   }
 }

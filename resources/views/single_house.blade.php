@@ -80,7 +80,7 @@
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
-          <button type="submit" class="btn btn-primary w-100">Invia</button>
+            <button type="submit" class="btn btn-primary">Invia</button>
           </form>
       </div>
     </div>
@@ -88,10 +88,10 @@
 
   <!------------------------------------ALGOLIA-------------------------------------------->
 
-  <input type="search" 
-  id="input-map" 
-  class="form-control" 
-  val="{{ $house->address }}" 
+  <input type="search"
+  id="input-map"
+  class="form-control"
+  val="{{ $house->address }}"
   placeholder="{{ $house->address }}" />
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
@@ -101,7 +101,7 @@
     var lng = '{{ $house->longitude }}';
     console.log(lat);
     console.log(lng);
-    
+
   (function() {
     var latlng = {
       lat: lat,
