@@ -17,9 +17,49 @@ class HouseController extends Controller
     public function __construct() {
         /*per usare questo controller l'utente deve essere autenticato con assegnato il ruolo di "upra"
         tranne che per accedere alle funzioni create e store*/
-        $this->middleware('role:upra')->except(['create', 'store']);
+        $this->middleware('role:upra')->except(['create', 'store', 'search']);
     }
 
+    /*----------------filter-------------------*/
+    public function search(Request $request)
+    {   
+
+        //dd($request);
+        $data = $request->all();
+
+        /*validazione dei dati*/
+        $validateData = $request->validate([
+            'address_home' => 'required|string|max:100|regex:/^[a-zA-Z ]+$/'
+
+            /*espressione regolare => 'not_regex:/^.+$/i'*/
+            // 'name' => 'regex:/^[a-zA-Z ]+$/'
+            // name' => 'regex:/^[A-Za-z\s-_]+$/';
+
+        ]);
+        
+        $house = House::all();
+        //dd($house);
+
+        $address_home = $data['address_home'];
+
+        //dd($address_home);
+
+        $house_selected = DB::table('houses')
+            ->where('address', 'like', '%'.$address_home.'%')->get()->dd();
+        
+        
+
+
+
+
+
+
+
+
+        return view('search_house');
+    }
+    /*-----------------------------------------*/
+    
     public function index()
     {   
         $houses_user = Auth::user()->houses; 

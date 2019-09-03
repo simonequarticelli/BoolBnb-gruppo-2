@@ -17,8 +17,23 @@ var $ = require('jquery');
 /*INIZIALIZZO ALGOLIA*/
 var places = require('places.js');
 
+/*test algolia input homepage*/
+// var placesAutocomplete = places({
+//     appId: 'plHY9UTOIKXX',
+//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+//     container: document.querySelector('#home-address-input')
+// });
+
+var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector('#address-input')
+});
+
 
 $(document).ready(function(){
+
+    
 
 
     // quando clicco l'hamburger menu
@@ -76,10 +91,43 @@ $(document).ready(function(){
 
   });
 
+
+//   $('#search_house_api').click(function(){
+//     $.ajax({
+//         url: 'http://localhost:8000/api/index',
+//         method: 'GET',
+        
+//         success: function(data){
+          
+//           var houses = data.result;
+//           console.log(houses);
+//           for (var i = 0; i < houses.length; i++) {
+//             //console.log(movies[i]);
+//             var house = houses[i];
+//             $('.house').append('<li>' + house.title + ' - ' + house.address + '</li>');
+//           }
+    
+//         },
+//         error: function(){
+//           'error'
+//         }
+//       });
+//   });
+
+  
+
+
+
+
 });
 
+<<<<<<< Updated upstream
 var placesAutocomplete = places({
     appId: 'plHY9UTOIKXX',
     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
     container: document.querySelector('#address-input')
 });
+=======
+
+
+>>>>>>> Stashed changes

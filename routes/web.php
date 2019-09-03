@@ -17,12 +17,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth')->prefix('admin')->group(function(){
+Route::prefix('admin')->group(function(){
     Route::resource('/house', 'HouseController');
 });
 
+/*rotte per i filtri lato php*/
+Route::post('/house/search', 'HouseController@search')->name('house.search');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 /*nella rotta passiamo due parametri slug/id*/
 Route::get('/house-details/{slug}/{id}', 'HomeController@detailsHouseHome')->name('house_details');
 

@@ -11006,6 +11006,7 @@ nav .container-fluid .airbnb-logo-black {
   margin-bottom: 0;
 }
 
+<<<<<<< Updated upstream
 #input-map {
   display: none !important;
 }
@@ -11014,6 +11015,8 @@ nav .container-fluid .airbnb-logo-black {
   display: none !important;
 }
 
+=======
+>>>>>>> Stashed changes
 @media (max-width: 1199.98px) {
   .house-map-container {
     justify-content: center;

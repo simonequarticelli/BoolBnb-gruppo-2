@@ -67,8 +67,8 @@
             <label>Indirizzo</label>
             <input name="address" type="search" id="address-input" style="display: block;" placeholder="Indirizzo"
             required max="100" value="{{ old('address') }}"> {{-- test autocompletamento --}}
-            <input id="lat" name="latitude" type="text">
-            <input id="lng" name="longitude" type="text">
+            <input id="lat" name="latitude" type="text" hidden>
+            <input id="lng" name="longitude" type="text" hidden>
             @error('address')
                 <span class="invalid-tooltip" role="alert">
                     <strong>{{ $message }}</strong>

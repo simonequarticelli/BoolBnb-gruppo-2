@@ -67,21 +67,35 @@
       <div class="col-lg-4 form-house">
         <h3>Scrivi al proprietario</h3>
           <form class="" action="index.html" method="post">
+            <!--controllo se l'utente è il proprietario, se lo è disabilito il form-->
+            @if ($house->user_id == Auth::user()->id)
+              <fieldset disabled>
+            @endif
             <div class="form-group">
               <label for="exampleInputEmail1">La tua Mail</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              
 
-              @if (Auth::user())
-              value="{{ Auth::user()->email }}"
+              {{-- se l'utente non è il proprietario inserisco la sua mail nell'input--}}
+              @if ($house->user_id != Auth::user()->id)
+                value="{{ Auth::user()->email }}"
+              {{-- controllo se l'utente è il proprietario, se lo è inserisco il placeholder --}}
+              @elseif ($house->user_id == Auth::user()->id)
+                placeholder="Inserisci la tua mail">
               @endif
-              placeholder="Inserisci la tua mail">
-
+              
+              
             </div>
             <div class="form-group message-form">
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Invia</button>
+            <button 
+            {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
+              @if ($house->user_id == Auth::user()->id) 
+                class="btn btn-primary disabled" Style="pointer-events:none;"
+              @endif
+                type="submit" class="btn btn-primary">Invia</button>
           </form>
       </div>
     </div>
@@ -116,7 +130,7 @@
     });
 
     var map = L.map('map', {
-      scrollWheelZoom: true,
+      scrollWheelZoom: false,
       zoomControl: true
     });
 

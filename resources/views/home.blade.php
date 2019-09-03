@@ -18,12 +18,36 @@
               <div class="where">
                 <strong>DOVE</strong>
               </div>
-              <div class="input-group mt-2 mb-2">
-                <input type="text" class="form-control" placeholder="Ovunque" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-              <div class="button_search">
-                <a href="#" class="btn btn-info mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</a>
-              </div>
+
+              
+              
+              <form action="{{ route('house.search') }}" method="POST">
+                @csrf
+                <div class="input-group mt-2 mb-2">
+                  
+                  {{-- test algolia --}}
+                    {{-- <input type="search" id="home-address-input" placeholder="Ovunque">
+                    <input name="address_home" type="text" hidden> --}}
+
+
+                    <input type="text" required name="address_home" class="form-control @error('address_home') is-invalid @enderror" 
+                    placeholder="Ovunque" aria-label="Username" aria-describedby="basic-addon1" value="{{ old('filter_city') }}">
+                    @error('address_home')
+                        <span class="invalid-tooltip" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+
+                </div>
+                <div class="button_search">
+                  <button type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
+                </div>
+              </form>
+
+
+
+              
             </div>
           </div>
         </div>
