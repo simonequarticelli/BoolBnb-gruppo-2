@@ -10980,6 +10980,10 @@ nav .container-fluid .airbnb-logo-black {
   flex-wrap: wrap;
 }
 
+.first-section-house {
+  margin-bottom: 30px;
+}
+
 .img-house {
   width: 100%;
 }
