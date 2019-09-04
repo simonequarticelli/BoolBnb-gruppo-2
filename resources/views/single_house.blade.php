@@ -213,11 +213,5 @@
     }
   })();
   </script>
-
-
 @endsection
 
-{{-- TITOLO PAGINA --}}
-@section('page_title')
-  {{ $house->title }}
-@endsection

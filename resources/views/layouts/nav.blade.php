@@ -35,7 +35,7 @@
 
                     @if (Auth::user()->HasRole('upra'))
                         <li class="nav-item">
-                            <a class="nav-link upra ml-3" id="badge-new" href="{{ route('house.index') }}">
+                            <a class="nav-link upra ml-3" id="badge-new" href="#">
                                 <span class="badge upra-statics badge-danger mb-5">New</span>
                                 Statistiche</a>
                         </li>

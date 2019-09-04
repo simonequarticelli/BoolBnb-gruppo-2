@@ -17,24 +17,15 @@ var $ = require('jquery');
 /*INIZIALIZZO ALGOLIA*/
 var places = require('places.js');
 
-/*test algolia input homepage*/
-// var placesAutocomplete = places({
-//     appId: 'plHY9UTOIKXX',
-//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-//     container: document.querySelector('#home-address-input')
-// });
-
 var placesAutocomplete = places({
     appId: 'plHY9UTOIKXX',
     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
+    container: document.querySelector(['#home-address-input', '#address-input']),
 });
-
 
 $(document).ready(function(){
 
     
-
 
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
@@ -43,14 +34,14 @@ $(document).ready(function(){
     });
 
 
-  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
+  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA + RICERCA HOMEPAGE*/
   $(document).on('click', '.ap-suggestion',  function(){
 
     $('#lat').val('');
     $('#lng').val('');
 
     var address = $(this).text();
-        console.log(address);
+        //console.log(address);
 
     $.ajax({
         'url':'https://places-dsn.algolia.net/1/places/query',
@@ -71,17 +62,25 @@ $(document).ready(function(){
             var info = data.hits;
             //console.log(info);
 
+            
 
             for (var i = 0; i < info.length; i++) {
                 var data = info[i];
-                //console.log(data._geoloc);
+                console.log(data);
                 var geo = data._geoloc;
-                console.log(geo);
+
+                // console.log(test);
 
                 /*assegno lat e lng a input hidden*/
                 $('#lat').val(geo.lat);
                 $('#lng').val(geo.lng);
             }
+
+
+            var value = $('#home-address-input').val();
+
+            $('#search_homepage').val(value);
+            
 
         },
         'error': function(error){
@@ -121,8 +120,14 @@ $(document).ready(function(){
 
 });
 
-var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
-});
+
+
+
+    
+
+    
+
+
+    
+
+

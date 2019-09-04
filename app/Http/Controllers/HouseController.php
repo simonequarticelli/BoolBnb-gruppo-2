@@ -23,28 +23,25 @@ class HouseController extends Controller
     /*----------------filter-------------------*/
     public function search(Request $request)
     {   
-        
-        //dd($request);
-        $data = $request->all();
 
         /*validazione dei dati*/
         $validateData = $request->validate([
-            'address_home' => 'required|string|max:100|regex:/^[a-zA-Z ]+$/'
+            'address_home' => 'required|string|max:100'
 
             /*espressione regolare => 'not_regex:/^.+$/i'*/
             // 'name' => 'regex:/^[a-zA-Z ]+$/'
             // name' => 'regex:/^[A-Za-z\s-_]+$/';
 
         ]);
-        
-        $house = House::all();
-        //dd($house);
 
+        $data = $request->all();
+        //dd($data);
+        
         $address_home = $data['address_home'];
 
         //dd($address_home);
 
-        $house_selected = DB::table('houses')
+        $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address_home.'%')->get()->dd();
         
         

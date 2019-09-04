@@ -47306,18 +47306,11 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-/*test algolia input homepage*/
-// var placesAutocomplete = places({
-//     appId: 'plHY9UTOIKXX',
-//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-//     container: document.querySelector('#home-address-input')
-// });
-
 
 var placesAutocomplete = places({
   appId: 'plHY9UTOIKXX',
   apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-  container: document.querySelector('#address-input')
+  container: document.querySelector(['#home-address-input', '#address-input'])
 });
 $(document).ready(function () {
   // quando clicco l'hamburger menu
@@ -47325,13 +47318,13 @@ $(document).ready(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
   });
-  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
+  /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA + RICERCA HOMEPAGE*/
 
   $(document).on('click', '.ap-suggestion', function () {
     $('#lat').val('');
     $('#lng').val('');
-    var address = $(this).text();
-    console.log(address);
+    var address = $(this).text(); //console.log(address);
+
     $.ajax({
       'url': 'https://places-dsn.algolia.net/1/places/query',
       'method': 'GET',
@@ -47348,15 +47341,18 @@ $(document).ready(function () {
         var info = data.hits; //console.log(info);
 
         for (var i = 0; i < info.length; i++) {
-          var data = info[i]; //console.log(data._geoloc);
+          var data = info[i];
+          console.log(data);
+          var geo = data._geoloc; // console.log(test);
 
-          var geo = data._geoloc;
-          console.log(geo);
           /*assegno lat e lng a input hidden*/
 
           $('#lat').val(geo.lat);
           $('#lng').val(geo.lng);
         }
+
+        var value = $('#home-address-input').val();
+        $('#search_homepage').val(value);
       },
       'error': function error(_error) {
         alert(_error);
@@ -47380,11 +47376,6 @@ $(document).ready(function () {
   //         }
   //       });
   //   });
-});
-var placesAutocomplete = places({
-  appId: 'plHY9UTOIKXX',
-  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-  container: document.querySelector('#address-input')
 });
 
 /***/ }),
