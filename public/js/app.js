@@ -47306,6 +47306,13 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+/*test algolia input homepage*/
+// var placesAutocomplete = places({
+//     appId: 'plHY9UTOIKXX',
+//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+//     container: document.querySelector('#home-address-input')
+// });
+
 
 var placesAutocomplete = places({
   appId: 'plHY9UTOIKXX',

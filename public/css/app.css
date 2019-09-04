@@ -10960,7 +10960,6 @@ nav .container-fluid .airbnb-logo-black {
 @media (max-width: 991.98px) {
   .featured_apartments .card {
     margin: 0;
-    margin-top: 20px;
   }
 }
 
@@ -10988,10 +10987,6 @@ nav .container-fluid .airbnb-logo-black {
 .house-second-section {
   display: flex;
   flex-wrap: wrap;
-}
-
-.no-padding {
-  padding: 0;
 }
 
 .img-house,
@@ -11206,3 +11201,4 @@ footer .footer-section ul {
     text-align: left;
   }
 }
+

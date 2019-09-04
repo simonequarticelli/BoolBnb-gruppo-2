@@ -16,7 +16,7 @@
               <div class="card-body d-flex flex-lg-row flex-column justify-content-between">
                 <h5 class="card-title">{{ $house->title }}</h5>
                 <div class="btn-group flex-lg-column flex-row" role="" aria-label="">
-                  <a href="#" class="btn btn-primary">Visualizza</a>
+                  <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-primary">Visualizza</a>
                   <a href="#" class="btn btn-primary">Modifica</a>
                   <a href="#" class="btn btn-danger">Elimina</a>
                 </div>
