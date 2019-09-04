@@ -7,7 +7,9 @@
   display: flex;
   flex-wrap: wrap;
 }
-
+.no-padding{
+  padding: 0;
+}
 // per l'immagine dell'appartamento
 .img-house, .search-map{
   width: 100%;

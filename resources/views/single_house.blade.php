@@ -6,7 +6,7 @@
 
   {{-- header singolo appartamento include inizialmente una immagine è una mappa --}}
   <div class="container house-map-container">
-    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12">
+    <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 no-padding">
       {{-- code --}}
       <img class="img-house" src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
     </div>
@@ -75,7 +75,7 @@
             <div class="form-group">
               <label for="exampleInputEmail1">La tua Mail</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-              
+
               @if (Auth::user() == null)
                 placeholder="Inserisci la tua mail"
               {{-- se l'utente non è il proprietario inserisco la sua mail nell'input--}}
@@ -85,17 +85,17 @@
               @elseif ($house->user_id == Auth::user()->id)
                 placeholder="Inserisci la tua mail">
               @endif
-              
-              
+
+
             </div>
             <div class="form-group message-form">
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
-            <button 
+            <button
               @if (Auth::user() == null)
               {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
-              @elseif ($house->user_id == Auth::user()->id) 
+              @elseif ($house->user_id == Auth::user()->id)
                 class="btn btn-primary disabled" Style="pointer-events:none;"
               @endif
                 type="submit" class="btn btn-primary">Invia</button>
