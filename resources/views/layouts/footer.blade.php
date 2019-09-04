@@ -1,5 +1,5 @@
 {{-- inizio footer --}}
-<footer class="fixed-bottom">
+<footer>
   <div class="container footer-section">
       <div class="col-lg-3 col-md-4 col-sm-6">
         <h6>Airbnb</h6>

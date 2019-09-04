@@ -10814,6 +10814,15 @@ nav .container-fluid .airbnb-logo-black {
   fill: #008489;
 }
 
+/* badge link statistiche*/
+
+.nav-link.upra .badge.upra-statics {
+  position: absolute;
+  height: 15px;
+  right: 70px;
+  top: 15px;
+}
+
 @media (max-width: 767px) {
   .navbar-brand {
     z-index: 1;

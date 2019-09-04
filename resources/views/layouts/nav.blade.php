@@ -33,6 +33,14 @@
                     @endif
                 @else
 
+                    @if (Auth::user()->HasRole('upra'))
+                        <li class="nav-item">
+                            <a class="nav-link upra ml-3" id="badge-new" href="{{ route('house.index') }}">
+                                <span class="badge upra-statics badge-danger mb-5">New</span>
+                                Statistiche</a>
+                        </li>
+                    @endif
+
                     <li class="nav-item dropdown ml-3">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
