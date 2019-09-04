@@ -3,28 +3,70 @@
 @include('layouts.nav')
 
 @section('content')
-
+<section class="upra-section">
   <div class="container d-flex flex-wrap">
     <h1 class="col-lg-12 text-center mb-3">I tuoi appartamenti</h1>
     @foreach ( $houses_user as $house )
-        <div class="card col-lg-6 col-sm-12 col-md-6 mb-3 mr-2 pl-0 pr-0" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-5">
-              <img src="{{ asset('storage/' . $house->img) }}" class="card-img" alt="immagine {{ $house->title }}">
-            </div>
-            <div class="col-md-7">
-              <div class="card-body d-flex flex-lg-row flex-column justify-content-between">
-                <h5 class="card-title">{{ $house->title }}</h5>
-                <div class="btn-group flex-lg-column flex-row" role="" aria-label="">
-                  <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-primary">Visualizza</a>
-                  <a href="#" class="btn btn-primary">Modifica</a>
-                  <a href="#" class="btn btn-danger">Elimina</a>
-                </div>
+      <div class="card mb-12">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ asset('storage/' . $house->img) }}" class="card-img" alt="immagine {{ $house->title }} ">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ $house->title }}</h5>
+              <p class="card-text">L'appartamento si trova in {{ $house->address }} ed ha una grandezza di {{ $house->mq }} mq, con {{ $house->n_beds }} letti e {{ $house->n_wc }} bagni.</p>
+              @if ($house->features->count() > 0)
+                <h3>Servizi</h3>
+                @php
+                  $features_house = $house->features
+                @endphp
+                @foreach ($features_house as $feature)
+                  <ul>
+                    <li class="list-unstyled">
+                        @switch($feature->name)
+                          @case('wifi')
+                            <i class="fas fa-wifi mr-3"></i>{{ $feature->name }}
+                              @break
+                          @case('posto macchina')
+                            <i class="fas fa-car mr-3"></i>{{ $feature->name }}
+                              @break
+                          @case('piscina')
+                            <i class="fas fa-door-open mr-3"></i>{{ $feature->name }}
+                            @break
+                          @case('sauna')
+                            <i class="fas fa-hot-tub mr-3"></i>{{ $feature->name }}
+                            @break
+                          @case('vista mare')
+                            <i class="fas fa-water mr-3"></i>{{ $feature->name }}
+                            @break
+                          @default
+                          @endswitch
+                        </li>
+                    </ul>
+                  @endforeach
+                @else
+                <h3>Servizi non presenti</h3>
+                <ul>
+                  <li class="list-unstyled">
+                    <i class="fas fa-frown fa-3x"></i>
+                  </li>
+                </ul>
+              @endif
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
+                <form action="{{ route('house.destroy', $house->id) }}" method="post">
+                  <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
+                  @method('DELETE')
+                  @csrf
+                </form>
               </div>
             </div>
           </div>
         </div>
+      </div>
     @endforeach
   </div>
-    
+</section>
+
 @endsection

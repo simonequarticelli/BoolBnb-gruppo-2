@@ -70,6 +70,10 @@
       padding: 20px;
       margin-top: 10px;
     }
+    img{
+      height: 175px;
+      object-fit: cover;
+    }
   }
   // tolgo il padding
   .col-lg-12, .col-lg-3{
@@ -77,11 +81,62 @@
   }
 }
 
+
+// per la sezione dell'upra
+section.upra-section{
+  // .card{
+  //   margin-right: 35px;
+  // }
+  .card{
+    height: 250px;
+    margin-bottom: 30px;
+    .card-img{
+      height: 250px;
+      object-fit: cover;
+    }
+    .card-body{
+      padding: 10px 20px;
+    }
+  }
+  .btn-group{
+    height: 37px;
+  }
+}
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) {
+  .featured_apartments .card img{
+    height: 150px;
+  }
+  section.upra-section{
+    .card{
+      height: 270px;
+      .card-img{
+        height: 270px;
+      }
+    }
+  }
+}
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px){
   .featured_apartments .card{
     margin: 0;
     margin-top: 20px;
+    img{
+      height: 220px;
+    }
+  }
+
+  section.upra-section{
+    .card{
+      height: 250px;
+      .card-img{
+        height: 250px;
+      }
+      .card-body{
+        padding: 0 20px;
+      }
+    }
   }
 }
 // Small devices (landscape phones, less than 768px)
@@ -89,12 +144,22 @@
   .card-container-flex{
     margin-top: 0;
   }
-
   .first-card-container{
     margin-top: $mag-top;
   }
-
-  .card{
+  .featured_apartments .card{
     text-align: center;
+    img{
+      height: 220px;
+    }
+  }
+
+  section.upra-section{
+    .card{
+      height: auto;
+      .card-img{
+        height: 200px;
+      }
+    }
   }
 }

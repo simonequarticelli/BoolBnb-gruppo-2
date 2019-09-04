@@ -17,7 +17,7 @@
               <h2>Prenota alloggi e attività unici.</h2>
               <div class="where">
                 <strong>DOVE</strong>
-              </div>  
+              </div>
               <form action="{{ route('house.search') }}" method="POST">
                 @csrf
                 <div class="input-group mt-2 mb-2">

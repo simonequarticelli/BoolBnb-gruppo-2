@@ -10866,6 +10866,12 @@ nav .container-fluid .airbnb-logo-black {
   li.nav-item a a:active {
     border-bottom: none;
   }
+
+  .nav-link.upra .badge.upra-statics {
+    position: absolute;
+    height: 30px;
+    right: 156px;
+  }
 }
 
 .content_home {
@@ -10952,14 +10958,70 @@ nav .container-fluid .airbnb-logo-black {
   margin-top: 10px;
 }
 
+.featured_apartments .card img {
+  height: 175px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .featured_apartments .col-lg-12,
 .featured_apartments .col-lg-3 {
   padding: 0;
 }
 
+section.upra-section .card {
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+section.upra-section .card .card-img {
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section.upra-section .card .card-body {
+  padding: 10px 20px;
+}
+
+section.upra-section .btn-group {
+  height: 37px;
+}
+
+@media (max-width: 1199.98px) {
+  .featured_apartments .card img {
+    height: 150px;
+  }
+
+  section.upra-section .card {
+    height: 270px;
+  }
+
+  section.upra-section .card .card-img {
+    height: 270px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .featured_apartments .card {
     margin: 0;
+    margin-top: 20px;
+  }
+
+  .featured_apartments .card img {
+    height: 220px;
+  }
+
+  section.upra-section .card {
+    height: 250px;
+  }
+
+  section.upra-section .card .card-img {
+    height: 250px;
+  }
+
+  section.upra-section .card .card-body {
+    padding: 0 20px;
   }
 }
 
@@ -10972,8 +11034,20 @@ nav .container-fluid .airbnb-logo-black {
     margin-top: 25px;
   }
 
-  .card {
+  .featured_apartments .card {
     text-align: center;
+  }
+
+  .featured_apartments .card img {
+    height: 220px;
+  }
+
+  section.upra-section .card {
+    height: auto;
+  }
+
+  section.upra-section .card .card-img {
+    height: 200px;
   }
 }
 
@@ -10987,6 +11061,10 @@ nav .container-fluid .airbnb-logo-black {
 .house-second-section {
   display: flex;
   flex-wrap: wrap;
+}
+
+.no-padding {
+  padding: 0;
 }
 
 .img-house,
@@ -11187,7 +11265,6 @@ footer .footer-section ul {
 }
 
 @media (max-width: 767.98px) {
-  .footer-section,
   .sub-footer {
     flex-wrap: wrap;
   }
@@ -11199,6 +11276,11 @@ footer .footer-section ul {
 
   .privacy-and-terms {
     text-align: left;
+  }
+
+  .footer-section,
+  .sub-footer-right {
+    display: none;
   }
 }
 

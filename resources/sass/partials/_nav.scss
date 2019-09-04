@@ -65,4 +65,11 @@ nav{
       }
     }
   }
+
+  // per il badge 'New'
+  .nav-link.upra .badge.upra-statics{
+   position: absolute;
+   height: 30px;
+   right: 156px;
+  }
 }

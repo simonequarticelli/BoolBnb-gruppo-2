@@ -22,7 +22,7 @@ class HouseController extends Controller
 
     /*----------------filter-------------------*/
     public function search(Request $request)
-    {   
+    {
 
         /*validazione dei dati*/
         $validateData = $request->validate([
@@ -36,15 +36,15 @@ class HouseController extends Controller
 
         $data = $request->all();
         //dd($data);
-        
+
         $address_home = $data['address_home'];
 
         //dd($address_home);
 
         $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address_home.'%')->get()->dd();
-        
-        
+
+
 
 
 
@@ -56,16 +56,16 @@ class HouseController extends Controller
         return view('search_house');
     }
     /*-----------------------------------------*/
-    
+
     public function index()
-    {   
-        $houses_user = Auth::user()->houses; 
+    {
+        $houses_user = Auth::user()->houses;
         return view('auth.personal_page_upra', compact('houses_user'));
     }
 
 
     public function create()
-    {   
+    {
         $features = Feature::all();
         return view('auth.add_house', compact('features'));
     }
@@ -73,7 +73,7 @@ class HouseController extends Controller
 
     public function store(Request $request)
     {
-        
+
         // dd(Auth::user()->id);
 
         /*validazione dei dati*/
@@ -98,7 +98,7 @@ class HouseController extends Controller
           $member = Role::where( 'name', '=', 'upra' )->first();
 
           // Give each new user the role of 'member'
-          $user->attachRole($member); 
+          $user->attachRole($member);
         }
 
         $data = $request->all();
@@ -113,10 +113,10 @@ class HouseController extends Controller
         $new_house->save();
 
         if (!empty($data['feature'])) {
-           // passare a sync l'arrey delle checkbox (dopo aver fatto il save)
+           // passare a sync l'array delle checkbox (dopo aver fatto il save)
             $new_house->features()->sync($data['feature']);
         }
-        
+
 
         return redirect()->route('home');
 
@@ -131,18 +131,48 @@ class HouseController extends Controller
 
     public function edit(House $house)
     {
-        //
+        $features = Feature::all();
+        $data = ['house' => $house, 'features' => $features];
+        if(empty($house)){
+          abort(404);
+        }
+        return view('auth.edit', $data);
     }
 
 
     public function update(Request $request, House $house)
     {
-        //
+      /*validazione dei dati*/
+      $validateData = $request->validate([
+          'title' => 'required|max:100',
+          'n_beds' => 'required|integer|between:1, 50',
+          'n_wc' => 'required|integer|between:1, 50',
+          'mq' => 'required|integer|between:1, 1000',
+          'address' => 'required|max:100',
+          'img' => 'required|image'
+          /*espressione regolare => 'not_regex:/^.+$/i'*/
+      ]);
+
+      $data = $request->all();
+      $data['slug'] = Str::slug($data['title']);
+
+      if(!empty($data['features'])){
+        $house->features()->sync($data['features']);
+      }
+      dd($data);
+      $house->update($data);
+
+      return redirect()->route('admin.house.index');
+
     }
 
 
     public function destroy(House $house)
     {
-        //
+        if(empty($house)){
+          abort(404);
+        }
+        $house->delete();
+        return redirect()->route('house.index');
     }
 }

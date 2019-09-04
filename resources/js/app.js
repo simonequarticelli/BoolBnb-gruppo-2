@@ -24,18 +24,18 @@ var places = require('places.js');
 //     container: document.querySelector('#home-address-input')
 // });
 
-var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
-});
+// var placesAutocomplete = places({
+//     appId: 'plHY9UTOIKXX',
+//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+//     container: document.querySelector('#address-input')
+// });
 
 
 $(document).ready(function(){
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
-        $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house').toggle();
+        $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
     });
 
 
