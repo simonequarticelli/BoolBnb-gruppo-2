@@ -67,17 +67,19 @@
       <div class="col-lg-4 form-house">
         <h3>Scrivi al proprietario</h3>
           <form class="" action="index.html" method="post">
+            @if (Auth::user() == null)
             <!--controllo se l'utente è il proprietario, se lo è disabilito il form-->
-            @if ($house->user_id == Auth::user()->id)
+            @elseif ($house->user_id == Auth::user()->id)
               <fieldset disabled>
             @endif
             <div class="form-group">
               <label for="exampleInputEmail1">La tua Mail</label>
               <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
               
-
+              @if (Auth::user() == null)
+                placeholder="Inserisci la tua mail"
               {{-- se l'utente non è il proprietario inserisco la sua mail nell'input--}}
-              @if ($house->user_id != Auth::user()->id)
+              @elseif ($house->user_id != Auth::user()->id)
                 value="{{ Auth::user()->email }}"
               {{-- controllo se l'utente è il proprietario, se lo è inserisco il placeholder --}}
               @elseif ($house->user_id == Auth::user()->id)
@@ -91,8 +93,9 @@
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
             <button 
-            {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
-              @if ($house->user_id == Auth::user()->id) 
+              @if (Auth::user() == null)
+              {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
+              @elseif ($house->user_id == Auth::user()->id) 
                 class="btn btn-primary disabled" Style="pointer-events:none;"
               @endif
                 type="submit" class="btn btn-primary">Invia</button>

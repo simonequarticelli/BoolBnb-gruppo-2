@@ -2,7 +2,7 @@
 
 @include('layouts.nav')
 
-<div class="container">
+<div class="container w-50">
     <form action="{{ route('house.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <div class="form-group">

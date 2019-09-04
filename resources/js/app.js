@@ -121,13 +121,8 @@ $(document).ready(function(){
 
 });
 
-<<<<<<< Updated upstream
 var placesAutocomplete = places({
     appId: 'plHY9UTOIKXX',
     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
     container: document.querySelector('#address-input')
 });
-=======
-
-
->>>>>>> Stashed changes

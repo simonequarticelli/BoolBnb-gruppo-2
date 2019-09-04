@@ -23,7 +23,7 @@ class HouseController extends Controller
     /*----------------filter-------------------*/
     public function search(Request $request)
     {   
-
+        
         //dd($request);
         $data = $request->all();
 

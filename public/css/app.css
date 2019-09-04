@@ -10708,7 +10708,7 @@ nav a {
 
 nav a:hover {
   color: white;
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
 }
 
 nav .navbar-toggler-icon {
@@ -11006,7 +11006,6 @@ nav .container-fluid .airbnb-logo-black {
   margin-bottom: 0;
 }
 
-<<<<<<< Updated upstream
 #input-map {
   display: none !important;
 }
@@ -11015,8 +11014,6 @@ nav .container-fluid .airbnb-logo-black {
   display: none !important;
 }
 
-=======
->>>>>>> Stashed changes
 @media (max-width: 1199.98px) {
   .house-map-container {
     justify-content: center;
@@ -11070,7 +11067,7 @@ nav .container-fluid .airbnb-logo-black {
   }
 }
 
-/* elimino l'icona azzurra di chiusura  */
+/* elimino l'icona azzurra di chiusura nell'input con tipo search */
 
 [type=search]::-webkit-search-cancel-button {
   display: none;
