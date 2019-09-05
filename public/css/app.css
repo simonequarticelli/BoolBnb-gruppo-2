@@ -11073,6 +11073,11 @@ section.upra-section .btn-group {
   height: 350px;
 }
 
+.img-house {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .form-house {
   border: 1px solid #e4e4e4;
   border-radius: 5px;

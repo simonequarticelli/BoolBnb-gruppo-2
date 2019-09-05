@@ -72,8 +72,8 @@
             <label>Indirizzo</label>
             <input name="address" type="search" id="address-input" style="display: block;" placeholder="Indirizzo"
             required max="100" value="{{ old('address', $house->address) }}"> {{-- test autocompletamento --}}
-            <input id="lat" name="latitude" type="text" hidden>
-            <input id="lng" name="longitude" type="text" hidden>
+            <input id="lat" name="latitude" type="text" value="{{ old('latitude', $house->latitude) }}">
+            <input id="lng" name="longitude" type="text" value="{{ old('longitude', $house->longitude) }}">
             @error('address')
                 <span class="invalid-tooltip" role="alert">
                     <strong>{{ $message }}</strong>
@@ -91,7 +91,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Crea</button>
+        <button type="submit" class="btn btn-primary">Modifica</button>
 
     </form>
 

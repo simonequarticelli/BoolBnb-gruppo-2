@@ -116,7 +116,6 @@ class HouseController extends Controller
             $new_house->features()->sync($data['feature']);
         }
 
-
         return redirect()->route('home');
 
     }
@@ -140,11 +139,15 @@ class HouseController extends Controller
 
     public function edit(House $house)
     {
-        $features = Feature::all();
-        $data = ['house' => $house, 'features' => $features];
-        if(empty($house)){
+        // controllare che l'utente possa modificare solo i suoi appartamenti
+        $apartments = \Auth::user()->houses->pluck('id')->all();
+        // dd($apartments);
+        // se l'utente modifica l'url e vuole modificare un altro appartamento lo mando in 404
+        if(!in_array($house->id, $apartments)){
           abort(404);
         }
+        $features = Feature::all();
+        $data = ['house' => $house, 'features' => $features];
         return view('auth.edit', $data);
     }
 
@@ -168,19 +171,23 @@ class HouseController extends Controller
       if(!empty($data['features'])){
         $house->features()->sync($data['features']);
       }
-      dd($data);
+      // dd($data);
       $house->update($data);
 
-      return redirect()->route('admin.house.index');
+      return redirect()->route('house.index');
 
     }
 
 
     public function destroy(House $house)
     {
-        if(empty($house)){
+        // controllare che l'utente possa modificare solo i suoi appartamenti
+        $apartments = \Auth::user()->houses->pluck('id')->all();
+        // se l'utente modifica l'url e vuole modificare un altro appartamento lo mando in 404
+        if(!in_array($house->id, $apartments)){
           abort(404);
         }
+        $house->features()->sync([]);
         $house->delete();
         return redirect()->route('house.index');
     }
