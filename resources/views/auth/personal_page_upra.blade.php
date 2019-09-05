@@ -55,6 +55,7 @@
               @endif
               <div class="btn-group" role="group" aria-label="Basic example">
                 <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
+                <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning">Promuovi</a>
                 <form action="{{ route('house.destroy', $house->id) }}" method="post">
                   <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
                   @method('DELETE')

@@ -26,7 +26,7 @@
 
 
   <!--HANDLEBARS-->
-  <script class="card_template" type ="text/x-handlebars-template">
+  {{-- <script class="card_template" type ="text/x-handlebars-template">
     <div class="col-lg-12 first-card-container card-container-flex">
         <div class="card col-lg-3 col-md-6 col-sm-12">
           <img src="@{{ asset('storage/' . {{ img }}) }}" class="card-img-top" alt="immagine {{ img_title }}">
@@ -36,7 +36,7 @@
           </div>
         </div>
     </div>
-  </script>
+  </script> --}}
 
   
     

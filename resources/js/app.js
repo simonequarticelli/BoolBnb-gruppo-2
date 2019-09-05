@@ -17,12 +17,6 @@ var $ = require('jquery');
 /*INIZIALIZZO ALGOLIA*/
 var places = require('places.js');
 
-var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector(['#home-address-input', '#address-input', '#address-input-search']),
-});
-
 $(document).ready(function(){
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
@@ -158,5 +152,14 @@ $(document).ready(function(){
             }
         });
     });
+    
+    
 
+});
+
+
+var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector(['#home-address-input', '#address-input', '#address-input-search']),
 });

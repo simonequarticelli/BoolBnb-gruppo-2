@@ -47306,18 +47306,6 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 
 
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-/*test algolia input homepage*/
-// var placesAutocomplete = places({
-//     appId: 'plHY9UTOIKXX',
-//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-//     container: document.querySelector('#home-address-input')
-// });
-// var placesAutocomplete = places({
-//     appId: 'plHY9UTOIKXX',
-//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-//     container: document.querySelector('#address-input')
-// });
-
 
 $(document).ready(function () {
   // quando clicco l'hamburger menu
@@ -47417,6 +47405,11 @@ $(document).ready(function () {
     });
   });
 });
+var placesAutocomplete = places({
+  appId: 'plHY9UTOIKXX',
+  apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+  container: document.querySelector(['#home-address-input', '#address-input', '#address-input-search'])
+});
 
 /***/ }),
 
@@ -47483,8 +47476,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
