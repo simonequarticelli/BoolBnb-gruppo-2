@@ -2,7 +2,7 @@
 {{-- @if (Auth::user()->HasRole('upra')) --}}
   {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-light">
 @else --}}
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-search navbar-expand-md navbar-light bg-white shadow-sm">
 {{-- @endif --}}
     <div class="container-fluid">
         <a class="navbar-brand " href="{{ url('/') }}">
@@ -15,7 +15,7 @@
 
         <div class="collapse navbar-collapse nav-bar-ligth" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+            {{-- <ul class="navbar-nav mr-auto">
                 <li>
                     <div class="form-group">
                         <label>Indirizzo</label>
@@ -23,7 +23,7 @@
                         required max="100" value="{{ old('address') }}">
                         {{-- <input id="lat" name="latitude" type="text" hidden>
                         <input id="lng" name="longitude" type="text" hidden> --}}
-                        <div class="button_search">
+                        {{-- <div class="button_search">
                             <button type="submit" id="btn_filter_api" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
                         </div>
                         @error('address')
@@ -33,23 +33,36 @@
                         @enderror
                     </div>
                 </li>
-            </ul>
-            <input name="address_api" id="search_filter_page" type="text">
+            </ul> --}}
+            <input class="form-control mr-sm-2" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
+            <input id="lat" name="latitude" type="text" hidden>
+            <input id="lng" name="longitude" type="text" hidden>
+            <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
+            @error('address')
+                <span class="invalid-tooltip" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+            <input name="address_api" id="search_filter_page" type="text" hidden>
 
-            <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
-                    @foreach ( $features as $feature )
-                    {{-- checkbox per servizi aggiuntivi --}}
-                        <div class="input-group-prepend mb-3 d-inline-block">
-                            <div class="input-group-text">
-                                <label class="m-0">
-                                    <input class="features" type="checkbox" name="feature[]" value="{{ $feature->id }}"
-                                    {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
-                                    {{ $feature->name }}
-                                </label>
-                            </div>
-                        </div>
-                    @endforeach
+            <ul class="navbar-nav mr-auto">
+               @foreach ( $features as $feature )
+               <li class="nav-item ml-2 mr-2">
+               {{-- checkbox per servizi aggiuntivi --}}
+                   {{-- <div class="input-group-prepend mb-3 d-inline-block">
+                       <div class="input-group-text">
+                           <label class="m-0"> --}}
+                               <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
+                               {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
+                               {{ $feature->name }}
+                           {{-- </label>
+                       </div>
+                   </div> --}}
+                   </li>
+               @endforeach
+             </ul>
+
+             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item ml-3">

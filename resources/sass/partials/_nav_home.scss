@@ -79,7 +79,12 @@ nav{
   }
   .algolia-places{
     height: 37px;
-    width: auto;
+    width: 250px;
+    margin-right: 10px;
+  }
+  .nav-item{
+    display: flex;
+    align-items: center;
   }
 }
 

@@ -9,18 +9,21 @@
         <h3>Appartamenti trovati in <strong id="titolo-ricerca-case">{{ $address_home }}</strong></h3>
         {{-- contenitore card ajax --}}
         <div id="container_card_ajax">
-          @foreach ($house_list as $house )
-            {{-- passo il parametro inserito nella ricerca dall'utente  --}}
-            <div class="col-lg-12 first-card-container card-container-flex">
-              <div class="card col-lg-3 col-md-6 col-sm-12">
-                <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
-                <div class="card-body">
-                  <h5 class="card-title">{{ $house->title }}</h5>
-                  <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
+          @if (!$house_list->count()>0)
+            <h1>Non ci sono case nella località selezionata!</h1>
+          @endif
+          <div class="col-lg-12 first-card-container card-container-flex">
+            @foreach ($house_list as $house )
+              {{-- passo il parametro inserito nella ricerca dall'utente  --}}
+                <div class="card col-lg-3 col-md-6 col-sm-12">
+                  <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $house->title }}</h5>
+                    <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
+                  </div>
                 </div>
-              </div>
-            </div>
-          @endforeach
+            @endforeach
+          </div>
         </div>
     </div>
   </section>

@@ -10729,7 +10729,13 @@ nav .fa-bars {
 
 .navbar-search .algolia-places {
   height: 37px;
-  width: auto;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.navbar-search .nav-item {
+  display: flex;
+  align-items: center;
 }
 
 @media (max-width: 767px) {
