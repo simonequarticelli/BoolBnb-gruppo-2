@@ -9,6 +9,9 @@
         <h3>Appartamenti trovati in <strong id="titolo-ricerca-case">{{ $address_home }}</strong></h3>
         {{-- contenitore card ajax --}}
         <div id="container_card_ajax">
+          @if (!$house_list->count()>0)
+            <h1>Non ci sono case nella località selezionata!</h1>
+          @endif
           @foreach ($house_list as $house )
             {{-- passo il parametro inserito nella ricerca dall'utente  --}}
             <div class="col-lg-12 first-card-container card-container-flex">
@@ -34,9 +37,9 @@
       <div class="card col-lg-3 col-md-6 col-sm-12">
         <img src="{{ url('storage/')}}/@{{img}}" class="card-img-top" alt="immagine @{{ img_title }}">
         <div class="card-body">
-          <h5 class="card-title">@{{ title }}</h5>
+          <h5 class="card-title">@{{ title }}</h5> 
           {{-- http://localhost:8000/house-details/41/casa2-torino --}}
-          <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
+          <a href="http://localhost:8000/house-details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
         </div>
       </div>
     </div>

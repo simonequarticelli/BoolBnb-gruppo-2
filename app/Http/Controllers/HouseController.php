@@ -48,6 +48,8 @@ class HouseController extends Controller
         $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address_home.'%')->get();
 
+        //dd($house_list);
+
         /*oltre i dati passo alla view anche l'input dell'utente*/
         return view('search_house')->with([
             'house_list' => $house_list,

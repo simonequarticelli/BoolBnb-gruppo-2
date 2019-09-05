@@ -19,6 +19,7 @@
     <div class="container house-first-section mt-5 pl-0">
       <div class="col-lg-8 house-desc">
         <h1>{{ $house->title }}</h1>
+        <h4>{{ $house->address }}</h4>
 
         {{-- @php
           dd($house->features->count() > 0);
