@@ -60,7 +60,7 @@
         @endphp --}}
         @foreach ($new_house as $house )
         <div class="card col-lg-3 col-md-6 col-sm-12">
-            <img src="{{ 'storage/' . $house->img }}" class="card-img-top" alt="immagine {{ $house->title }}">
+            <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
             <div class="card-body">
               <h5 class="card-title">{{ $house->title }}</h5>
               {{-- @php

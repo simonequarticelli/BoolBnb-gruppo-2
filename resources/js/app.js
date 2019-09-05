@@ -17,18 +17,18 @@ var $ = require('jquery');
 /*INIZIALIZZO ALGOLIA*/
 var places = require('places.js');
 
-/*test algolia input homepage*/
-// var placesAutocomplete = places({
-//     appId: 'plHY9UTOIKXX',
-//     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-//     container: document.querySelector('#home-address-input')
-// });
+var placesAutocomplete = places({
+    appId: 'plHY9UTOIKXX',
+    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
+    container: document.querySelector(['#home-address-input', '#address-input', '#address-input-search']),
+});
 
 // var placesAutocomplete = places({
 //     appId: 'plHY9UTOIKXX',
 //     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
 //     container: document.querySelector('#address-input')
 // });
+
 
 
 $(document).ready(function(){
@@ -68,6 +68,7 @@ $(document).ready(function(){
             //console.log(info);
 
 
+
             for (var i = 0; i < info.length; i++) {
                 var data = info[i];
                 //console.log(data._geoloc);
@@ -79,6 +80,12 @@ $(document).ready(function(){
                 $('#lng').val(geo.lng);
             }
 
+
+            var value = $('#home-address-input').val();
+
+            $('#search_homepage').val(value);
+
+
         },
         'error': function(error){
             alert(error);
@@ -87,38 +94,55 @@ $(document).ready(function(){
 
   });
 
+    $('.features').on('click', function () {
+        var marchi = {};
 
-//   $('#search_house_api').click(function(){
-//     $.ajax({
-//         url: 'http://localhost:8000/api/index',
-//         method: 'GET',
+        $('.features:checked').each(function () {
+            marchi[$(this).attr('name')] = $(this).val();
+        });
 
-//         success: function(data){
-
-//           var houses = data.result;
-//           console.log(houses);
-//           for (var i = 0; i < houses.length; i++) {
-//             //console.log(movies[i]);
-//             var house = houses[i];
-//             $('.house').append('<li>' + house.title + ' - ' + house.address + '</li>');
-//           }
-
-//         },
-//         error: function(){
-//           'error'
-//         }
-//       });
-//   });
+        console.log(marchi);
 
 
+    // var tempData = {};
+    // for ( var index in data ) {
 
+    //     tempData[index] = data;
 
+    // }
+    // data = tempData;
 
+    });
 
-});
+    $('#btn_filter_api').click(function(){
 
-var placesAutocomplete = places({
-    appId: 'plHY9UTOIKXX',
-    apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
-    container: document.querySelector('#address-input')
+        $.ajax({
+            url: 'http://localhost:8000/api/index',
+
+            method: 'GET',
+
+            data: {
+                'features': 'i dati sono passati'
+            },
+
+            success: function(data){
+
+                console.log(data);
+
+                // $('.card').empty();
+                // var houses = data.result;
+                // console.log(houses);
+                // for (var i = 0; i < houses.length; i++) {
+                //     //console.log(movies[i]);
+                //     var house = houses[i];
+                //     $('.card').append('<li>' + house.title + ' - ' + house.address + '</li>');
+                // }
+
+            },
+            error: function(){
+            'error'
+            }
+        });
+    });
+
 });

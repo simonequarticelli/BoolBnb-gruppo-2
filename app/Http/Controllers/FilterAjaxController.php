@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\House;
 use App\FilterAjax;
 use Illuminate\Http\Request;
 
@@ -10,11 +11,15 @@ class FilterAjaxController extends Controller
     
     public function index()
     {
-        $houses = House::all();
+        $features = $_GET['features'];
+        
+        //dd($features); 
+
+        // $houses = House::all();
         
         return response()->json([
             'success' => true,
-            'result' => $houses
+            'result' => $features
         ]);
     }
 
@@ -27,7 +32,7 @@ class FilterAjaxController extends Controller
     
     public function store(Request $request)
     {
-        //
+        
     }
 
     

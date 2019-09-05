@@ -19,6 +19,8 @@ Auth::routes();
 
 Route::prefix('admin')->group(function(){
     Route::resource('/house', 'HouseController');
+    /*rotta per i pagamenti*/
+    Route::get('/house-promotions/{slug}/{id}', 'HouseController@showPromotions')->name('promotions');
 });
 
 /*rotte per i filtri lato php*/

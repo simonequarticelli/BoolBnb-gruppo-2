@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use App\Role;
 use App\House;
 use App\Feature;
+use App\Promotion;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Session;
 
 class HouseController extends Controller
 {
@@ -20,7 +21,7 @@ class HouseController extends Controller
         $this->middleware('role:upra')->except(['create', 'store', 'search']);
     }
 
-    /*----------------filter-------------------*/
+    /*----------------filter------------------------------------------*/
     public function search(Request $request)
     {
 
@@ -34,6 +35,8 @@ class HouseController extends Controller
 
         ]);
 
+        $features = Feature::all();
+
         $data = $request->all();
         //dd($data);
 
@@ -42,20 +45,16 @@ class HouseController extends Controller
         //dd($address_home);
 
         $house_list = DB::table('houses')
-            ->where('address', 'like', '%'.$address_home.'%')->get()->dd();
+            ->where('address', 'like', '%'.$address_home.'%')->get();
 
-
-
-
-
-
-
-
-
-
-        return view('search_house');
+        /*oltre i dati passo alla view anche l'input dell'utente*/
+        return view('search_house')->with([
+            'house_list' => $house_list,
+            'address_home' => $address_home,
+            'features' => $features
+        ]);
     }
-    /*-----------------------------------------*/
+    /*-----------------------------------------------------------------*/
 
     public function index()
     {
@@ -122,6 +121,16 @@ class HouseController extends Controller
 
     }
 
+    /*funzione relativa alla visualizzazione delle promo*/
+    public function showPromotions($id, $slug)
+    {
+        $promotions = Promotion::all();
+        $house = House::find($id);
+        return view('auth.promotions')->with([
+            'promotions' => $promotions,
+            'house' => $house
+        ]);
+    }
 
     public function show(House $house)
     {
