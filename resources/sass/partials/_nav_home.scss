@@ -97,9 +97,13 @@ nav{
    .navbar-brand{
      z-index: 1;
    }
-  .navbar-nav{
-   margin-top: 50px;
-  }
+
+   .navbar-home{
+     .navbar-nav{
+      margin-top: 50px;
+     }
+   }
+
   // per l'icona di hamburger menu
   .navbar-toggler{
    z-index: 1;

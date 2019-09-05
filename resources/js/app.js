@@ -34,10 +34,12 @@ $(document).ready(function(){
        $('.input-group').removeClass('clicked').addClass('blur-effect');
        // aggiungo la classe clicked all'elemento selezionato
        $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
-       
+
        var test_radio = $('input[name=radio_btn]:checked').val();
        console.log(test_radio);
    });
+
+   $('.carousel').carousel('pause');
 
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/

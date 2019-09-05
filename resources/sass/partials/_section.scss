@@ -1,3 +1,7 @@
+main{
+  min-height: 600px;
+}
+
 .first_section{
   height: calc(100vh - 80px);
   color: $body-font-color;
@@ -132,6 +136,11 @@ section.upra-section{
 }
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px){
+
+  main{
+    min-height: 500px;
+  }
+
   .featured_apartments .card{
     margin: 0;
     margin-top: 20px;
@@ -154,6 +163,12 @@ section.upra-section{
 }
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
+
+  main{
+    min-height: 600px;
+  }
+
+
   .card-container-flex{
     margin-top: 0;
   }
@@ -179,4 +194,14 @@ section.upra-section{
       }
     }
   }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.98px) {
+
+  main{
+    min-height: 400px;
+  }
+
+
 }

@@ -2,7 +2,8 @@
 
 @include('layouts.nav')
 
-<div class="container w-50">
+<div class="container w-50 mt-5">
+    <h1 class="mb-2">Diventa un Host, pubblica il tuo annuncio</h1>
     <form action="{{ route('house.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <div class="form-group">

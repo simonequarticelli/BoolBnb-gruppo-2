@@ -47326,6 +47326,7 @@ $(document).ready(function () {
     var test_radio = $('input[name=radio_btn]:checked').val();
     console.log(test_radio);
   });
+  $('.carousel').carousel('pause');
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 
   $(document).on('click', '.ap-suggestion', function () {
@@ -47409,7 +47410,6 @@ $(document).ready(function () {
               'img': house.img,
               'img_title': house.title,
               'title': house.title,
-              'address': house.address,
               'id': house.id,
               'slug': house.slug //assegno l'oggetto creato
 
@@ -47499,8 +47499,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -50,12 +50,12 @@
                <li class="nav-item ml-2 mr-2">
                {{-- checkbox per servizi aggiuntivi --}}
                    {{-- <div class="input-group-prepend mb-3 d-inline-block">
-                       <div class="input-group-text">
-                           <label class="m-0"> --}}
+                       <div class="input-group-text"> --}}
+                           <label class="m-0">
                                <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
                                {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
                                {{ $feature->name }}
-                           {{-- </label>
+                           </label>{{-- 
                        </div>
                    </div> --}}
                    </li>

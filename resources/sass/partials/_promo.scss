@@ -8,6 +8,7 @@
     background-color: aquamarine;
     padding: 20px;
     transition: 0.5s;
+    border-radius: 50px;
     form{
       display: flex;
     }
@@ -23,6 +24,7 @@
     .badge-warning{
       padding:10px;
       font-size: 1.3em;
+      box-shadow: 1px 1px 8px #b0b3b6;
     }
     .price-style{
       font-weight: 900;
@@ -38,8 +40,8 @@
 }
 
 .blur-effect{
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 
 // Large devices (desktops, less than 1200px)
