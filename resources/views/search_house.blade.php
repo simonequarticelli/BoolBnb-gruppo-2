@@ -7,6 +7,12 @@
   <section class="featured_apartments">
     <div class="container">
         <h3>Appartamenti trovati in <strong id="titolo-ricerca-case">{{ $address_home }}</strong></h3>
+        {{-- @php
+            dd($house_list);
+        @endphp --}}
+        @if (!$house_list->count() > 0)
+          <h1>Non ci sono case nella località selezionata!</h1>
+        @endif
         {{-- contenitore card ajax --}}
         <div id="container_card_ajax">
           @if (!$house_list->count()>0)
@@ -39,8 +45,7 @@
         <div class="card-body">
           <h5 class="card-title">@{{ title }}</h5>
           {{-- http://localhost:8000/house-details/41/casa2-torino --}}
-        
-        </div>
+          <a href="http://localhost:8000/house-details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
       </div>
     </div>
   </script>
