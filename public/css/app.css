@@ -10721,6 +10721,17 @@ nav .fa-bars {
   font-size: 34px;
 }
 
+.navbar-search .navbar-brand {
+  height: 80px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.navbar-search .algolia-places {
+  height: 37px;
+  width: auto;
+}
+
 @media (max-width: 767px) {
   .navbar {
     z-index: 1;
@@ -10935,9 +10946,13 @@ nav .container-fluid .airbnb-logo-black {
 
 .featured_apartments .card-container-flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-top: 25px;
   flex-wrap: wrap;
+}
+
+.featured_apartments .card:nth-child(3n+3) {
+  margin-right: 0;
 }
 
 .featured_apartments .card {
@@ -10945,7 +10960,7 @@ nav .container-fluid .airbnb-logo-black {
   border: 1px solid #ebebeb;
   border-radius: 5px;
   transition: 0.5s;
-  margin: 10px;
+  margin-right: 138.75px;
 }
 
 .featured_apartments .card:hover {
@@ -10984,11 +10999,22 @@ section.upra-section .card .card-body {
   padding: 10px 20px;
 }
 
+section.upra-section .card .card-body .list-unstyled {
+  display: inline-block;
+  margin-right: 10px;
+}
+
 section.upra-section .btn-group {
   height: 37px;
+  margin-top: 25px;
 }
 
 @media (max-width: 1199.98px) {
+  .featured_apartments .card {
+    margin-right: 116.25px;
+    margin-bottom: 30px;
+  }
+
   .featured_apartments .card img {
     height: 150px;
   }
@@ -10999,6 +11025,10 @@ section.upra-section .btn-group {
 
   section.upra-section .card .card-img {
     height: 270px;
+  }
+
+  section.upra-section .btn-group {
+    margin-top: 0;
   }
 }
 
@@ -11044,10 +11074,15 @@ section.upra-section .btn-group {
 
   section.upra-section .card {
     height: auto;
+    padding-bottom: 10px;
   }
 
   section.upra-section .card .card-img {
     height: 200px;
+  }
+
+  section.upra-section .card .card-body {
+    margin-top: 10px;
   }
 }
 

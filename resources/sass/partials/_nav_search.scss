@@ -70,19 +70,6 @@ nav{
   }
 }
 
-// per la navbar search
-.navbar-search{
-  .navbar-brand{
-    height: 80px;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  .algolia-places{
-    height: 37px;
-    width: auto;
-  }
-}
-
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px){
   .navbar{

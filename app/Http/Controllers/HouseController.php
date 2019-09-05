@@ -169,12 +169,14 @@ class HouseController extends Controller
       ]);
 
       $data = $request->all();
-      $data['slug'] = Str::slug($data['title']);
-
-      if(!empty($data['features'])){
-        $house->features()->sync($data['features']);
-      }
       // dd($data);
+      $data['slug'] = Str::slug($data['title']);
+      $img = Storage::put('upload_file', $data['img']);
+      $house->img = $img;
+      if(!empty($data['feature'])){
+        $house->features()->sync($data['feature']);
+      }
+
       $house->update($data);
 
       return redirect()->route('house.index');
@@ -192,6 +194,6 @@ class HouseController extends Controller
         }
         $house->features()->sync([]);
         $house->delete();
-        return redirect()->route('house.index');
+        return redirect()->route('admin.house.index');
     }
 }

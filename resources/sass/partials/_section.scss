@@ -47,21 +47,21 @@
   }
   .card-container-flex{
     display:flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin-top: $mag-top;
     flex-wrap: wrap;
   }
-  // .card:nth-child(3n+3){
-  //   margin-right: 0;
-  // }
+  .card:nth-child(3n+3){
+    margin-right: 0;
+  }
   .card{
     margin-bottom: 20px;
     border: 1px solid #ebebeb;
     border-radius: 5px;
     transition: 0.5s;
-    margin: 10px;
-    // 1110px - (277.5x3) / 2
-    // margin-right: 138.75px;
+    // margin: 10px;
+    // (1110px - (277.5x3)) / 2
+    margin-right: 138.75px;
     &:hover{
       box-shadow: 5px 10px 8px #b0b3b6;
       transform: scale(1.01);
@@ -96,15 +96,25 @@ section.upra-section{
     }
     .card-body{
       padding: 10px 20px;
+      .list-unstyled{
+        display: inline-block;
+        margin-right: 10px;
+      }
     }
   }
   .btn-group{
     height: 37px;
+    margin-top: 25px;
   }
- }
+}
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
+  .featured_apartments .card{
+    // (960px - (232.5 x 3)) / 2
+    margin-right: 116.25px;
+    margin-bottom: 30px;
+  }
   .featured_apartments .card img{
     height: 150px;
   }
@@ -114,6 +124,9 @@ section.upra-section{
       .card-img{
         height: 270px;
       }
+    }
+    .btn-group{
+      margin-top: 0;
     }
   }
 }
@@ -157,8 +170,12 @@ section.upra-section{
   section.upra-section{
     .card{
       height: auto;
+      padding-bottom: 10px;
       .card-img{
         height: 200px;
+      }
+      .card-body{
+        margin-top: 10px;
       }
     }
   }

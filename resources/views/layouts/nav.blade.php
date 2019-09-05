@@ -2,7 +2,7 @@
 {{-- @if (Auth::user()->HasRole('upra')) --}}
   {{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm bg-light">
 @else --}}
-  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+  <nav class="navbar navbar-deatils-apartment navbar-expand-md navbar-light bg-white shadow-sm">
 {{-- @endif --}}
     <div class="container-fluid">
         <a class="navbar-brand " href="{{ url('/') }}">

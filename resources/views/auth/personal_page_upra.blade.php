@@ -21,30 +21,30 @@
                 @php
                   $features_house = $house->features
                 @endphp
-                @foreach ($features_house as $feature)
-                  <ul>
-                    <li class="list-unstyled">
-                        @switch($feature->name)
-                          @case('wifi')
-                            <i class="fas fa-wifi mr-3"></i>{{ $feature->name }}
+                <ul>
+                  @foreach ($features_house as $feature)
+                      <li class="list-unstyled">
+                          @switch($feature->name)
+                            @case('wifi')
+                              <i class="fas fa-wifi mr-1"></i>{{ $feature->name }}
+                                @break
+                            @case('posto macchina')
+                              <i class="fas fa-car mr-1"></i>{{ $feature->name }}
+                                @break
+                            @case('piscina')
+                              <i class="fas fa-door-open mr-1"></i>{{ $feature->name }}
                               @break
-                          @case('posto macchina')
-                            <i class="fas fa-car mr-3"></i>{{ $feature->name }}
+                            @case('sauna')
+                              <i class="fas fa-hot-tub mr-1"></i>{{ $feature->name }}
                               @break
-                          @case('piscina')
-                            <i class="fas fa-door-open mr-3"></i>{{ $feature->name }}
-                            @break
-                          @case('sauna')
-                            <i class="fas fa-hot-tub mr-3"></i>{{ $feature->name }}
-                            @break
-                          @case('vista mare')
-                            <i class="fas fa-water mr-3"></i>{{ $feature->name }}
-                            @break
-                          @default
-                          @endswitch
-                        </li>
-                    </ul>
-                  @endforeach
+                            @case('vista mare')
+                              <i class="fas fa-water mr-1"></i>{{ $feature->name }}
+                              @break
+                            @default
+                            @endswitch
+                          </li>
+                    @endforeach
+                  </ul>
                 @else
                 <h3>Servizi non presenti</h3>
                 <ul>
@@ -55,7 +55,7 @@
               @endif
               <div class="btn-group" role="group" aria-label="Basic example">
                 <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
-                <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning">Promuovi</a>
+                <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
                 <form action="{{ route('house.destroy', $house->id) }}" method="post">
                   <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
                   @method('DELETE')

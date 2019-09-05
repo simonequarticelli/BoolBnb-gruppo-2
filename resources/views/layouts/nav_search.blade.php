@@ -12,7 +12,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
 
         <div class="collapse navbar-collapse nav-bar-ligth" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
@@ -21,7 +20,7 @@
                     <div class="form-group">
                         <label>Indirizzo</label>
                         <input type="search" id="address-input-search" style="display: block;" placeholder="Indirizzo"
-                        required max="100" value="{{ old('address') }}"> 
+                        required max="100" value="{{ old('address') }}">
                         {{-- <input id="lat" name="latitude" type="text" hidden>
                         <input id="lng" name="longitude" type="text" hidden> --}}
                         <div class="button_search">
@@ -35,13 +34,10 @@
                     </div>
                 </li>
             </ul>
-
             <input name="address_api" id="search_filter_page" type="text">
-            
+
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-
-
                     @foreach ( $features as $feature )
                     {{-- checkbox per servizi aggiuntivi --}}
                         <div class="input-group-prepend mb-3 d-inline-block">
@@ -54,8 +50,6 @@
                             </div>
                         </div>
                     @endforeach
-
-
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item ml-3">
@@ -67,7 +61,6 @@
                         </li>
                     @endif
                 @else
-
                     @if (Auth::user()->HasRole('upra'))
                         <li class="nav-item">
                             <a class="nav-link upra ml-3" id="badge-new" href="#">
@@ -75,19 +68,16 @@
                                 Statistiche</a>
                         </li>
                     @endif
-
                     <li class="nav-item dropdown ml-3">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
@@ -98,5 +88,4 @@
         </div>
     </div>
 </nav>
-
 <div class="py-2"></div>
