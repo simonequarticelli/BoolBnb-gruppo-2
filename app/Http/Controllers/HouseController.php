@@ -164,17 +164,24 @@ class HouseController extends Controller
           'n_wc' => 'required|integer|between:1, 50',
           'mq' => 'required|integer|between:1, 1000',
           'address' => 'required|max:100',
-          'img' => 'required|image'
+          'img' => 'image'
           /*espressione regolare => 'not_regex:/^.+$/i'*/
       ]);
 
       $data = $request->all();
       // dd($data);
       $data['slug'] = Str::slug($data['title']);
-      $img = Storage::put('upload_file', $data['img']);
-      $house->img = $img;
+      if (!empty($data['img'])) {
+
+        $img = Storage::put('upload_file', $data['img']);
+        $house->img = $img;
+
+      }
+
       if(!empty($data['feature'])){
         $house->features()->sync($data['feature']);
+      }else {
+        $house->features()->sync([]); 
       }
 
       $house->update($data);

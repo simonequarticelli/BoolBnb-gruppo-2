@@ -21,9 +21,9 @@
         </section>
 
 
-    <ul>
+    {{-- <ul>
         <li><strong>id casa da promuovere: </strong>{{ $house->id }}</li>
-    </ul>
+    </ul> --}}
   </div>
 
 

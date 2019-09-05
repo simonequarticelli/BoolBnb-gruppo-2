@@ -49,7 +49,7 @@
                 <h3>Servizi non presenti</h3>
                 <ul>
                   <li class="list-unstyled">
-                    <i class="fas fa-frown fa-3x"></i>
+                    <i class="fas fa-frown fa-2x"></i>
                   </li>
                 </ul>
               @endif

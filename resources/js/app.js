@@ -158,6 +158,7 @@ $(document).ready(function(){
                             'img': house.img,
                             'img_title': house.title,
                             'title': house.title,
+                            'address': house.address,
                             'id': house.id,
                             'slug': house.slug
                         }
@@ -184,9 +185,6 @@ $(document).ready(function(){
             }
         });
     });
-
-
-
 
 
 });
