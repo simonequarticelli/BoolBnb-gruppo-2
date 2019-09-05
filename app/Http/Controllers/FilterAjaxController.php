@@ -5,22 +5,33 @@ namespace App\Http\Controllers;
 use App\House;
 use App\FilterAjax;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FilterAjaxController extends Controller
 {
     
     public function index()
     {
-        $features = $_GET['features'];
+        $address = $_GET['address'];
         
         //dd($features); 
 
-        // $houses = House::all();
+        $house_list = DB::table('houses')
+            ->where('address', 'like', '%'.$address.'%')->get();
+
+        if ($house_list->count() > 0) {
+            return response()->json([
+                'success' => true,
+                'result' => $house_list
+            ]);
+        }else {
+            return response()->json([
+                'success' => false,
+                'result' => 'non ci sono case'
+            ]);
+        }
         
-        return response()->json([
-            'success' => true,
-            'result' => $features
-        ]);
+        
     }
 
     

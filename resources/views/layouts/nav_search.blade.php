@@ -20,7 +20,7 @@
                 <li>
                     <div class="form-group">
                         <label>Indirizzo</label>
-                        <input name="address-api" type="search" id="address-input-search" style="display: block;" placeholder="Indirizzo"
+                        <input type="search" id="address-input-search" style="display: block;" placeholder="Indirizzo"
                         required max="100" value="{{ old('address') }}"> 
                         {{-- <input id="lat" name="latitude" type="text" hidden>
                         <input id="lng" name="longitude" type="text" hidden> --}}
@@ -35,6 +35,9 @@
                     </div>
                 </li>
             </ul>
+
+            <input name="address_api" id="search_filter_page" type="text">
+            
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
 
