@@ -32,7 +32,7 @@ $(document).ready(function(){
     $('#lng').val('');
 
     var address = $(this).text();
-        console.log(address);
+        //console.log(address);
 
     $.ajax({
         'url':'https://places-dsn.algolia.net/1/places/query',
@@ -59,7 +59,7 @@ $(document).ready(function(){
                 var data = info[i];
                 //console.log(data._geoloc);
                 var geo = data._geoloc;
-                console.log(geo);
+                //console.log(geo);
 
                 /*assegno lat e lng a input hidden*/
                 $('#lat').val(geo.lat);
@@ -106,49 +106,66 @@ $(document).ready(function(){
 
             success: function(data){
 
-                console.log(data);
+                /*svuoto il contenitore delle cards*/
+                $('#container_card_ajax').html('');
 
-                var houses = data.result;
-                console.log(houses);
+                //console.log(data);
 
                 /*prendo il valore della ricerca*/
                 var titolo = $('#search_filter_page').val();
+
                 /*assegno il valore al titolo*/
                 $('#titolo-ricerca-case').text(titolo);
-                /*svuoto il contenitore delle cards*/
-                $('.first-card-container').empty();
 
-                // //salvo il template dentro a una variabile
-                // var card__template = $('.card_template').html();
-                // //richiamo il compile
-                // var template__function = Handlebars.compile(card__template);
-                
-                
-                for (var i = 0; i < houses.length; i++) {
-                    //console.log(movies[i]);
-                    var house = houses[i];
-                    $('.card').append(house.title);
+                if (data.success == true) {
+                    
+                    var houses = data.result;
+                    console.log(houses);
 
-                    // //creo oggetto con variabili
-                    // var obj = {
-                    //     'img': var1,
-                    //     'img_title': var2,
-                    //     'title': var3,
-                    //     'id': var4,
-                    //     'slug': var5
-                    // }
+                    //salvo il template dentro a una variabile
+                    var card__template = $('.card_template').html();
+                    console.log(card__template);
+                    
+                    //richiamo il compile
+                    var template__function = Handlebars.compile(card__template);
+                    //console.log(template__function);
+                    
+                    
+                    for (var i = 0; i < houses.length; i++) {
+                        //console.log(movies[i]);
+                        var house = houses[i];
 
-                    // //assegno l'oggetto creato
-                    // var html = template__function(obj);
-                    // //appendo con jquery il template
-                    // $('.card_container').append(html);
+                        //console.log(house.img);
+                        
+
+                        //creo oggetto con variabili
+                        var obj = {
+                            'img': house.img,
+                            'img_title': house.title,
+                            'title': house.title,
+                            'id': house.id,
+                            'slug': house.slug
+                        }
+
+                        //assegno l'oggetto creato
+                        var html = template__function(obj);
+
+                        //appendo con jquery il template
+                        $('#container_card_ajax').append(html);
+                    }
+
+                }else {
+
+                    $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
+
                 }
 
+                
+
             },
-            error: function(){
-
-    
-
+            error: function(richiesta, stato, errori){
+                
+                console.log(errori);
             }
         });
     });

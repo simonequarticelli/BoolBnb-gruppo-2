@@ -47318,8 +47318,8 @@ $(document).ready(function () {
   $(document).on('click', '.ap-suggestion', function () {
     $('#lat').val('');
     $('#lng').val('');
-    var address = $(this).text();
-    console.log(address);
+    var address = $(this).text(); //console.log(address);
+
     $.ajax({
       'url': 'https://places-dsn.algolia.net/1/places/query',
       'method': 'GET',
@@ -47338,8 +47338,8 @@ $(document).ready(function () {
         for (var i = 0; i < info.length; i++) {
           var data = info[i]; //console.log(data._geoloc);
 
-          var geo = data._geoloc;
-          console.log(geo);
+          var geo = data._geoloc; //console.log(geo);
+
           /*assegno lat e lng a input hidden*/
 
           $('#lat').val(geo.lat);
@@ -47368,40 +47368,49 @@ $(document).ready(function () {
         'address': address
       },
       success: function success(data) {
-        console.log(data);
-        var houses = data.result;
-        console.log(houses);
+        /*svuoto il contenitore delle cards*/
+        $('#container_card_ajax').html(''); //console.log(data);
+
         /*prendo il valore della ricerca*/
 
         var titolo = $('#search_filter_page').val();
         /*assegno il valore al titolo*/
 
         $('#titolo-ricerca-case').text(titolo);
-        /*svuoto il contenitore delle cards*/
 
-        $('.first-card-container').empty(); // //salvo il template dentro a una variabile
-        // var card__template = $('.card_template').html();
-        // //richiamo il compile
-        // var template__function = Handlebars.compile(card__template);
+        if (data.success == true) {
+          var houses = data.result;
+          console.log(houses); //salvo il template dentro a una variabile
 
-        for (var i = 0; i < houses.length; i++) {
-          //console.log(movies[i]);
-          var house = houses[i];
-          $('.card').append(house.title); // //creo oggetto con variabili
-          // var obj = {
-          //     'img': var1,
-          //     'img_title': var2,
-          //     'title': var3,
-          //     'id': var4,
-          //     'slug': var5
-          // }
-          // //assegno l'oggetto creato
-          // var html = template__function(obj);
-          // //appendo con jquery il template
-          // $('.card_container').append(html);
+          var card__template = $('.card_template').html();
+          console.log(card__template); //richiamo il compile
+
+          var template__function = Handlebars.compile(card__template); //console.log(template__function);
+
+          for (var i = 0; i < houses.length; i++) {
+            //console.log(movies[i]);
+            var house = houses[i]; //console.log(house.img);
+            //creo oggetto con variabili
+
+            var obj = {
+              'img': house.img,
+              'img_title': house.title,
+              'title': house.title,
+              'id': house.id,
+              'slug': house.slug //assegno l'oggetto creato
+
+            };
+            var html = template__function(obj); //appendo con jquery il template
+
+            $('#container_card_ajax').append(html);
+          }
+        } else {
+          $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
         }
       },
-      error: function error() {}
+      error: function error(richiesta, stato, errori) {
+        console.log(errori);
+      }
     });
   });
 });
