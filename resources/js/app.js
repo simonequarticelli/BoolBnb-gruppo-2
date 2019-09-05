@@ -24,6 +24,21 @@ $(document).ready(function(){
         $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
     });
 
+// catturo il valore del radio button selezionato
+    $('.section-promotion .input-group').on('click' , function() {
+      // prendo l'inputo selezionato salvandolo in variabile
+       var input_sel = $(this).children('input');
+       // inposto il radio dell'input selezionato
+       $(input_sel).prop("checked", true);
+       // tolgo la classe a tutti gli elementi input group
+       $('.input-group').removeClass('clicked').addClass('blur-effect');
+       // aggiungo la classe clicked all'elemento selezionato
+       $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
+       
+       var test_radio = $('input[name=radio_btn]:checked').val();
+       console.log(test_radio);
+   });
+
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
   $(document).on('click', '.ap-suggestion',  function(){
@@ -82,9 +97,9 @@ $(document).ready(function(){
 
   });
 
-    
 
-    /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */ 
+
+    /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
 
         // CODE ...
 
@@ -118,25 +133,25 @@ $(document).ready(function(){
                 $('#titolo-ricerca-case').text(titolo);
 
                 if (data.success == true) {
-                    
+
                     var houses = data.result;
                     console.log(houses);
 
                     //salvo il template dentro a una variabile
                     var card__template = $('.card_template').html();
                     console.log(card__template);
-                    
+
                     //richiamo il compile
                     var template__function = Handlebars.compile(card__template);
                     //console.log(template__function);
-                    
-                    
+
+
                     for (var i = 0; i < houses.length; i++) {
                         //console.log(movies[i]);
                         var house = houses[i];
 
                         //console.log(house.img);
-                        
+
 
                         //creo oggetto con variabili
                         var obj = {
@@ -160,19 +175,23 @@ $(document).ready(function(){
 
                 }
 
-                
+
 
             },
             error: function(richiesta, stato, errori){
-                
+
                 console.log(errori);
             }
         });
     });
-    
-    
+
+
+
+
 
 });
+
+
 
 
 var placesAutocomplete = places({

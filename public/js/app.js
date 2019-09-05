@@ -47312,6 +47312,19 @@ $(document).ready(function () {
   $('.navbar-toggler').click(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
+  }); // catturo il valore del radio button selezionato
+
+  $('.section-promotion .input-group').on('click', function () {
+    // prendo l'inputo selezionato salvandolo in variabile
+    var input_sel = $(this).children('input'); // inposto il radio dell'input selezionato
+
+    $(input_sel).prop("checked", true); // tolgo la classe a tutti gli elementi input group
+
+    $('.input-group').removeClass('clicked').addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
+
+    $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
+    var test_radio = $('input[name=radio_btn]:checked').val();
+    console.log(test_radio);
   });
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 
@@ -47485,8 +47498,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

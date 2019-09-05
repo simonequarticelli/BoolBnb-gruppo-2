@@ -10896,6 +10896,73 @@ nav .container-fluid .airbnb-logo-black {
   z-index: 100;
 }
 
+.section-promotion form {
+  display: flex;
+}
+
+.section-promotion .input-group {
+  align-items: center;
+  justify-content: space-between;
+  background-color: aquamarine;
+  padding: 20px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.section-promotion .input-group form {
+  display: flex;
+}
+
+.section-promotion .input-group input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.section-promotion .input-group:hover {
+  box-shadow: 1px 2px 8px #b0b3b6;
+  transform: scale(1.01);
+}
+
+.section-promotion .input-group .badge-warning {
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+.section-promotion .input-group .price-style {
+  font-weight: 900;
+  font-size: 1.3rem;
+}
+
+.clicked {
+  box-shadow: 1px 2px 8px #b0b3b6;
+  transform: scale(1.01);
+}
+
+.blur-effect {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+@media (max-width: 991.98px) {
+  .section-promotion .input-group {
+    padding: 10px;
+  }
+
+  .section-promotion form {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .section-promotion .input-group {
+    padding: 10px;
+  }
+
+  .section-promotion form {
+    flex-direction: column;
+  }
+}
+
 .first_section {
   height: calc(100vh - 80px);
   color: #484848;
