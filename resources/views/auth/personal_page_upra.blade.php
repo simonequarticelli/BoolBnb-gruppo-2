@@ -47,13 +47,13 @@
                   </ul>
                 @else
                 <h3>Servizi non presenti</h3>
-                <ul>
+                <ul class="mb-2">
                   <li class="list-unstyled">
                     <i class="fas fa-frown fa-2x"></i>
                   </li>
                 </ul>
               @endif
-              <div class="btn-group" role="group" aria-label="Basic example">
+              <div class="btn-group">
                 <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
                 <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
                 <form action="{{ route('house.destroy', $house->id) }}" method="post">

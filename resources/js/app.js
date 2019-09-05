@@ -24,14 +24,14 @@ $(document).ready(function(){
         $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
     });
 
-// catturo il valore del radio button selezionato
+    // catturo il valore del radio button selezionato
     $('.section-promotion .input-group').on('click' , function() {
       // prendo l'inputo selezionato salvandolo in variabile
        var input_sel = $(this).children('input');
        // inposto il radio dell'input selezionato
        $(input_sel).prop("checked", true);
        // tolgo la classe a tutti gli elementi input group
-       $('.input-group').removeClass('clicked').addClass('blur-effect');
+       $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect');
        // aggiungo la classe clicked all'elemento selezionato
        $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
 

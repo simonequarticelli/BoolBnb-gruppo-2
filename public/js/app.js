@@ -47320,7 +47320,7 @@ $(document).ready(function () {
 
     $(input_sel).prop("checked", true); // tolgo la classe a tutti gli elementi input group
 
-    $('.input-group').removeClass('clicked').addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
+    $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
 
     $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
     var test_radio = $('input[name=radio_btn]:checked').val();
@@ -47410,6 +47410,7 @@ $(document).ready(function () {
               'img': house.img,
               'img_title': house.title,
               'title': house.title,
+              'address': house.address,
               'id': house.id,
               'slug': house.slug //assegno l'oggetto creato
 
@@ -47499,8 +47500,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -27,6 +27,7 @@
 
         {{-- controllo che la casa abbia i servizi --}}
         @if ($house->features->count() > 0)
+        <br>
           <h3>Servizi</h3>
           @php
             $features_house = $house->features
@@ -56,6 +57,7 @@
             </ul>
           @endforeach
         @else
+          <br>
           <h3>Servizi non presenti</h3>
           <ul>
             <li class="list-unstyled">

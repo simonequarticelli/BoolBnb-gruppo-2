@@ -29,7 +29,7 @@
 
 </head>
 <body>
-    <main>
+    <main class="main-min-650">
         @yield('content')
     </main>
     @include('layouts.footer')

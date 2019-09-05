@@ -2,8 +2,8 @@
 
 @include('layouts.nav')
 
-<div class="container w-50 mt-5">
-    <h1 class="mb-2">Diventa un Host, pubblica il tuo annuncio</h1>
+<div class="container w-50 mb-5">
+    <h1 class="mb-4 text-center">Diventa un Host, pubblica il tuo annuncio</h1>
     <form action="{{ route('house.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <div class="form-group">
@@ -55,7 +55,7 @@
            {{-- checkbox per servizi aggiuntivi --}}
                 <div class="input-group-prepend mb-3 d-inline-block">
                     <div class="input-group-text">
-                        <label class="m-0">
+                        <label class="label-checkbox m-0">
                             <input type="checkbox" name="feature[]" value="{{ $feature->id }}"
                             {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
                             {{ $feature->name }}
@@ -92,3 +92,5 @@
     </form>
 
 </div>
+
+

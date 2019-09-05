@@ -28,7 +28,7 @@ class FilterAjaxController extends Controller
         }else {
             return response()->json([
                 'success' => false,
-                'result' => 'non ci sono case'
+                'result' => 'houses not found'
             ]);
         }
         

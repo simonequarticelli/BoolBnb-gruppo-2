@@ -11121,8 +11121,8 @@ nav .fa-bars {
   }
 }
 
-main {
-  min-height: 600px;
+.main-min-650 {
+  min-height: 650px;
 }
 
 .first_section {
@@ -11235,7 +11235,7 @@ section.upra-section .card .card-body .list-unstyled {
 
 section.upra-section .btn-group {
   height: 37px;
-  margin-top: 25px;
+  margin-top: 20px;
 }
 
 @media (max-width: 1199.98px) {
@@ -11441,6 +11441,26 @@ section.upra-section .btn-group {
 
 [type=search]::-webkit-search-cancel-button {
   display: none;
+}
+
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn-group:not(:last-child) > .btn {
+  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.label-checkbox,
+[type=checkbox] {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+[type=checkbox] {
+  color: red;
 }
 
 ul {

@@ -2,9 +2,9 @@
 
 @section('content')
 
-  @php
+  {{-- @php
       // dd(Session());
-  @endphp
+  @endphp --}}
   {{-- @php
       dd(Auth::user()->hasRole('upra'));
   @endphp --}}
@@ -34,7 +34,7 @@
         </div>
     </section>
   </div>
-  <section class="featured_apartments">
+  <section class="featured_apartments text-center">
     <div class="container">
       <h3>Appartamenti in evidenza</h3>
       <div class="col-lg-12 first-card-container card-container-flex">
