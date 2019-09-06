@@ -4,6 +4,19 @@
 @section('content')
   @include('layouts.nav')
 
+  @if (session('alert'))
+    <!--SWEETALERT2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+      Swal.fire({
+        type: 'success',
+        title: '{{ session('alert') }}',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    </script>
+  @endif
+
   {{-- header singolo appartamento include inizialmente una immagine è una mappa --}}
   <div class="container house-map-container">
     <div class="col-xl-7 col-lg-8 col-md-10 col-sm-12 no-padding">

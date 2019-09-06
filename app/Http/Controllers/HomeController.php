@@ -61,6 +61,9 @@ class HomeController extends Controller
         /* invia la mail al proprietario */
         Mail::to($email_to)->send(new messageFromUser($new_message));
 
+        /* redirect alla pagina precedente e passo nella session alert */
+        return redirect()->back()->with('alert', 'Email inviata!');
+
         
     }
 
