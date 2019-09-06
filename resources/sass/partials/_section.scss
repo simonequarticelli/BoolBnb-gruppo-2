@@ -1,5 +1,5 @@
-.main-min-650{
-  min-height: 650px;
+.main-min-80{
+  min-height: 80vh;
 }
 
 .first_section{
@@ -112,8 +112,30 @@ section.upra-section{
   }
 }
 
+// per il container della input text + bottone 'Cerca' della pagina di ricerca
+div.search-and-button-container{
+  display: flex;
+  .form-control{
+    width: 350px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .algolia-places{
+    width: auto;
+  }
+}
+// per il container dei filtri della pagina di ricerca
+div.filters-container{
+  display: flex;
+  ul li{
+    display: inline-block;
+  }
+}
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
+  .main-min-80{
+    min-height: 50vh;
+  }
   .featured_apartments .card{
     // (960px - (232.5 x 3)) / 2
     margin-right: 116.25px;
@@ -136,11 +158,9 @@ section.upra-section{
 }
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px){
-
-  main{
-    min-height: 500px;
+  .main-min-80{
+    min-height: 50vh;
   }
-
   .featured_apartments .card{
     margin: 0;
     margin-top: 20px;
@@ -163,12 +183,9 @@ section.upra-section{
 }
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
-
-  main{
-    min-height: 600px;
+  .main-min-80{
+    min-height: 80vh;
   }
-
-
   .card-container-flex{
     margin-top: 0;
   }
@@ -181,7 +198,9 @@ section.upra-section{
       height: 220px;
     }
   }
-
+  .featured_apartments h3{
+    margin-top: 30px;
+  }
   section.upra-section{
     .card{
       height: auto;
@@ -194,14 +213,19 @@ section.upra-section{
       }
     }
   }
-}
-
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575.98px) {
-
-  main{
-    min-height: 400px;
+  div.search-and-button-container{
+    .algolia-places{
+      margin-top: 10px;
+      margin-right: 10px;
+      input.form-control{
+        width: 100%;
+      }
+    }
   }
-
-
+  div.filters-container{
+    li.nav-item {
+      width: auto;
+      margin-top: 0;
+    }
+  }
 }

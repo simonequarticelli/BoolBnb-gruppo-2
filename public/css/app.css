@@ -10664,6 +10664,12 @@ nav .container-fluid .airbnb-logo-light {
   fill: white;
 }
 
+nav .navbar-brand {
+  z-index: 1;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 nav .navbar-brand:hover {
   border-bottom: none;
 }
@@ -10740,10 +10746,6 @@ nav .fa-bars {
 
 @media (max-width: 767px) {
   .navbar {
-    z-index: 1;
-  }
-
-  .navbar-brand {
     z-index: 1;
   }
 
@@ -10831,8 +10833,9 @@ nav .container-fluid .airbnb-logo-black {
   fill: #008489;
 }
 
-.navbar-deatils-apartment .navbar-nav {
-  margin-top: 50px;
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 /* badge link statistiche*/
@@ -10888,10 +10891,18 @@ nav .container-fluid .airbnb-logo-black {
     border-bottom: none;
   }
 
+  .navbar-deatils-apartment .navbar-nav {
+    margin-top: 50px;
+  }
+
   .nav-link.upra .badge.upra-statics {
     position: absolute;
     height: 30px;
     right: 156px;
+  }
+
+  nav .nav-link.upra .badge.upra {
+    right: 38px;
   }
 }
 
@@ -10975,158 +10986,8 @@ nav .container-fluid .airbnb-logo-black {
   }
 }
 
-.navbar {
-  padding: 0 1rem;
-}
-
-nav {
-  height: 80px;
-  line-height: 80px;
-  /*ICON NEW -> OFFRI UNA CASA*/
-}
-
-nav .container-fluid {
-  line-height: 80px;
-}
-
-nav .container-fluid .airbnb-logo-light {
-  width: 34px;
-  height: 34px;
-  fill: white;
-}
-
-nav .navbar-brand:hover {
-  border-bottom: none;
-}
-
-nav .dropdown-menu {
-  position: absolute;
-  top: 60px;
-}
-
-nav .dropdown-menu:hover {
-  height: 35px;
-}
-
-nav .dropdown-menu a.dropdown-item {
-  line-height: normal;
-  padding: 0 10px;
-}
-
-nav .nav-link {
-  padding: 0;
-  position: relative;
-  height: 80px;
-}
-
-nav .nav-link.house .badge.house {
-  position: absolute;
-  height: 15px;
-  right: 80px;
-  top: 15px;
-}
-
-nav .nav-link.upra .badge.upra {
-  position: absolute;
-  height: 15px;
-  right: 130px;
-  top: 15px;
-}
-
-nav a {
-  color: white;
-}
-
-nav a:hover {
-  color: white;
-  border-bottom: 2px solid white;
-}
-
-nav .navbar-toggler-icon {
-  width: 34px;
-  height: 34px;
-}
-
-nav .fa-bars {
-  color: white;
-  font-size: 34px;
-}
-
-@media (max-width: 767px) {
-  .algolia-places {
-    margin-top: 90px;
-  }
-
-  .navbar {
-    z-index: 1;
-  }
-
-  .navbar-brand {
-    z-index: 1;
-  }
-
-  .navbar-toggler {
-    z-index: 1;
-  }
-
-  #navbarSupportedContent {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  .nav-bar-black {
-    background-color: #2B3F58;
-  }
-
-  .dropdown-menu {
-    height: 50px;
-    width: 100px;
-    background-color: #2B3F58;
-    border: 1px solid white;
-  }
-
-  a.dropdown-item {
-    color: white;
-  }
-
-  li.nav-item {
-    width: 340px;
-    margin-top: 30px;
-  }
-
-  li.nav-item a {
-    font-size: 24px;
-    border-bottom: none;
-  }
-
-  li.nav-item a a:hover {
-    border-bottom: none;
-  }
-
-  li.nav-item a a:active {
-    border-bottom: none;
-  }
-
-  nav .nav-link.house .badge.house,
-  nav .nav-link.upra .badge.upra {
-    position: absolute;
-    height: 30px;
-  }
-
-  nav .nav-link.house .badge.house {
-    right: 120px;
-  }
-
-  nav .nav-link.upra .badge.upra {
-    right: 38px;
-  }
-}
-
-.main-min-650 {
-  min-height: 650px;
+.main-min-80 {
+  min-height: 80vh;
 }
 
 .first_section {
@@ -11242,7 +11103,33 @@ section.upra-section .btn-group {
   margin-top: 20px;
 }
 
+div.search-and-button-container {
+  display: flex;
+}
+
+div.search-and-button-container .form-control {
+  width: 350px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+div.search-and-button-container .algolia-places {
+  width: auto;
+}
+
+div.filters-container {
+  display: flex;
+}
+
+div.filters-container ul li {
+  display: inline-block;
+}
+
 @media (max-width: 1199.98px) {
+  .main-min-80 {
+    min-height: 50vh;
+  }
+
   .featured_apartments .card {
     margin-right: 116.25px;
     margin-bottom: 30px;
@@ -11266,8 +11153,8 @@ section.upra-section .btn-group {
 }
 
 @media (max-width: 991.98px) {
-  main {
-    min-height: 500px;
+  .main-min-80 {
+    min-height: 50vh;
   }
 
   .featured_apartments .card {
@@ -11293,8 +11180,8 @@ section.upra-section .btn-group {
 }
 
 @media (max-width: 767.98px) {
-  main {
-    min-height: 600px;
+  .main-min-80 {
+    min-height: 80vh;
   }
 
   .card-container-flex {
@@ -11313,6 +11200,10 @@ section.upra-section .btn-group {
     height: 220px;
   }
 
+  .featured_apartments h3 {
+    margin-top: 30px;
+  }
+
   section.upra-section .card {
     height: auto;
     padding-bottom: 10px;
@@ -11325,11 +11216,19 @@ section.upra-section .btn-group {
   section.upra-section .card .card-body {
     margin-top: 10px;
   }
-}
 
-@media (max-width: 575.98px) {
-  main {
-    min-height: 400px;
+  div.search-and-button-container .algolia-places {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  div.search-and-button-container .algolia-places input.form-control {
+    width: 100%;
+  }
+
+  div.filters-container li.nav-item {
+    width: auto;
+    margin-top: 0;
   }
 }
 
@@ -11491,7 +11390,6 @@ ul {
 }
 
 footer {
-  margin-top: 50px;
   font-weight: bold;
 }
 

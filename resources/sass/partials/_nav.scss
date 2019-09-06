@@ -16,13 +16,11 @@ nav{
   }
 }
 
-// margine superiore mobile 
-.navbar-deatils-apartment{
-  .navbar-nav{
-    margin-top: 50px;
-  }
+// per l'icona di airbnb
+.navbar-brand{
+  padding-top: 0;
+  padding-bottom: 0;
 }
-
 
 /* badge link statistiche*/
 .nav-link.upra{
@@ -73,11 +71,20 @@ nav{
       }
     }
   }
-
+  // margine superiore mobile
+  .navbar-deatils-apartment{
+    .navbar-nav{
+      margin-top: 50px;
+    }
+  }
   // per il badge 'New'
   .nav-link.upra .badge.upra-statics{
    position: absolute;
    height: 30px;
    right: 156px;
+  }
+  // per la scritta 'New' di 'Area Personale UPRA'
+  nav .nav-link.upra .badge.upra{
+    right: 38px;
   }
 }

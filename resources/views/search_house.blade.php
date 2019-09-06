@@ -2,13 +2,44 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('layouts.nav_search')
-
+  @include('layouts.nav')
   <section class="featured_apartments">
     <div class="container">
+      <div class="search-and-button-container">
+        <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
+        <input id="lat" name="latitude" type="text" hidden>
+        <input id="lng" name="longitude" type="text" hidden>
+        <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
+        @error('address')
+            <span class="invalid-tooltip" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
+        <input name="address_api" id="search_filter_page" type="text" hidden>
+      </div>
+
+
+      {{-- <ul class="navbar-nav mr-auto"> --}}
+      <div class="filters-container mt-3">
+        <ul>
+          @foreach ( $features as $feature )
+          <li class="nav-item mr-3 list-unstyled">
+          {{-- checkbox per servizi aggiuntivi --}}
+                <label class="label-checkbox m-1">
+                    <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
+                    {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
+                    {{ $feature->name }}
+                </label>
+              </li>
+          @endforeach
+        </ul>
+      </div>
+
+      {{-- </ul> --}}
+
         <h3>Appartamenti trovati in <strong id="titolo-ricerca-case">{{ $address_home }}</strong></h3>
         {{-- contenitore card ajax --}}
-        <div id="container_card_ajax">
+        <div id="container_card_ajax" class="mb-5">
           @if (!$house_list->count() > 0)
             <h1>Non ci sono case nella località selezionata!</h1>
           @else

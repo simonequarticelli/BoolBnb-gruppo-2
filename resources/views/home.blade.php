@@ -12,7 +12,7 @@
     @include('layouts.nav_home')
     <section class="first_section">
       <div class="container">
-          <div class="col-xl-4 col-lg-12">
+          <div class="col-xl-5 col-lg-12">
             <div class="booking">
               <h2>Prenota alloggi e attività unici.</h2>
               <div class="where">
@@ -34,10 +34,10 @@
         </div>
     </section>
   </div>
-  <section class="featured_apartments text-center">
+  <section class="featured_apartments text-center mb-5">
     <div class="container">
       <h3>Appartamenti in evidenza</h3>
-      <div class="col-lg-12 first-card-container card-container-flex">
+      <div class="col-lg-12 first-card-container card-container-flex mt-4">
 
         {{-- @php
             dd($new_house->all());

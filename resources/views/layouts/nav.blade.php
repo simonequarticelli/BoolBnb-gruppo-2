@@ -12,7 +12,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse nav-bar-ligth" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
@@ -34,6 +33,13 @@
                 @else
 
                     @if (Auth::user()->HasRole('upra'))
+                      @if(Route::currentRouteName() != ('house.index'))
+                        <li class="nav-item">
+                            <a class="nav-link upra ml-3" id="badge-new" href="{{ route('house.index') }}">
+                                <span class="badge upra badge-danger mb-5">New</span>
+                                Area personale UPRA</a>
+                        </li>
+                      @endif
                         <li class="nav-item">
                             <a class="nav-link upra ml-3" id="badge-new" href="#">
                                 <span class="badge upra-statics badge-danger mb-5">New</span>

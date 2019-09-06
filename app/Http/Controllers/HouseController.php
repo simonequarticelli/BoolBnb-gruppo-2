@@ -180,8 +180,8 @@ class HouseController extends Controller
 
       if(!empty($data['feature'])){
         $house->features()->sync($data['feature']);
-      }else {
-        $house->features()->sync([]); 
+      } else {
+        $house->features()->sync([]);
       }
 
       $house->update($data);

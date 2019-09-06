@@ -12,9 +12,16 @@ nav{
       fill: white;
     }
   }
-  .navbar-brand:hover{
-    border-bottom: none;
-  }
+
+  // per l'icona di airbnb
+ .navbar-brand{
+    z-index: 1;
+    padding-top: 0;
+    padding-bottom: 0;
+    &:hover{
+      border-bottom: none;
+    }
+ }
 
   // per il dropdown-menu
   .dropdown-menu{
@@ -93,11 +100,6 @@ nav{
   .navbar{
     z-index: 1;
   }
-   // per l'icona di airbnb
-   .navbar-brand{
-     z-index: 1;
-   }
-
    .navbar-home{
      .navbar-nav{
       margin-top: 50px;
