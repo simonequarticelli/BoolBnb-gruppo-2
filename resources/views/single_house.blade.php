@@ -91,8 +91,8 @@
             @endif
             <div class="form-group">
               <label for="exampleInputEmail1">La tua Mail</label>
-              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-
+              <input required type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp"
+              
               @if (Auth::user() == null)
                 placeholder="Inserisci la tua mail"
               {{-- se l'utente non è il proprietario inserisco la sua mail nell'input--}}
@@ -103,14 +103,24 @@
                 placeholder="Inserisci la tua mail"
                   >
               @endif
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+
               <label for="exampleInputEmail1">Oggetto</label>
               <input type="text" name="subject" class="form-control" placeholder="Inserisci oggetto messaggio" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-
+              
             </div>
             <div class="form-group message-form">
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
-              <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
+              <textarea required class="form-control @error('message') is-invalid @enderror" name="message" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
+              @error('message')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+              @enderror
             </div>
             {{-- @php
                 dd($house->user_id);
