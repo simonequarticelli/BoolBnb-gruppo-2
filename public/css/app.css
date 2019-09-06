@@ -10831,6 +10831,10 @@ nav .container-fluid .airbnb-logo-black {
   fill: #008489;
 }
 
+.navbar-deatils-apartment .navbar-nav {
+  margin-top: 50px;
+}
+
 /* badge link statistiche*/
 
 .nav-link.upra .badge.upra-statics {

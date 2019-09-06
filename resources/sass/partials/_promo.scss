@@ -2,6 +2,7 @@
   form{
     display: flex;
   }
+  // stile banner promozioni
   .input-group{
     align-items: center;
     justify-content: space-between;
@@ -34,11 +35,12 @@
   }
 }
 
+// classe che al click applica questo stile
 .clicked{
   box-shadow: 1px 2px 8px #b0b3b6;
   transform: scale(1.01);
 }
-
+// gli elementi non cliccati hanno un blur
 .blur-effect{
   filter: blur(2px);
   -webkit-filter: blur(2px);
