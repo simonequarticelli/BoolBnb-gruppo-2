@@ -170,11 +170,9 @@ $(document).ready(function(){
 
                         //appendo con jquery il template
                         $('#container_card_ajax').append(html);
+
                     }
 
-                }else {
-
-                    $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
 
                 }
 

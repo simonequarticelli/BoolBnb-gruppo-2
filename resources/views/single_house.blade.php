@@ -12,7 +12,7 @@
         type: 'success',
         title: '{{ session('alert') }}',
         showConfirmButton: false,
-        timer: 1500
+        timer: 2500
       })
     </script>
   @endif
@@ -89,7 +89,8 @@
             @elseif ($house->user_id == Auth::user()->id)
               <fieldset disabled>
             @endif
-            <div class="form-group">
+
+            <div class="form-group message-form">
               <label for="exampleInputEmail1">La tua Mail</label>
               <input required type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp"
               
@@ -108,11 +109,13 @@
                     <strong>{{ $message }}</strong>
                 </span>
               @enderror
+            </div>
 
+            <div class="form-group message-form">
               <label for="exampleInputEmail1">Oggetto</label>
               <input type="text" name="subject" class="form-control" placeholder="Inserisci oggetto messaggio" id="exampleInputEmail1" aria-describedby="emailHelp">
-              
             </div>
+
             <div class="form-group message-form">
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
               <textarea required class="form-control @error('message') is-invalid @enderror" name="message" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
@@ -122,6 +125,7 @@
                 </span>
               @enderror
             </div>
+            
             {{-- @php
                 dd($house->user_id);
             @endphp --}}
@@ -137,6 +141,7 @@
               @endif
                 type="submit" class="btn btn-primary">Invia</button>
           </form>
+          
       </div>
     </div>
   </section>

@@ -47419,8 +47419,6 @@ $(document).ready(function () {
 
             $('#container_card_ajax').append(html);
           }
-        } else {
-          $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
         }
       },
       error: function error(richiesta, stato, errori) {
