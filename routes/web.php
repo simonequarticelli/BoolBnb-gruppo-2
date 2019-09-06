@@ -26,6 +26,9 @@ Route::prefix('admin')->group(function(){
 /*rotte per i filtri lato php*/
 Route::post('/house/search', 'HouseController@search')->name('house.search');
 
+/*rotta per inviare dati mail*/
+Route::post('/house/store-mail', 'HomeController@storeMail')->name('store_mail');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*nella rotta passiamo due parametri slug/id*/

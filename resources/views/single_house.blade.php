@@ -69,7 +69,8 @@
 
       <div class="col-lg-4 form-house">
         <h3>Scrivi al proprietario</h3>
-          <form class="" action="index.html" method="post">
+          <form action="{{ route('store_mail')}}" method="post">
+            @csrf
             @if (Auth::user() == null)
             <!--controllo se l'utente è il proprietario, se lo è disabilito il form-->
             @elseif ($house->user_id == Auth::user()->id)
@@ -77,7 +78,7 @@
             @endif
             <div class="form-group">
               <label for="exampleInputEmail1">La tua Mail</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+              <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
 
               @if (Auth::user() == null)
                 placeholder="Inserisci la tua mail"
@@ -86,15 +87,25 @@
                 value="{{ Auth::user()->email }}"
               {{-- controllo se l'utente è il proprietario, se lo è inserisco il placeholder --}}
               @elseif ($house->user_id == Auth::user()->id)
-                placeholder="Inserisci la tua mail">
+                placeholder="Inserisci la tua mail"
+                  >
               @endif
+              <label for="exampleInputEmail1">Oggetto</label>
+              <input type="text" name="subject" class="form-control" placeholder="Inserisci oggetto messaggio" id="exampleInputEmail1" aria-describedby="emailHelp">
 
 
             </div>
             <div class="form-group message-form">
               <label for="exampleFormControlTextarea1">Il tuo messaggio</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
+              <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="3"  placeholder="Inserisci il tuo messaggio"></textarea>
             </div>
+            {{-- @php
+                dd($house->user_id);
+            @endphp --}}
+            <input type="text" name="email_proprietario" value="{{ $house->user->email }}" hidden>
+            <input type="text" name="house_id" value="{{ $house->id }}" hidden>
+
+            
             <button
               @if (Auth::user() == null)
               {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}

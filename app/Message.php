@@ -10,4 +10,6 @@ class Message extends Model
     public function house() {
         return $this->belongsTo('App\House');
     }
+
+    protected $fillable = ['email', 'subject', 'message', 'house_id'];
 }
