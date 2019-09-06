@@ -10729,7 +10729,7 @@ nav .fa-bars {
 
 .navbar-search .algolia-places {
   height: 37px;
-  width: 250px;
+  width: 350px;
   margin-right: 10px;
 }
 
@@ -11457,10 +11457,6 @@ section.upra-section .btn-group {
   display: flex;
   align-items: center;
   margin-right: 5px;
-}
-
-[type=checkbox] {
-  color: red;
 }
 
 ul {

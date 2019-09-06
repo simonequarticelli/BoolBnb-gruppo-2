@@ -3,7 +3,8 @@
 
 @include('layouts.nav')
 
-<div class="container w-50">
+<div class="container w-50 mb-5">
+    <h1 class="mb-4 text-center">Modifica l'annuncio: {{ $house->title }}</h1>
     <form action="{{ route('house.update', $house->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
             @csrf
