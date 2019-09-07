@@ -101,8 +101,7 @@
                 value="{{ Auth::user()->email }}"
               {{-- controllo se l'utente è il proprietario, se lo è inserisco il placeholder --}}
               @elseif ($house->user_id == Auth::user()->id)
-                placeholder="Inserisci la tua mail"
-                  >
+                placeholder="Inserisci la tua mail">
               @endif
               @error('email')
                 <span class="invalid-feedback" role="alert">
@@ -131,6 +130,7 @@
             @endphp --}}
             <input type="text" name="email_proprietario" value="{{ $house->user->email }}" hidden>
             <input type="text" name="house_id" value="{{ $house->id }}" hidden>
+            {{-- <input type="text" name="house_address" value="{{ $house->address }}" hidden> --}}
 
             
             <button

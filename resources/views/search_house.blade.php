@@ -68,7 +68,7 @@
   <script class="card_template" type ="text/x-handlebars-template">
     <div class="col-lg-12 first-card-container card-container-flex">
       <div class="card col-lg-3 col-md-6 col-sm-12">
-        <img src="{{ url('storage/')}}/@{{img}}" class="card-img-top" alt="immagine @{{ img_title }}">
+        <img src="{{ url('storage/')}}/@{{ img }}" class="card-img-top" alt="immagine @{{ img_title }}">
         <div class="card-body">
           <h5 class="card-title">@{{ title }}</h5>
           <h6 class="card-title">@{{ address }}</h6>

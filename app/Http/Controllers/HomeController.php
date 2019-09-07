@@ -49,9 +49,10 @@ class HomeController extends Controller
         
         $data = $request->all();
 
-        //dd($data);
+        // dd($data);
 
         $email_to = $data['email_proprietario'];
+
 
         $new_message = new Message();
         $new_message->fill($data);

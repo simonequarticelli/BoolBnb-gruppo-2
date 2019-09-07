@@ -173,6 +173,10 @@ $(document).ready(function(){
 
                     }
 
+                
+                }else {
+
+                    $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
 
                 }
 

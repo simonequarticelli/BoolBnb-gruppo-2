@@ -21,7 +21,12 @@ Route::prefix('admin')->group(function(){
     Route::resource('/house', 'HouseController');
     /*rotta per vedere le promo*/
     Route::get('/house-promotions/{slug}/{id}', 'HouseController@showPromotions')->name('promotions');
+    /* rotta per vedere i messaggi */
+    Route::resource('/messages', 'MessageController');
 });
+
+
+
 
 /*rotte per i filtri lato php*/
 Route::post('/house/search', 'HouseController@search')->name('house.search');
