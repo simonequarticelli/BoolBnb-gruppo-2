@@ -166,6 +166,8 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
 
+        CyrildeWit\EloquentViewable\EloquentViewableServiceProvider::class,
+
         /*
          * Package Service Providers...
          */

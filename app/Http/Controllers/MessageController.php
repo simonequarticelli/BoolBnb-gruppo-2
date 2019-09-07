@@ -21,9 +21,13 @@ class MessageController extends Controller
         $messages = DB::table('messages')
             ->join('houses', 'house_id', '=', 'houses.id')
             ->where('user_id', Auth::user()->id)
-            ->get()->dd();
+            ->get();
+        
+        /* conteggio messaggi utente */
+        $messages->count(); 
 
-            return view('auth.message_private', compact('messages'));
+        
+        return view('auth.message_private', compact('messages'));
     }
 
     

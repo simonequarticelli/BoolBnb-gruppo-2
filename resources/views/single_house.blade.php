@@ -4,6 +4,11 @@
 @section('content')
   @include('layouts.nav')
 
+  {{-- pannello per mostrare incremento --}}
+  <div class="panel-footer">
+    Views: {{ $house->view }}
+  </div>
+
   @if (session('alert'))
     <!--SWEETALERT2-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
