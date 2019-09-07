@@ -30,7 +30,7 @@
               <tr>
                   <td class="message-box" colspan="3">
                       <div id="accordion" class="collapse">
-                        <p class="card card-body">Hidden by default</p>
+                        <p class="card card-body">{{ $message->message }}</p>
                       </div>
                   </td>
               </tr>

@@ -18,6 +18,7 @@ var $ = require('jquery');
 var places = require('places.js');
 
 $(document).ready(function(){
+
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
@@ -42,9 +43,9 @@ $(document).ready(function(){
 
    //---------------CODICE MAIL-BOX----------------------
 
-  // $('.info-message').on('click', function(){
-  //     $('.message-box').fadeToggle();
-  // })
+//   $('.info-message').on('click', function(){
+//       $('.message-box').fadeToggle();
+//   })
 
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/

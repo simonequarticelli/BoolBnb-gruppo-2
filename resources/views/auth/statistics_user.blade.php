@@ -3,9 +3,15 @@
 @section('content')
   @include('layouts.nav')
 
-  <div class="w-25 ml-5">
+  <div class="container w-25 mt-3">
     <canvas id="myChart" width="400" height="400"></canvas>
   </div>
+
+  @php
+      $houses_user = Auth::user()->houses;
+      $array_houses = $houses_user->all();
+      //dd($array_houses);
+  @endphp
   
 
   {{-- CHART.JS --}}
@@ -13,13 +19,14 @@
 
   <script>
 
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'horizontalBar',
         data: {
-            labels: ['Message', 'Visualizzazioni'],
+            labels: ['Messaggi', 'Visualizzazioni'],
             datasets: [{
-                label: '# of Votes',
+                label: 'STATISTICHE',
                 data: ['{{ $count_messages }}', '{{ $count_view }}'],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',

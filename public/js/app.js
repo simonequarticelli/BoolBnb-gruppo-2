@@ -47327,9 +47327,9 @@ $(document).ready(function () {
     var test_radio = $('input[name=radio_btn]:checked').val();
     console.log(test_radio);
   }); //---------------CODICE MAIL-BOX----------------------
-  // $('.info-message').on('click', function(){
-  //     $('.message-box').fadeToggle();
-  // })
+  //   $('.info-message').on('click', function(){
+  //       $('.message-box').fadeToggle();
+  //   })
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 

@@ -147,7 +147,22 @@ class HouseController extends Controller
             ->join('houses', 'house_id', '=', 'houses.id')
             ->where('user_id', Auth::user()->id)
             ->get();
-     
+        
+        //dd($messages);
+        
+        
+        /* scorro collection per pushare nomi casa nell'array */
+        // $houses_user_collection = Auth::user()->houses;
+        // foreach ($houses_user_collection as $house) {
+            
+        //     $chart_houses[] = $house['title'];
+
+        // }
+
+        /* array con nomi case */
+        //dd($chart_houses);
+
+
         /* conteggio messaggi utente */
         $count_messages = $messages->count(); 
 
@@ -161,7 +176,8 @@ class HouseController extends Controller
         return view('auth.statistics_user')->with([
 
             'count_messages' => $count_messages,
-            'count_view' => $count_view
+            'count_view' => $count_view,
+            // 'chart_houses' => $chart_houses
 
         ]);
     }

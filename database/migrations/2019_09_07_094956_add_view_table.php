@@ -11,7 +11,7 @@ class AddViewTable extends Migration
     {
         Schema::table('houses', function (Blueprint $table) {
 
-            $table->integer('view')->after('user_id');
+            $table->integer('view')->nullable()->after('user_id');
 
         });
     }

@@ -24,7 +24,7 @@ class MessageController extends Controller
             ->get();
         
         /* conteggio messaggi utente */
-        $messages->count(); 
+        // $messages->count(); 
 
         
         return view('auth.message_private', compact('messages'));
