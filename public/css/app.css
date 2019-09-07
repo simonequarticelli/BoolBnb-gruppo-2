@@ -10925,7 +10925,7 @@ nav .container-fluid .airbnb-logo-black {
   align-items: center;
   justify-content: space-between;
   background-color: aquamarine;
-  padding: 20px;
+  padding: 15px;
   transition: 0.5s;
   border-radius: 50px;
   cursor: pointer;
@@ -10938,6 +10938,10 @@ nav .container-fluid .airbnb-logo-black {
 .section-promotion .input-group input {
   visibility: hidden;
   position: absolute;
+}
+
+.section-promotion .input-group .section-promotion .input-group {
+  font-size: 1em;
 }
 
 .section-promotion .input-group:hover {
@@ -10966,9 +10970,34 @@ nav .container-fluid .airbnb-logo-black {
   -webkit-filter: blur(2px);
 }
 
+@media (max-width: 1199.98px) {
+  .section-promotion .input-group {
+    padding: 10px;
+  }
+
+  .col-md-6 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 991.98px) {
   .section-promotion .input-group {
     padding: 10px;
+  }
+
+  .section-promotion {
+    display: flex;
+    justify-content: center;
+  }
+
+  .section-promotion .input-group .badge-warning,
+  .section-promotion .input-group .price-style {
+    font-size: 1.2em;
+  }
+
+  .section-promotion .col-md-6 {
+    padding: 0;
   }
 
   .section-promotion form {
@@ -10981,9 +11010,28 @@ nav .container-fluid .airbnb-logo-black {
     padding: 10px;
   }
 
+  .section-promotion .input-group .badge-warning,
+  .section-promotion .input-group .price-style {
+    font-size: 1em;
+  }
+
   .section-promotion form {
     flex-direction: column;
+    justify-content: center;
   }
+}
+
+.message_box_container .fa-trash {
+  cursor: pointer;
+}
+
+.message_box_container thead {
+  background-color: #e9ecef66;
+}
+
+.info-message {
+  display: flex;
+  cursor: pointer;
 }
 
 .main-min-80 {
@@ -11362,8 +11410,16 @@ div.filters-container ul li {
   margin-right: 5px;
 }
 
+.visible {
+  display: block;
+}
+
 ul {
   padding: 0;
+}
+
+.fas {
+  color: #767676;
 }
 
 .btn-danger {

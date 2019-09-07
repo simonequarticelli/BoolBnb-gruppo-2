@@ -24,6 +24,7 @@ $(document).ready(function(){
         $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
     });
 
+// -----------------CODICE BANNER PROMO---------------------------
     // catturo il valore del radio button selezionato
     $('.section-promotion .input-group').on('click' , function() {
       // prendo l'inputo selezionato salvandolo in variabile
@@ -39,7 +40,11 @@ $(document).ready(function(){
        console.log(test_radio);
    });
 
-   $('.carousel').carousel('pause');
+   //---------------CODICE MAIL-BOX----------------------
+
+  // $('.info-message').on('click', function(){
+  //     $('.message-box').fadeToggle();
+  // })
 
 
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
@@ -173,7 +178,7 @@ $(document).ready(function(){
 
                     }
 
-                
+
                 }else {
 
                     $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');

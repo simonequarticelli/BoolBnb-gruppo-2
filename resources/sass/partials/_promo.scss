@@ -7,7 +7,7 @@
     align-items: center;
     justify-content: space-between;
     background-color: aquamarine;
-    padding: 20px;
+    padding: 15px;
     transition: 0.5s;
     border-radius: 50px;
     form{
@@ -17,6 +17,12 @@
     input{
       visibility: hidden;
       position: absolute;
+    }
+
+    .section-promotion{
+      .input-group{
+        font-size: 1.0em;
+      }
     }
       &:hover {
         box-shadow: 1px 2px 8px #b0b3b6;
@@ -49,8 +55,16 @@
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px){
 
-}
+  .section-promotion .input-group{
+    padding:10px;
+  }
 
+  .col-md-6{
+    width: 100%;
+    max-width: 100%;
+  }
+
+}
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px){
@@ -59,7 +73,21 @@
     padding:10px;
   }
 
+// scalo il font
   .section-promotion{
+    display: flex;
+    justify-content: center;
+    .input-group{
+      .badge-warning , .price-style{
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  .section-promotion{
+    .col-md-6{
+      padding:0;
+    }
     form{
       flex-direction: column;
     }
@@ -73,9 +101,19 @@
     padding:10px;
   }
 
+  // scalo il font
+    .section-promotion{
+      .input-group{
+        .badge-warning, .price-style{
+          font-size: 1.0em;
+        }
+      }
+    }
+
   .section-promotion{
     form{
       flex-direction: column;
+      justify-content: center;
     }
 }
 

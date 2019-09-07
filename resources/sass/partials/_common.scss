@@ -18,8 +18,18 @@
   margin-right: 5px;
 }
 
+
+.visible{
+  display: block;
+}
+
 ul{
   padding: 0;
+}
+
+// imposto questo colore a tutte le icone
+.fas{
+  color: #767676;
 }
 
 //---------------------- stile bottoni-----------------------------
@@ -47,4 +57,3 @@ ul{
   background-color: #008489;
   color:white;
 }
-
