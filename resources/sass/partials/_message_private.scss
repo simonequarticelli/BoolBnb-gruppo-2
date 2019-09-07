@@ -1,0 +1,22 @@
+// CSS DELLA PAGINA MESSAG PRIVATE
+
+.message_box_container{
+  .fa-trash{
+    cursor: pointer;
+  }
+  thead{
+    background-color: #e9ecef66;
+    // border-bottom: 5px solid #dde2e6;
+  }
+
+ // contenitore del messaggio
+  // .message-box{
+  //   display: none;
+  // }
+
+}
+
+.info-message{
+  display:flex;
+  cursor: pointer;
+}
