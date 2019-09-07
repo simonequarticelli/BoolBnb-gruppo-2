@@ -23,6 +23,4 @@
         <li><strong>id casa da promuovere: </strong>{{ $house->id }}</li>
     </ul> --}}
   </div>
-
-
 @endsection
