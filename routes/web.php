@@ -20,9 +20,11 @@ Auth::routes();
 Route::prefix('admin')->group(function(){
     Route::resource('/house', 'HouseController');
     /*rotta per vedere le promo*/
-    Route::get('/house-promotions/{slug}/{id}', 'HouseController@showPromotions')->name('promotions');
+    Route::get('/house/promotions/{slug}/{id}', 'HouseController@showPromotions')->name('promotions');
     /* rotta per vedere i messaggi */
     Route::resource('/messages', 'MessageController');
+    /* rotta per vedere le statistiche */
+    Route::get('/statistics/user/{id}', 'HouseController@showStatistics')->name('show_statistics');
 });
 
 
@@ -32,10 +34,10 @@ Route::prefix('admin')->group(function(){
 Route::post('/house/search', 'HouseController@search')->name('house.search');
 
 /*rotta per inviare dati mail*/
-Route::post('/house/store-mail', 'HomeController@storeMail')->name('store_mail');
+Route::post('/house/store/mail', 'HomeController@storeMail')->name('store_mail');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 /*nella rotta passiamo due parametri slug/id*/
-Route::get('/house-details/{slug}/{id}', 'HomeController@detailsHouseHome')->name('house_details');
+Route::get('/house/details/{slug}/{id}', 'HomeController@detailsHouseHome')->name('house_details');
 

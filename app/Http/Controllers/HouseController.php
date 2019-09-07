@@ -134,11 +134,37 @@ class HouseController extends Controller
         ]);
     }
 
-    public function show(House $house)
+    public function show()
     {
         //
     }
 
+    public function showStatistics()
+    {   
+
+         /* query per avere i messaggi dell'utente corrente */ 
+         $messages = DB::table('messages')
+            ->join('houses', 'house_id', '=', 'houses.id')
+            ->where('user_id', Auth::user()->id)
+            ->get();
+     
+        /* conteggio messaggi utente */
+        $count_messages = $messages->count(); 
+
+        
+        /* query per avere la somma delle view dell'utente corrente */ 
+        $count_view = DB::table('houses')
+            ->where('user_id', Auth::user()->id)
+            ->sum('houses.view');
+
+        
+        return view('auth.statistics_user')->with([
+
+            'count_messages' => $count_messages,
+            'count_view' => $count_view
+
+        ]);
+    }
 
     public function edit(House $house)
     {

@@ -41,7 +41,7 @@
                         </li>
                       @endif
                         <li class="nav-item">
-                            <a class="nav-link upra ml-3" id="badge-new" href="#">
+                            <a class="nav-link upra ml-3" id="badge-new" href="{{ route('show_statistics', Auth::user()->id) }}">
                                 <span class="badge upra-statics badge-danger mb-5">New</span>
                                 Statistiche</a>
                         </li>
