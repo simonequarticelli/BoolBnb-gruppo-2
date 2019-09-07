@@ -32,7 +32,7 @@
                                 <i class="fas fa-car mr-1"></i>{{ $feature->name }}
                                   @break
                               @case('piscina')
-                                <i class="fas fa-door-open mr-1"></i>{{ $feature->name }}
+                                <i class="fas fa-swimming-pool mr-1"></i>{{ $feature->name }}
                                 @break
                               @case('sauna')
                                 <i class="fas fa-hot-tub mr-1"></i>{{ $feature->name }}

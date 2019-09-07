@@ -32,6 +32,16 @@ nav{
   }
 }
 
+/* badge link messages*/
+.nav-link.upra{
+  .badge.upra-messages{
+    position: absolute;
+    height: 15px;
+    right: 60px;
+    top: 15px;
+  }
+}
+
 @media (max-width: 767px){
   // per l'icona di airbnb
   .navbar-brand{

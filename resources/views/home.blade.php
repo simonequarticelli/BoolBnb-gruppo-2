@@ -36,7 +36,7 @@
   </div>
   <section class="featured_apartments text-center mb-5">
     <div class="container">
-      <h3>Appartamenti in evidenza</h3>
+      <h1 class="mb-5 mt-5">Appartamenti in evidenza</h1>
       <div class="col-lg-12 first-card-container card-container-flex mt-4">
 
         {{-- @php

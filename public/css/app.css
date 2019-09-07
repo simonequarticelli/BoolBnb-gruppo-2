@@ -10847,6 +10847,15 @@ nav .container-fluid .airbnb-logo-black {
   top: 15px;
 }
 
+/* badge link messages*/
+
+.nav-link.upra .badge.upra-messages {
+  position: absolute;
+  height: 15px;
+  right: 60px;
+  top: 15px;
+}
+
 @media (max-width: 767px) {
   .navbar-brand {
     z-index: 1;

@@ -14,6 +14,7 @@
               {{-- <th><i class="fas fa-trash"></i></th>
               <th></th> --}}
             </tr>
+             @if ($messages->count() > 0)
           </thead>
           <tbody>
             @foreach ($messages as $key => $message)
@@ -38,6 +39,7 @@
               </tr>
             @endforeach
           </tbody>
+        @endif
       </table>
     </div>
   </section>
