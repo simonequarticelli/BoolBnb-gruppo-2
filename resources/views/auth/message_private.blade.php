@@ -1,8 +1,3 @@
- {{-- @php
-  foreach ($messages as $message) {
-    dump($message);
-  }
-@endphp --}}
 
 @extends('layouts.app')
 
@@ -19,8 +14,8 @@
           <tbody>
             @foreach ($messages as $message)
               <tr>
-                  <td><input type="checkbox" name="" value=""></td>
-                  <td class="info-message clickable" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="collapseExample" >
+                  <td><input type="checkbox" name="delete_msg[]" value=""></td>
+                  <td class="info-message clickable" data-toggle="collapse" data-target="#accordion{{$message->id}}" aria-expanded="false" aria-controls="collapseExample" >
                     <div  class="col-lg-10">
                       <h6>Messaggio ricevuto per l'annuncio: {{$message->title}} in {{ $message->address }}</h6>
                       <h5>{{$message->email}}</h5>
@@ -35,14 +30,14 @@
                       @method('DELETE')
                       @csrf
                          <th>
-                           <input type="submit" class="btn btn-danger" value="submit">
+                           <input type="submit" class="btn btn-danger" value="">
                          </th>
                     </form>
                   </td>
               </tr>
               <tr>
                   <td class="message-box" colspan="3">
-                      <div id="accordion" class="collapse">
+                      <div id="accordion{{$message->id}}" class="collapse">
                         <p class="card card-body">{{$message->message}}</p>
                       </div>
                   </td>
