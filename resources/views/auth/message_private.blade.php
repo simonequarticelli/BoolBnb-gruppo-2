@@ -22,6 +22,7 @@
                   <td><input type="checkbox" name="" value=""></td>
                   <td class="info-message clickable" data-toggle="collapse" data-target="#accordion" aria-expanded="false" aria-controls="collapseExample" >
                     <div  class="col-lg-10">
+                      <h6>Messaggio ricevuto per l'annuncio: {{$message->title}} in {{ $message->address }}</h6>
                       <h5>{{$message->email}}</h5>
                       <p>{{$message->subject}}</p>
                     </div>
