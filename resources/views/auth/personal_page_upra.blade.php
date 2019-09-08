@@ -1,3 +1,8 @@
+{{-- @php
+ foreach ($houses_user as $house) {
+   dump($house);
+ }
+@endphp --}}
 @extends('layouts.app')
 
 @section('content')

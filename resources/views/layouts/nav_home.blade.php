@@ -29,6 +29,7 @@
                     </li>
                 @else
 
+              
                     @if (Auth::user()->HasRole('upra'))
                         <li class="nav-item">
                             <a class="nav-link upra ml-3" id="badge-new" href="{{ route('house.index') }}">

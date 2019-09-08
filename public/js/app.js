@@ -47379,15 +47379,12 @@ $(document).ready(function () {
 
   $('#btn_filter_api').click(function () {
     var address = $('#search_filter_page').val();
-    /* creare un array vuoto e pushare al suo interno tutte le features */
-
+    console.log(address);
     $.ajax({
       url: 'http://localhost:8000/api/index',
       method: 'GET',
       data: {
         'address': address
-        /* features */
-
       },
       success: function success(data) {
         /*svuoto il contenitore delle cards*/
@@ -47508,8 +47505,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

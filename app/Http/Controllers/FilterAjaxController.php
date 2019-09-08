@@ -10,14 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class FilterAjaxController extends Controller
 {
-    
+
     public function index()
     {
         $address = $_GET['address'];
 
-        // $features = unserialize(base64_decode($_GET['feature']));
-        
-
+        //dd($features);
 
         $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address.'%')->get();
@@ -34,40 +32,39 @@ class FilterAjaxController extends Controller
             ]);
         }
         
-        
     }
 
-    
+
     public function create()
     {
         //
     }
 
-    
+
     public function store(Request $request)
     {
-        
+
     }
 
-    
+
     public function show(FilterAjax $filterAjax)
     {
         //
     }
 
-    
+
     public function edit(FilterAjax $filterAjax)
     {
         //
     }
 
-    
+
     public function update(Request $request, FilterAjax $filterAjax)
     {
         //
     }
 
-    
+
     public function destroy(FilterAjax $filterAjax)
     {
         //
