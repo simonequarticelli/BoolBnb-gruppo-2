@@ -3,6 +3,25 @@
 
 @include('layouts.nav')
 @section('content')
+
+  @if (session('alert'))
+    <!--SWEETALERT2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+      const Toast = Swal.mixin({
+        toast: true,
+        position: 'center',
+        showConfirmButton: false,
+        timer: 3000
+      })
+
+      Toast.fire({
+        type: 'success',
+        title: '{{ session('alert') }}'
+      })
+    </script>
+  @endif
+
   <section class="message_box_container">
    <div class="container">
       <table class="table">
@@ -10,18 +29,18 @@
             <tr>
             </tr>
              @if ($messages->count() > 0)
+             <h1 class="col-lg-12 text-center mb-3">I tuoi messaggi</h1>
           </thead>
           <tbody>
             @foreach ($messages as $message)
               <tr>
-                  <td><input type="checkbox" name="delete_msg[]" value=""></td>
                   <td class="info-message clickable" data-toggle="collapse" data-target="#accordion{{$message->id}}" aria-expanded="false" aria-controls="collapseExample" >
                     <div  class="col-lg-10">
                       <h6>Messaggio ricevuto per l'annuncio: {{$message->title}} in {{ $message->address }}</h6>
                       <h5>{{$message->email}}</h5>
                       <p>{{$message->subject}}</p>
                     </div>
-                    <div class="hour-received">
+                    <div class="hour-received mt-3">
                         <small><p><strong>Ricevuto </strong></p>{{$message->created_at}}</small>
                     </div>
                   </td>
@@ -30,7 +49,7 @@
                       @method('DELETE')
                       @csrf
                          <th>
-                           <input type="submit" class="btn btn-danger" value="">
+                           <input type="submit" class="btn btn-danger btn-lg mt-3" style="border-radius: 100%;" value="X">
                          </th>
                     </form>
                   </td>
@@ -51,6 +70,4 @@
       </table>
     </div>
   </section>
-
-
 @endsection

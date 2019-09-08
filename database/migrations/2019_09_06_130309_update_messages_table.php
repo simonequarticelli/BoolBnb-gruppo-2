@@ -10,7 +10,7 @@ class UpdateMessagesTable extends Migration
     public function up()
     {
         Schema::table('messages', function (Blueprint $table) {
-            $table->unsignedBigInteger('house_id')->after('id');
+            $table->unsignedBigInteger('house_id')->after('id')->nullable();
             $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
         });
     }

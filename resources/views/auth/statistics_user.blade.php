@@ -2,7 +2,7 @@
 
 @section('content')
   @include('layouts.nav')
-
+  <h1 class="col-lg-12 text-center mb-3">Le tue statistiche</h1>
   <div class="container w-25 mt-3">
     <canvas id="myChart" width="400" height="400"></canvas>
   </div>
@@ -25,7 +25,6 @@
         data: {
             labels: ['Messaggi', 'Visualizzazioni'],
             datasets: [{
-                label: 'STATISTICHE',
                 data: ['{{ $count_messages }}', '{{ $count_view }}'],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -47,6 +46,10 @@
             }]
         },
         options: {
+            /* nascondo la label */
+            legend: {
+                display: false
+            },
             scales: {
                 yAxes: [{
                     ticks: {

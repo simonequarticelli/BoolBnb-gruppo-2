@@ -49,13 +49,13 @@ class HomeController extends Controller
 
             }
 
-            //dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
+            // dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
             // dd($houses_user_array['user_id']);
             // dd(Auth::user()->HasRole('upra'));
 
             //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
 
-            if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
+            if (Auth::user()->HasRole('upra') || Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
                 
                 $house->increment('view');
                 
@@ -63,13 +63,6 @@ class HomeController extends Controller
 
         }
 
-        
-
-        
-        
-
-        
-        
         
         return view('single_house', compact('house'));
 

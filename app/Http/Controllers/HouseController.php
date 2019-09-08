@@ -235,6 +235,7 @@ class HouseController extends Controller
 
     public function destroy(House $house)
     {
+      
         // controllare che l'utente possa modificare solo i suoi appartamenti
         $apartments = \Auth::user()->houses->pluck('id')->all();
         // se l'utente modifica l'url e vuole modificare un altro appartamento lo mando in 404
@@ -244,6 +245,7 @@ class HouseController extends Controller
         $house->features()->sync([]);
         $house->delete();
         
-        return redirect()->route('house.index');
+        return redirect()->back()->with('alert', 'Casa eliminata!');
+        
     }
 }

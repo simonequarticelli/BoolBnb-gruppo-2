@@ -66,6 +66,8 @@ class MessageController extends Controller
     {  
         
         $message->delete();
-        return redirect()->route('messages.index');
+        
+        return redirect()->back()->with('alert', 'Messaggio cancellato!');
+        
     }
 }

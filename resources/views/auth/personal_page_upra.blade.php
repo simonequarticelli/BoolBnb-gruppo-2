@@ -8,9 +8,23 @@
 @section('content')
   @include('layouts.nav')
 
+  @if (session('alert'))
+    <!--SWEETALERT2-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script>
+      Swal.fire({
+        position: 'center',
+        type: 'success',
+        title: '{{ session('alert') }}',
+        showConfirmButton: false,
+        timer: 2500
+      })
+    </script>
+  @endif
+
+  <h1 class="col-lg-12 text-center mb-3">I tuoi appartamenti</h1>
   <section class="upra-section mt-3 mb-5">
     <div class="container d-flex flex-wrap">
-      <h1 class="col-lg-12 text-center mb-3">I tuoi appartamenti</h1>
       @if($houses_user->count() > 0)
         @foreach ( $houses_user as $house )
           <div class="card mb-12">
