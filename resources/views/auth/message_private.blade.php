@@ -46,7 +46,7 @@
           </tbody>
           @else
             <h1>Non hai nessun Messaggio</h1>
-            <a class="btn btn-info" href="#">Torna alla home</a>
+            <a class="btn btn-danger" href="{{ route('home') }}">Torna alla home</a>
         @endif
       </table>
     </div>

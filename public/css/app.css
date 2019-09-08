@@ -11140,6 +11140,10 @@ nav .container-fluid .airbnb-logo-black {
   padding: 0;
 }
 
+section.upra-section .no-home {
+  width: 100%;
+}
+
 section.upra-section .card {
   height: 250px;
   margin-bottom: 30px;

@@ -6,17 +6,17 @@ use Illuminate\Database\Migrations\Migration;
 
 class AddViewTable extends Migration
 {
-    
+
     public function up()
     {
         Schema::table('houses', function (Blueprint $table) {
 
-            $table->integer('view')->nullable()->after('user_id');
+            $table->integer('view')->default(0)->after('user_id');
 
         });
     }
 
-    
+
     public function down()
     {
         Schema::table('houses', function (Blueprint $table) {
