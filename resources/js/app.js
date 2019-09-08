@@ -118,13 +118,16 @@ $(document).ready(function(){
 
         var address = $('#search_filter_page').val();
 
+        /* creare un array vuoto e pushare al suo interno tutte le features */
+
         $.ajax({
             url: 'http://localhost:8000/api/index',
 
             method: 'GET',
 
             data: {
-                'address': address
+                'address': address,
+                /* features */
             },
 
             success: function(data){

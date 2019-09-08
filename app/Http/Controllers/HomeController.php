@@ -34,27 +34,41 @@ class HomeController extends Controller
 
         //dd($house['user_id']);
 
-        /* recupero la fk user nella tabella case per capire di chi è la casa */
-        $houses_user_collection = Auth::user()->houses;
-        $houses_user_array = $houses_user_collection->all();
-        foreach ($houses_user_array as $house_user) {
+        if (Auth::user() == null || Auth::user() == true && !Auth::user()->HasRole('upra')) {
 
-            $user_id_table_houses = $house_user->user_id;
-
-        }
-
-        //dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
-        // dd($houses_user_array['user_id']);
-        // dd(Auth::user()->HasRole('upra'));
-
-        //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
-
-        /* incremento solo se l'utente ha il ruolo upra &   */
-        if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
-            
             $house->increment('view');
-            
+
+        }elseif (!empty(Auth::user()->houses)) {
+
+            /* recupero la fk user nella tabella case per capire di chi è la casa */
+            $houses_user_collection = Auth::user()->houses;
+            $houses_user_array = $houses_user_collection->all();
+            foreach ($houses_user_array as $house_user) {
+
+                $user_id_table_houses = $house_user->user_id;
+
+            }
+
+            //dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
+            // dd($houses_user_array['user_id']);
+            // dd(Auth::user()->HasRole('upra'));
+
+            //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
+
+            if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
+                
+                $house->increment('view');
+                
+            }
+
         }
+
+        
+
+        
+        
+
+        
         
         
         return view('single_house', compact('house'));

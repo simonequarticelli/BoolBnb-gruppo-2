@@ -18,13 +18,15 @@ class MessageController extends Controller
     public function index()
     {
         /* query per avere i messaggi dell'utente corrente */
-        $messages = DB::table('messages')
-            ->join('houses', 'house_id', '=', 'houses.id')
-            ->where('user_id', Auth::user()->id)
+        $messages = DB::table('houses')
+            ->join('messages', 'houses.id', '=', 'messages.house_id')
+            ->where('user_id', '=', Auth::user()->id)
             ->get();
 
         /* conteggio messaggi utente */
-        // $messages->count(); 
+        // $messages->count();
+
+        //dd($messages->all());
 
 
         return view('auth.message_private', compact('messages'));

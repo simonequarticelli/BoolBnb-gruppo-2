@@ -152,15 +152,18 @@ class HouseController extends Controller
         
         
         /* scorro collection per pushare nomi casa nell'array */
-        // $houses_user_collection = Auth::user()->houses;
-        // foreach ($houses_user_collection as $house) {
+        $houses_user_collection = Auth::user()->houses;
+        foreach ($houses_user_collection as $house) {
             
-        //     $chart_houses[] = $house['title'];
+            $chart_houses[] = $house['title'];
+           
 
-        // }
+            
+
+        }
 
         /* array con nomi case */
-        //dd($chart_houses);
+        
 
 
         /* conteggio messaggi utente */
@@ -177,7 +180,7 @@ class HouseController extends Controller
 
             'count_messages' => $count_messages,
             'count_view' => $count_view,
-            // 'chart_houses' => $chart_houses
+            'chart_houses' => $chart_houses
 
         ]);
     }
@@ -243,6 +246,6 @@ class HouseController extends Controller
         }
         $house->features()->sync([]);
         $house->delete();
-        return redirect()->route('admin.house.index');
+        return redirect()->route('house.index');
     }
 }

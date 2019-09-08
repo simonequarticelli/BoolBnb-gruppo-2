@@ -15,7 +15,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-        <input name="address_api" id="search_filter_page" type="text" hidden>
+        <input name="address_api" id="search_filter_page" type="text">
       </div>
 
 

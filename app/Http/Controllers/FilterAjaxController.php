@@ -14,8 +14,10 @@ class FilterAjaxController extends Controller
     public function index()
     {
         $address = $_GET['address'];
+
+        // $features = unserialize(base64_decode($_GET['feature']));
         
-        //dd($features); 
+
 
         $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address.'%')->get();

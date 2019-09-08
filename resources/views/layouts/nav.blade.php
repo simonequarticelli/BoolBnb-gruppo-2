@@ -48,17 +48,6 @@
                         <li class="nav-item">
 
 
-
-
-                            {{-- @php
-                                dd(Auth::user()->houses);
-                            @endphp --}}
-                            {{-- <input type="text" name="houses_current_user" hidden value="{{ Auth::user()->houses }}"> --}}
-
-
-
-
-
                             <a class="nav-link upra ml-3" id="badge-new" href="{{ route('messages.index')}}">
                                 <span class="badge upra-messages badge-danger mb-5">New</span>
                                 Messaggi</a>
