@@ -94,6 +94,9 @@ section.upra-section{
   .card{
     height: 250px;
     margin-bottom: 30px;
+    .col-md-4{
+      width: 467px;
+    }
     .card-img{
       height: 250px;
       object-fit: cover;
@@ -131,6 +134,8 @@ div.filters-container{
     display: inline-block;
   }
 }
+
+
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
   .main-min-80{
