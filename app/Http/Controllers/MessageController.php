@@ -24,6 +24,8 @@ class MessageController extends Controller
             ->orderBy('messages.created_at', 'DESC')
             ->get();
 
+          //dd($messages);
+
         /* conteggio messaggi utente */
         // $messages->count();
         return view('auth.message_private', compact('messages'));
@@ -61,8 +63,9 @@ class MessageController extends Controller
 
 
     public function destroy(Message $message)
-    {
-      $message->delete();
-      return redirect()->route('messages.index');
+    {  
+        
+        $message->delete();
+        return redirect()->route('messages.index');
     }
 }

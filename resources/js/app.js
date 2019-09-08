@@ -19,6 +19,8 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
+
+
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
@@ -51,59 +53,63 @@ $(document).ready(function(){
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
   $(document).on('click', '.ap-suggestion',  function(){
 
-    $('#lat').val('');
-    $('#lng').val('');
+          $('#lat').val('');
+          $('#lng').val('');
 
-    var address = $(this).text();
-        //console.log(address);
+          var address = $(this).text();
+              //console.log(address);
 
-    $.ajax({
-        'url':'https://places-dsn.algolia.net/1/places/query',
+          $.ajax({
+              'url':'https://places-dsn.algolia.net/1/places/query',
 
-        'method': 'GET',
+              'method': 'GET',
 
-        'data':{
-            'X-Algolia-Application-Id': 'plHY9UTOIKXX',
-            'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
-            'language': 'it',
-            'hitsPerPage': '1',
-            'query': address
-        },
-        'success': function(data){
+              'data':{
+                  'X-Algolia-Application-Id': 'plHY9UTOIKXX',
+                  'X-Algolia-API-Key': 'b1c9ff4767e9c175969b8e601ced129d',
+                  'language': 'it',
+                  'hitsPerPage': '1',
+                  'query': address
+              },
+              'success': function(data){
 
-            //console.log(data.hits);
-            //console.log(data);
-            var info = data.hits;
-            //console.log(info);
-
-
-
-            for (var i = 0; i < info.length; i++) {
-                var data = info[i];
-                //console.log(data._geoloc);
-                var geo = data._geoloc;
-                //console.log(geo);
-
-                /*assegno lat e lng a input hidden*/
-                $('#lat').val(geo.lat);
-                $('#lng').val(geo.lng);
-            }
+                  //console.log(data.hits);
+                  //console.log(data);
+                  var info = data.hits;
+                  //console.log(info);
 
 
-            var value1 = $('#home-address-input').val();
-            var value2 = $('#address-input-search').val();
 
-            $('#search_homepage').val(value1);
-            $('#search_filter_page').val(value2);
+                  for (var i = 0; i < info.length; i++) {
+                      var data = info[i];
+                      //console.log(data._geoloc);
+                      var geo = data._geoloc;
+                      //console.log(geo);
+
+                      /*assegno lat e lng a input hidden*/
+                      $('#lat').val(geo.lat);
+                      $('#lng').val(geo.lng);
+                  }
 
 
-        },
-        'error': function(error){
-            alert(error);
-        }
-    });
+                  var value1 = $('#home-address-input').val();
+                  var value2 = $('#address-input-search').val();
 
-  });
+                  $('#search_homepage').val(value1);
+                  $('#search_filter_page').val(value2);
+
+
+              },
+              'error': function(error){
+                  alert(error);
+              }
+          });
+   
+  
+
+
+
+
 
 
 
@@ -204,8 +210,16 @@ $(document).ready(function(){
 
 
 
+    
+
+
+    });
+
 
 });
+
+
+
 
 
 

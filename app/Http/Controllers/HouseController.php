@@ -243,6 +243,7 @@ class HouseController extends Controller
         }
         $house->features()->sync([]);
         $house->delete();
+        
         return redirect()->route('house.index');
     }
 }

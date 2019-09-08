@@ -11,7 +11,7 @@ class UpdateMessagesTable extends Migration
     {
         Schema::table('messages', function (Blueprint $table) {
             $table->unsignedBigInteger('house_id')->after('id');
-            $table->foreign('house_id')->references('id')->on('houses');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('cascade');
         });
     }
 
