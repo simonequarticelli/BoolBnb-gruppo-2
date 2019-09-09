@@ -25,14 +25,27 @@
           @foreach ( $features as $feature )
           <li class="nav-item mr-3 list-unstyled">
           {{-- checkbox per servizi aggiuntivi --}}
-                <label class="label-checkbox m-1">
-                    <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
-                    {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
-                    {{ $feature->name }}
-                </label>
-              </li>
+            <label class="label-checkbox m-1">
+                <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
+                {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
+                {{ $feature->name }}
+            </label>
+          </li class="nav-item mr-3 list-unstyled">
           @endforeach
+
+          {{-- input range per ricerca a raggio --}}
+          <li>
+            <label class="label-checkbox m-1 d-inline">
+              Cerca nel raggio di:</label>  
+              <input type="range" name="weight" id="range_weight" value="20" min="20" max="100" 
+              oninput="range_weight_disp.value = range_weight.value">
+              <output id="range_weight_disp">20</output>km
+          </li>
+
         </ul>
+      
+          
+       
       </div>
 
       {{-- </ul> --}}
