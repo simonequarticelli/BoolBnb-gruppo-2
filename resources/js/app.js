@@ -104,8 +104,8 @@ $(document).ready(function(){
                   alert(error);
               }
           });
-   
-  
+
+
 
 
 
@@ -124,6 +124,8 @@ $(document).ready(function(){
 
         var address = $('#search_filter_page').val();
         console.log(address);
+
+    
 
         /* creare un array vuoto e pushare al suo interno tutte le features */
 
@@ -210,7 +212,7 @@ $(document).ready(function(){
 
 
 
-    
+
 
 
     });

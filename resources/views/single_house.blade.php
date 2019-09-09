@@ -96,14 +96,15 @@
             @endif
 
             <div class="form-group message-form">
+
               <label for="exampleInputEmail1">La tua Mail</label>
               <input required type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp"
-              
+
               @if (Auth::user() == null)
-                placeholder="Inserisci la tua mail"
+                placeholder="Inserisci la tua mail">
               {{-- se l'utente non è il proprietario inserisco la sua mail nell'input--}}
               @elseif ($house->user_id != Auth::user()->id)
-                value="{{ Auth::user()->email }}"
+                value="{{ Auth::user()->email }}">
               {{-- controllo se l'utente è il proprietario, se lo è inserisco il placeholder --}}
               @elseif ($house->user_id == Auth::user()->id)
                 placeholder="Inserisci la tua mail">
@@ -113,6 +114,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
               @enderror
+
             </div>
 
             <div class="form-group message-form">
@@ -129,7 +131,7 @@
                 </span>
               @enderror
             </div>
-            
+
             {{-- @php
                 dd($house->user_id);
             @endphp --}}
@@ -137,7 +139,7 @@
             <input type="text" name="house_id" value="{{ $house->id }}" hidden>
             {{-- <input type="text" name="house_address" value="{{ $house->address }}" hidden> --}}
 
-            
+
             <button
               @if (Auth::user() == null)
               {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
@@ -146,7 +148,7 @@
               @endif
                 type="submit" class="btn btn-primary">Invia</button>
           </form>
-          
+
       </div>
     </div>
   </section>

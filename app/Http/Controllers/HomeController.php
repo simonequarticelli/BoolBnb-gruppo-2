@@ -27,7 +27,7 @@ class HomeController extends Controller
         return view('home', compact('new_house'));
     }
 
-    public function detailsHouseHome($id, $slug) 
+    public function detailsHouseHome($id, $slug)
     {
 
         $house = House::find($id);
@@ -55,15 +55,15 @@ class HomeController extends Controller
 
             //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
 
-            if (Auth::user()->HasRole('upra') || Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
-                
+            if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
+
                 $house->increment('view');
-                
+
             }
 
         }
 
-        
+
         return view('single_house', compact('house'));
 
     }
@@ -78,7 +78,7 @@ class HomeController extends Controller
             'message' => 'required|string|max:255'
 
         ]);
-        
+
         $data = $request->all();
 
         // dd($data);
@@ -90,14 +90,14 @@ class HomeController extends Controller
         $new_message->fill($data);
         $new_message->save();
 
-       
+
         /* invia la mail al proprietario */
         Mail::to($email_to)->send(new messageFromUser($new_message));
 
         /* redirect alla pagina precedente e passo nella session alert */
         return redirect()->back()->with('alert', 'Email inviata!');
 
-        
+
     }
 
 }
