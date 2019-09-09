@@ -15,6 +15,9 @@ class FilterAjaxController extends Controller
     {
         $address = $_GET['address'];
 
+        $event_features = $_GET['types'];
+        $features = (json_decode(stripslashes($event_features)));
+
         //dd($features);
 
         $house_list = DB::table('houses')
@@ -31,7 +34,7 @@ class FilterAjaxController extends Controller
                 'result' => 'houses not found'
             ]);
         }
-        
+
     }
 
 
