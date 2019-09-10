@@ -23,10 +23,10 @@
                 <div class="input-group mt-2 mb-2">
                   {{-- search with algolia --}}
                   <input type="search" id="home-address-input" placeholder="Ovunque" required>
-                  <input name="address_home" id="search_homepage" type="text">
+                  <input name="address_home" id="search_homepage" type="text" hidden>
                 </div>
                 <div class="button_search">
-                  <button type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
+                  <button disabled id="search_home" type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
                 </div>
               </form>
             </div>

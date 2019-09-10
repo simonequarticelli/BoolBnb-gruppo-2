@@ -33,7 +33,7 @@
           </li class="nav-item mr-3 list-unstyled">
           @endforeach
 
-          {{-- input range per ricerca a raggio --}}
+          {{--  input range per ricerca a raggio --}}
           <li>
             <label class="label-checkbox m-1 d-inline">
               Cerca nel raggio di:</label>  
@@ -85,8 +85,7 @@
         <div class="card-body">
           <h5 class="card-title">@{{ title }}</h5>
           <h6 class="card-title">@{{ address }}</h6>
-          {{-- http://localhost:8000/house-details/41/casa2-torino --}}
-          <a href="http://localhost:8000/house-details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
+          <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
       </div>
     </div>
   </script>

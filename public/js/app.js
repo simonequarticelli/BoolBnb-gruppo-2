@@ -47326,18 +47326,28 @@ $(document).ready(function () {
     $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
     var test_radio = $('input[name=radio_btn]:checked').val();
     console.log(test_radio);
-  }); //---------------CODICE MAIL-BOX----------------------
-  //   $('.info-message').on('click', function(){
-  //       $('.message-box').fadeToggle();
-  //   })
-
+  });
+  $('#search_homepage').val('');
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
 
   $(document).on('click', '.ap-suggestion', function () {
+    /* svuoto gli input */
     $('#lat').val('');
     $('#lng').val('');
     var address = $(this).text(); //console.log(address);
 
+    var value1 = $('#home-address-input').val(); //console.log(value1);
+
+    var value2 = $('#address-input-search').val(); //console.log($('#search_homepage').val());
+
+    $('#search_homepage').val(value1);
+    $('#search_filter_page').val(value2);
+
+    if ($('#search_homepage').val() == value1) {
+      $('#search_home').attr('disabled', false);
+    }
+
+    ;
     $.ajax({
       'url': 'https://places-dsn.algolia.net/1/places/query',
       'method': 'GET',
@@ -47363,25 +47373,17 @@ $(document).ready(function () {
           $('#lat').val(geo.lat);
           $('#lng').val(geo.lng);
         }
-
-        var value1 = $('#home-address-input').val();
-        var value2 = $('#address-input-search').val();
-        $('#search_homepage').val(value1);
-        $('#search_filter_page').val(value2);
       },
       'error': function error(_error) {
         alert(_error);
       }
     });
     /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
-    // CODE ...
 
     $('#btn_filter_api').click(function () {
       var address = $('#search_filter_page').val();
-      console.log(address); // var features = [];
-      //
-      // var eventFeatures = document.forms['searchForm'].elements['feature[]'];
-      //
+      console.log(address);
+      /* creare un array vuoto e pushare al suo interno tutte le features */
       // for (var i=0, len=eventFeatures.length; i<len; i++) {
       //     if (eventFeatures[i].checked ) {
       //         features.push($(eventFeatures[i]).val());
@@ -47394,14 +47396,14 @@ $(document).ready(function () {
         url: 'http://localhost:8000/api/index',
         method: 'GET',
         data: {
-          'address': address // 'features': types: JSON.stringify(features)
-
+          'address': address
           /* features */
 
         },
         success: function success(data) {
           /*svuoto il contenitore delle cards*/
-          $('#container_card_ajax').html(''); //console.log(data);
+          $('#container_card_ajax').html('');
+          $('#titolo-ricerca-case').text(titolo); //console.log(data);
 
           /*prendo il valore della ricerca*/
 
@@ -47519,8 +47521,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
