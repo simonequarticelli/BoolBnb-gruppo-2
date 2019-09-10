@@ -5,7 +5,7 @@
 @php
     //dd(url()->current());
     session()->put('url', url()->current());
-    dd(session());
+    // dd(session());
 @endphp
 
 {{-- pagina relativa alla visualizzazione del singolo appartamento --}}
