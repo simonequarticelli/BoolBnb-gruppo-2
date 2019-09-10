@@ -6,6 +6,8 @@ use App\House;
 use App\Message;
 use Illuminate\Http\Request;
 use App\Mail\messageFromUser;
+use Illuminate\Routing\Route;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
@@ -27,41 +29,54 @@ class HomeController extends Controller
         return view('home', compact('new_house'));
     }
 
-    public function detailsHouseHome($id, $slug)
+    public function detailsHouseHome(Request $request,  $id, $slug)
     {
 
-        $house = House::find($id);
+        //dd($request->url());
+        /* url corrente */
+        $current_url = $request->url();
+        
+        
+        /* da collection ad array */
+        $array_sessione = session()->all();
+        /* accedo all'url salvato nella sessione */
+        //dd($array_sessione['url'],  $current_url);
+        
 
+        $house = House::find($id);
         //dd($house['user_id']);
 
-        if (Auth::user() == null || Auth::user() == true && !Auth::user()->HasRole('upra')) {
+        
+        
 
-            $house->increment('view');
+        // if (Auth::user() == null || Auth::user() == true && !Auth::user()->HasRole('upra')) {
 
-        }elseif (!empty(Auth::user()->houses)) {
+        //     $house->increment('view');
 
-            /* recupero la fk user nella tabella case per capire di chi è la casa */
-            $houses_user_collection = Auth::user()->houses;
-            $houses_user_array = $houses_user_collection->all();
-            foreach ($houses_user_array as $house_user) {
+        // }elseif (!empty(Auth::user()->houses)) {
 
-                $user_id_table_houses = $house_user->user_id;
+        //     /* recupero la fk user nella tabella case per capire di chi è la casa */
+        //     $houses_user_collection = Auth::user()->houses;
+        //     $houses_user_array = $houses_user_collection->all();
+        //     foreach ($houses_user_array as $house_user) {
 
-            }
+        //         $user_id_table_houses = $house_user->user_id;
 
-            // dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
-            // dd($houses_user_array['user_id']);
-            // dd(Auth::user()->HasRole('upra'));
+        //     }
 
-            //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
+        //     // dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
+        //     // dd($houses_user_array['user_id']);
+        //     // dd(Auth::user()->HasRole('upra'));
 
-            if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
+        //     //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
 
-                $house->increment('view');
+        //     if (Auth::user()->HasRole('upra') && !($house['user_id'] == $user_id_table_houses)) {
 
-            }
+        //         $house->increment('view');
 
-        }
+        //     }
+
+        // }
 
 
         return view('single_house', compact('house'));

@@ -1,3 +1,13 @@
+{{-- @php
+    dd(session());
+@endphp --}}
+
+@php
+    //dd(url()->current());
+    session()->put('url', url()->current());
+    dd(session());
+@endphp
+
 {{-- pagina relativa alla visualizzazione del singolo appartamento --}}
 @extends('layouts.app')
 

@@ -119,18 +119,18 @@ $(document).ready(function(){
             var address = $('#search_filter_page').val();
             console.log(address);
 
-
-
             /* creare un array vuoto e pushare al suo interno tutte le features */
 
-            
+            // var features = [];
+            //
+            // var eventFeatures = document.forms['searchForm'].elements['feature[]'];
+            //
             // for (var i=0, len=eventFeatures.length; i<len; i++) {
             //     if (eventFeatures[i].checked ) {
             //         features.push($(eventFeatures[i]).val());
             //     }
             // }
 
-            /* creare un array vuoto e pushare al suo interno tutte le features */
 
             $.ajax({
                 url: 'http://localhost:8000/api/index',
@@ -139,6 +139,7 @@ $(document).ready(function(){
 
                     data: {
                         'address': address,
+                        // 'features': types: JSON.stringify(features)
                         /* features */
                     },
 
@@ -147,7 +148,7 @@ $(document).ready(function(){
                         /*svuoto il contenitore delle cards*/
                         $('#container_card_ajax').html('');
 
-                    $('#titolo-ricerca-case').text(titolo);
+                        $('#titolo-ricerca-case').text(titolo);
                         //console.log(data);
 
                         /*prendo il valore della ricerca*/

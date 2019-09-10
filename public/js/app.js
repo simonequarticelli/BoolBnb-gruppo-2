@@ -47384,19 +47384,22 @@ $(document).ready(function () {
       var address = $('#search_filter_page').val();
       console.log(address);
       /* creare un array vuoto e pushare al suo interno tutte le features */
+      // var features = [];
+      //
+      // var eventFeatures = document.forms['searchForm'].elements['feature[]'];
+      //
       // for (var i=0, len=eventFeatures.length; i<len; i++) {
       //     if (eventFeatures[i].checked ) {
       //         features.push($(eventFeatures[i]).val());
       //     }
       // }
 
-      /* creare un array vuoto e pushare al suo interno tutte le features */
-
       $.ajax({
         url: 'http://localhost:8000/api/index',
         method: 'GET',
         data: {
-          'address': address
+          'address': address // 'features': types: JSON.stringify(features)
+
           /* features */
 
         },

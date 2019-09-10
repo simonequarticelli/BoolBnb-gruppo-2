@@ -2,9 +2,10 @@
 
 @section('content')
 
-  {{-- @php
-      // dd(Session());
-  @endphp --}}
+  @php
+    // $array_sessione = session()->all();
+    // dd($array_sessione['_token']);
+  @endphp
   {{-- @php
       dd(Auth::user()->hasRole('upra'));
   @endphp --}}
@@ -14,7 +15,7 @@
       <div class="container">
           <div class="col-xl-5 col-lg-12">
             <div class="booking">
-              <h2>Prenota alloggi e attività unici.</h2>
+              <h2>Ricerca alloggi e attività uniche.</h2>
               <div class="where">
                 <strong>DOVE</strong>
               </div>
@@ -22,7 +23,7 @@
                 @csrf
                 <div class="input-group mt-2 mb-2">
                   {{-- search with algolia --}}
-                  <input type="search" id="home-address-input" placeholder="Ovunque" required>
+                  <input type="search" id="home-address-input" placeholder="Inserisci località" required>
                   <input name="address_home" id="search_homepage" type="text" hidden>
                 </div>
                 <div class="button_search">
@@ -48,11 +49,20 @@
             <div class="card-body">
               <h5 class="card-title">{{ $house->title }}</h5>
               <h6 class="card-title">{{ $house->address }}</h6>
+
               {{-- @php
                   dd([$id = $house->id, $slug = $house->slug]);
               @endphp --}}
-              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
-            </div>
+
+              
+              
+        
+
+              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Maggiori info</a>
+              
+              
+            
+          </div>
           </div>
         @endforeach
 

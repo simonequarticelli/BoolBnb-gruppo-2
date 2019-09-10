@@ -17,7 +17,6 @@ class FilterAjaxController extends Controller
 
         // $event_features = $_GET['types'];
         // $features = (json_decode(stripslashes($event_features)));
-
         //dd($features);
 
         $house_list = DB::table('houses')
