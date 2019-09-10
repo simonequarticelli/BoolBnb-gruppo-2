@@ -12,12 +12,16 @@ class FilterAjaxController extends Controller
 {
 
     public function index()
-    {
+    {   
+        /* ricevo l'indirizzo */
         $address = $_GET['address'];
+        /* ricevo le features */
+        $event_features = $_GET['features'];
 
-        // $event_features = $_GET['types'];
-        // $features = (json_decode(stripslashes($event_features)));
-        //dd($features);
+        //dd($event_features);
+
+        $features = (json_decode(stripslashes($event_features)));
+        dd($features);
 
         $house_list = DB::table('houses')
             ->where('address', 'like', '%'.$address.'%')->get();

@@ -117,19 +117,18 @@ $(document).ready(function(){
         $('#btn_filter_api').click(function(){
 
             var address = $('#search_filter_page').val();
-            console.log(address);
+            //console.log(address);
 
             /* creare un array vuoto e pushare al suo interno tutte le features */
-
-            // var features = [];
-            //
-            // var eventFeatures = document.forms['searchForm'].elements['feature[]'];
-            //
-            // for (var i=0, len=eventFeatures.length; i<len; i++) {
-            //     if (eventFeatures[i].checked ) {
-            //         features.push($(eventFeatures[i]).val());
-            //     }
-            // }
+            var features = [];
+            
+            var eventFeatures = document.forms['form'].elements['feature[]'];
+            
+            for (var i=0, len=eventFeatures.length; i<len; i++) {
+                if (eventFeatures[i].checked ) {
+                    features.push($(eventFeatures[i]).val());
+                }
+            }
 
 
             $.ajax({
@@ -139,8 +138,7 @@ $(document).ready(function(){
 
                     data: {
                         'address': address,
-                        // 'features': types: JSON.stringify(features)
-                        /* features */
+                        'features': JSON.stringify(features)
                     },
 
                     success: function(data){
