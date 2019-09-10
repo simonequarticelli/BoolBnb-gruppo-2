@@ -11043,6 +11043,10 @@ nav .container-fluid .airbnb-logo-black {
   background-color: #e9ecef66;
 }
 
+.message_box_container .table td {
+  padding: 0;
+}
+
 .info-message {
   display: flex;
   cursor: pointer;
