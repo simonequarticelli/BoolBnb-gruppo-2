@@ -35,16 +35,17 @@
         </div>
     </section>
   </div>
-  <section class="featured_apartments text-center mb-5">
-    <div class="container">
-      <h1 class="mb-5 mt-5">Appartamenti in evidenza</h1>
-      <div class="col-lg-12 first-card-container card-container-flex mt-4">
 
+  {{-- Sezione appartamenti in PROMO --}}
+  <section class="featured_apartments text-center mb-5 bg-featured">
+    <div class="container">
+      <h1 class="mb-5 pt-5">Appartamenti in evidenza</h1>
+      <div class="col-lg-12 first-card-container justify-content-md-around justify-content-start card-container-flex mt-4">
         {{-- @php
             dd($new_house->all());
         @endphp --}}
         @foreach ($new_house as $house )
-        <div class="card col-lg-3 col-md-6 col-sm-12">
+        <div class="card col-lg-3 col-md-5 col-sm-12">
             <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
             <div class="card-body">
               <h5 class="card-title">{{ $house->title }}</h5>
@@ -54,14 +55,37 @@
                   dd([$id = $house->id, $slug = $house->slug]);
               @endphp --}}
 
-              
-              
-        
+              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Maggiori info</a>
+
+          </div>
+          </div>
+        @endforeach
+
+      </div>
+    </div>
+  </section>
+
+ {{-- SEZIONE TUTTI GLI APPARTAMENTI --}}
+  <section class="featured_apartments text-center mb-5">
+    <div class="container">
+      {{-- <h1 class="mb-5 pt-5">Appartamenti in evidenza</h1> --}}
+      <div class="col-lg-12 first-card-container justify-content-md-around justify-content-start card-container-flex mt-4">
+        {{-- @php
+            dd($new_house->all());
+        @endphp --}}
+        @foreach ($new_house as $house )
+        <div class="card col-lg-3 col-md-5 col-sm-12">
+            <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ $house->title }}</h5>
+              <h6 class="card-title">{{ $house->address }}</h6>
+
+              {{-- @php
+                  dd([$id = $house->id, $slug = $house->slug]);
+              @endphp --}}
 
               <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Maggiori info</a>
-              
-              
-            
+
           </div>
           </div>
         @endforeach

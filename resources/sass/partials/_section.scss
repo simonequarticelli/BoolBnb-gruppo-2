@@ -2,6 +2,7 @@
   min-height: 80vh;
 }
 
+
 .first_section{
   height: calc(100vh - 80px);
   color: $body-font-color;
@@ -49,12 +50,14 @@
   h3{
     margin-top: 50px;
   }
-  #container_card_ajax{
+  #container_card_ajax, .card-container-flex{
     display:flex;
     justify-content: flex-start;
     margin-top: $mag-top;
     flex-wrap: wrap;
   }
+
+
   .card:nth-child(3n+3){
     margin-right: 0;
   }
@@ -168,9 +171,11 @@ div.filters-container{
   .main-min-80{
     min-height: 50vh;
   }
+
   .featured_apartments .card{
     margin: 0;
     margin-top: 20px;
+
     img{
       height: 220px;
     }

@@ -47317,7 +47317,7 @@ $(document).ready(function () {
 
   $('.section-promotion .input-group').on('click', function () {
     // prendo l'inputo selezionato salvandolo in variabile
-    var input_sel = $(this).children('input'); // inposto il radio dell'input selezionato
+    var input_sel = $(this).children('input'); // imposto il radio dell'input selezionato
 
     $(input_sel).prop("checked", true); // tolgo la classe a tutti gli elementi input group
 
@@ -47381,8 +47381,8 @@ $(document).ready(function () {
     /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
 
     $('#btn_filter_api').click(function () {
-      var address = $('#search_filter_page').val(); //console.log(address);
-
+      var address = $('#search_filter_page').val();
+      console.log(address);
       /* creare un array vuoto e pushare al suo interno tutte le features */
 
       var features = [];
@@ -47414,18 +47414,18 @@ $(document).ready(function () {
           $('#titolo-ricerca-case').text(titolo);
 
           if (data.success == true) {
-            var houses = data.result;
-            console.log(houses); //salvo il template dentro a una variabile
+            var houses = data.result; //console.log(houses);
+            //salvo il template dentro a una variabile
 
-            var card__template = $('.card_template').html();
-            console.log(card__template); //richiamo il compile
+            var card__template = $('.card_template').html(); //console.log(card__template);
+            //richiamo il compile
 
             var template__function = Handlebars.compile(card__template); //console.log(template__function);
 
             for (var i = 0; i < houses.length; i++) {
               //console.log(movies[i]);
-              var house = houses[i]; //console.log(house.img);
-              //creo oggetto con variabili
+              var house = houses[i];
+              console.log(house); //creo oggetto con variabili
 
               var obj = {
                 'img': house.img,
@@ -47441,7 +47441,7 @@ $(document).ready(function () {
               $('#container_card_ajax').append(html);
             }
           } else {
-            $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
+            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
           }
         },
         error: function error(richiesta, stato, errori) {

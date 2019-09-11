@@ -30,7 +30,7 @@ $(document).ready(function(){
     $('.section-promotion .input-group').on('click' , function() {
       // prendo l'inputo selezionato salvandolo in variabile
        var input_sel = $(this).children('input');
-       // inposto il radio dell'input selezionato
+       // imposto il radio dell'input selezionato
        $(input_sel).prop("checked", true);
        // tolgo la classe a tutti gli elementi input group
        $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect');
