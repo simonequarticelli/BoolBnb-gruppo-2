@@ -8,15 +8,16 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div id="dropin-container"></div>
-        <button id="submit-button">Request payment method</button>
+        <button class="btn btn-success" id="submit-button">Request payment method</button>
       </div>
     </div>
  </div>
 
   {{-- -----------------BRAINTREE--------------------------- --}}
 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script>
-    
+
     var button = document.querySelector('#submit-button');
 
     braintree.dropin.create({
@@ -25,14 +26,23 @@
     }, function (createErr, instance) {
       button.addEventListener('click', function () {
         instance.requestPaymentMethod(function (err, payload) {
-          $.get('{{ route('payment.process') }}', {payload}, function (response) {
+          $.get('{{ route('payment.process', [$id = $house->id, $id_promo = $promo->id]) }}', {payload}, function (response) {
             if (response.success) {
 
-              alert('Payment successfull!');
+              Swal.fire(
+                'Good job!',
+                'You clicked the button!',
+                'success'
+              )
 
             } else {
 
-              alert('Payment failed');
+              Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Pagamento rifiutato!',
+                footer: '<a href>Why do I have this issue?</a>' // DA CHIEDERE
+              })
 
             }
           }, 'json');

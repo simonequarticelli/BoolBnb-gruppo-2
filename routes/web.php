@@ -28,10 +28,10 @@ Route::prefix('admin')->group(function(){
     
 
     /* rotta per eseguire i pagamenti */
-    Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+    Route::get('/payment/process/{id}/promo/{id_promo}', 'PaymentsController@process')->name('payment.process');
 
     /* rotta per mostrare la pagina di pagamento */
-    Route::get('/payment', 'HouseController@showPayments')->name('show_payments');
+    Route::get('/payment/house/{id}/promo/{id_promo}', 'HouseController@showPayments')->name('show_payments');
 
     
 });

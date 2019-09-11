@@ -15,14 +15,14 @@
               <span class="price-style">{{ $promotion->price }}€</span>
               <strong class="ml-2"><i class="far fa-clock fa-2x mr-2"></i><span>{{ $promotion->duration }} ore</span><br></strong>
               {{-- link per visualizzare pagamenti --}}
-              <button><a href="{{ route('show_payments') }}">Paga</a></button>
+              <button><a href="{{ route('show_payments', [$id = $house->id, $id_promo = $promotion->id]) }}">Paga</a></button>
             </div>
             @endforeach
           </form>
         </section>
-    {{-- <ul>
+    <ul>
         <li><strong>id casa da promuovere: </strong>{{ $house->id }}</li>
-    </ul> --}}
+    </ul>
   </div>
 @endsection
 

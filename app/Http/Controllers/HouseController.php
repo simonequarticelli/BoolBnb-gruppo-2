@@ -138,9 +138,16 @@ class HouseController extends Controller
 
 
 
-    public function showPayments()
+    public function showPayments($id, $promo_id)
     {
-        return view('auth.payments');
+        $house = House::find($id);
+
+        $promo = Promotion::find($promo_id);
+        
+        return view('auth.payments')->with([
+            'house' => $house,
+            'promo' => $promo
+        ]);
     }
 
 
