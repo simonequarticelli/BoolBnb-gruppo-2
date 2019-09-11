@@ -3,12 +3,12 @@
 @include('layouts.nav')
 @section('content')
 
-
-<div class="container">
+  <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
+        <h3><strong>{{ $promo->name }}</strong> a soli <strong>{{ $promo->price }}€</strong> per il tuo annuncio: <strong>{{ $house->title }}</h3></strong>
         <div id="dropin-container"></div>
-        <button class="btn btn-success" id="submit-button">Request payment method</button>
+        <button class="btn btn-success" id="submit-button">Paga</button>
       </div>
     </div>
  </div>
@@ -40,7 +40,7 @@
 
               /* ritardo il reidirizzamento alla home */
               setTimeout(function () {
-                window.location.href = "/home"; //will redirect to your blog page (an ex: blog.html)
+                window.location.href = "/home"; 
               }, 2500);
 
             } else {

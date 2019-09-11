@@ -26,7 +26,11 @@ class HomeController extends Controller
     {
         $new_house = House::all();
 
-        return view('home', compact('new_house'));
+        return view('home')->with([
+
+            'new_house' => $new_house,
+            
+        ]);
     }
 
     public function detailsHouseHome(Request $request,  $id, $slug)
