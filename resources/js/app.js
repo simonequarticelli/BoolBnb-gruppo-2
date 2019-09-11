@@ -117,7 +117,7 @@ $(document).ready(function(){
         $('#btn_filter_api').click(function(){
 
             var address = $('#search_filter_page').val();
-            //console.log(address);
+            console.log(address);
 
             /* creare un array vuoto e pushare al suo interno tutte le features */
             var features = [];
@@ -197,7 +197,7 @@ $(document).ready(function(){
 
                         }else {
 
-                            $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
+                            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
 
                         }
 
@@ -213,8 +213,6 @@ $(document).ready(function(){
 
         });
     });
-
-
 
 });
 

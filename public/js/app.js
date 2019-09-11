@@ -47381,8 +47381,8 @@ $(document).ready(function () {
     /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
 
     $('#btn_filter_api').click(function () {
-      var address = $('#search_filter_page').val(); //console.log(address);
-
+      var address = $('#search_filter_page').val();
+      console.log(address);
       /* creare un array vuoto e pushare al suo interno tutte le features */
 
       var features = [];
@@ -47441,7 +47441,7 @@ $(document).ready(function () {
               $('#container_card_ajax').append(html);
             }
           } else {
-            $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
+            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
           }
         },
         error: function error(richiesta, stato, errori) {
@@ -47522,8 +47522,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

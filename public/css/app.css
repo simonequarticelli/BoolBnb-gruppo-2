@@ -11100,7 +11100,7 @@ nav .container-fluid .airbnb-logo-black {
   margin-top: 50px;
 }
 
-.featured_apartments .card-container-flex {
+.featured_apartments #container_card_ajax {
   display: flex;
   justify-content: flex-start;
   margin-top: 25px;
@@ -11254,7 +11254,7 @@ div.filters-container ul li {
     min-height: 80vh;
   }
 
-  .card-container-flex {
+  #container_card_ajax {
     margin-top: 0;
   }
 

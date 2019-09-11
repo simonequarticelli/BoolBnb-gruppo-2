@@ -13,32 +13,23 @@ class FilterAjaxController extends Controller
 
     public function index()
     {
-        /* ricevo l'indirizzo */
         $address = $_GET['address'];
-        /* ricevo le features */
+
         $event_features = $_GET['features'];
-
-        //dd($event_features);
-
         $features = (json_decode(stripslashes($event_features)));
-        //dd($features);
 
+        // dd($features);
+        // $features_house = DB::table('features')
+        // ->join('feature_house', 'feature_house.feature_id', '=', 'features.id')
+        // ->join('houses', 'feature_house.house_id', '=', 'houses.id')
+        // ->where('address', 'like', '%'.$address.'%')->get();
+        // dd($features[0]);
         $house_list = DB::table('houses')
-          ->where('address', 'like', '%'.$address.'%')
-          ->get();
+            ->join('feature_house', 'feature_house.house_id', '=', 'houses.id')
+            ->where('address', 'like', '%'.$address.'%')
+            ->whereIn('feature_house.feature_id', $features)->get();
 
-
-
-
-        //dd($house_list);
-
-
-
-
-
-
-
-
+            // dd($house_list);
 
         if ($house_list->count() > 0) {
             return response()->json([

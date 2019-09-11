@@ -37,15 +37,15 @@
             {{--  input range per ricerca a raggio --}}
             <li>
               <label class="label-checkbox m-1 d-inline">
-                Cerca nel raggio di:</label>  
-                <input type="range" name="weight" id="range_weight" value="20" min="20" max="100" 
+                Cerca nel raggio di:</label>
+                <input type="range" name="weight" id="range_weight" value="20" min="20" max="100"
                 oninput="range_weight_disp.value = range_weight.value">
                 <output id="range_weight_disp">20</output>km
             </li>
           </ul>
         </form>
-          
-       
+
+
       </div>
 
       {{-- </ul> --}}
@@ -56,7 +56,7 @@
           @if (!$house_list->count() > 0)
             <h1>Non ci sono case nella località selezionata!</h1>
           @else
-            <div class="col-lg-12 first-card-container card-container-flex">
+            {{-- <div class="col-lg-12 first-card-container card-container-flex"> --}}
               @foreach ($house_list as $house )
                 {{-- passo il parametro inserito nella ricerca dall'utente  --}}
                   <div class="card col-lg-3 col-md-6 col-sm-12">
@@ -68,7 +68,7 @@
                     </div>
                   </div>
               @endforeach
-            </div>
+            {{-- </div> --}}
           @endif
         </div>
     </div>
@@ -79,13 +79,12 @@
 
   <!--HANDLEBARS-->
   <script class="card_template" type ="text/x-handlebars-template">
-    <div class="col-lg-12 first-card-container card-container-flex">
-      <div class="card col-lg-3 col-md-6 col-sm-12">
-        <img src="{{ url('storage/')}}/@{{ img }}" class="card-img-top" alt="immagine @{{ img_title }}">
-        <div class="card-body">
-          <h5 class="card-title">@{{ title }}</h5>
-          <h6 class="card-title">@{{ address }}</h6>
-          <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
+    <div class="card col-lg-3 col-md-6 col-sm-12">
+      <img src="{{ url('storage/')}}/@{{ img }}" class="card-img-top" alt="immagine @{{ img_title }}">
+      <div class="card-body">
+        <h5 class="card-title">@{{ title }}</h5>
+        <h6 class="card-title">@{{ address }}</h6>
+        <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
       </div>
     </div>
   </script>
