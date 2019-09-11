@@ -4,7 +4,7 @@
 
 <div class="container w-50 mb-5">
     @if (Auth::user()->HasRole('upra'))
-        <h1 class="mb-4 text-center">Sei un Host! ...pubblica altri annuncii</h1>
+        <h1 class="mb-4 text-center">Sei un Host! ...pubblica altri annunci</h1>
     @else 
         <h1 class="mb-4 text-center">Diventa un Host, pubblica il tuo annuncio</h1>
     @endif

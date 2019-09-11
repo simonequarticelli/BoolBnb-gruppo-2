@@ -29,20 +29,28 @@
           $.get('{{ route('payment.process', [$id = $house->id, $id_promo = $promo->id]) }}', {payload}, function (response) {
             if (response.success) {
 
-              Swal.fire(
-                'Good job!',
-                'You clicked the button!',
-                'success'
-              )
+              /* aggiungo alert di conferma */
+              Swal.fire({
+                position: 'center',
+                type: 'success',
+                title: 'Pagamento avvenuto con successo!!',
+                showConfirmButton: false,
+                timer: 2500
+              })
+
+              /* ritardo il reidirizzamento alla home */
+              setTimeout(function () {
+                window.location.href = "/home"; //will redirect to your blog page (an ex: blog.html)
+              }, 2500);
 
             } else {
 
-              Swal.fire({
-                type: 'error',
-                title: 'Oops...',
-                text: 'Pagamento rifiutato!',
-                footer: '<a href>Why do I have this issue?</a>' // DA CHIEDERE
-              })
+              // Swal.fire({
+              //   type: 'error',
+              //   title: 'Oops...',
+              //   text: 'Pagamento rifiutato!',
+              // })
+
 
             }
           }, 'json');

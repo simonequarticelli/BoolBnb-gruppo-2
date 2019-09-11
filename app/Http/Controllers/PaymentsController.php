@@ -24,8 +24,6 @@ class PaymentsController extends Controller
         $house = House::find($id);
         /* recupero la promo */
         $promo = Promotion::find($promo_id);
-
-        
         
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
@@ -43,9 +41,12 @@ class PaymentsController extends Controller
         /* salvo la relazione */
         $house->promotions()->sync($promo);
         $house->save();
+
+        
         
         return response()->json($status);
+
         
-        
+
     }
 }

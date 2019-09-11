@@ -7,15 +7,18 @@
     <div class="container">
       <div class="search-and-button-container">
         <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
-        <input id="lat" name="latitude" type="text" hidden>
-        <input id="lng" name="longitude" type="text" hidden>
         <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
         @error('address')
             <span class="invalid-tooltip" role="alert">
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
+        {{-- input nascosto indirizzo --}}
         <input name="address_api" id="search_filter_page" type="text">
+        {{-- input nascosto latitudine --}}
+        <input id="lat" name="latitude" type="text">
+        {{-- input nascosto longitudine --}}
+        <input id="lng" name="longitude" type="text">
       </div>
 
 

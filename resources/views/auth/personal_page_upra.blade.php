@@ -75,7 +75,22 @@
                   @endif
                   <div class="btn-group">
                     <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
-                    <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
+
+                    {{-- ricerco promozione corrente --}}
+                    @php
+                        $house_current_coll = $house->promotions;
+                        foreach ($house_current_coll as $current_promo) {
+                          $promo_now = $current_promo->name;
+                        }
+                    @endphp
+
+                    {{-- controllo se la casa è in promo --}}
+                    @if ($house->promotions->count() > 0)
+                      <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2 disabled">{{ $promo_now }}</a>
+                    @else
+                      <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
+                    @endif
+
                     <form action="{{ route('house.destroy', $house->id) }}" method="post">
                       <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
                       @method('DELETE')
