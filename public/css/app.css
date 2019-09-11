@@ -10959,6 +10959,12 @@ nav .container-fluid .airbnb-logo-black {
   position: absolute;
   left: calc(50% - 15px);
   top: 120%;
+  cursor: pointer;
+}
+
+.section-promotion .input-group .pay-button:hover {
+  box-shadow: 1px 2px 8px #b0b3b6;
+  transform: scale(1.01);
 }
 
 .section-promotion .input-group .pay-button a {
@@ -11009,6 +11015,10 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 @media (max-width: 991.98px) {
+  h1 {
+    font-size: x-large;
+  }
+
   .section-promotion .input-group {
     padding: 10px;
   }
@@ -11033,6 +11043,10 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 @media (max-width: 767.98px) {
+  h1 {
+    font-size: x-large;
+  }
+
   .section-promotion .input-group {
     padding: 10px;
   }
