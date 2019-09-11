@@ -45,6 +45,9 @@
   }
 }
 
+.featured_apartments.first-featured-apartments{
+  background-color: $bg_featured;
+}
 // seconda sezione appartamenti in evidenza
 .featured_apartments{
   h3{
@@ -239,5 +242,10 @@ div.filters-container{
       width: auto;
       margin-top: 0;
     }
+  }
+
+  .featured_apartments .card-container-flex{
+    padding-bottom: 20px;
+    padding-top: 20px;
   }
 }

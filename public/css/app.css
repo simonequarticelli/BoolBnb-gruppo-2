@@ -11100,6 +11100,10 @@ nav .container-fluid .airbnb-logo-black {
   border-color: #ff5a5f;
 }
 
+.featured_apartments.first-featured-apartments {
+  background-color: #F4F2EF;
+}
+
 .featured_apartments h3 {
   margin-top: 50px;
 }
@@ -11304,6 +11308,11 @@ div.filters-container ul li {
   div.filters-container li.nav-item {
     width: auto;
     margin-top: 0;
+  }
+
+  .featured_apartments .card-container-flex {
+    padding-bottom: 20px;
+    padding-top: 20px;
   }
 }
 
