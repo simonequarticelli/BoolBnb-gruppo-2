@@ -134,11 +134,21 @@ class HouseController extends Controller
         ]);
     }
 
-    public function show()
+
+
+
+
+    public function showPayments()
     {
-        //
+        return view('auth.payments');
     }
 
+
+
+
+
+
+    
     public function showStatistics()
     {
         // assegno all'id che mi arriva l'id dell'utente che è connesso attualmente

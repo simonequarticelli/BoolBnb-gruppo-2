@@ -47414,18 +47414,18 @@ $(document).ready(function () {
           $('#titolo-ricerca-case').text(titolo);
 
           if (data.success == true) {
-            var houses = data.result;
-            console.log(houses); //salvo il template dentro a una variabile
+            var houses = data.result; //console.log(houses);
+            //salvo il template dentro a una variabile
 
-            var card__template = $('.card_template').html();
-            console.log(card__template); //richiamo il compile
+            var card__template = $('.card_template').html(); //console.log(card__template);
+            //richiamo il compile
 
             var template__function = Handlebars.compile(card__template); //console.log(template__function);
 
             for (var i = 0; i < houses.length; i++) {
               //console.log(movies[i]);
-              var house = houses[i]; //console.log(house.img);
-              //creo oggetto con variabili
+              var house = houses[i];
+              console.log(house); //creo oggetto con variabili
 
               var obj = {
                 'img': house.img,

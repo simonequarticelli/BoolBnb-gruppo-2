@@ -41,7 +41,7 @@ $(document).ready(function(){
        console.log(test_radio);
    });
 
-    
+
     $('#search_homepage').val('');
 
     /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
@@ -109,7 +109,7 @@ $(document).ready(function(){
                 alert(error);
             }
         });
-         
+
 
 
         /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
@@ -121,9 +121,9 @@ $(document).ready(function(){
 
             /* creare un array vuoto e pushare al suo interno tutte le features */
             var features = [];
-            
+
             var eventFeatures = document.forms['form'].elements['feature[]'];
-            
+
             for (var i=0, len=eventFeatures.length; i<len; i++) {
                 if (eventFeatures[i].checked ) {
                     features.push($(eventFeatures[i]).val());
@@ -158,11 +158,11 @@ $(document).ready(function(){
                         if (data.success == true) {
 
                             var houses = data.result;
-                            console.log(houses);
+                            //console.log(houses);
 
                             //salvo il template dentro a una variabile
                             var card__template = $('.card_template').html();
-                            console.log(card__template);
+                            //console.log(card__template);
 
                             //richiamo il compile
                             var template__function = Handlebars.compile(card__template);
@@ -173,7 +173,7 @@ $(document).ready(function(){
                                 //console.log(movies[i]);
                                 var house = houses[i];
 
-                                //console.log(house.img);
+                                console.log(house);
 
 
                                 //creo oggetto con variabili
@@ -210,10 +210,12 @@ $(document).ready(function(){
                     }
 
             });
-            
+
         });
     });
-    
+
+
+
 });
 
 var placesAutocomplete = places({
@@ -221,5 +223,3 @@ var placesAutocomplete = places({
     apiKey: 'b1c9ff4767e9c175969b8e601ced129d',
     container: document.querySelector(['#home-address-input', '#address-input', '#address-input-search']),
 });
-
-

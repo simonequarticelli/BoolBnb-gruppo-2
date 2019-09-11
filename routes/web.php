@@ -25,7 +25,18 @@ Route::prefix('admin')->group(function(){
     Route::resource('/messages', 'MessageController');
     /* rotta per vedere le statistiche */
     Route::get('/statistics/user/{id}', 'HouseController@showStatistics')->name('show_statistics');
+    
+
+    /* rotta per eseguire i pagamenti */
+    Route::get('/payment/process', 'PaymentsController@process')->name('payment.process');
+
+    /* rotta per mostrare la pagina di pagamento */
+    Route::get('/payment', 'HouseController@showPayments')->name('show_payments');
+
+    
 });
+
+
 
 
 

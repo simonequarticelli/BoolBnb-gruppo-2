@@ -10,11 +10,12 @@
           <form class="col-md-6 col-lg-12" action="">
             @foreach ($promotions as $promotion)
             <div class="input-group col-lg-4 mb-2 ml-1">
-              <input type="radio" name="radio_btn" value="{{$promotion->name}}">
+              <input type="radio" name="radio_btn" value="{{$promotion->name}}"> 
               <span class="badge badge-pill badge-warning ml-2">{{ $promotion->name }}</span>
               <span class="price-style">{{ $promotion->price }}€</span>
-              <strong class="ml-2"><i class="far fa-clock fa-2x mr-2"></i><span>{{ $promotion->duration }} ore</span>
-              <br></strong>
+              <strong class="ml-2"><i class="far fa-clock fa-2x mr-2"></i><span>{{ $promotion->duration }} ore</span><br></strong>
+              {{-- link per visualizzare pagamenti --}}
+              <button><a href="{{ route('show_payments') }}">Paga</a></button>
             </div>
             @endforeach
           </form>
@@ -24,3 +25,4 @@
     </ul> --}}
   </div>
 @endsection
+
