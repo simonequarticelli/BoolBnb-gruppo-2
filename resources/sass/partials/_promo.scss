@@ -19,6 +19,19 @@
       position: absolute;
     }
 
+// stile bottone paga
+    .pay-button{
+      border-radius: 50px;
+      position: absolute;
+      left: calc(50% - 15px);
+      top: 120%;
+      a{
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+
     .section-promotion{
       .input-group{
         font-size: 1.0em;
@@ -48,8 +61,8 @@
 }
 // gli elementi non cliccati hanno un blur
 .blur-effect{
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
 }
 
 // Large devices (desktops, less than 1200px)

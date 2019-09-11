@@ -31,8 +31,10 @@ $(document).ready(function(){
     $('.section-promotion .input-group').on('click' , function() {
       // prendo l'inputo selezionato salvandolo in variabile
        var input_sel = $(this).children('input');
-       // imposto il radio dell'input selezionato
-       $(input_sel).prop("checked", true);
+       // aggiungo a tutti la classe invisible
+       $('.pay-button').addClass('invisible');
+       // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+       $(input_sel).prop("checked", true).nextAll('.pay-button').removeClass('invisible');
        // tolgo la classe a tutti gli elementi input group
        $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect');
        // aggiungo la classe clicked all'elemento selezionato

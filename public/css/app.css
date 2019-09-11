@@ -10954,6 +10954,19 @@ nav .container-fluid .airbnb-logo-black {
   position: absolute;
 }
 
+.section-promotion .input-group .pay-button {
+  border-radius: 50px;
+  position: absolute;
+  left: calc(50% - 15px);
+  top: 120%;
+}
+
+.section-promotion .input-group .pay-button a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .section-promotion .input-group .section-promotion .input-group {
   font-size: 1em;
 }
@@ -10980,8 +10993,8 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .blur-effect {
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  filter: blur(1.5px);
+  -webkit-filter: blur(1.5px);
 }
 
 @media (max-width: 1199.98px) {

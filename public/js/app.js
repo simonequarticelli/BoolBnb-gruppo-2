@@ -47317,9 +47317,11 @@ $(document).ready(function () {
 
   $('.section-promotion .input-group').on('click', function () {
     // prendo l'inputo selezionato salvandolo in variabile
-    var input_sel = $(this).children('input'); // imposto il radio dell'input selezionato
+    var input_sel = $(this).children('input'); // aggiungo a tutti la classe invisible
 
-    $(input_sel).prop("checked", true); // tolgo la classe a tutti gli elementi input group
+    $('.pay-button').addClass('invisible'); // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+
+    $(input_sel).prop("checked", true).nextAll('.pay-button').removeClass('invisible'); // tolgo la classe a tutti gli elementi input group
 
     $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
 
@@ -47522,8 +47524,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
