@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\House;
 use App\Message;
+use App\Promotion;
 use Illuminate\Http\Request;
 use App\Mail\messageFromUser;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -26,10 +28,14 @@ class HomeController extends Controller
     {
         $new_house = House::all();
 
-        return view('home')->with([
+        $house_promo = DB::table('houses')
+            ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
+            ->whereIn('house_promotion.promotion_id', [1, 2, 3])
+            ->get();
 
+        return view('home')->with([
             'new_house' => $new_house,
-            
+            'house_promo' => $house_promo
         ]);
     }
 
