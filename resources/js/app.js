@@ -164,7 +164,7 @@ $(document).ready(function(){
                         if (data.success == true) {
 
                             var houses = data.result;
-                            //console.log(houses);
+                            console.log(houses);
 
                             //salvo il template dentro a una variabile
                             var card__template = $('.card_template').html();

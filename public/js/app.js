@@ -47414,8 +47414,8 @@ $(document).ready(function () {
           $('#titolo-ricerca-case').text(titolo);
 
           if (data.success == true) {
-            var houses = data.result; //console.log(houses);
-            //salvo il template dentro a una variabile
+            var houses = data.result;
+            console.log(houses); //salvo il template dentro a una variabile
 
             var card__template = $('.card_template').html(); //console.log(card__template);
             //richiamo il compile

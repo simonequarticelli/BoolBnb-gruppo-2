@@ -21,25 +21,27 @@ class FilterAjaxController extends Controller
 
 
         /*query address*/
-        // $query_1 = DB::table('houses')
-        //   ->where('address', 'like', '%'.$address.'%');
+        // $address = DB::table('houses')
+        //   ->where('address', 'like', '%'.$address.'%')
+        //   ->get();
 
-        $query_2 = DB::table('feature_house')
-         ->Join('houses', 'feature_house.house_id', '=', 'houses.id')
+
+        $number_elements_array = count($features);
+        $filter = DB::table('feature_house')
+         ->join('houses', 'feature_house.house_id', '=', 'houses.id')
+         ->select('houses.id', 'houses.img', 'houses.title', 'houses.address', DB::raw("COUNT(*) as matchedItems"))
          ->whereIn('feature_id', $features)
-         ->get();
+         ->groupBy('house_id')
+         ->having('matchedItems', '=', $number_elements_array)->get();
 
 
 
 
 
-
-
-
-        if ($query_2->count() > 0) {
+        if ($filter->count() > 0) {
             return response()->json([
                 'success' => true,
-                'result' => $query_2
+                'result' => $filter
             ]);
         }else {
             return response()->json([
