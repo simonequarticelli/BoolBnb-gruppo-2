@@ -1,6 +1,7 @@
 @php
   /*creo array url visitati*/
   session()->push('url_visited', url()->current());
+  session()->put($house->slug);
   //dd(session()->all());
 @endphp
 

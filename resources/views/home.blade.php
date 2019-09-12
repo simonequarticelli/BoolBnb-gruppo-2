@@ -38,8 +38,15 @@
     <div class="container">
       <h1 class="mb-5 pt-5">Appartamenti in evidenza</h1>
       <div class="col-lg-12 first-card-container card-container-flex mt-4">
+        @php
+          //dd(session()->all());
+        @endphp
         @foreach ($house_promo as $house )
           <div class="card col-lg-3 col-md-6 col-sm-12">
+            @if (session()->exists($house->slug))
+            @else
+              <h1><span class="badge" style="position: absolute; left: -20px; background-color: #f9ca24; color: white;">New</span></h1>
+            @endif
               <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
               <div class="card-body">
                 <h5 class="card-title">{{ $house->title }}</h5>

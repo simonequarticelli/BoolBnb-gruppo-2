@@ -25,7 +25,7 @@ class FilterAjaxController extends Controller
           ->where('address', 'like', '%'.$address.'%')
           ->get();
 
-
+        /*query per filtrare le ricerche*/
         $number_elements_array = count($features);
         $filter = DB::table('feature_house')
          ->join('houses', 'feature_house.house_id', '=', 'houses.id')
