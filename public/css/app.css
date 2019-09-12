@@ -10937,7 +10937,7 @@ nav .container-fluid .airbnb-logo-black {
 
 .section-promotion .input-group {
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: aquamarine;
   padding: 15px;
   transition: 0.5s;
@@ -10954,11 +10954,28 @@ nav .container-fluid .airbnb-logo-black {
   position: absolute;
 }
 
-.section-promotion .input-group .pay-button {
+.section-promotion .input-group .pay-button.invisible {
   border-radius: 50px;
   position: absolute;
   left: calc(50% - 15px);
   top: 120%;
+  cursor: pointer;
+}
+
+.section-promotion .input-group .pay-button.invisible:hover {
+  box-shadow: 1px 2px 8px #b0b3b6;
+  transform: scale(1.01);
+}
+
+.section-promotion .input-group .pay-button.invisible a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.section-promotion .input-group .pay-button {
+  border-radius: 50px;
+  position: inherit;
   cursor: pointer;
 }
 
@@ -10971,6 +10988,13 @@ nav .container-fluid .airbnb-logo-black {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+.section-promotion .input-group .orario-promo {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .section-promotion .input-group .section-promotion .input-group {

@@ -5,7 +5,7 @@
   // stile banner promozioni
   .input-group{
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: aquamarine;
     padding: 15px;
     transition: 0.5s;
@@ -20,12 +20,13 @@
     }
 
 // stile bottone paga
-    .pay-button{
+    .pay-button.invisible{
       border-radius: 50px;
       position: absolute;
       left: calc(50% - 15px);
       top: 120%;
       cursor: pointer;
+
       &:hover{
         box-shadow: 1px 2px 8px #b0b3b6;
         transform: scale(1.01);
@@ -36,6 +37,32 @@
         font-weight: bold;
       }
     }
+
+    .pay-button{
+      border-radius: 50px;
+      position: inherit;
+      cursor: pointer;
+
+      &:hover{
+        box-shadow: 1px 2px 8px #b0b3b6;
+        transform: scale(1.01);
+      }
+      a{
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+
+
+      .orario-promo{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+      }
+
+
 
     .section-promotion{
       .input-group{
