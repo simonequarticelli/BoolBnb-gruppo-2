@@ -19,8 +19,6 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
-  
-
 
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
@@ -78,7 +76,7 @@ $(document).ready(function(){
 
         if ( $('#search_homepage').val() == value1 ){
 
-            $('#search_home').attr('disabled', false);
+
 
         };
 

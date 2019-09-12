@@ -26,7 +26,7 @@
                   <input name="address_home" id="search_homepage" type="text" hidden>
                 </div>
                 <div class="button_search">
-                  <button disabled id="search_home" type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
+                  <button id="search_home" type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>
                 </div>
               </form>
             </div>

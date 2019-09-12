@@ -7,7 +7,7 @@
     <div class="container">
       <div class="search-and-button-container">
         <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
-        <button disabled class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
+        <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
         @error('address')
             <span class="invalid-tooltip" role="alert">
                 <strong>{{ $message }}</strong>
