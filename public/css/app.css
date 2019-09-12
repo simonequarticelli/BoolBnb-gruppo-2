@@ -11431,6 +11431,7 @@ div.filters-container ul li {
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
+.btn-group > .btn:not(:first-child),
 .btn-group > .btn-group:not(:last-child) > .btn {
   border-top-right-radius: 0.25rem;
   border-top-left-radius: 0.25rem;

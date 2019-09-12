@@ -9,6 +9,7 @@ use App\Feature;
 use App\Promotion;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -62,6 +63,7 @@ class HouseController extends Controller
     public function index()
     {
         $houses_user = Auth::user()->houses;
+        
         return view('auth.personal_page_upra', compact('houses_user'));
     }
 
@@ -272,4 +274,6 @@ class HouseController extends Controller
         return redirect()->back()->with('alert', 'Casa eliminata!');
 
     }
+
+
 }

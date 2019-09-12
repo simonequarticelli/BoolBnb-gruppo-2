@@ -18,7 +18,7 @@ class House extends Model
 
     // relazione molti a molti houses/promotions
     public function promotions() {
-      return $this->belongsToMany('App\Promotion');
+      return $this->belongsToMany('App\Promotion')->withTimestamps();
     }
 
     // relazione uno a molti houses/messages

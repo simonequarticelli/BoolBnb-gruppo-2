@@ -8,7 +8,7 @@ class Promotion extends Model
 {
     // relazione molti a molti houses/promotions
     public function houses() {
-        return $this->belongsToMany('App\House');
+        return $this->belongsToMany('App\House')->withTimestamps();
     }
 
     protected $fillable = ['name', 'price', 'duration'];

@@ -45,11 +45,11 @@
 
             } else {
 
-              // Swal.fire({
-              //   type: 'error',
-              //   title: 'Oops...',
-              //   text: 'Pagamento rifiutato!',
-              // })
+              Swal.fire({
+                type: 'error',
+                title: 'Oops...',
+                text: 'Pagamento rifiutato!',
+              })
 
 
             }

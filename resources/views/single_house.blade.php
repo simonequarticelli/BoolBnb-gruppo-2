@@ -1,11 +1,7 @@
-{{-- @php
-    dd(session());
-@endphp --}}
-
 @php
-    //dd(url()->current());
-    session()->put('url', url()->current());
-    // dd(session());
+  /*creo array url visitati*/
+  session()->push('url_visited', url()->current());
+  //dd(session()->all());
 @endphp
 
 {{-- pagina relativa alla visualizzazione del singolo appartamento --}}

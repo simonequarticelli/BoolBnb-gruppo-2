@@ -36,7 +36,7 @@
                       {{-- @if(Route::currentRouteName() != ('house.index')) --}}
                         <li class="nav-item">
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'house.index' ? 'active' : ''}}" id="badge-new" href="{{ route('house.index') }}">
-                                <span class="badge upra badge-danger mb-5">New</span>
+                                
                                 Area personale UPRA</a>
                         </li>
                       {{-- @endif --}}

@@ -4,7 +4,7 @@
 
   @php
     // $array_sessione = session()->all();
-    // dd($array_sessione['_token']);
+    session()->push('url_visited', url()->current());
   @endphp
   {{-- @php
       dd(Auth::user()->hasRole('upra'));

@@ -7,6 +7,7 @@ use App\House;
 use App\Promotion;
 use Braintree_Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,11 +43,17 @@ class PaymentsController extends Controller
         $house->promotions()->sync($promo);
         $house->save();
 
+        // DB::table('house_promotion')
+        //     ->where('created_at', '>=', Carbon::now()->subMinutes(1)->toDateString())
+        //     ->delete();
+        
+        //  < DATE_SUB(NOW() , INTERVAL 1 DAY)
+
         
         
         return response()->json($status);
 
-        
-
     }
+
+    
 }

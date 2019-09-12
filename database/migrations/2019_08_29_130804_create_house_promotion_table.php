@@ -13,6 +13,7 @@ class CreateHousePromotionTable extends Migration
             // creo due colonne
             $table->unsignedBigInteger('house_id');
             $table->unsignedBigInteger('promotion_id');
+            $table->timestamps();
             // creo chiavi esterne
             $table->foreign('house_id')->references('id')->on('houses');
             $table->foreign('promotion_id')->references('id')->on('promotions');

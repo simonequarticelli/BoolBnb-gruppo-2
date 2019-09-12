@@ -19,6 +19,7 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
+
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina

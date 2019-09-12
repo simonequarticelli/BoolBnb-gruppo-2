@@ -1,8 +1,9 @@
 {{-- @php
  foreach ($houses_user as $house) {
-   dump($house);
+   var_dump($house);
  }
 @endphp --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -89,13 +90,12 @@
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2 disabled">{{ $promo_now }}</a>
                     @else
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
+                      <form action="{{ route('house.destroy', $house->id) }}" method="post">
+                        <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
+                        @method('DELETE')
+                        @csrf
+                      </form>
                     @endif
-
-                    <form action="{{ route('house.destroy', $house->id) }}" method="post">
-                      <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">
-                      @method('DELETE')
-                      @csrf
-                    </form>
                   </div>
                 </div>
               </div>
