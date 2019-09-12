@@ -20,6 +20,8 @@ var places = require('places.js');
 $(document).ready(function(){
 
 
+
+
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
@@ -28,7 +30,8 @@ $(document).ready(function(){
 
     // nascondo il tasto paga
     $('.pay-button').hide();
-
+    // nascondo il pulsante cerca nella home
+    $('#search_home').hide();
 
     // -----------------CODICE BANNER PROMO---------------------------
     // catturo il valore del radio button selezionato
@@ -75,9 +78,8 @@ $(document).ready(function(){
         $('#search_filter_page').val(value2);
 
         if ( $('#search_homepage').val() == value1 ){
-
-
-
+          // mostro il pulsante cerca nella home
+          $('#search_home').fadeIn('slow');
         };
 
 
