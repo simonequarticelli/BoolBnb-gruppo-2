@@ -17,6 +17,7 @@ var $ = require('jquery');
 /*INIZIALIZZO ALGOLIA*/
 var places = require('places.js');
 
+
 $(document).ready(function(){
 
 
@@ -112,6 +113,7 @@ $(document).ready(function(){
                 alert(error);
             }
         });
+      });
 
 
 
@@ -119,104 +121,108 @@ $(document).ready(function(){
 
         $('#btn_filter_api').click(function(){
 
+            $('#container_card_ajax').empty();
+
             var address = $('#search_filter_page').val();
             console.log(address);
 
-            /* creare un array vuoto e pushare al suo interno tutte le features */
-            var features = [];
+            // if (address.length == 0) {
+            //   alert('ciao');
+            // }else {
 
-            var eventFeatures = document.forms['form'].elements['feature[]'];
+              /* creare un array vuoto e pushare al suo interno tutte le features */
+              var features = [];
 
-            for (var i=0, len=eventFeatures.length; i<len; i++) {
-                if (eventFeatures[i].checked ) {
-                    features.push($(eventFeatures[i]).val());
-                }
-            }
+              var eventFeatures = document.forms['form'].elements['feature[]'];
 
-
-            $.ajax({
-                url: 'http://localhost:8000/api/index',
-
-                method: 'GET',
-
-                    data: {
-                        'address': address,
-                        'features': JSON.stringify(features)
-                    },
-
-                    success: function(data){
-
-                        /*svuoto il contenitore delle cards*/
-                        $('#container_card_ajax').html('');
-
-                        $('#titolo-ricerca-case').text(titolo);
-                        //console.log(data);
-
-                        /*prendo il valore della ricerca*/
-                        var titolo = $('#search_filter_page').val();
-
-                        /*assegno il valore al titolo*/
-                        $('#titolo-ricerca-case').text(titolo);
-
-                        if (data.success == true) {
-
-                            var houses = data.result;
-                            //console.log(houses);
-
-                            //salvo il template dentro a una variabile
-                            var card__template = $('.card_template').html();
-                            //console.log(card__template);
-
-                            //richiamo il compile
-                            var template__function = Handlebars.compile(card__template);
-                            //console.log(template__function);
+              for (var i=0, len=eventFeatures.length; i<len; i++) {
+                  if (eventFeatures[i].checked ) {
+                      features.push($(eventFeatures[i]).val());
+                  }
+              }
 
 
-                            for (var i = 0; i < houses.length; i++) {
-                                //console.log(movies[i]);
-                                var house = houses[i];
+              $.ajax({
+                  url: 'http://localhost:8000/api/index',
 
-                                console.log(house);
+                  method: 'GET',
+
+                      data: {
+                          'address': address,
+                          'features': JSON.stringify(features)
+                      },
+
+                      success: function(data){
+
+                          /*svuoto il contenitore delle cards*/
+                          $('#container_card_ajax').html('');
+
+                          $('#titolo-ricerca-case').text(titolo);
+                          //console.log(data);
+
+                          /*prendo il valore della ricerca*/
+                          var titolo = $('#search_filter_page').val();
+
+                          /*assegno il valore al titolo*/
+                          $('#titolo-ricerca-case').text(titolo);
+
+                          if (data.success == true) {
+
+                              var houses = data.result;
+                              //console.log(houses);
+
+                              //salvo il template dentro a una variabile
+                              var card__template = $('.card_template').html();
+                              //console.log(card__template);
+
+                              //richiamo il compile
+                              var template__function = Handlebars.compile(card__template);
+                              //console.log(template__function);
 
 
-                                //creo oggetto con variabili
-                                var obj = {
-                                    'img': house.img,
-                                    'img_title': house.title,
-                                    'title': house.title,
-                                    'address': house.address,
-                                    'id': house.id,
-                                    'slug': house.slug
-                                }
+                              for (var i = 0; i < houses.length; i++) {
+                                  //console.log(movies[i]);
+                                  var house = houses[i];
 
-                                //assegno l'oggetto creato
-                                var html = template__function(obj);
-
-                                //appendo con jquery il template
-                                $('#container_card_ajax').append(html);
-
-                            }
+                                  console.log(house);
 
 
-                        }else {
+                                  //creo oggetto con variabili
+                                  var obj = {
+                                      'img': house.img,
+                                      'img_title': house.title,
+                                      'title': house.title,
+                                      'address': house.address,
+                                      'id': house.id,
+                                      'slug': house.slug
+                                  }
 
-                            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+                                  //assegno l'oggetto creato
+                                  var html = template__function(obj);
 
-                        }
+                                  //appendo con jquery il template
+                                  $('#container_card_ajax').append(html);
+
+                              }
+
+
+                          }else {
+
+                              $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+
+                          }
 
 
 
-                    },
-                    error: function(richiesta, stato, errori){
+                      },
+                      error: function(richiesta, stato, errori){
 
-                        console.log(errori);
-                    }
+                          console.log(errori);
+                      }
 
-            });
-
+              });
+            // }
         });
-    });
-
 });
 
 var placesAutocomplete = places({

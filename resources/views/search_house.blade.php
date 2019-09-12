@@ -14,7 +14,7 @@
             </span>
         @enderror
         {{-- input nascosto indirizzo --}}
-        <input name="address_api" id="search_filter_page" type="text">
+        <input id="search_filter_page" name="address_api" type="text">
         {{-- input nascosto latitudine --}}
         <input id="lat" name="latitude" type="text">
         {{-- input nascosto longitudine --}}

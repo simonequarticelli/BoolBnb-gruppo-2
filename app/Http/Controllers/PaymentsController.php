@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentsController extends Controller
 {
-    
+
 
     public function process(Request $request, $id, $promo_id) {
 
@@ -25,7 +25,7 @@ class PaymentsController extends Controller
         $house = House::find($id);
         /* recupero la promo */
         $promo = Promotion::find($promo_id);
-        
+
         $payload = $request->input('payload', false);
         $nonce = $payload['nonce'];
 
@@ -38,20 +38,22 @@ class PaymentsController extends Controller
             ]
 
         ]);
-        
+
         /* salvo la relazione */
         $house->promotions()->sync($promo);
         $house->save();
 
-        DB::table('house_promotion')
-            ->where('created_at', '<=', Carbon::now()->subMinutes(1))
-            ->delete();
+        // setInterval(funtion(){
+        //   DB::table('house_promotion')
+        //     ->where('created_at', '<=', Carbon::now()->subDays(14))
+        //     ->delete();
+        // }, 1000);
 
-        
-        
+
+
         return response()->json($status);
 
     }
 
-    
+
 }
