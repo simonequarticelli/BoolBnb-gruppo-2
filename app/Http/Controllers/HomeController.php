@@ -50,44 +50,47 @@ class HomeController extends Controller
         $array_sessione = session()->all();
         $array_url = $array_sessione['url_visited'];
         
+        //dd(session()->all());
+        //dd(!in_array(url()->current(), $array_url));
 
-        /*se 'lutente non è autenticato e url non è presente nell'array di sessione*/
-        if (Auth::user() == null && !in_array(url()->current(), $array_url)) {
+        /*se url non è presente nell'array di sessione*/
+        if(!in_array(url()->current(), $array_url)) {
+        
+            /*se 'lutente non è autenticato*/
+            if (Auth::user() == null) {
 
-            echo 'no auth - url no presente';
-            $house->increment('view');
-
-        /*se è autenticato senza casa e url non è presente nell'array di sessione*/
-        }elseif (Auth::user() == true && !Auth::user()->HasRole('upra') && !in_array(url()->current(), $array_url) ) {
-            
-            
-            echo 'auth senza casa url no presente';
-            $house->increment('view');
-       
-
-        }elseif (!empty(Auth::user()->houses)) {
-
-            /* recupero la fk user nella tabella case per capire di chi è la casa */
-            $houses_user_collection = Auth::user()->houses;
-            $houses_user_array = $houses_user_collection->all();
-            foreach ($houses_user_array as $house_user) {
-
-                $user_id_table_houses = $house_user->user_id;
-
-            }
-
-            // dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
-            // dd($houses_user_array['user_id']);
-            // dd(Auth::user()->HasRole('upra'));
-
-            //dd($user_id_table_houses == Auth::user()->id, Auth::user()->HasRole('upra'), !($house['user_id'] == $user_id_table_houses));
-
-            /*non è proprietario della casa e url non è presente nell'array di sessione*/
-            if (!($house['user_id'] == $user_id_table_houses) && !in_array(url()->current(), $array_url) ) {
-
-                echo 'upra - no proprietario - url no presente';
                 $house->increment('view');
-             
+
+            /*se è autenticato senza casa*/
+            }elseif (Auth::user() == true && !Auth::user()->HasRole('upra')) {
+                
+                
+                $house->increment('view');
+        
+                    /*se l'utente ha le case*/
+            }elseif (Auth::user()->houses->count() > 0) {
+
+                /* recupero la fk user nella tabella case per capire di chi è la casa */
+                $houses_user_collection = Auth::user()->houses;
+                $houses_user_array = $houses_user_collection->all();
+                foreach ($houses_user_array as $house_user) {
+
+                    $user_id_table_houses = $house_user->user_id;
+
+                }
+
+                // dd($user_id_table_houses, Auth::user()->id, Auth::user()->HasRole('upra'));
+                // dd($houses_user_array['user_id']);
+                // dd(Auth::user()->HasRole('upra'));
+
+                // dd(!($house['user_id'] == $user_id_table_houses) && !in_array(url()->current(), $array_url));
+
+                /*non è proprietario della casa*/
+                if (!($house['user_id'] == $user_id_table_houses)) {
+
+                    $house->increment('view');
+                
+                }
             }
 
         }

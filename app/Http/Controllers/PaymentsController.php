@@ -43,11 +43,9 @@ class PaymentsController extends Controller
         $house->promotions()->sync($promo);
         $house->save();
 
-        // DB::table('house_promotion')
-        //     ->where('created_at', '>=', Carbon::now()->subMinutes(1)->toDateString())
-        //     ->delete();
-        
-        //  < DATE_SUB(NOW() , INTERVAL 1 DAY)
+        DB::table('house_promotion')
+            ->where('created_at', '<=', Carbon::now()->subMinutes(1))
+            ->delete();
 
         
         
