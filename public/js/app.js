@@ -47314,9 +47314,9 @@ $(document).ready(function () {
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
   }); // nascondo il tasto paga
 
-  $('.pay-button').hide(); // nascondo il pulsante cerca nella home
-
-  $('#search_home').hide(); // -----------------CODICE BANNER PROMO---------------------------
+  $('.pay-button').hide(); // // nascondo il pulsante cerca nella home
+  // $('#search_home').hide();
+  // -----------------CODICE BANNER PROMO---------------------------
   // catturo il valore del radio button selezionato
 
   $('.section-promotion .input-group').on('click', function () {
@@ -47348,13 +47348,6 @@ $(document).ready(function () {
 
     $('#search_homepage').val(value1);
     $('#search_filter_page').val(value2);
-
-    if ($('#search_homepage').val() == value1) {
-      // mostro il pulsante cerca nella home
-      $('#search_home').fadeIn('slow');
-    }
-
-    ;
     $.ajax({
       'url': 'https://places-dsn.algolia.net/1/places/query',
       'method': 'GET',
@@ -47529,8 +47522,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

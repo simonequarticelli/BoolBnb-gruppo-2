@@ -31,6 +31,11 @@ class FilterAjaxController extends Controller
 
 
 
+
+
+
+
+
         if ($query_2->count() > 0) {
             return response()->json([
                 'success' => true,

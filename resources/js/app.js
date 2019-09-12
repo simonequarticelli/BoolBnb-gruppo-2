@@ -30,8 +30,8 @@ $(document).ready(function(){
 
     // nascondo il tasto paga
     $('.pay-button').hide();
-    // nascondo il pulsante cerca nella home
-    $('#search_home').hide();
+    // // nascondo il pulsante cerca nella home
+    // $('#search_home').hide();
 
     // -----------------CODICE BANNER PROMO---------------------------
     // catturo il valore del radio button selezionato
@@ -76,12 +76,6 @@ $(document).ready(function(){
         //console.log($('#search_homepage').val());
         $('#search_homepage').val(value1);
         $('#search_filter_page').val(value2);
-
-        if ( $('#search_homepage').val() == value1 ){
-          // mostro il pulsante cerca nella home
-          $('#search_home').fadeIn('slow');
-        };
-
 
         $.ajax({
             'url':'https://places-dsn.algolia.net/1/places/query',
