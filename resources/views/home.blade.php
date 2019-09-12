@@ -3,7 +3,6 @@
 @section('content')
 
   @php
-    // $array_sessione = session()->all();
     session()->push('url_visited', url()->current());
   @endphp
   {{-- @php

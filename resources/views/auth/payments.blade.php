@@ -12,6 +12,7 @@
       </div>
     </div>
  </div>
+ <div class="py-2"></div>
 
   {{-- -----------------BRAINTREE--------------------------- --}}
 
@@ -45,11 +46,11 @@
 
             } else {
 
-              Swal.fire({
-                type: 'error',
-                title: 'Oops...',
-                text: 'Pagamento rifiutato!',
-              })
+              // Swal.fire({
+              //   type: 'error',
+              //   title: 'Oops...',
+              //   text: 'Pagamento rifiutato!',
+              // })
 
 
             }

@@ -42,20 +42,11 @@ class HomeController extends Controller
 
     public function detailsHouseHome(Request $request,  $id, $slug)
     {
-
-        //dd($request->url());
-        /* url corrente */
-        // $current_url = $request->url();
-        /* da collection ad array */
-        // $array_sessione = session()->all();
-        /* accedo all'url salvato nella sessione */
-        //dd($array_sessione['url'],  $current_url);
         
-
         $house = House::find($id);
         //dd($house['user_id']);
 
-        // ---------------------controllo url ia array di sessione------------------------------
+        // ---------------------controllo url in array di sessione------------------------------
         $array_sessione = session()->all();
         $array_url = $array_sessione['url_visited'];
         
