@@ -1,8 +1,10 @@
-{{-- @php
- foreach ($houses_user as $house) {
-   var_dump($house);
- }
-@endphp --}}
+@php
+ // foreach ($houses_user as $house) {
+ //   var_dump($house);
+ // }
+ session()->put('badge_upra');
+ 
+@endphp
 
 @extends('layouts.app')
 

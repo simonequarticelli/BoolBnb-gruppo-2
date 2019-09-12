@@ -1,3 +1,6 @@
+@php
+  session()->put('badge_messages');
+@endphp
 
 @extends('layouts.app')
 

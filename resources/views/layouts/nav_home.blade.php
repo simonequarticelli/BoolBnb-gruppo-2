@@ -29,14 +29,17 @@
                     </li>
                 @else
 
-              
+
                     @if (Auth::user()->HasRole('upra'))
                         <li class="nav-item">
                             <a class="nav-link upra ml-3" id="badge-new" href="{{ route('house.index') }}">
 
-                                
-                                <span class="badge upra badge-danger mb-5">New</span>
-                                
+                                @if (session()->exists('badge_upra'))
+                                @else
+                                  <span class="badge upra badge-danger mb-5">New</span>
+                                @endif
+
+
                                 Area personale UPRA</a>
                         </li>
                     @endif
@@ -44,9 +47,11 @@
                         <li class="nav-item">
                             <a class="nav-link house ml-3" id="badge-new" href="{{ route('house.create') }}">
 
-                              
+                                @if (session()->exists('badge_house'))
+                                @else
                                 <span class="badge house badge-danger">New</span>
-                                
+                                @endif
+
                                 Offri una casa</a>
                         </li>
 

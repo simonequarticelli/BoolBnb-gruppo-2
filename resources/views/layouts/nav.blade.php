@@ -36,14 +36,18 @@
                       {{-- @if(Route::currentRouteName() != ('house.index')) --}}
                         <li class="nav-item">
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'house.index' ? 'active' : ''}}" id="badge-new" href="{{ route('house.index') }}">
-                                
+
                                 Area personale UPRA</a>
                         </li>
                       {{-- @endif --}}
                         <li class="nav-item">
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'show_statistics' ? 'active' : ''}}" id="badge-new" href="{{ route('show_statistics', Auth::user()->id) }}">
-                                <span class="badge upra-statics badge-danger mb-5">New</span>
-                                Statistiche</a>
+
+                              @if (session()->exists('badge_statistics'))
+                              @else
+                              <span class="badge upra-statics badge-danger mb-5">New</span>
+                              @endif
+                              Statistiche</a>
                         </li>
                         <li class="nav-item">
 
@@ -54,8 +58,13 @@
                             {{-- <input type="text" name="houses_current_user" hidden value="{{ Auth::user()->houses }}"> --}}
 
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'messages.index' ? 'active' : ''}}" id="badge-new" href="{{ route('messages.index')}}">
-                                <span class="badge upra-messages badge-danger mb-5 ">New</span>
-                                Messaggi</a>
+
+                              @if (session()->exists('badge_messages'))
+                              @else
+                              <span class="badge upra-messages badge-danger mb-5 ">New</span>
+                              @endif
+
+                              Messaggi</a>
                         </li>
                     @endif
 

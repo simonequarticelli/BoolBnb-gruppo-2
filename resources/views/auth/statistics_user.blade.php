@@ -1,3 +1,7 @@
+@php
+  session()->put('badge_statistics');
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -12,7 +16,7 @@
       $array_houses = $houses_user->all();
       //dd($array_houses);
   @endphp
-  
+
 
   {{-- CHART.JS --}}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
