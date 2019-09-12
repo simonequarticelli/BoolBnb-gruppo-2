@@ -17,13 +17,13 @@
                 <i class="far fa-clock fa-2x"></i>
                 <span>{{ $promotion->duration }} ore</span></strong>
               {{-- link per visualizzare pagamenti --}}
-              <button class="btn btn-danger pay-button invisible"><a href="{{ route('show_payments', [$id = $house->id, $id_promo = $promotion->id]) }}">Paga</a></button>
+              <button class="btn btn-danger pay-button"><a href="{{ route('show_payments', [$id = $house->id, $id_promo = $promotion->id]) }}">Paga</a></button>
             </div>
             @endforeach
           </form>
         </section>
-    <ul>
+    {{-- <ul>
         <li><strong>id casa da promuovere: </strong>{{ $house->id }}</li>
-    </ul>
+    </ul> --}}
   </div>
 @endsection

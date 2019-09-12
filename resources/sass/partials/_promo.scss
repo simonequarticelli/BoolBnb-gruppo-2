@@ -39,6 +39,7 @@
     }
 
     .pay-button{
+      z-index: -1;
       border-radius: 50px;
       position: inherit;
       cursor: pointer;
@@ -93,7 +94,7 @@
 }
 // gli elementi non cliccati hanno un blur
 .blur-effect{
-  filter: blur(1.5px);
+  filter: blur(1px);
   -webkit-filter: blur(1.5px);
 }
 

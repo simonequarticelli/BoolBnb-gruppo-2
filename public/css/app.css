@@ -10974,6 +10974,7 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .section-promotion .input-group .pay-button {
+  z-index: -1;
   border-radius: 50px;
   position: inherit;
   cursor: pointer;
@@ -11023,7 +11024,7 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .blur-effect {
-  filter: blur(1.5px);
+  filter: blur(1px);
   -webkit-filter: blur(1.5px);
 }
 

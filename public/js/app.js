@@ -47312,16 +47312,18 @@ $(document).ready(function () {
   $('.navbar-toggler').click(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
-  }); // -----------------CODICE BANNER PROMO---------------------------
+  }); // nascondo il tasto paga
+
+  $('.pay-button').hide(); // -----------------CODICE BANNER PROMO---------------------------
   // catturo il valore del radio button selezionato
 
   $('.section-promotion .input-group').on('click', function () {
     // prendo l'inputo selezionato salvandolo in variabile
-    var input_sel = $(this).children('input'); // aggiungo a tutti la classe invisible
+    var input_sel = $(this).children('input'); // // aggiungo a tutti la classe invisible
 
-    $('.pay-button').addClass('invisible'); // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+    $('.pay-button').fadeOut(); // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
 
-    $(input_sel).prop("checked", true).nextAll('.pay-button').removeClass('invisible'); // tolgo la classe a tutti gli elementi input group
+    $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700); // tolgo la classe a tutti gli elementi input group
 
     $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
 
@@ -47380,81 +47382,77 @@ $(document).ready(function () {
         alert(_error);
       }
     });
-  });
-  /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
+    /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
 
-  $('#btn_filter_api').click(function () {
-    $('#container_card_ajax').empty();
-    var address = $('#search_filter_page').val();
-    console.log(address); // if (address.length == 0) {
-    //   alert('ciao');
-    // }else {
+    $('#btn_filter_api').click(function () {
+      var address = $('#search_filter_page').val();
+      console.log(address);
+      /* creare un array vuoto e pushare al suo interno tutte le features */
 
-    /* creare un array vuoto e pushare al suo interno tutte le features */
+      var features = [];
+      var eventFeatures = document.forms['form'].elements['feature[]'];
 
-    var features = [];
-    var eventFeatures = document.forms['form'].elements['feature[]'];
-
-    for (var i = 0, len = eventFeatures.length; i < len; i++) {
-      if (eventFeatures[i].checked) {
-        features.push($(eventFeatures[i]).val());
-      }
-    }
-
-    $.ajax({
-      url: 'http://localhost:8000/api/index',
-      method: 'GET',
-      data: {
-        'address': address,
-        'features': JSON.stringify(features)
-      },
-      success: function success(data) {
-        /*svuoto il contenitore delle cards*/
-        $('#container_card_ajax').html('');
-        $('#titolo-ricerca-case').text(titolo); //console.log(data);
-
-        /*prendo il valore della ricerca*/
-
-        var titolo = $('#search_filter_page').val();
-        /*assegno il valore al titolo*/
-
-        $('#titolo-ricerca-case').text(titolo);
-
-        if (data.success == true) {
-          var houses = data.result; //console.log(houses);
-          //salvo il template dentro a una variabile
-
-          var card__template = $('.card_template').html(); //console.log(card__template);
-          //richiamo il compile
-
-          var template__function = Handlebars.compile(card__template); //console.log(template__function);
-
-          for (var i = 0; i < houses.length; i++) {
-            //console.log(movies[i]);
-            var house = houses[i];
-            console.log(house); //creo oggetto con variabili
-
-            var obj = {
-              'img': house.img,
-              'img_title': house.title,
-              'title': house.title,
-              'address': house.address,
-              'id': house.id,
-              'slug': house.slug //assegno l'oggetto creato
-
-            };
-            var html = template__function(obj); //appendo con jquery il template
-
-            $('#container_card_ajax').append(html);
-          }
-        } else {
-          $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+      for (var i = 0, len = eventFeatures.length; i < len; i++) {
+        if (eventFeatures[i].checked) {
+          features.push($(eventFeatures[i]).val());
         }
-      },
-      error: function error(richiesta, stato, errori) {
-        console.log(errori);
       }
-    }); // }
+
+      $.ajax({
+        url: 'http://localhost:8000/api/index',
+        method: 'GET',
+        data: {
+          'address': address,
+          'features': JSON.stringify(features)
+        },
+        success: function success(data) {
+          /*svuoto il contenitore delle cards*/
+          $('#container_card_ajax').html('');
+          $('#titolo-ricerca-case').text(titolo); //console.log(data);
+
+          /*prendo il valore della ricerca*/
+
+          var titolo = $('#search_filter_page').val();
+          /*assegno il valore al titolo*/
+
+          $('#titolo-ricerca-case').text(titolo);
+
+          if (data.success == true) {
+            var houses = data.result; //console.log(houses);
+            //salvo il template dentro a una variabile
+
+            var card__template = $('.card_template').html(); //console.log(card__template);
+            //richiamo il compile
+
+            var template__function = Handlebars.compile(card__template); //console.log(template__function);
+
+            for (var i = 0; i < houses.length; i++) {
+              //console.log(movies[i]);
+              var house = houses[i];
+              console.log(house); //creo oggetto con variabili
+
+              var obj = {
+                'img': house.img,
+                'img_title': house.title,
+                'title': house.title,
+                'address': house.address,
+                'id': house.id,
+                'slug': house.slug //assegno l'oggetto creato
+
+              };
+              var html = template__function(obj); //appendo con jquery il template
+
+              $('#container_card_ajax').append(html);
+            }
+          } else {
+            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+          }
+        },
+        error: function error(richiesta, stato, errori) {
+          console.log(errori);
+        }
+      });
+    });
   });
 });
 var placesAutocomplete = places({
@@ -47528,8 +47526,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/simone/Scrivania/BoolBnB-gruppo-2/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -7,7 +7,7 @@
     <div class="container">
       <div class="search-and-button-container">
         <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
-        <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
+        <button disabled class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
         @error('address')
             <span class="invalid-tooltip" role="alert">
                 <strong>{{ $message }}</strong>
@@ -25,7 +25,7 @@
       {{-- <ul class="navbar-nav mr-auto"> --}}
       <div class="filters-container mt-3">
         <form id="form">
-          <ul>
+          <ul class="d-flex align-items-center">
             @foreach ( $features as $feature )
             <li class="nav-item mr-3 list-unstyled">
             {{-- checkbox per servizi aggiuntivi --}}
@@ -38,7 +38,7 @@
             @endforeach
 
             {{--  input range per ricerca a raggio --}}
-            <li>
+            <li class="d-flex align-items-center">
               <label class="label-checkbox m-1 d-inline">
                 Cerca nel raggio di:</label>
                 <input type="range" name="weight" id="range_weight" value="20" min="20" max="100"

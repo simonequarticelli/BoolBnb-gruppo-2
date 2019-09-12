@@ -17,33 +17,33 @@ class FilterAjaxController extends Controller
 
         $event_features = $_GET['features'];
         $features = (json_decode(stripslashes($event_features)));
-        //dd($features, $address);
 
+        // dd($features);
+        // $features_house = DB::table('features')
+        // ->join('feature_house', 'feature_house.feature_id', '=', 'features.id')
+        // ->join('houses', 'feature_house.house_id', '=', 'houses.id')
+        // ->where('address', 'like', '%'.$address.'%')->get();
+        // dd($features[0]);
+        $house_list = DB::table('houses')
+            ->join('feature_house', 'feature_house.house_id', '=', 'houses.id')
+            ->where('address', 'like', '%'.$address.'%')
+            ->whereIn('feature_house.feature_id', $features)->get();
 
-        /*query address*/
-        // $query_1 = DB::table('houses')
-        //   ->where('address', 'like', '%'.$address.'%');
+            dd($house_list);
 
-        $query_2 = DB::table('feature_house')
-         ->Join('houses', 'feature_house.house_id', '=', 'houses.id')
-         ->whereIn('feature_id', $features)
-         ->get();
+        public function filter(Request $request)
+        {
+        $features = Feature::when($request->has('mark'), function($query) use ($request) {
+            return $query->whereIn('device_mark', $request->mark); //Assuming you are passing an array of IDs
+        })->get();
 
+        return $features;
+       }
 
-
-
-
-
-
-
-
-
-
-
-        if ($query_2->count() > 0) {
+        if ($house_list->count() > 0) {
             return response()->json([
                 'success' => true,
-                'result' => $query_2
+                'result' => $house_list
             ]);
         }else {
             return response()->json([
