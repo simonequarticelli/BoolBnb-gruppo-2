@@ -19,6 +19,37 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
+
+// Animazione Slider Home
+$('#prec').hide();
+   $('.container-card-promo').animate({scrollLeft: 0});
+   $('#prec').click(function(){
+     var windowWidth = $(window).width();
+
+     if (windowWidth < '767.98') {
+      $('.container-card-promo').animate({scrollLeft: '-=350'}, 800);
+    }else if(windowWidth < '991.98'){
+      $('.container-card-promo').animate({scrollLeft: '-=800'}, 800);
+    }else{
+      $('.container-card-promo').animate({scrollLeft: '-=1200'}, 800);
+    }
+     $('#next').show();
+   });
+
+   $('#next').click(function(){
+
+    var windowWidth = $(window).width();
+     if (windowWidth < '767.988') {
+      $('.container-card-promo').animate({scrollLeft: '+=350'}, 800);
+    }else if(windowWidth < '991.98'){
+      $('.container-card-promo').animate({scrollLeft: '+=800'}, 800);
+    }else{
+      $('.container-card-promo').animate({scrollLeft: '+=1200'}, 800);
+    }
+     $('#prec').show();
+   });
+
+
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
@@ -36,7 +67,7 @@ $(document).ready(function(){
       // prendo l'inputo selezionato salvandolo in variabile
        var input_sel = $(this).children('input');
        // // aggiungo a tutti la classe invisible
-       $('.pay-button').fadeOut();
+       $('.pay-button').hide();
        // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
        $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700);
        // tolgo la classe a tutti gli elementi input group
@@ -44,8 +75,6 @@ $(document).ready(function(){
        // aggiungo la classe clicked all'elemento selezionato
        $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
 
-       var test_radio = $('input[name=radio_btn]:checked').val();
-       console.log(test_radio);
    });
 
 

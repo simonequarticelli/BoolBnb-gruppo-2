@@ -34,33 +34,34 @@
         </div>
     </section>
   </div>
-  <section class="featured_apartments first-featured-apartments text-center mb-5">
-    <div class="container">
-      <h1 class="mb-5 pt-5">Appartamenti in evidenza</h1>
-      <div class="col-lg-12 first-card-container card-container-flex mt-4">
-        @php
-          //dd(session()->all());
-        @endphp
-        @foreach ($house_promo as $house )
-          <div class="card col-lg-3 col-md-6 col-sm-12">
-            @if (session()->exists($house->slug))
-            @else
-              <h1><span class="badge" style="position: absolute; left: -20px; background-color: #f9ca24; color: white;">New</span></h1>
-            @endif
-              <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
-              <div class="card-body">
-                <h5 class="card-title">{{ $house->title }}</h5>
-                <h6 class="card-title">{{ $house->address }}</h6>
-                {{-- @php
-                    dd([$id = $house->id, $slug = $house->slug]);
-                @endphp --}}
-                <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Maggiori info</a>
-            </div>
+
+        <section class="featured_apartments first-featured-apartments text-center mb-5">
+          <div class="container-fluid">
+            <h1 class="mb-5 pt-5">Appartamenti in evidenza</h1>
+                <div class="col-lg-12 first-card-container card-container-flex mt-4">
+                    <div class="container-card-promo d-flex">
+                      @if ($house_promo->count() > 0)
+                        @foreach ($house_promo as $house )
+                         <div class="card ml-2 mr-2 col-lg-4 col-md-6" style="min-width: 350px;">
+                            <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
+                            <div class="card-body">
+                              <h5 class="card-title">{{ $house->title }}</h5>
+                              <h6 class="card-title">{{ $house->address }}</h6>
+                              <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-primary btn-card">Maggiori info</a>
+                            </div>
+                          </div>
+                        @endforeach
+                           <div class="container-carousel-btn">
+                              <i id="prec" class="fas fas fa-angle-left fa-4x"></i>
+
+                              <i id="next" class="fas fa-angle-right fa-4x"></i>
+                           </div>
+                      @endif
+                    </div>
+                  </div>
+                </div>
           </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
+        </section>
 
 
   {{-- SEZIONE TUTTI GLI APPARTAMENTI --}}

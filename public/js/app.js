@@ -47308,7 +47308,50 @@ var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"
 var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
 $(document).ready(function () {
-  // quando clicco l'hamburger menu
+  // Animazione Slider Home
+  $('#prec').hide();
+  $('.container-card-promo').animate({
+    scrollLeft: 0
+  });
+  $('#prec').click(function () {
+    var windowWidth = $(window).width();
+
+    if (windowWidth < '767.98') {
+      $('.container-card-promo').animate({
+        scrollLeft: '-=350'
+      }, 800);
+    } else if (windowWidth < '991.98') {
+      $('.container-card-promo').animate({
+        scrollLeft: '-=800'
+      }, 800);
+    } else {
+      $('.container-card-promo').animate({
+        scrollLeft: '-=1200'
+      }, 800);
+    }
+
+    $('#next').show();
+  });
+  $('#next').click(function () {
+    var windowWidth = $(window).width();
+
+    if (windowWidth < '767.988') {
+      $('.container-card-promo').animate({
+        scrollLeft: '+=350'
+      }, 800);
+    } else if (windowWidth < '991.98') {
+      $('.container-card-promo').animate({
+        scrollLeft: '+=800'
+      }, 800);
+    } else {
+      $('.container-card-promo').animate({
+        scrollLeft: '+=1200'
+      }, 800);
+    }
+
+    $('#prec').show();
+  }); // quando clicco l'hamburger menu
+
   $('.navbar-toggler').click(function () {
     // nascondo il resto della pagina
     $('.featured_apartments, footer, .py-4, .house-map-container, .first-section-house, .upra-section').toggle();
@@ -47323,15 +47366,13 @@ $(document).ready(function () {
     // prendo l'inputo selezionato salvandolo in variabile
     var input_sel = $(this).children('input'); // // aggiungo a tutti la classe invisible
 
-    $('.pay-button').fadeOut(); // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+    $('.pay-button').hide(); // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
 
     $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700); // tolgo la classe a tutti gli elementi input group
 
     $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect'); // aggiungo la classe clicked all'elemento selezionato
 
     $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
-    var test_radio = $('input[name=radio_btn]:checked').val();
-    console.log(test_radio);
   });
   $('#search_homepage').val('');
   /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
@@ -47531,8 +47572,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\MAMP\htdocs\Laravel\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\MAMP\htdocs\BoolBnb-gruppo-2\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

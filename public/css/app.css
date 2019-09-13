@@ -11108,6 +11108,70 @@ nav .container-fluid .airbnb-logo-black {
   min-height: 80vh;
 }
 
+.first-card-container {
+  display: flex;
+  position: relative;
+}
+
+.container-card-promo {
+  overflow-x: scroll;
+  overflow: hidden;
+}
+
+.container-card-promo .card {
+  display: inline-block;
+  margin-right: 0 !important;
+  border-radius: 50px !important;
+}
+
+.container-card-promo .card img {
+  border-radius: 50px 50px 0px 0px !important;
+}
+
+.container-card-promo .col-lg-4,
+.container-card-promo .col-md-6 {
+  padding: 0;
+}
+
+.container-carousel-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.container-carousel-btn .fa-angle-left {
+  -webkit-filter: drop-shadow(2px 1px 2px lightgrey);
+          filter: drop-shadow(2px 1px 2px lightgrey);
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}
+
+.container-carousel-btn .fa-angle-left:before {
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
+}
+
+.container-carousel-btn .fa-angle-right {
+  -webkit-filter: drop-shadow(2px 1px 2px lightgrey);
+          filter: drop-shadow(2px 1px 2px lightgrey);
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.container-carousel-btn .fa-angle-right:before {
+  -webkit-filter: opacity(0.8);
+          filter: opacity(0.8);
+}
+
+/* control image height */
+
+.card-img-top-250 {
+  max-height: 250px;
+  overflow: hidden;
+}
+
 .first_section {
   height: calc(100vh - 80px);
   color: #484848;
@@ -11360,6 +11424,10 @@ div.filters-container ul li {
   div.filters-container li.nav-item {
     width: auto;
     margin-top: 0;
+  }
+
+  .container-card-promo .card {
+    margin-left: 0 !important;
   }
 
   .featured_apartments .card-container-flex {
