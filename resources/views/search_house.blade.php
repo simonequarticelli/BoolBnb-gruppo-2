@@ -51,7 +51,7 @@
 
       </div>
 
-      {{-- </ul> --}}
+
 
         <h3>Appartamenti trovati in <strong id="titolo-ricerca-case">{{ $address_home }}</strong></h3>
         {{-- contenitore card ajax --}}
@@ -67,7 +67,7 @@
                     <div class="card-body">
                       <h5 class="card-title">{{ $house->title }}</h5>
                       <h6 class="card-title">{{ $house->address }}</h6>
-                      <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Go somewhere</a>
+                      <a href="{{ route('house_details', [$id = $house->id, $slug = $house->slug]) }}" class="btn btn-danger btn-card">Maggiori info</a>
                     </div>
                   </div>
               @endforeach
@@ -87,7 +87,7 @@
       <div class="card-body">
         <h5 class="card-title">@{{ title }}</h5>
         <h6 class="card-title">@{{ address }}</h6>
-        <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Go somewhere</a>
+        <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Maggiori info</a>
       </div>
     </div>
   </script>

@@ -33,13 +33,13 @@
                 @else
 
                     @if (Auth::user()->HasRole('upra'))
-                      {{-- @if(Route::currentRouteName() != ('house.index')) --}}
+                      
                         <li class="nav-item">
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'house.index' ? 'active' : ''}}" id="badge-new" href="{{ route('house.index') }}">
 
-                                Area personale UPRA</a>
+                                Area personale</a>
                         </li>
-                      {{-- @endif --}}
+                      
                         <li class="nav-item">
                             <a class="nav-link upra ml-3 {{request()->route()->getName() == 'show_statistics' ? 'active' : ''}}" id="badge-new" href="{{ route('show_statistics', Auth::user()->id) }}">
 

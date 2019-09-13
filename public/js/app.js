@@ -47323,7 +47323,7 @@ $(document).ready(function () {
     // prendo l'inputo selezionato salvandolo in variabile
     var input_sel = $(this).children('input'); // // aggiungo a tutti la classe invisible
 
-    $('.pay-button').fadeOut(); // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+    $('.pay-button').fadeOut(); // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
 
     $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700); // tolgo la classe a tutti gli elementi input group
 
@@ -47381,8 +47381,14 @@ $(document).ready(function () {
     /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
 
     $('#btn_filter_api').click(function () {
-      var address = $('#search_filter_page').val();
-      console.log(address);
+      var address = $('#search_filter_page').val(); //console.log(address);
+
+      /*salvo dentro alle variabili i dati che passo alla chiamata ajax*/
+
+      var lat = $('#lat').val();
+      var lng = $('#lng').val();
+      var range = $('#range_weight_disp').val(); //console.log(range);
+
       /* creare un array vuoto e pushare al suo interno tutte le features */
 
       var features = [];
@@ -47399,7 +47405,10 @@ $(document).ready(function () {
         method: 'GET',
         data: {
           'address': address,
-          'features': JSON.stringify(features)
+          'features': JSON.stringify(features),
+          'lat': lat,
+          'lng': lng,
+          'range': range
         },
         success: function success(data) {
           /*svuoto il contenitore delle cards*/

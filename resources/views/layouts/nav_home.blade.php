@@ -40,7 +40,7 @@
                                 @endif
 
 
-                                Area personale UPRA</a>
+                                Area personale</a>
                         </li>
                     @endif
 

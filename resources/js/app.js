@@ -19,9 +19,6 @@ var places = require('places.js');
 
 $(document).ready(function(){
 
-
-
-
     // quando clicco l'hamburger menu
     $('.navbar-toggler').click(function(){
         // nascondo il resto della pagina
@@ -40,7 +37,7 @@ $(document).ready(function(){
        var input_sel = $(this).children('input');
        // // aggiungo a tutti la classe invisible
        $('.pay-button').fadeOut();
-       // inposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
+       // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
        $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700);
        // tolgo la classe a tutti gli elementi input group
        $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect');
@@ -122,7 +119,13 @@ $(document).ready(function(){
         $('#btn_filter_api').click(function(){
 
             var address = $('#search_filter_page').val();
-            console.log(address);
+            //console.log(address);
+
+            /*salvo dentro alle variabili i dati che passo alla chiamata ajax*/
+            var lat = $('#lat').val();
+            var lng = $('#lng').val();
+            var range = $('#range_weight_disp').val();
+            //console.log(range);
 
 
             /* creare un array vuoto e pushare al suo interno tutte le features */
@@ -144,7 +147,10 @@ $(document).ready(function(){
 
                     data: {
                         'address': address,
-                        'features': JSON.stringify(features)
+                        'features': JSON.stringify(features),
+                        'lat': lat,
+                        'lng': lng,
+                        'range': range
                     },
 
                     success: function(data){
@@ -219,6 +225,8 @@ $(document).ready(function(){
 
         });
     });
+
+
 
 });
 

@@ -41,7 +41,7 @@
 
               /* ritardo il reidirizzamento alla home */
               setTimeout(function () {
-                window.location.href = "/home"; 
+                window.location.href = "/home";
               }, 2500);
 
             } else {
