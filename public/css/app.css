@@ -11150,6 +11150,7 @@ nav .container-fluid .airbnb-logo-black {
 .container-carousel-btn .fa-angle-left:before {
   -webkit-filter: opacity(0.8);
           filter: opacity(0.8);
+  color: white;
 }
 
 .container-carousel-btn .fa-angle-right {
@@ -11163,6 +11164,7 @@ nav .container-fluid .airbnb-logo-black {
 .container-carousel-btn .fa-angle-right:before {
   -webkit-filter: opacity(0.8);
           filter: opacity(0.8);
+  color: white;
 }
 
 /* control image height */

@@ -29,19 +29,23 @@
   display: flex;
   align-items: center;
   width: 100%;
+
   .fa-angle-left{
     filter: drop-shadow(2px 1px 2px lightgrey);
     &:before{
       filter: opacity(0.8);
+      color: white;
     }
     position: absolute;
     left: 0;
     cursor: pointer;
   }
   .fa-angle-right{
+
     filter: drop-shadow(2px 1px 2px lightgrey);
     &:before{
       filter: opacity(0.8);
+      color: white;
     }
     position: absolute;
     right: 0;
