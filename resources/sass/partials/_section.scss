@@ -12,6 +12,7 @@
 }
 
 .container-card-promo{
+  padding: 20px 0px;
   .card{
     display: inline-block;
     margin-right: 0 !important;
@@ -32,9 +33,10 @@
 
   .fa-angle-left{
     filter: drop-shadow(2px 1px 2px lightgrey);
+    
     &:before{
-      filter: opacity(0.8);
       color: white;
+      text-shadow: 0 0 0px grey;
     }
     position: absolute;
     left: 0;
@@ -44,9 +46,10 @@
 
     filter: drop-shadow(2px 1px 2px lightgrey);
     &:before{
-      filter: opacity(0.8);
       color: white;
+      text-shadow: 0 0 0px grey;
     }
+    
     position: absolute;
     right: 0;
     cursor: pointer;
@@ -101,9 +104,10 @@
   }
 }
 
-.featured_apartments.first-featured-apartments{
-  background-color: $bg_featured;
-}
+// .featured_apartments.first-featured-apartments{
+//   background-color: $bg_featured;
+// }
+
 // seconda sezione appartamenti in evidenza
 .featured_apartments{
   h3{
@@ -125,6 +129,8 @@
     border: 1px solid #ebebeb;
     border-radius: 5px;
     transition: 0.5s;
+    /*do un po di profondità alle card*/
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
     // margin: 10px;
     // (1110px - (277.5x3)) / 2
     margin-right: 138.75px;
@@ -207,6 +213,7 @@ div.filters-container{
   }
   .featured_apartments .card{
     // (960px - (232.5 x 3)) / 2
+
     margin-right: 116.25px;
     margin-bottom: 30px;
   }

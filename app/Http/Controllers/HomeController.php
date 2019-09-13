@@ -29,20 +29,9 @@ class HomeController extends Controller
     {
         $new_house = House::all();
 
-        /* query per case con promo */
-        // $house_promo = DB::table('houses')
-        //     ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-        //     ->where('house_promotion.created_at', '>', DB::raw('NOW()  INTERVAL 15 SECOND'))
-        //     ->get();
+      /*PASSARE I DATI DELLA PROMOZIONE*/
 
-        /*query per il controllo della durata della promo*/
-       //  $house_promo = DB::select(DB::raw("
-       //      SELECT * FROM houses
-       //      JOIN house_promotion
-       //      ON houses.id = house_id
-       //      WHERE ((house_promotion.created_at + INTERVAL 1 HOUR) > now())
-       // "));
-
+      /*query per il controllo della durata della promo*/
        $house_promo = DB::table('houses')
         ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
         ->where('house_promotion.created_at', '>', Carbon::now()->subHours(10)->toDateTimeString())
@@ -53,9 +42,6 @@ class HomeController extends Controller
             'house_promo' => $house_promo
         ]);
     }
-
-
-
 
     public function detailsHouseHome(Request $request,  $id, $slug)
     {
@@ -81,10 +67,9 @@ class HomeController extends Controller
             /*se è autenticato senza casa*/
             }elseif (Auth::user() == true && !Auth::user()->HasRole('upra')) {
 
-
                 $house->increment('view');
 
-                    /*se l'utente ha le case*/
+            /*se l'utente ha le case*/
             }elseif (Auth::user()->houses->count() > 0) {
 
                 /* recupero la fk user nella tabella case per capire di chi è la casa */
@@ -112,7 +97,6 @@ class HomeController extends Controller
 
         }
 
-
         return view('single_house', compact('house'));
 
     }
@@ -121,31 +105,25 @@ class HomeController extends Controller
     {
         /*validazione dei dati*/
         $validateData = $request->validate([
-
             'email' => 'required|string|max:100',
             'subject' => 'string|max:100',
             'message' => 'required|string|max:255'
-
         ]);
 
         $data = $request->all();
-
         // dd($data);
 
         $email_to = $data['email_proprietario'];
 
-
         $new_message = new Message();
         $new_message->fill($data);
         $new_message->save();
-
 
         /* invia la mail al proprietario */
         Mail::to($email_to)->send(new messageFromUser($new_message));
 
         /* redirect alla pagina precedente e passo nella session alert */
         return redirect()->back()->with('alert', 'Email inviata!');
-
 
     }
 

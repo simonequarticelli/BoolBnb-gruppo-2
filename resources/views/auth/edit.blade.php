@@ -1,5 +1,4 @@
 {{-- pagina relativa alla modifca di una casa --}}
-
 @extends('layouts/app-form')
 
 @include('layouts.nav')

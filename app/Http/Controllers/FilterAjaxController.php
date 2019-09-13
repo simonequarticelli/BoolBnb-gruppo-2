@@ -24,7 +24,6 @@ class FilterAjaxController extends Controller
 
         //dd($features, $address, $lat, $lng, $range);
 
-
         /*query address*/
         $address = DB::table('houses')
           ->where('address', 'like', '%'.$address.'%')
@@ -71,7 +70,6 @@ class FilterAjaxController extends Controller
       	// HAVING distance < 50
       	// ORDER BY distance ASC
       	// LIMIT 5
-
 
 
         if (!empty($query)) {

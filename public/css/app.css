@@ -11118,6 +11118,10 @@ nav .container-fluid .airbnb-logo-black {
   overflow: hidden;
 }
 
+.container-card-promo {
+  padding: 20px 0px;
+}
+
 .container-card-promo .card {
   display: inline-block;
   margin-right: 0 !important;
@@ -11148,9 +11152,8 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .container-carousel-btn .fa-angle-left:before {
-  -webkit-filter: opacity(0.8);
-          filter: opacity(0.8);
   color: white;
+  text-shadow: 0 0 0px grey;
 }
 
 .container-carousel-btn .fa-angle-right {
@@ -11162,9 +11165,8 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .container-carousel-btn .fa-angle-right:before {
-  -webkit-filter: opacity(0.8);
-          filter: opacity(0.8);
   color: white;
+  text-shadow: 0 0 0px grey;
 }
 
 /* control image height */
@@ -11218,10 +11220,6 @@ nav .container-fluid .airbnb-logo-black {
   border-color: #ff5a5f;
 }
 
-.featured_apartments.first-featured-apartments {
-  background-color: #F4F2EF;
-}
-
 .featured_apartments h3 {
   margin-top: 50px;
 }
@@ -11243,6 +11241,8 @@ nav .container-fluid .airbnb-logo-black {
   border: 1px solid #ebebeb;
   border-radius: 5px;
   transition: 0.5s;
+  /*do un po di profondità alle card*/
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px;
   margin-right: 138.75px;
 }
 
@@ -11550,6 +11550,10 @@ div.filters-container ul li {
 
 [type=search]::-webkit-search-cancel-button {
   display: none;
+}
+
+h1 {
+  color: #484848;
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
