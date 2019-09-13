@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\House;
 use App\Message;
 use App\Promotion;
+use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
 use App\Mail\messageFromUser;
 use Illuminate\Routing\Route;
@@ -29,10 +30,27 @@ class HomeController extends Controller
         $new_house = House::all();
 
         /* query per case con promo */
-        $house_promo = DB::table('houses')
-            ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-            ->whereIn('house_promotion.promotion_id', [1, 2, 3])
-            ->get();
+        // $house_promo = DB::table('houses')
+        //     ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
+        //     ->where('house_promotion.created_at', '>', DB::raw('NOW()  INTERVAL 15 SECOND'))
+        //     ->get();
+
+
+        /*query per il controllo della durata della promo*/
+       //  $house_promo = DB::select(DB::raw("
+       //      SELECT * FROM houses
+       //      JOIN house_promotion
+       //      ON houses.id = house_id
+       //      WHERE ((house_promotion.created_at + INTERVAL 1 HOUR) > now())
+       // "));
+
+
+       $house_promo = DB::table('houses')
+        ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
+        ->where('house_promotion.created_at', '>', Carbon::now()->subHours(10)->toDateTimeString())
+        ->get();
+
+
 
         return view('home')->with([
             'new_house' => $new_house,
@@ -42,20 +60,20 @@ class HomeController extends Controller
 
     public function detailsHouseHome(Request $request,  $id, $slug)
     {
-        
+
         $house = House::find($id);
         //dd($house['user_id']);
 
         // ---------------------controllo url in array di sessione------------------------------
         $array_sessione = session()->all();
         $array_url = $array_sessione['url_visited'];
-        
+
         //dd(session()->all());
         //dd(!in_array(url()->current(), $array_url));
 
         /*se url non è presente nell'array di sessione*/
         if(!in_array(url()->current(), $array_url)) {
-        
+
             /*se 'lutente non è autenticato*/
             if (Auth::user() == null) {
 
@@ -63,10 +81,10 @@ class HomeController extends Controller
 
             /*se è autenticato senza casa*/
             }elseif (Auth::user() == true && !Auth::user()->HasRole('upra')) {
-                
-                
+
+
                 $house->increment('view');
-        
+
                     /*se l'utente ha le case*/
             }elseif (Auth::user()->houses->count() > 0) {
 
@@ -89,7 +107,7 @@ class HomeController extends Controller
                 if (!($house['user_id'] == $user_id_table_houses)) {
 
                     $house->increment('view');
-                
+
                 }
             }
 

@@ -43,13 +43,6 @@ class PaymentsController extends Controller
         $house->promotions()->sync($promo);
         $house->save();
 
-        // setInterval(funtion(){
-        //   DB::table('house_promotion')
-        //     ->where('created_at', '<=', Carbon::now()->subDays(14))
-        //     ->delete();
-        // }, 1000);
-
-
 
         return response()->json($status);
 

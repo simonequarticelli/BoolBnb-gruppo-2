@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'it',
 
     /*
     |--------------------------------------------------------------------------
@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
-        Zizaco\Entrust\EntrustServiceProvider::class, 
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         Barryvdh\Debugbar\ServiceProvider::class,
 

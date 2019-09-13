@@ -40,23 +40,24 @@ class FilterAjaxController extends Controller
         //  ->groupBy('house_id')
         //  ->having('matchedItems', '=', $number_elements_array)
         //  ->get();
-        //
-        //  $data = $address->merge($filter);
+
+         // $data = $address->merge($filter);
 
 
         /*sostituisco 3956[miles] con 6371[km]
         /*query per determinare il raggio di ricerca*/
         $query = DB::select(DB::raw("
-                    SELECT loc.*,
-                    6371 * 2 * ASIN(SQRT(POWER(SIN(($lat-ABS(latitude)) * PI()/180/2),2) + COS($lat * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN(($lng-longitude) * PI()/180/2),2))) AS distance
-                    FROM houses AS loc
-                    WHERE longitude BETWEEN ($lng-$range / ABS(COS(RADIANS($lat))*69)) AND ($lng+$range / ABS(COS(RADIANS($lat)) * 69))
-                    AND latitude BETWEEN ($lat-($range/69)) AND ($lat+($range/69))
-                    GROUP BY loc.id
-                    HAVING distance < $range
-                    ORDER BY distance ASC
-                    LIMIT 5
-                "));
+            SELECT loc.*,
+            6371 * 2 * ASIN(SQRT(POWER(SIN(($lat-ABS(latitude)) * PI()/180/2),2)
+            + COS($lat * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN(($lng-longitude) * PI()/180/2),2))) AS distance
+            FROM houses AS loc
+            WHERE longitude BETWEEN ($lng-$range / ABS(COS(RADIANS($lat))*69)) AND ($lng+$range / ABS(COS(RADIANS($lat)) * 69))
+            AND latitude BETWEEN ($lat-($range/69)) AND ($lat+($range/69))
+            GROUP BY loc.id
+            HAVING distance < $range
+            ORDER BY distance ASC
+            LIMIT 5
+        "));
 
         // 6371
         // SELECT loc.*,

@@ -1,4 +1,8 @@
 {{-- pagina relativa alla modifca di una casa --}}
+@php
+    session()->put('modify');
+@endphp
+
 @extends('layouts/app-form')
 
 @include('layouts.nav')

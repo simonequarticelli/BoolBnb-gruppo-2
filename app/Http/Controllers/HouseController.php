@@ -63,7 +63,7 @@ class HouseController extends Controller
     public function index()
     {
         $houses_user = Auth::user()->houses;
-        
+
         return view('auth.personal_page_upra', compact('houses_user'));
     }
 
@@ -145,7 +145,7 @@ class HouseController extends Controller
         $house = House::find($id);
 
         $promo = Promotion::find($promo_id);
-        
+
         return view('auth.payments')->with([
             'house' => $house,
             'promo' => $promo
@@ -157,7 +157,7 @@ class HouseController extends Controller
 
 
 
-    
+
     public function showStatistics()
     {
         // assegno all'id che mi arriva l'id dell'utente che è connesso attualmente
