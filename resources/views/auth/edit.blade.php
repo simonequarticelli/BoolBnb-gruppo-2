@@ -1,7 +1,4 @@
 {{-- pagina relativa alla modifca di una casa --}}
-@php
-    session()->put('modify');
-@endphp
 
 @extends('layouts/app-form')
 
@@ -59,7 +56,7 @@
 
         @foreach ( $features as $feature )
           @php
-            $array = ($house->features)->pluck('id')->toArray();       // ritorna un array da una collection e prende gli id della colonna
+            $array = ($house->features)->pluck('id')->toArray(); // ritorna un array da una collection e prende gli id della colonna
           @endphp
            {{-- checkbox per servizi aggiuntivi --}}
                 <div class="input-group-prepend mb-3 d-inline-block">

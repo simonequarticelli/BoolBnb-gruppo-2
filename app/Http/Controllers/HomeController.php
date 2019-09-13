@@ -35,7 +35,6 @@ class HomeController extends Controller
         //     ->where('house_promotion.created_at', '>', DB::raw('NOW()  INTERVAL 15 SECOND'))
         //     ->get();
 
-
         /*query per il controllo della durata della promo*/
        //  $house_promo = DB::select(DB::raw("
        //      SELECT * FROM houses
@@ -44,19 +43,19 @@ class HomeController extends Controller
        //      WHERE ((house_promotion.created_at + INTERVAL 1 HOUR) > now())
        // "));
 
-
        $house_promo = DB::table('houses')
         ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
         ->where('house_promotion.created_at', '>', Carbon::now()->subHours(10)->toDateTimeString())
         ->get();
-
-
 
         return view('home')->with([
             'new_house' => $new_house,
             'house_promo' => $house_promo
         ]);
     }
+
+
+
 
     public function detailsHouseHome(Request $request,  $id, $slug)
     {

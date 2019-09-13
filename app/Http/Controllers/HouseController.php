@@ -63,7 +63,6 @@ class HouseController extends Controller
     public function index()
     {
         $houses_user = Auth::user()->houses;
-
         return view('auth.personal_page_upra', compact('houses_user'));
     }
 
@@ -93,15 +92,15 @@ class HouseController extends Controller
 
         ]);
 
+        /*se l'utente non ha il ruolo gli viene assegnato*/
         if(!Auth::user()->hasRole('upra')){
-          /*assegno upra all'utente*/
+
           $user = Auth::user();
           //dd($user);
-
-          // Initiate the 'member' Role
+          
           $member = Role::where( 'name', '=', 'upra' )->first();
 
-          // Give each new user the role of 'member'
+          /*assegno il ruolo*/
           $user->attachRole($member);
         }
 
