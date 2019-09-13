@@ -16,7 +16,6 @@ class PaymentsController extends Controller
 
 
     public function process(Request $request, $id, $promo_id) {
-
         //$data = $request->all();
         //dd($id, $promo_id);
         //dd($promo->price);

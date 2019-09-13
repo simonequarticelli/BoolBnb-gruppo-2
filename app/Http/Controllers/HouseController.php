@@ -128,12 +128,24 @@ class HouseController extends Controller
     /*funzione relativa alla visualizzazione delle promo*/
     public function showPromotions($id, $slug)
     {
-        $promotions = Promotion::all();
-        $house = House::find($id);
-        return view('auth.promotions')->with([
-            'promotions' => $promotions,
-            'house' => $house
-        ]);
+        $array = [];
+        // prendo tutte le case che appartengono all'utente loggato
+        $houses_user = Auth::user()->houses()->get();
+        foreach ($houses_user as $id_house) {
+          array_push($array, $id_house->id);
+        }
+        // controllo che nell'array ci sia l'id della casa dell'utente loggato (ritorna true o false)
+        $value = in_array($id, $array);
+        if($value == true){
+          $promotions = Promotion::all();
+          $house = House::find($id);
+          return view('auth.promotions')->with([
+              'promotions' => $promotions,
+              'house' => $house
+          ]);
+        } else {
+          abort('404');
+        }
     }
 
 
@@ -142,14 +154,30 @@ class HouseController extends Controller
 
     public function showPayments($id, $promo_id)
     {
-        $house = House::find($id);
+        $array = [];
+        // prendo tutte le case che appartengono all'utente loggato
+        $houses_user = Auth::user()->houses()->get();
+        foreach ($houses_user as $id_house) {
+          array_push($array, $id_house->id);
+        }
 
-        $promo = Promotion::find($promo_id);
+        // controllo che nell'array ci sia l'id della casa dell'utente loggato (ritorna true o false)
+        $value = in_array($id, $array);
+        // dd($value);
+        $id_promotion = $promo_id;
+        // dd($id);
+        if($value == true){
+          $house = House::find($id);
+          $promo = Promotion::find($promo_id);
 
-        return view('auth.payments')->with([
-            'house' => $house,
-            'promo' => $promo
-        ]);
+          return view('auth.payments')->with([
+              'house' => $house,
+              'promo' => $promo
+          ]);
+        } else {
+          abort('404');
+        }
+
     }
 
 
