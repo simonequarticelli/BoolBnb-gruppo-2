@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Illuminate\Support\Carbon;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -23,30 +26,34 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
-    
+
     protected $redirectTo = '/home';
 
-    
+
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    
+
     protected function validator(array $data)
     {
+        /*limito la registrazione alla maggiore età lato server*/
+        $carbon_date = Carbon::now()->subYears(18);
+        $limit_18 = $carbon_date->toDateString();
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:100'],
             'surname' => ['required', 'string', 'max:100'],
-            'date_of_birth' => ['required', 'date', 'before_or_equal:2002-01-01', 'after_or_equal:1920-01-01'], 
+            'date_of_birth' => ['required', 'date', 'before_or_equal:'.$limit_18, 'after_or_equal:1920-01-01'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
     }
 
-    
+
     protected function create(array $data)
-    {   
+    {
         //dd($data);
         return User::create([
             'name' => $data['name'],

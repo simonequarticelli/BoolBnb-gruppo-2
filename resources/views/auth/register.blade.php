@@ -45,8 +45,16 @@
                         <div class="form-group row">
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-right">Data di nascita</label>
 
+                            @php
+                              use Illuminate\Support\Carbon;
+                              /*limito la registrazione alla maggiore età lato client*/
+                              $carbon_date = Carbon::now()->subYears(18);
+                              $limit_18 = $carbon_date->toDateString();
+                              // dd($limit_18);
+                            @endphp
+
                             <div class="col-md-6">
-                                <input id="name" type="date" min="1920-01-01" max="2001-01-01" class="form-control @error('date_of_birth') is-invalid @enderror"
+                                <input id="name" type="date" min="1920-01-01" max="{{ $limit_18  }}" class="form-control @error('date_of_birth') is-invalid @enderror"
                                 name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus>
 
                                 @error('date_of_birth')
