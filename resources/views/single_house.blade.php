@@ -131,7 +131,7 @@
 
             <input type="text" name="email_proprietario" value="{{ $house->user->email }}" hidden>
             <input type="text" name="house_id" value="{{ $house->id }}" hidden>
-          
+
             <button
               @if (Auth::user() == null)
               {{-- controllo se l'utente è il proprietario, se lo è disabilito il bottone e l'hover --}}
@@ -253,5 +253,5 @@
     }
   })();
   </script>
-  
+
 @endsection

@@ -25,16 +25,15 @@ class FilterAjaxController extends Controller
         //dd($features, $address, $lat, $lng, $range);
 
         /*query address*/
-        // $address = DB::table('houses')
-        //   ->where('address', 'like', '%'.$address.'%')
-        //   ->get();
+        $address = DB::table('houses')
+          ->where('address', 'like', '%'.$address.'%')
+          ->get();
 
         /*query per filtrare le ricerche*/
         $number_elements_array = count($features);
 
         $filter = DB::table('feature_house')
          ->join('houses', 'feature_house.house_id', '=', 'houses.id')
-         ->where('address', 'like', '%'.$address.'%')
          ->select('houses.id', 'houses.img', 'houses.title', 'houses.slug', 'houses.address',
                   DB::raw("COUNT(*) as matchedItems"))
          ->whereIn('feature_id', $features)
@@ -74,7 +73,7 @@ class FilterAjaxController extends Controller
         if (!empty($filter)) {
             return response()->json([
                 'success' => true,
-                'result' => $filter
+                'result' => $query
             ]);
         }else {
             return response()->json([
