@@ -233,6 +233,9 @@ div.filters-container{
      button{
        cursor: pointer;
      }
+     input{
+       width: 300px
+     }
    }
  }
 
@@ -250,6 +253,20 @@ div.filters-container{
   .featured_apartments .card img{
     height: 150px;
   }
+
+  .navbar-deatils-apartment{
+     .input-group{
+       flex-wrap: nowrap;
+       button{
+         cursor: pointer;
+       }
+       input{
+         width: 224px;
+       }
+     }
+   }
+
+
   section.upra-section{
     .card{
       height: 270px;
@@ -343,6 +360,18 @@ div.filters-container{
       margin-top: 0;
     }
   }
+
+  .navbar-deatils-apartment{
+     .input-group{
+       flex-wrap: nowrap;
+       button{
+         cursor: pointer;
+       }
+       input{
+         width: inherit;
+       }
+     }
+   }
 
 
 // stile filtri ricerca mobile

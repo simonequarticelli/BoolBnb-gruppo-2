@@ -11346,6 +11346,10 @@ div.filters-container ul li {
   cursor: pointer;
 }
 
+.navbar-deatils-apartment .input-group input {
+  width: 300px;
+}
+
 @media (max-width: 1199.98px) {
   .main-min-80 {
     min-height: 50vh;
@@ -11358,6 +11362,18 @@ div.filters-container ul li {
 
   .featured_apartments .card img {
     height: 150px;
+  }
+
+  .navbar-deatils-apartment .input-group {
+    flex-wrap: nowrap;
+  }
+
+  .navbar-deatils-apartment .input-group button {
+    cursor: pointer;
+  }
+
+  .navbar-deatils-apartment .input-group input {
+    width: 224px;
   }
 
   section.upra-section .card {
@@ -11456,6 +11472,18 @@ div.filters-container ul li {
   div.filters-container li.nav-item {
     width: auto;
     margin-top: 0;
+  }
+
+  .navbar-deatils-apartment .input-group {
+    flex-wrap: nowrap;
+  }
+
+  .navbar-deatils-apartment .input-group button {
+    cursor: pointer;
+  }
+
+  .navbar-deatils-apartment .input-group input {
+    width: inherit;
   }
 
   .navbar-deatils-apartment .navbar-nav {
