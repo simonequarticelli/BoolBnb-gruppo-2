@@ -29,18 +29,34 @@ class HomeController extends Controller
     {
         $new_house = House::all();
 
-      /*PASSARE I DATI DELLA PROMOZIONE*/
+        foreach ($new_house as $house) {
+          $coll = $house->promotions;
 
-      /*query per il controllo della durata della promo*/
-       $house_promo = DB::table('houses')
-        ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-        ->where('house_promotion.created_at', '>', Carbon::now()->subHours(10)->toDateTimeString())
-        ->get();
+          $array = $coll->toArray();
 
-        return view('home')->with([
-            'new_house' => $new_house,
-            'house_promo' => $house_promo
-        ]);
+          foreach ($array as $promo) {
+
+            $promo_current = $promo['duration'];
+
+            /*query per il controllo della durata della promo*/
+            $house_promo = DB::table('houses')
+                ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
+                ->where('house_promotion.created_at', '>', Carbon::now()->subHours($promo_current)->toDateTimeString())
+                ->get();
+          }
+        }
+
+        if (!empty($house_promo)) {
+          return view('home')->with([
+              'new_house' => $new_house,
+              'house_promo' => $house_promo
+          ]);
+        }else {
+          return view('home')->with([
+              'new_house' => $new_house
+          ]);
+        }
+
     }
 
     public function detailsHouseHome(Request $request,  $id, $slug)

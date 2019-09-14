@@ -25,9 +25,9 @@ class FilterAjaxController extends Controller
         //dd($features, $address, $lat, $lng, $range);
 
         /*query address*/
-        $address = DB::table('houses')
-          ->where('address', 'like', '%'.$address.'%')
-          ->get();
+        // $address = DB::table('houses')
+        //   ->where('address', 'like', '%'.$address.'%')
+        //   ->get();
 
         /*query per filtrare le ricerche*/
         $number_elements_array = count($features);
@@ -43,7 +43,6 @@ class FilterAjaxController extends Controller
          ->get();
 
          // $data = $address->merge($filter);
-
 
         /*sostituisco 3956[miles] con 6371[km]
         /*query per determinare il raggio di ricerca*/
@@ -72,10 +71,10 @@ class FilterAjaxController extends Controller
       	// LIMIT 5
 
 
-        if (!empty($query)) {
+        if (!empty($filter)) {
             return response()->json([
                 'success' => true,
-                'result' => $query
+                'result' => $filter
             ]);
         }else {
             return response()->json([
@@ -87,38 +86,4 @@ class FilterAjaxController extends Controller
     }
 
 
-    public function create()
-    {
-        //
-    }
-
-
-    public function store(Request $request)
-    {
-
-    }
-
-
-    public function show(FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function edit(FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function update(Request $request, FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function destroy(FilterAjax $filterAjax)
-    {
-        //
-    }
 }

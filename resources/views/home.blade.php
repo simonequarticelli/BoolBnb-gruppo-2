@@ -5,7 +5,7 @@
   @php
     session()->push('url_visited', url()->current());
   @endphp
-  
+
   <div class="content_home">
     @include('layouts.nav_home')
     <section class="first_section">
@@ -38,7 +38,8 @@
       <h1 class="mb-5 pt-5 text-left"><strong>Appartamenti in evidenza</strong></h1>
       <div class="col-lg-12 first-card-container card-container-flex mt-4" style="background-color: rgb(244, 242, 239); border-radius: 10px;">
         <div class="container-card-promo d-flex">
-          @if ($house_promo->count() > 0)
+          {{-- controllo se la variabile esiste e se non è vuota --}}
+          @if (isset($house_promo) == true && $house_promo->count() > 0)
             @foreach ($house_promo as $house )
               <div class="card ml-2 mr-2 col-lg-4 col-md-6" style="min-width: 350px;">
                 <img src="{{ asset('storage/' . $house->img) }}" class="card-img-top" alt="immagine {{ $house->title }}">
@@ -57,6 +58,8 @@
                 <i id="prec" class="fas fas fa-angle-left fa-4x"></i>
                 <i id="next" class="fas fa-angle-right fa-4x"></i>
               </div>
+          @else
+            <h3 class="text-left mt-0"><strong>Al momento non sono presenti appartamenti in evidenza.</strong></h3>
           @endif
         </div>
       </div>
@@ -83,5 +86,5 @@
       </div>
     </div>
   </section>
-  
+
 @endsection

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
-{   
+{
     // relazione uno a molti houses/users
     public function user() {
         return $this->belongsTo('App\User');
