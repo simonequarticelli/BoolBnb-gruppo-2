@@ -62,15 +62,15 @@
 
         @foreach ( $features as $feature )
            {{-- checkbox per servizi aggiuntivi --}}
-                <div class="input-group-prepend mb-3 d-inline-block">
-                    <div class="input-group-text">
-                        <label class="label-checkbox m-0">
-                            <input type="checkbox" name="feature[]" value="{{ $feature->id }}"
-                            {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
-                            {{ $feature->name }}
-                        </label>
-                    </div>
+            <div class="input-group-prepend mb-3 d-inline-block">
+                <div class="input-group-text">
+                    <label class="label-checkbox m-0">
+                        <input type="checkbox" name="feature[]" value="{{ $feature->id }}"
+                        {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
+                        {{ $feature->name }}
+                    </label>
                 </div>
+            </div>
         @endforeach
 
         <div class="form-group">

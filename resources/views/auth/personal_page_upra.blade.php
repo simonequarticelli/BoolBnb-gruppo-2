@@ -5,6 +5,7 @@
 @extends('layouts.app')
 
 @section('content')
+
   @include('layouts.nav')
 
   @if (session('alert'))
@@ -43,27 +44,27 @@
                     <ul>
                       @foreach ($features_house as $feature)
                           <li class="list-unstyled">
-                              @switch($feature->name)
-                                @case('wifi')
-                                  <i class="fas fa-wifi mr-1"></i>{{ $feature->name }}
-                                    @break
-                                @case('posto macchina')
-                                  <i class="fas fa-car mr-1"></i>{{ $feature->name }}
-                                    @break
-                                @case('piscina')
-                                  <i class="fas fa-swimming-pool mr-1"></i>{{ $feature->name }}
+                            @switch($feature->name)
+                              @case('wifi')
+                                <i class="fas fa-wifi mr-1"></i>{{ $feature->name }}
                                   @break
-                                @case('sauna')
-                                  <i class="fas fa-hot-tub mr-1"></i>{{ $feature->name }}
+                              @case('posto macchina')
+                                <i class="fas fa-car mr-1"></i>{{ $feature->name }}
                                   @break
-                                @case('vista mare')
-                                  <i class="fas fa-water mr-1"></i>{{ $feature->name }}
-                                  @break
-                                @default
-                                @endswitch
-                              </li>
-                        @endforeach
-                      </ul>
+                              @case('piscina')
+                                <i class="fas fa-swimming-pool mr-1"></i>{{ $feature->name }}
+                                @break
+                              @case('sauna')
+                                <i class="fas fa-hot-tub mr-1"></i>{{ $feature->name }}
+                                @break
+                              @case('vista mare')
+                                <i class="fas fa-water mr-1"></i>{{ $feature->name }}
+                                @break
+                              @default
+                            @endswitch
+                          </li>
+                      @endforeach
+                    </ul>
                     @else
                     <h3>Servizi non presenti</h3>
                     <ul class="mb-2">

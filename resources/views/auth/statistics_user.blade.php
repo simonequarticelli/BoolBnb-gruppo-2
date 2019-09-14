@@ -5,7 +5,9 @@
 @extends('layouts.app')
 
 @section('content')
+
   @include('layouts.nav')
+  
   <h1 class="col-lg-12 text-center mb-3">Le tue statistiche live</h1>
   <div class="container w-25 mt-3">
     <canvas id="myChart" width="400" height="400"></canvas>
@@ -16,7 +18,6 @@
       $array_houses = $houses_user->all();
       //dd($array_houses);
   @endphp
-
 
   {{-- CHART.JS --}}
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>

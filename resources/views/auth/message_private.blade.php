@@ -5,6 +5,7 @@
 @extends('layouts.app')
 
 @include('layouts.nav')
+
 @section('content')
 
   @if (session('alert'))
@@ -37,32 +38,32 @@
           <tbody>
             @foreach ($messages as $message)
               <tr>
-                  <td class="info-message clickable" data-toggle="collapse" data-target="#accordion{{$message->id}}" aria-expanded="false" aria-controls="collapseExample" >
-                    <div  class="col-lg-10">
-                      <h6>Messaggio ricevuto per l'annuncio: {{$message->title}} in {{ $message->address }}</h6>
-                      <h5>{{$message->email}}</h5>
-                      <p>{{$message->subject}}</p>
-                    </div>
-                    <div class="hour-received mt-3">
-                        <small><p><strong>Ricevuto </strong></p>{{$message->created_at}}</small>
-                    </div>
-                  </td>
-                  <td>
-                    <form action="{{route('messages.destroy',  $message->id) }}" method="post">
-                      @method('DELETE')
-                      @csrf
-                         <th>
-                           <input type="submit" class="btn btn-danger btn-lg mt-3" style="border-radius: 100%;" value="X">
-                         </th>
-                    </form>
-                  </td>
+                <td class="info-message clickable" data-toggle="collapse" data-target="#accordion{{$message->id}}" aria-expanded="false" aria-controls="collapseExample" >
+                  <div  class="col-lg-10">
+                    <h6>Messaggio ricevuto per l'annuncio: {{$message->title}} in {{ $message->address }}</h6>
+                    <h5>{{$message->email}}</h5>
+                    <p>{{$message->subject}}</p>
+                  </div>
+                  <div class="hour-received mt-3">
+                      <small><p><strong>Ricevuto </strong></p>{{$message->created_at}}</small>
+                  </div>
+                </td>
+                <td>
+                  <form action="{{route('messages.destroy',  $message->id) }}" method="post">
+                    @method('DELETE')
+                    @csrf
+                      <th>
+                        <input type="submit" class="btn btn-danger btn-lg mt-3" style="border-radius: 100%;" value="X">
+                      </th>
+                  </form>
+                </td>
               </tr>
               <tr>
-                  <td class="message-box" colspan="3">
-                      <div id="accordion{{$message->id}}" class="collapse">
-                        <p class="card card-body">{{$message->message}}</p>
-                      </div>
-                  </td>
+                <td class="message-box" colspan="3">
+                  <div id="accordion{{$message->id}}" class="collapse">
+                    <p class="card card-body">{{$message->message}}</p>
+                  </div>
+                </td>
               </tr>
             @endforeach
           </tbody>
@@ -73,4 +74,5 @@
       </table>
     </div>
   </section>
+
 @endsection

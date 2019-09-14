@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @include('layouts.nav')
+
 @section('content')
 
   <div class="container">
@@ -12,6 +13,7 @@
       </div>
     </div>
  </div>
+ 
  <div class="py-2"></div>
 
   {{-- -----------------BRAINTREE--------------------------- --}}
@@ -52,7 +54,6 @@
               //   text: 'Pagamento rifiutato!',
               // })
 
-
             }
           }, 'json');
         });
@@ -60,8 +61,5 @@
     });
 
   </script>
-
-
-
 
 @endsection
