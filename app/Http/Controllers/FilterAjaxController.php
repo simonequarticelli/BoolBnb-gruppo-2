@@ -24,28 +24,30 @@ class FilterAjaxController extends Controller
 
         //dd($features, $address, $lat, $lng, $range);
 
-        /*query address*/
-        $address = DB::table('houses')
-          ->where('address', 'like', '%'.$address.'%')
-          ->get();
-
         /*query per filtrare le ricerche*/
         $number_elements_array = count($features);
 
-        $filter = DB::table('feature_house')
-         ->join('houses', 'feature_house.house_id', '=', 'houses.id')
-         ->select('houses.id', 'houses.img', 'houses.title', 'houses.slug', 'houses.address',
-                  DB::raw("COUNT(*) as matchedItems"))
-         ->whereIn('feature_id', $features)
-         ->groupBy('house_id')
-         ->having('matchedItems', '=', $number_elements_array)
-         ->get();
+        if(empty($features)){
+            $query = DB::table('houses')
+              ->where('houses.address', 'like', '%'.$address.'%')
+              ->get();
+          } else {
+            $query = DB::table('feature_house')
+             ->join('houses', 'feature_house.house_id', '=', 'houses.id')
+             ->select('houses.id', 'houses.img', 'houses.title', 'houses.slug', 'houses.address',
+                      DB::raw("COUNT(*) as matchedItems"))
+             ->where('houses.address', 'like', '%'.$address.'%')
+             ->whereIn('feature_id', $features)
+             ->groupBy('house_id')
+             ->having('matchedItems', '=', $number_elements_array)
+             ->get();
+          }
 
          // $data = $address->merge($filter);
 
         /*sostituisco 3956[miles] con 6371[km]
         /*query per determinare il raggio di ricerca*/
-        $query = DB::select(DB::raw("
+        $query2 = DB::select(DB::raw("
             SELECT loc.*,
             6371 * 2 * ASIN(SQRT(POWER(SIN(($lat-ABS(latitude)) * PI()/180/2),2)
             + COS($lat * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN(($lng-longitude) * PI()/180/2),2))) AS distance
@@ -70,7 +72,8 @@ class FilterAjaxController extends Controller
       	// LIMIT 5
 
 
-        if (!empty($filter)) {
+          
+        if (!empty($query)) {
             return response()->json([
                 'success' => true,
                 'result' => $query
@@ -83,6 +86,40 @@ class FilterAjaxController extends Controller
         }
 
     }
+    
+    public function create()
+    {
+        //
+    }
 
 
+    public function store(Request $request)
+    {
+
+    }
+
+
+    public function show(FilterAjax $filterAjax)
+    {
+        //
+    }
+
+
+    public function edit(FilterAjax $filterAjax)
+    {
+        //
+    }
+
+
+    public function update(Request $request, FilterAjax $filterAjax)
+    {
+        //
+    }
+
+
+    public function destroy(FilterAjax $filterAjax)
+    {
+        //
+    }
 }
+

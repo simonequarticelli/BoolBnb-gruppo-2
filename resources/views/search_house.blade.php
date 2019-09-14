@@ -1,9 +1,9 @@
 {{-- pagina relativa alla visualizzazione delle ricerche filtrate --}}
 @extends('layouts.app')
 
-@section('content')
+@include('layouts.nav_search')
 
-  @include('layouts.nav_search')
+@section('content')
 
   <section class="featured_apartments">
     <div class="container">

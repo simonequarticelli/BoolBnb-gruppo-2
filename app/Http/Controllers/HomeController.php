@@ -30,27 +30,24 @@ class HomeController extends Controller
         $new_house = House::all();
 
         foreach ($new_house as $house) {
+
           $coll = $house->promotions;
 
           $array = $coll->toArray();
 
           foreach ($array as $promo) {
 
-            $promo_current = $promo['id'];
+            $promo_current = $promo['duration'];
 
             //dd($promo_current);
-
-            // $house_promo = DB::table('houses')
-            //   ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-            //   ->where('house_promotion.created_at', '>', Carbon::now()->subSeconds(24)->toDateTimeString())
-            //   ->orwhere('house_promotion.created_at', '>', Carbon::now()->subSeconds(72)->toDateTimeString())
-            //   ->orwhere('house_promotion.created_at', '>', Carbon::now()->subSeconds(144)->toDateTimeString())
 
             /*query per il controllo della durata della promo*/
             $house_promo = DB::table('houses')
                 ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-                ->where('house_promotion.created_at', '>', Carbon::now()->subHours($promo_current)->toDateTimeString())
+                ->where('house_promotion.created_at', '>', Carbon::now()->subSecond($promo_current)->toDateTimeString())
                 ->get();
+
+
           }
         }
 
