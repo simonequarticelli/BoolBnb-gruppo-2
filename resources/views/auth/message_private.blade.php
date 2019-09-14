@@ -33,7 +33,7 @@
             <tr>
             </tr>
              @if ($messages->count() > 0)
-             <h1 class="col-lg-12 text-center mb-3">I tuoi messaggi</h1>
+             <h1 class="col-lg-12 text-center mb-5">I tuoi messaggi</h1>
           </thead>
           <tbody>
             @foreach ($messages as $message)

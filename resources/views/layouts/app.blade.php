@@ -31,7 +31,7 @@
 
 </head>
 <body>
-    <main class="main-min-80">
+    <main class="main-min-90">
         @yield('content')
     </main>
     @include('layouts.footer')

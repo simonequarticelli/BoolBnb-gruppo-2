@@ -11104,8 +11104,8 @@ nav .container-fluid .airbnb-logo-black {
   cursor: pointer;
 }
 
-.main-min-80 {
-  min-height: 80vh;
+.main-min-90 {
+  min-height: 90vh;
 }
 
 .first-card-container {
@@ -11237,7 +11237,7 @@ nav .container-fluid .airbnb-logo-black {
 }
 
 .featured_apartments .card {
-  margin-bottom: 20px;
+  margin: 20px 0px;
   border: 1px solid #ebebeb;
   border-radius: 5px;
   transition: 0.5s;

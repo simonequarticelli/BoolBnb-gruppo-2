@@ -4,11 +4,11 @@
 
 @extends('layouts.app')
 
+    @include('layouts.nav')
+
 @section('content')
 
-  @include('layouts.nav')
-  
-  <h1 class="col-lg-12 text-center mb-3">Le tue statistiche live</h1>
+  <h1 class="col-lg-12 text-center mb-5">Le tue statistiche live</h1>
   <div class="container w-25 mt-3">
     <canvas id="myChart" width="400" height="400"></canvas>
   </div>

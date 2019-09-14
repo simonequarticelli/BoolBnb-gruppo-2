@@ -4,9 +4,9 @@
 
 @extends('layouts.app')
 
-@section('content')
-
   @include('layouts.nav')
+
+@section('content')
 
   @if (session('alert'))
     <!--SWEETALERT2-->
@@ -22,7 +22,7 @@
     </script>
   @endif
 
-  <h1 class="col-lg-12 text-center mb-3">I tuoi appartamenti</h1>
+  <h1 class="col-lg-12 text-center mb-5">I tuoi appartamenti</h1>
   <section class="upra-section mt-3 mb-5">
     <div class="container d-flex flex-wrap">
       @if($houses_user->count() > 0)

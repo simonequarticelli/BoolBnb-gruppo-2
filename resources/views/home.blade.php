@@ -36,7 +36,7 @@
   <section class="featured_apartments first-featured-apartments text-center mb-5">
     <div class="container-fluid">
       <h1 class="mb-5 pt-5 text-left"><strong>Appartamenti in evidenza</strong></h1>
-      <div class="col-lg-12 first-card-container card-container-flex mt-4">
+      <div class="col-lg-12 first-card-container card-container-flex mt-4" style="background-color: rgb(244, 242, 239); border-radius: 10px;">
         <div class="container-card-promo d-flex">
           @if ($house_promo->count() > 0)
             @foreach ($house_promo as $house )
