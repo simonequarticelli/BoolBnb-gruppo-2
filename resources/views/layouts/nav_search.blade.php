@@ -1,5 +1,4 @@
 <nav class="navbar navbar-deatils-apartment navbar-expand-md navbar-light bg-white shadow-sm">
-
   <div class="container-fluid">
       <a class="navbar-brand " href="{{ url('/') }}">
           <img src="{{ asset('images/logo-ai-bnb-green.png') }}" alt="">
@@ -10,12 +9,48 @@
       <div class="collapse navbar-collapse nav-bar-ligth" id="navbarSupportedContent">
           <!-- Left Side Of Navbar -->
           <ul class="navbar-nav">
-
-            <li class="mr-2 d-flex align-items-center">
-              <input style="width: 300px;" class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
+            <li class="d-flex align-items-center">
+              <div class="input-group w-100 ml-2 mr-2">
+                <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
+                <div class="input-group-append" id="button-addon4">
+                  <button class="btn btn-danger" id="btn_filter_api" role="button" type="submit">Cerca</button>
+                  <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Filtra
+                  </button>
+                </div>
+              </div>
             </li>
             <li class="d-flex align-items-center">
-              <button class="btn btn-danger my-2 my-sm-0 mr-3" id="btn_filter_api" role="button" type="submit">Cerca</button>
+            <li class="d-flex align-items-center">
+            </li>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body collapse-filter">
+                <form id="form">
+                  <ul class="d-flex u-filter-ch" style="margin-left: 80px">
+                    @foreach ( $features as $feature )
+                    <li class="nav-item mr-3 list-unstyled">
+                    {{-- checkbox per servizi aggiuntivi --}}
+                      <label class="label-checkbox m-1">
+                          <input class="features mr-1" type="checkbox" name="feature[]" value="{{ $feature->id }}"
+                          {{ in_array($feature->id, old('feature', array() )) ? 'checked' : ''}}>
+                          {{ $feature->name }}
+                      </label>
+                    </li>
+                    @endforeach
+
+                    {{--  input range per ricerca a raggio --}}
+                    <li class="d-flex align-items-center">
+                      <label class="label-checkbox m-1 d-inline">
+                        Cerca nel raggio di:
+                      </label>
+                      <input type="range" name="weight" id="range_weight" value="20" min="20" max="100"
+                      oninput="range_weight_disp.value = range_weight.value">
+                      <output id="range_weight_disp">20</output>km
+                    </li>
+                  </ul>
+                </form>
+              </div>
+            </div>
             </li>
             <li>
               {{-- input nascosto indirizzo --}}
@@ -94,6 +129,8 @@
                       </div>
                   </li>
               @endguest
+              <li>
+              </li>
           </ul>
       </div>
   </div>

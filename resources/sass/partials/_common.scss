@@ -57,8 +57,18 @@ ul{
 .btn-primary{
   background-color: #008489;
   border-color: #008489;
+  color: white;
   &:hover{
     background-color: #007a87;
+  }
+}
+
+.btn-outline-primary{
+  border-color: #008489;
+  color:#008489;
+  &:hover{
+    background-color: #007a87;
+    color: white;
   }
 }
 

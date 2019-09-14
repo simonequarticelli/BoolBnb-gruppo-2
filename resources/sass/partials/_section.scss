@@ -11,6 +11,22 @@
   overflow: hidden;
 }
 
+// stile box filtri ricerca
+.collapse-filter{
+  position: absolute;
+   top: 80px;
+   z-index: 2;
+   left: 0;
+   padding: 0.8rem;
+
+}
+
+// stile filtri di ricerca
+.u-filter-ch{
+  align-items: center;
+}
+
+
 .container-card-promo{
   padding: 20px;
   .card{
@@ -24,6 +40,10 @@
   .col-lg-4, .col-md-6{
     padding: 0;
   }
+}
+
+nav .dropdown-menu:hover {
+    height: auto;
 }
 
 .container-carousel-btn{
@@ -121,6 +141,7 @@
   }
 
 
+
   .card:nth-child(3n+3){
     margin-right: 0;
   }
@@ -206,6 +227,15 @@ div.filters-container{
   }
 }
 
+.navbar-deatils-apartment{
+   .input-group{
+     flex-wrap: nowrap;
+     button{
+       cursor: pointer;
+     }
+   }
+ }
+
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.98px) {
   .main-min-80{
@@ -247,6 +277,12 @@ div.filters-container{
     }
   }
 
+  .u-filter-ch{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;
+  }
+
   section.upra-section{
     .card{
       height: 250px;
@@ -258,6 +294,7 @@ div.filters-container{
       }
     }
   }
+
 }
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) {
@@ -305,6 +342,22 @@ div.filters-container{
       width: auto;
       margin-top: 0;
     }
+  }
+
+
+// stile filtri ricerca mobile
+  .navbar-deatils-apartment .navbar-nav{
+    margin-top: 80px;
+  }
+
+  .u-filter-ch{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5px !important;
+  }
+
+  .collapse-filter{
+    margin-top: 50px;
   }
 
   .container-card-promo{

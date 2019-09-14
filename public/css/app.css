@@ -11118,6 +11118,18 @@ nav .container-fluid .airbnb-logo-black {
   overflow: hidden;
 }
 
+.collapse-filter {
+  position: absolute;
+  top: 80px;
+  z-index: 2;
+  left: 0;
+  padding: 0.8rem;
+}
+
+.u-filter-ch {
+  align-items: center;
+}
+
 .container-card-promo {
   padding: 20px;
 }
@@ -11135,6 +11147,10 @@ nav .container-fluid .airbnb-logo-black {
 .container-card-promo .col-lg-4,
 .container-card-promo .col-md-6 {
   padding: 0;
+}
+
+nav .dropdown-menu:hover {
+  height: auto;
 }
 
 .container-carousel-btn {
@@ -11322,6 +11338,14 @@ div.filters-container ul li {
   display: inline-block;
 }
 
+.navbar-deatils-apartment .input-group {
+  flex-wrap: nowrap;
+}
+
+.navbar-deatils-apartment .input-group button {
+  cursor: pointer;
+}
+
 @media (max-width: 1199.98px) {
   .main-min-80 {
     min-height: 50vh;
@@ -11361,6 +11385,12 @@ div.filters-container ul li {
 
   .featured_apartments .card img {
     height: 220px;
+  }
+
+  .u-filter-ch {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 80px;
   }
 
   section.upra-section .card {
@@ -11426,6 +11456,20 @@ div.filters-container ul li {
   div.filters-container li.nav-item {
     width: auto;
     margin-top: 0;
+  }
+
+  .navbar-deatils-apartment .navbar-nav {
+    margin-top: 80px;
+  }
+
+  .u-filter-ch {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5px !important;
+  }
+
+  .collapse-filter {
+    margin-top: 50px;
   }
 
   .container-card-promo .card {
@@ -11601,10 +11645,21 @@ ul {
 .btn-primary {
   background-color: #008489;
   border-color: #008489;
+  color: white;
 }
 
 .btn-primary:hover {
   background-color: #007a87;
+}
+
+.btn-outline-primary {
+  border-color: #008489;
+  color: #008489;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007a87;
+  color: white;
 }
 
 .badge-info {
