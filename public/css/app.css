@@ -11124,7 +11124,8 @@ nav .container-fluid .airbnb-logo-black {
   z-index: 2;
   left: 0;
   padding: 0.8rem;
-  height: 100px;
+  padding-top: 0;
+  height: 80px;
 }
 
 .u-filter-ch {

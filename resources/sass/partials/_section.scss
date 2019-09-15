@@ -18,7 +18,8 @@
    z-index: 2;
    left: 0;
    padding: 0.8rem;
-   height: 100px;
+   padding-top: 0;
+   height: 80px;
 }
 
 // stile filtri di ricerca
@@ -145,6 +146,7 @@ nav .dropdown-menu:hover {
   .card:nth-child(3n+3){
     margin-right: 0;
   }
+
   .card{
     margin: 20px 0px;
     border: 1px solid #ebebeb;
