@@ -68,10 +68,9 @@
 
   {{-- SEZIONE TUTTI GLI APPARTAMENTI --}}
  <section class="featured_apartments text-center mb-5">
-    <div class="container-fluid">
-      <h1 class="mb-5 pt-5 text-left"><strong>Tutti gli appartamenti</strong></h1>
-    </div>
+
     <div class="container">
+      <h1 class="mb-5 pt-5 text-left"><strong>Tutti gli appartamenti</strong></h1>
       <div class="col-lg-12 first-card-container justify-content-sm-around justify-content-lg-start justify-content-md-around  card-container-flex mt-4">
         @foreach ($new_house as $house )
           <div class="card col-lg-3 col-md-5 col-sm-12">
