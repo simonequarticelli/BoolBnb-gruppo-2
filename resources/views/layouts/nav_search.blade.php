@@ -54,15 +54,15 @@
             </li>
             <li class="d-none">
               {{-- input nascosto indirizzo --}}
-              <input style="line-height: normal;" id="search_filter_page" name="address_api" type="text">
+              <input style="line-height: normal;" id="search_filter_page" name="address_api" type="text" hidden>
             </li>
             <li class="d-none">
               {{-- input nascosto latitudine --}}
-              <input style="line-height: normal;" id="lat" name="latitude" type="text">
+              <input style="line-height: normal;" id="lat" name="latitude" type="text" hidden>
             </li>
             <li class="d-none">
               {{-- input nascosto longitudine --}}
-              <input style="line-height: normal;" id="lng" name="longitude" type="text">
+              <input style="line-height: normal;" id="lng" name="longitude" type="text" hidden>
             </li>
           </ul>
           <!-- Right Side Of Navbar -->
