@@ -8,9 +8,11 @@
 {{-- pagina relativa alla visualizzazione del singolo appartamento --}}
 @extends('layouts.app')
 
+@include('layouts.nav')
+
 @section('content')
 
-  @include('layouts.nav')
+  
 
   {{-- pannello per mostrare incremento --}}
   <div class="panel-footer">
@@ -143,6 +145,8 @@
       </div>
     </div>
   </section>
+
+  
 
   <!------------------------------------ALGOLIA-------------------------------------------->
 

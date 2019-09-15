@@ -10,7 +10,7 @@
     @if (Auth::user()->HasRole('upra'))
         <h1 class="mb-4 text-center">Sei un Host! ...pubblica altri annunci</h1>
     @else
-        <h1 class="mb-4 text-center">Diventa un Host, pubblica il tuo annuncio</h1>
+        <h1 class="mb-4 text-center">Diventa un Host, pubblica il tuo annuncio!</h1>
     @endif
 
     <form action="{{ route('house.store') }}" method="POST" enctype="multipart/form-data">
@@ -101,3 +101,4 @@
     </form>
 
 </div>
+
