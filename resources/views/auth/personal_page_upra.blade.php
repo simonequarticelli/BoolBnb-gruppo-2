@@ -1,4 +1,5 @@
 @php
+  use Illuminate\Support\Carbon;
  session()->put('badge_upra');
 @endphp
 
@@ -76,16 +77,30 @@
                   <div class="btn-group">
                     <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
 
-                    {{-- ricerco promozione corrente --}}
+                    {{-- ricerco promozione corrente + controllo durata promo--}}
                     @php
-                        $house_current_coll = $house->promotions;
-                        foreach ($house_current_coll as $current_promo) {
-                          $promo_now = $current_promo->name;
+                      
+                      foreach ($houses_user as $house) {
+                        $coll = $house->promotions;
+                        //dd($coll);
+                        $array = $coll->toArray();
+                        foreach ($array as $promo) {
+                          $created_promo = $promo['pivot']['created_at'];
                         }
+                      }
+
+                      $house_current_coll = $house->promotions;
+                      foreach ($house_current_coll as $current_promo) {
+                        $promo_now = $current_promo->name;
+                        $promo_duration = $current_promo->duration;
+                        $end_promo = Carbon::now()->subSecond($promo_duration)->toDateTimeString();
+                        //dd($promo_now,  $promo_duration, $created_promo, $end_promo);
+                      }
+
                     @endphp
 
                     {{-- controllo se la casa è in promo --}}
-                    @if ($house->promotions->count() > 0)
+                    @if ($house->promotions->count() > 0 && $created_promo > $end_promo) 
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2 disabled">{{ $promo_now }}</a>
                     @else
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
