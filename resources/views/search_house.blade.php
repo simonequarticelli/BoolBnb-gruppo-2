@@ -36,7 +36,7 @@
       <div class="card-body">
         <h5 class="card-title">@{{ title }}</h5>
         <h6 class="card-title">@{{ address }}</h6>
-        <a href="http://localhost:8000/house/details/@{{ id }}/@{{ slug }}" class="btn btn-danger btn-card">Maggiori info</a>
+        <button class="btn btn-danger btn-card show_ajax">Maggiori info</button>
       </div>
     </div>
   </script>

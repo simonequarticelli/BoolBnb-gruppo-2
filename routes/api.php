@@ -26,16 +26,9 @@ Route::name('api')->group(function(){
     // Route::put('/movies/{id}', 'MovieController@update');
     // Route::delete('/movies/{id}', 'MovieController@destroy');
 
-/*rotta per filtrare le ricerche con ajax*/
-Route::get('/index', 'FilterAjaxController@index');
-Route::get('/show/{id}', 'FilterAjaxController@show');
-Route::post('/store', 'FilterAjaxController@store');
-// Route::put('/update/{id}', 'MovieController@update'); //<-chiamata in post
-                                               //richiesto il _method PUT
-                                                   //anche in Jquery
-Route::post('/update/{id}/', 'FilterAjaxController@update');
-Route::post('/delete/{id}', 'FilterAjaxController@destroy');
-
+    /*rotta per filtrare le ricerche con ajax*/
+    Route::get('/index', 'FilterAjaxController@index');
+    Route::get('/show/{id}', 'FilterAjaxController@show');
 
 
 });

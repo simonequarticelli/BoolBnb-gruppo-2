@@ -79,14 +79,12 @@
 
                     {{-- ricerco promozione corrente + controllo durata promo--}}
                     @php
-                      
-                      foreach ($houses_user as $house) {
-                        $coll = $house->promotions;
-                        //dd($coll);
-                        $array = $coll->toArray();
-                        foreach ($array as $promo) {
-                          $created_promo = $promo['pivot']['created_at'];
-                        }
+
+                      $coll = $house->promotions;
+                      //dd($coll);
+                      $array = $coll->toArray();
+                      foreach ($array as $promo) {
+                        $created_promo = $promo['pivot']['created_at'];
                       }
 
                       $house_current_coll = $house->promotions;
@@ -98,6 +96,8 @@
                       }
 
                     @endphp
+
+                    
 
                     {{-- controllo se la casa è in promo --}}
                     @if ($house->promotions->count() > 0 && $created_promo > $end_promo) 

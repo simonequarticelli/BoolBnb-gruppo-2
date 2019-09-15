@@ -20,34 +20,34 @@ var places = require('places.js');
 $(document).ready(function(){
 
 
-// Animazione Slider Home
-$('#prec').hide();
-   $('.container-card-promo').animate({scrollLeft: 0});
-   $('#prec').click(function(){
-     var windowWidth = $(window).width();
+    // Animazione Slider Home
+    $('#prec').hide();
+    $('.container-card-promo').animate({scrollLeft: 0});
+    $('#prec').click(function(){
 
-     if (windowWidth < '767.98') {
-      $('.container-card-promo').animate({scrollLeft: '-=350'}, 800);
-    }else if(windowWidth < '991.98'){
-      $('.container-card-promo').animate({scrollLeft: '-=800'}, 800);
-    }else{
-      $('.container-card-promo').animate({scrollLeft: '-=1200'}, 800);
-    }
-     $('#next').show();
-   });
+        var windowWidth = $(window).width();
+        if (windowWidth < '767.98') {
+        $('.container-card-promo').animate({scrollLeft: '-=350'}, 800);
+        }else if(windowWidth < '991.98'){
+        $('.container-card-promo').animate({scrollLeft: '-=800'}, 800);
+        }else{
+        $('.container-card-promo').animate({scrollLeft: '-=1200'}, 800);
+        }
+        $('#next').show();
+    });
 
-   $('#next').click(function(){
+    $('#next').click(function(){
 
-    var windowWidth = $(window).width();
-     if (windowWidth < '767.988') {
-      $('.container-card-promo').animate({scrollLeft: '+=350'}, 800);
-    }else if(windowWidth < '991.98'){
-      $('.container-card-promo').animate({scrollLeft: '+=800'}, 800);
-    }else{
-      $('.container-card-promo').animate({scrollLeft: '+=1200'}, 800);
-    }
-     $('#prec').show();
-   });
+        var windowWidth = $(window).width();
+        if (windowWidth < '767.988') {
+        $('.container-card-promo').animate({scrollLeft: '+=350'}, 800);
+        }else if(windowWidth < '991.98'){
+        $('.container-card-promo').animate({scrollLeft: '+=800'}, 800);
+        }else{
+        $('.container-card-promo').animate({scrollLeft: '+=1200'}, 800);
+        }
+        $('#prec').show();
+    });
 
 
     // quando clicco l'hamburger menu
@@ -75,15 +75,13 @@ $('#prec').hide();
        // aggiungo la classe clicked all'elemento selezionato
        $(input_sel).parent('.input-group').toggleClass('clicked').removeClass('blur-effect');
 
-   });
+    });
 
 
     $('#search_homepage').val('');
 
     /*CHIAMATA AJAX PER LONGITUDINE E LATITUDINE PER FORM CREA CASA*/
     $(document).on('click', '.ap-suggestion',  function() {
-
-
 
         /* svuoto gli input */
         $('#lat').val('');
@@ -92,12 +90,9 @@ $('#prec').hide();
         var address = $(this).text();
         //console.log(address);
 
-
-
         var value1 = $('#home-address-input').val();
         //console.log(value1);
         var value2 = $('#address-input-search').val();
-
 
         //console.log($('#search_homepage').val());
         $('#search_homepage').val(value1);
@@ -141,10 +136,7 @@ $('#prec').hide();
             }
         });
 
-
-
         /* PASSARE AD AJAX OGGETTO CON FEATURES SELECTED */
-
         $('#btn_filter_api').click(function(){
 
             var address = $('#search_filter_page').val();
@@ -174,90 +166,135 @@ $('#prec').hide();
 
                 method: 'GET',
 
-                    data: {
-                        'address': address,
-                        'features': JSON.stringify(features),
-                        'lat': lat,
-                        'lng': lng,
-                        'range': range
-                    },
+                data: {
+                    'address': address,
+                    'features': JSON.stringify(features),
+                    'lat': lat,
+                    'lng': lng,
+                    'range': range
+                },
 
-                    success: function(data){
+                success: function(data){
 
-                        /*svuoto il contenitore delle cards*/
-                        $('#container_card_ajax').html('');
+                    /*svuoto il contenitore delle cards*/
+                    $('#container_card_ajax').html('');
 
-                        $('#titolo-ricerca-case').text(titolo);
-                        //console.log(data);
+                    $('#titolo-ricerca-case').text(titolo);
+                    //console.log(data);
 
-                        /*prendo il valore della ricerca*/
-                        var titolo = $('#search_filter_page').val();
+                    /*prendo il valore della ricerca*/
+                    var titolo = $('#search_filter_page').val();
 
-                        /*assegno il valore al titolo*/
-                        $('#titolo-ricerca-case').text(titolo);
+                    /*assegno il valore al titolo*/
+                    $('#titolo-ricerca-case').text(titolo);
 
-                        if (data.success == true) {
+                    if (data.success == true) {
 
-                            var houses = data.result;
-                            console.log(houses);
+                        var houses = data.result;
+                        console.log(houses);
 
-                            //salvo il template dentro a una variabile
-                            var card__template = $('.card_template').html();
-                            //console.log(card__template);
+                        //salvo il template dentro a una variabile
+                        var card__template = $('.card_template').html();
+                        //console.log(card__template);
 
-                            //richiamo il compile
-                            var template__function = Handlebars.compile(card__template);
-                            //console.log(template__function);
-
-
-                            for (var i = 0; i < houses.length; i++) {
-                                //console.log(movies[i]);
-                                var house = houses[i];
-
-                                console.log(house);
+                        //richiamo il compile
+                        var template__function = Handlebars.compile(card__template);
+                        //console.log(template__function);
 
 
-                                //creo oggetto con variabili
-                                var obj = {
-                                    'img': house.img,
-                                    'img_title': house.title,
-                                    'title': house.title,
-                                    'address': house.address,
-                                    'id': house.id,
-                                    'slug': house.slug
-                                }
+                        for (var i = 0; i < houses.length; i++) {
+                            //console.log(movies[i]);
+                            var house = houses[i];
 
-                                //assegno l'oggetto creato
-                                var html = template__function(obj);
+                            console.log(house);
 
-                                //appendo con jquery il template
-                                $('#container_card_ajax').append(html);
 
+                            //creo oggetto con variabili
+                            var obj = {
+                                'img': house.img,
+                                'img_title': house.title,
+                                'title': house.title,
+                                'address': house.address,
+                                'id': house.id,
+                                'slug': house.slug
                             }
 
+                            //assegno l'oggetto creato
+                            var html = template__function(obj);
 
-                        }else {
-
-                            $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+                            //appendo con jquery il template
+                            $('#container_card_ajax').append(html);
 
                         }
 
 
+                    }else {
 
-                    },
-                    error: function(richiesta, stato, errori){
+                        $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
 
-                        console.log(errori);
                     }
 
+
+
+                },
+                error: function(richiesta, stato, errori){
+
+                    console.log(errori);
+                }
             });
 
         });
+
     });
 
 
 
+    /* VISUALIZZARE DETTAGLI CASA AJAX */
+    $('.show_ajax').on('click', function(){
+
+        alert('ciao');
+
+        $.ajax({
+
+            url: 'http://localhost:8000/api/show/15',
+
+            method: 'GET',
+
+            success: function(data){
+
+                if (data.success == true) {
+
+                    
+                    var houses = data.result;
+                    console.log(houses);
+
+                    
+
+                    
+                }else {
+
+                    $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+
+                }
+
+
+
+            },
+            error: function(richiesta, stato, errori){
+
+                console.log(errori);
+            }
+
+        });
+    
+    
+    
+    });
+
+
 });
+
+
 
 var placesAutocomplete = places({
     appId: 'plHY9UTOIKXX',

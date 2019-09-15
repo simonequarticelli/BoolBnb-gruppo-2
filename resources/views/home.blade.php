@@ -66,8 +66,6 @@
     </div>
   </section>
 
-  {{-- <hr style="width: 90%;"> --}}
-
   {{-- SEZIONE TUTTI GLI APPARTAMENTI --}}
  <section class="featured_apartments text-center mb-5">
     <div class="container-fluid">

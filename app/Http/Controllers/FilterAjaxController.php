@@ -86,40 +86,29 @@ class FilterAjaxController extends Controller
         }
 
     }
-    
-    public function create()
+
+
+    public function show($id)
     {
-        //
+        $house = House::find($id);
+
+        $features = $house->features;
+
+        //dd($features);
+
+        if (!empty($house)) {
+            return response()->json([
+              'success' => true,
+              'result' => $house
+            ]);
+        }else {
+          return response()->json([
+            'success' => false,
+            'error' => 'houses not found'
+          ]);
+        }
+
     }
 
-
-    public function store(Request $request)
-    {
-
-    }
-
-
-    public function show(FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function edit(FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function update(Request $request, FilterAjax $filterAjax)
-    {
-        //
-    }
-
-
-    public function destroy(FilterAjax $filterAjax)
-    {
-        //
-    }
 }
 
