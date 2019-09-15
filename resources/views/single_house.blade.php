@@ -38,7 +38,7 @@
     <div id="map" class="search-map col-xl-4 col-lg-8 col-md-10 col-sm-12">
     </div>
   </div>
-  <section class="first-section-house">
+  <section class="first-section-house mb-5">
     <div class="container house-first-section mt-5 pl-0">
       <div class="col-lg-8 house-desc">
         <h1>{{ $house->title }}</h1>
