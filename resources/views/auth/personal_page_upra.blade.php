@@ -75,7 +75,6 @@
                     </ul>
                   @endif
                   <div class="btn-group">
-                    <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
 
                     {{-- ricerco promozione corrente + controllo durata promo--}}
                     @php
@@ -103,6 +102,7 @@
                     @if ($house->promotions->count() > 0 && $created_promo > $end_promo) 
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2 disabled">{{ $promo_now }}</a>
                     @else
+                      <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2">Promuovi</a>
                       <form action="{{ route('house.destroy', $house->id) }}" method="post">
                         <input type="submit" class="btn btn-danger mr-2" name="" value="Cancella">

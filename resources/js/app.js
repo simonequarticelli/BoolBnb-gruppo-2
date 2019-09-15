@@ -160,8 +160,8 @@ $(document).ready(function(){
                 }
             }
 
-
             $.ajax({
+                
                 url: 'http://localhost:8000/api/index',
 
                 method: 'GET',
@@ -201,13 +201,11 @@ $(document).ready(function(){
                         var template__function = Handlebars.compile(card__template);
                         //console.log(template__function);
 
-
                         for (var i = 0; i < houses.length; i++) {
                             //console.log(movies[i]);
                             var house = houses[i];
 
                             console.log(house);
-
 
                             //creo oggetto con variabili
                             var obj = {
@@ -227,72 +225,23 @@ $(document).ready(function(){
 
                         }
 
-
                     }else {
 
-                        $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+                        $('#container_card_ajax').append('<h1>Non ci sono case nella località selezionata!</h1>');
 
                     }
-
-
-
                 },
                 error: function(richiesta, stato, errori){
 
                     console.log(errori);
                 }
             });
-
         });
-
     });
-
-
-
-    /* VISUALIZZARE DETTAGLI CASA AJAX */
-    $('.show_ajax').on('click', function(){
-
-        alert('ciao');
-
-        $.ajax({
-
-            url: 'http://localhost:8000/api/show/15',
-
-            method: 'GET',
-
-            success: function(data){
-
-                if (data.success == true) {
-
-                    
-                    var houses = data.result;
-                    console.log(houses);
-
-                    
-
-                    
-                }else {
-
-                    $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
-
-                }
-
-
-
-            },
-            error: function(richiesta, stato, errori){
-
-                console.log(errori);
-            }
-
-        });
-    
-    
-    
-    });
-
-
 });
+
+
+
 
 
 

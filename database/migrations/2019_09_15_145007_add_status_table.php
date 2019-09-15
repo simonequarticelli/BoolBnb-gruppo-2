@@ -9,15 +9,15 @@ class AddStatusTable extends Migration
     
     public function up()
     {
-        Schema::table('house_promotion', function (Blueprint $table) {
-           $table->integer('status')->default(0);
+        Schema::table('houses', function (Blueprint $table) {
+            $table->integer('status')->default(0)->after('view');
         });
     }
 
     
     public function down()
     {
-        Schema::table('house_promotion', function (Blueprint $table) {
+        Schema::table('houses', function (Blueprint $table) {
             $table->dropColumn('status');
         });
     }

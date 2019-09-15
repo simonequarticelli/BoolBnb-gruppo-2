@@ -28,7 +28,5 @@ Route::name('api')->group(function(){
 
     /*rotta per filtrare le ricerche con ajax*/
     Route::get('/index', 'FilterAjaxController@index');
-    Route::get('/show/{id}', 'FilterAjaxController@show');
-
 
 });

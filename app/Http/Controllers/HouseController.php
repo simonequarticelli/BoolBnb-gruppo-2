@@ -17,11 +17,22 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
+    
+  
+  
+  
     public function __construct() {
+
         /*per usare questo controller l'utente deve essere autenticato con assegnato il ruolo di "upra"
         tranne che per accedere alle funzioni create e store*/
         $this->middleware('role:upra')->except(['create', 'store', 'search']);
     }
+
+
+
+
+
+
 
     /*----------------filter------------------------------------------*/
     public function search(Request $request)
@@ -30,11 +41,9 @@ class HouseController extends Controller
         /*validazione dei dati*/
         $validateData = $request->validate([
             'address_home' => 'required|string|max:100'
-
             /*espressione regolare => 'not_regex:/^.+$/i'*/
             // 'name' => 'regex:/^[a-zA-Z ]+$/'
             // name' => 'regex:/^[A-Za-z\s-_]+$/';
-
         ]);
 
         $features = Feature::all();
@@ -47,7 +56,10 @@ class HouseController extends Controller
         //dd($address_home);
 
         $house_list = DB::table('houses')
-            ->where('address', 'like', '%'.$address_home.'%')->get();
+            ->where([
+              ['address', 'like', '%'.$address_home.'%'],
+              ['status', '=', '0']
+            ])->get();
 
         //dd($house_list);
 
@@ -60,6 +72,11 @@ class HouseController extends Controller
     }
     /*-----------------------------------------------------------------*/
 
+
+
+
+
+
     public function index()
     {
         $houses_user = Auth::user()->houses;
@@ -67,11 +84,20 @@ class HouseController extends Controller
     }
 
 
+
+
+
+
+
     public function create()
     {
         $features = Feature::all();
         return view('auth.add_house', compact('features'));
     }
+
+
+
+
 
 
     public function store(Request $request)
@@ -87,9 +113,7 @@ class HouseController extends Controller
             'mq' => 'required|integer|between:1, 1000',
             'address' => 'required|max:100',
             'img' => 'required|image'
-
             /*espressione regolare => 'not_regex:/^.+$/i'*/
-
         ]);
 
         /*se l'utente non ha il ruolo gli viene assegnato*/
@@ -123,6 +147,10 @@ class HouseController extends Controller
         return redirect()->route('home');
 
     }
+
+
+
+
 
     /*funzione relativa alla visualizzazione delle promo*/
     public function showPromotions($id, $slug)
@@ -235,8 +263,28 @@ class HouseController extends Controller
         ]);
     }
 
+
+
+
+
+
+
+
+
+
+
+
     public function edit(House $house)
     {
+        /*recupero id casa in modifica*/
+        $id = $house->id;
+        //dd($id);
+
+        /* query per settare il valore a 1 [in modifica]*/
+        $query = DB::table('houses')
+          ->where('id', '=', $id)
+          ->update(['status' => '1']);
+      
         // controllare che l'utente possa modificare solo i suoi appartamenti
         $apartments = \Auth::user()->houses->pluck('id')->all();
         // dd($apartments);
@@ -250,8 +298,26 @@ class HouseController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
     public function update(Request $request, House $house)
-    {
+    { 
+
+      /*recupero id casa in modifica*/
+      $id = $house->id;
+
+      /* query per settare il valore a 0*/
+      $query = DB::table('houses')
+      ->where('id', '=', $id)
+      ->update(['status' => '0']);
+
       /*validazione dei dati*/
       $validateData = $request->validate([
           'title' => 'required|max:100',
@@ -284,6 +350,14 @@ class HouseController extends Controller
       return redirect()->route('house.index');
 
     }
+
+
+
+
+
+
+
+
 
 
     public function destroy(House $house)

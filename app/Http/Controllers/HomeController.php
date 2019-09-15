@@ -27,8 +27,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        $new_house = House::all();
-
+        
+        /*prendiamo tutte le case che non sono in modifica*/
+        $new_house = House::where('status', '0')->get();
+        
         foreach ($new_house as $house) {
 
           $coll = $house->promotions;
@@ -46,8 +48,6 @@ class HomeController extends Controller
                 ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
                 ->where('house_promotion.created_at', '>', Carbon::now()->subSecond($promo_current)->toDateTimeString())
                 ->get();
-
-
           }
         }
 
@@ -61,8 +61,12 @@ class HomeController extends Controller
               'new_house' => $new_house
           ]);
         }
-
     }
+
+
+
+
+
 
     public function detailsHouseHome(Request $request,  $id, $slug)
     {
@@ -121,6 +125,14 @@ class HomeController extends Controller
         return view('single_house', compact('house'));
 
     }
+
+
+
+
+
+
+
+
 
     public function storeMail(Request $request)
     {

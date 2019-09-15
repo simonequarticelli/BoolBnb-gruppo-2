@@ -13,6 +13,7 @@ class FilterAjaxController extends Controller
 
     public function index()
     {
+        
         $address = $_GET['address'];
 
         $event_features = $_GET['features'];
@@ -29,8 +30,11 @@ class FilterAjaxController extends Controller
 
         if(empty($features)){
             $query = DB::table('houses')
-              ->where('houses.address', 'like', '%'.$address.'%')
-              ->get();
+            ->where([
+                ['address', 'like', '%'.$address.'%'],
+                ['status', '=', '0']
+              ])->get();
+              
           } else {
             $query = DB::table('feature_house')
              ->join('houses', 'feature_house.house_id', '=', 'houses.id')
@@ -73,42 +77,20 @@ class FilterAjaxController extends Controller
 
 
           
-        if (!empty($query)) {
+        if ($query->count() > 0) {
+
             return response()->json([
                 'success' => true,
                 'result' => $query
             ]);
+
         }else {
+
             return response()->json([
                 'success' => false,
                 'result' => 'houses not found'
             ]);
         }
-
     }
-
-
-    public function show($id)
-    {
-        $house = House::find($id);
-
-        $features = $house->features;
-
-        //dd($features);
-
-        if (!empty($house)) {
-            return response()->json([
-              'success' => true,
-              'result' => $house
-            ]);
-        }else {
-          return response()->json([
-            'success' => false,
-            'error' => 'houses not found'
-          ]);
-        }
-
-    }
-
 }
 
