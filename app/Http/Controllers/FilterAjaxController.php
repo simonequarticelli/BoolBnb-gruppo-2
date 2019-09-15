@@ -13,7 +13,7 @@ class FilterAjaxController extends Controller
 
     public function index()
     {
-        
+
         $address = $_GET['address'];
 
         $event_features = $_GET['features'];
@@ -33,18 +33,24 @@ class FilterAjaxController extends Controller
             ->where([
                 ['address', 'like', '%'.$address.'%'],
                 ['status', '=', '0']
-              ])->get();
-              
+              ])
+              ->orderBy('created_at', 'desc')
+              ->get();
+
           } else {
             $query = DB::table('feature_house')
-             ->join('houses', 'feature_house.house_id', '=', 'houses.id')
-             ->select('houses.id', 'houses.img', 'houses.title', 'houses.slug', 'houses.address',
-                      DB::raw("COUNT(*) as matchedItems"))
-             ->where('houses.address', 'like', '%'.$address.'%')
-             ->whereIn('feature_id', $features)
-             ->groupBy('house_id')
-             ->having('matchedItems', '=', $number_elements_array)
-             ->get();
+              ->join('houses', 'feature_house.house_id', '=', 'houses.id')
+              ->select('houses.id', 'houses.img', 'houses.title', 'houses.slug', 'houses.address',
+                       DB::raw("COUNT(*) as matchedItems"))
+               ->where([
+                   ['address', 'like', '%'.$address.'%'],
+                   ['status', '=', '0']
+                 ])
+              ->whereIn('feature_id', $features)
+              ->groupBy('house_id')
+              ->having('matchedItems', '=', $number_elements_array)
+              ->orderBy('created_at', 'desc')
+              ->get();
           }
 
          // $data = $address->merge($filter);
@@ -76,7 +82,7 @@ class FilterAjaxController extends Controller
       	// LIMIT 5
 
 
-          
+
         if ($query->count() > 0) {
 
             return response()->json([
@@ -93,4 +99,3 @@ class FilterAjaxController extends Controller
         }
     }
 }
-

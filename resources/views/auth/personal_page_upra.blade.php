@@ -90,16 +90,16 @@
                       foreach ($house_current_coll as $current_promo) {
                         $promo_now = $current_promo->name;
                         $promo_duration = $current_promo->duration;
-                        $end_promo = Carbon::now()->subSecond($promo_duration)->toDateTimeString();
+                        $end_promo = Carbon::now()->subHour($promo_duration)->toDateTimeString();
                         //dd($promo_now,  $promo_duration, $created_promo, $end_promo);
                       }
 
                     @endphp
 
-                    
+
 
                     {{-- controllo se la casa è in promo --}}
-                    @if ($house->promotions->count() > 0 && $created_promo > $end_promo) 
+                    @if ($house->promotions->count() > 0 && $created_promo > $end_promo)
                       <a href="{{ route('promotions', [$house->id, $house->slug]) }}" class="btn btn-warning mr-2 disabled">{{ $promo_now }}</a>
                     @else
                       <a class="btn btn-primary mr-2" href="{{ route('house.edit', $house->id) }}">Modifica</a>

@@ -12,12 +12,12 @@
 
 @section('content')
 
-  
+
 
   {{-- pannello per mostrare incremento --}}
-  <div class="panel-footer">
+  {{-- <div class="panel-footer">
     Views: {{ $house->view }}
-  </div>
+  </div> --}}
 
   @if (session('alert'))
     <!--SWEETALERT2-->
@@ -146,7 +146,7 @@
     </div>
   </section>
 
-  
+
 
   <!------------------------------------ALGOLIA-------------------------------------------->
 

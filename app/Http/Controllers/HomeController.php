@@ -27,10 +27,10 @@ class HomeController extends Controller
 
     public function index()
     {
-        
+
         /*prendiamo tutte le case che non sono in modifica*/
-        $new_house = House::where('status', '0')->get();
-        
+        $new_house = House::where('status', '0')->orderBy('created_at', 'desc')->get();
+
         foreach ($new_house as $house) {
 
           $coll = $house->promotions;
@@ -46,7 +46,8 @@ class HomeController extends Controller
             /*query per il controllo della durata della promo*/
             $house_promo = DB::table('houses')
                 ->join('house_promotion', 'houses.id', '=', 'house_promotion.house_id')
-                ->where('house_promotion.created_at', '>', Carbon::now()->subSecond($promo_current)->toDateTimeString())
+                ->where('house_promotion.created_at', '>', Carbon::now()->subHour($promo_current)->toDateTimeString())
+                ->orderBy('house_promotion.created_at', 'desc')
                 ->get();
           }
         }
