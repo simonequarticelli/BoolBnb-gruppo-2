@@ -161,7 +161,7 @@ $(document).ready(function(){
             }
 
             $.ajax({
-                
+
                 url: 'http://localhost:8000/api/index',
 
                 method: 'GET',
@@ -239,57 +239,6 @@ $(document).ready(function(){
         });
     });
 });
-
-
-
-<<<<<<< HEAD
-=======
-    /* VISUALIZZARE DETTAGLI CASA AJAX */
-    $('.show_ajax').on('click', function(){
-
-        alert('ciao');
-
-        $.ajax({
-
-            url: 'http://localhost:8000/api/show/15',
-
-            method: 'GET',
-
-            success: function(data){
-
-                if (data.success == true) {
-
-
-                    var houses = data.result;
-                    console.log(houses);
-
-
-
-
-                }else {
-
-                    $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
-
-                }
-
-
-
-            },
-            error: function(richiesta, stato, errori){
-
-                console.log(errori);
-            }
-
-        });
-
-
-    });
-
-
-});
->>>>>>> Fixed height filter bar, fixed fade paybutton
-
-
 
 var placesAutocomplete = places({
     appId: 'plHY9UTOIKXX',
