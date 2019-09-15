@@ -11124,6 +11124,7 @@ nav .container-fluid .airbnb-logo-black {
   z-index: 2;
   left: 0;
   padding: 0.8rem;
+  height: 100px;
 }
 
 .u-filter-ch {
@@ -11403,6 +11404,10 @@ div.filters-container ul li {
     height: 220px;
   }
 
+  .collapse-filter {
+    height: auto;
+  }
+
   .u-filter-ch {
     flex-direction: column;
     align-items: flex-start;
@@ -11498,6 +11503,7 @@ div.filters-container ul li {
 
   .collapse-filter {
     margin-top: 50px;
+    height: auto;
   }
 
   .container-card-promo .card {

@@ -69,7 +69,7 @@ $(document).ready(function(){
        // // aggiungo a tutti la classe invisible
        $('.pay-button').hide();
        // imposto il radio dell'input selezionato e tolgo la classe invisible al bottone per i pagamenti
-       $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(700);
+       $(input_sel).prop("checked", true).nextAll('.pay-button').fadeIn(200);
        // tolgo la classe a tutti gli elementi input group
        $('.input-group').removeClass('clicked').fadeIn(3000).addClass('blur-effect');
        // aggiungo la classe clicked all'elemento selezionato
@@ -242,6 +242,52 @@ $(document).ready(function(){
 
 
 
+<<<<<<< HEAD
+=======
+    /* VISUALIZZARE DETTAGLI CASA AJAX */
+    $('.show_ajax').on('click', function(){
+
+        alert('ciao');
+
+        $.ajax({
+
+            url: 'http://localhost:8000/api/show/15',
+
+            method: 'GET',
+
+            success: function(data){
+
+                if (data.success == true) {
+
+
+                    var houses = data.result;
+                    console.log(houses);
+
+
+
+
+                }else {
+
+                    $('#container_card_ajax').append('<h3>Non ci sono case nella località selezionata!</h3>');
+
+                }
+
+
+
+            },
+            error: function(richiesta, stato, errori){
+
+                console.log(errori);
+            }
+
+        });
+
+
+    });
+
+
+});
+>>>>>>> Fixed height filter bar, fixed fade paybutton
 
 
 

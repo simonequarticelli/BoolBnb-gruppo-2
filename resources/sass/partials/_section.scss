@@ -18,7 +18,7 @@
    z-index: 2;
    left: 0;
    padding: 0.8rem;
-
+   height: 100px;
 }
 
 // stile filtri di ricerca
@@ -294,6 +294,10 @@ div.filters-container{
     }
   }
 
+  .collapse-filter{
+    height: auto;
+  }
+
   .u-filter-ch{
     flex-direction: column;
     align-items: flex-start;
@@ -387,6 +391,7 @@ div.filters-container{
 
   .collapse-filter{
     margin-top: 50px;
+    height: auto;
   }
 
   .container-card-promo{
