@@ -31,7 +31,7 @@ $(document).ready(function(){
         }else if(windowWidth < '991.98'){
         $('.container-card-promo').animate({scrollLeft: '-=800'}, 800);
         }else{
-        $('.container-card-promo').animate({scrollLeft: '-=1700'}, 800);
+        $('.container-card-promo').animate({scrollLeft: '-=1500'}, 800);
         }
         $('#next').show();
     });
@@ -44,7 +44,7 @@ $(document).ready(function(){
         }else if(windowWidth < '991.98'){
         $('.container-card-promo').animate({scrollLeft: '+=800'}, 800);
         }else{
-        $('.container-card-promo').animate({scrollLeft: '+=1700'}, 800);
+        $('.container-card-promo').animate({scrollLeft: '+=1500'}, 800);
         }
         $('#prec').show();
     });

@@ -47326,7 +47326,7 @@ $(document).ready(function () {
       }, 800);
     } else {
       $('.container-card-promo').animate({
-        scrollLeft: '-=1700'
+        scrollLeft: '-=1500'
       }, 800);
     }
 
@@ -47345,7 +47345,7 @@ $(document).ready(function () {
       }, 800);
     } else {
       $('.container-card-promo').animate({
-        scrollLeft: '+=1700'
+        scrollLeft: '+=1500'
       }, 800);
     }
 
