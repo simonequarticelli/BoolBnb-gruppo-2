@@ -17,6 +17,7 @@ class FilterAjaxController extends Controller
         $address = $_GET['address'];
 
         $event_features = $_GET['features'];
+
         $features = (json_decode(stripslashes($event_features)));
 
         $lat = $_GET['lat'];
@@ -70,19 +71,7 @@ class FilterAjaxController extends Controller
             LIMIT 5
         "));
 
-        // 6371
-        // SELECT loc.*,
-      	// 3956 * 2 * ASIN(SQRT(POWER(SIN((45.067700-ABS(latitude)) * PI()/180/2),2) + COS(45.067700 * PI()/180) * COS(ABS(latitude) * PI()/180) * POWER(SIN((7.682400-longitude) * PI()/180/2),2))) AS distance
-      	// FROM houses AS loc
-      	// WHERE longitude BETWEEN (7.682400-50 / ABS(COS(RADIANS(45.067700))*69)) AND (7.682400+20 / ABS(COS(RADIANS(45.067700)) * 69))
-      	// AND latitude BETWEEN (45.067700-(50/69)) AND (45.067700+(50/69))
-      	// GROUP BY loc.id
-      	// HAVING distance < 50
-      	// ORDER BY distance ASC
-      	// LIMIT 5
-
-
-
+        
         if ($query->count() > 0) {
 
             return response()->json([

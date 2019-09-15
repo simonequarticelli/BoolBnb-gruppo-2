@@ -17,10 +17,10 @@ use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
-    
-  
-  
-  
+
+
+
+
     public function __construct() {
 
         /*per usare questo controller l'utente deve essere autenticato con assegnato il ruolo di "upra"
@@ -34,7 +34,7 @@ class HouseController extends Controller
 
 
 
-    /*----------------filter------------------------------------------*/
+    /*----------------filter-home------------------------------------------*/
     public function search(Request $request)
     {
 
@@ -52,21 +52,16 @@ class HouseController extends Controller
         //dd($data);
 
         $address_home = $data['address_home'];
+        $latitude = $data['latitude'];
+        $longitude = $data['longitude'];
 
         //dd($address_home);
 
-        $house_list = DB::table('houses')
-            ->where([
-              ['address', 'like', '%'.$address_home.'%'],
-              ['status', '=', '0']
-            ])->get();
-
-        //dd($house_list);
-
         /*oltre i dati passo alla view anche l'input dell'utente*/
         return view('search_house')->with([
-            'house_list' => $house_list,
             'address_home' => $address_home,
+            'latitude' => $latitude,
+            'longitude' => $longitude,
             'features' => $features
         ]);
     }
@@ -79,7 +74,7 @@ class HouseController extends Controller
 
     public function index()
     {
-        $houses_user = Auth::user()->houses;
+        $houses_user = Auth::user()->houses()->orderBy('created_at', 'desc')->get();
         return view('auth.personal_page_upra', compact('houses_user'));
     }
 
@@ -121,7 +116,7 @@ class HouseController extends Controller
 
           $user = Auth::user();
           //dd($user);
-          
+
           $member = Role::where( 'name', '=', 'upra' )->first();
 
           /*assegno il ruolo*/
@@ -284,7 +279,7 @@ class HouseController extends Controller
         $query = DB::table('houses')
           ->where('id', '=', $id)
           ->update(['status' => '1']);
-      
+
         // controllare che l'utente possa modificare solo i suoi appartamenti
         $apartments = \Auth::user()->houses->pluck('id')->all();
         // dd($apartments);
@@ -308,7 +303,7 @@ class HouseController extends Controller
 
 
     public function update(Request $request, House $house)
-    { 
+    {
 
       /*recupero id casa in modifica*/
       $id = $house->id;

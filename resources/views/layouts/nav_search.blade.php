@@ -11,10 +11,10 @@
           <ul class="navbar-nav">
             <li class="d-flex align-items-center">
               <div class="input-group w-100 ml-2 mr-2">
-                <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ old('address') }}">
+                <input class="form-control" id="address-input-search" type="search" placeholder="Search" aria-label="Search" value="{{ $address_home }}">
                 <div class="input-group-append" id="button-addon4">
-                  <button class="btn btn-danger" id="btn_filter_api" role="button" type="submit">Cerca</button>
-                  <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                  <button class="btn btn-danger ml-1" id="btn_filter_api" role="button" type="submit">Cerca</button>
+                  <button class="btn btn-outline-primary ml-1" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                     Filtra
                   </button>
                 </div>
@@ -54,15 +54,15 @@
             </li>
             <li class="d-none">
               {{-- input nascosto indirizzo --}}
-              <input style="line-height: normal;" id="search_filter_page" name="address_api" type="text" hidden>
+              <input style="line-height: normal;" id="search_filter_page" name="address_api" type="text" value="{{ $address_home }}">
             </li>
             <li class="d-none">
               {{-- input nascosto latitudine --}}
-              <input style="line-height: normal;" id="lat" name="latitude" type="text" hidden>
+              <input style="line-height: normal;" id="lat" name="latitude" type="text" value="{{ $latitude }}">
             </li>
             <li class="d-none">
               {{-- input nascosto longitudine --}}
-              <input style="line-height: normal;" id="lng" name="longitude" type="text" hidden>
+              <input style="line-height: normal;" id="lng" name="longitude" type="text" value="{{ $longitude }}">
             </li>
           </ul>
           <!-- Right Side Of Navbar -->

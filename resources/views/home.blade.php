@@ -22,6 +22,8 @@
                   {{-- search with algolia --}}
                   <input type="search" id="home-address-input" placeholder="Inserisci località" required>
                   <input required name="address_home" id="search_homepage" type="text" hidden>
+                  <input required name="latitude" id="latitude" type="text" hidden>
+                  <input required name="longitude" id="longitude" type="text" hidden>
                 </div>
                 <div class="button_search">
                   <button id="search_home" type="submit" class="btn btn-danger mt-2 pt-2 pb-2 pl-3 pr-3" role="button">Cerca</button>

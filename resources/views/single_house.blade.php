@@ -66,6 +66,9 @@
                     @case('piscina')
                       <i class="fas fa-swimming-pool mr-3"></i></i>{{ $feature->name }}
                       @break
+                    @case('portineria')
+                      <i class="fas fa-door-open mr-3"></i>{{ $feature->name }}
+                      @break
                     @case('sauna')
                       <i class="fas fa-hot-tub mr-3"></i>{{ $feature->name }}
                       @break
