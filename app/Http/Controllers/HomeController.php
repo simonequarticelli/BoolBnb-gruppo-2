@@ -17,12 +17,17 @@ use Illuminate\Support\Facades\Mail;
 class HomeController extends Controller
 {
 
+
+    
     /*per utilizzare questo controller devi essere autenticato
     tranne che per vedere la homepage e i dettagli delle case*/
     public function __construct()
     {
         $this->middleware('auth')->except(['index', 'detailsHouseHome', 'storeMail']);
     }
+
+
+
 
 
     public function index()

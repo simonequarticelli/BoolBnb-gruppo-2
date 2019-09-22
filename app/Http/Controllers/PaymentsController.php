@@ -38,7 +38,7 @@ class PaymentsController extends Controller
 
         ]);
 
-        /* salvo la relazione */
+        /* sincronizzo la relazione */
         $house->promotions()->sync($promo);
         
         /*aggiorno il created_at ad ogni promo*/
@@ -46,7 +46,7 @@ class PaymentsController extends Controller
             ->where('house_promotion.house_id', '=', $id)
             ->update(['house_promotion.created_at' => Carbon::now()->toDateTimeString()]);
 
-
+        /*salvo la relazione*/
         $house->save();
 
 
